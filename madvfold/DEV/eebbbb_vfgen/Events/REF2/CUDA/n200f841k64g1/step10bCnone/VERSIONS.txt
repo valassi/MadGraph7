@@ -1,0 +1,8 @@
+Python 3.9.21
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.3.6.3
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317

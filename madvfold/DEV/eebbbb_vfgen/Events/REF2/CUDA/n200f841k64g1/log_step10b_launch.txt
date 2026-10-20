@@ -1,0 +1,2630 @@
+
+START:    Tue Oct 20 06:15:47 PM CEST 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eebbbb_vfalt
+
+-------------------------------------------------------------------------------
+
+Launch eebbbb_vfalt tests on itscrd90:
+  ENV_NEVENTS=200 ENV_FOLDING='8,4,1' ENV_AV_KPOINT_BATCH=64 ENV_AV_SBORN_GSCALE=1 \
+    ./myBackends.sh --launch-o-cudascan REF2/CUDA/n200f841k64g1/step10b
+
+START:    Tue Oct 20 06:15:47 PM CEST 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eebbbb_vfalt
+
+EXECUTING: ./myLaunch.sh -o
+
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.9.21
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.3.6.3
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=
+ENV_AV_ME_MODE=F0
+ENV_AV_VECSIZE_USED=
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 50][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 5           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 5.3.6.3                                  *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /afs/cern.ch/user/a/avalassi/.mg5/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/input/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg5_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg5_configuration.txt
+launch -f -p -o
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: Compiling source... 
+INFO:           ...done, continuing with P* directories 
+INFO: Compiling directories... 
+INFO: Compiling on 4 cores 
+INFO:  Compiling P0_epem_bbbxbx... 
+INFO:     P0_epem_bbbxbx done. 
+INFO: Checking test output: 
+INFO: P0_epem_bbbxbx 
+INFO:  Result for test_ME: 
+INFO:    Passed. 
+INFO:  Result for test_MC: 
+INFO:    Passed. 
+INFO:  Result for check_poles: 
+INFO:    Poles successfully cancel for 20 points over 20 (tolerance=1.0e-05) 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 16 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      2.489e-04 +- 1.0e-05 pb
+      Total abs(cross section): 4.757e-04 +- 1.3e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 18h16 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  4m 39s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > b b~ b b~ [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 2.489e-04 +- 1.0e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+quit
+INFO:  
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=
+ENV_AV_ME_MODE=F0
+ENV_AV_VECSIZE_USED=
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+START:    Tue Oct 20 06:15:47 PM CEST 2026
+END:      Tue Oct 20 06:21:24 PM CEST 2026
+ELAPSED:  337 seconds
+
+STATUS=0
+START:    Tue Oct 20 06:21:26 PM CEST 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eebbbb_vfalt
+
+EXECUTING: ./myLaunch.sh -o -x
+
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.9.21
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.3.6.3
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=
+ENV_AV_ME_MODE=F1
+ENV_AV_VECSIZE_USED=
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 50][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 5           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 5.3.6.3                                  *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /afs/cern.ch/user/a/avalassi/.mg5/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/input/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg5_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg5_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 16 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      2.489e-04 +- 1.0e-05 pb
+      Total abs(cross section): 4.757e-04 +- 1.3e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 18h21 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  4m 41s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > b b~ b b~ [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 2.489e-04 +- 1.0e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+quit
+INFO:  
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=
+ENV_AV_ME_MODE=F1
+ENV_AV_VECSIZE_USED=
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+START:    Tue Oct 20 06:21:26 PM CEST 2026
+END:      Tue Oct 20 06:26:13 PM CEST 2026
+ELAPSED:  287 seconds
+
+STATUS=0
+START:    Tue Oct 20 06:26:15 PM CEST 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eebbbb_vfalt
+
+EXECUTING: ./myLaunch.sh -o -x
+
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.9.21
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.3.6.3
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=
+ENV_AV_ME_MODE=F2
+ENV_AV_VECSIZE_USED=
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 50][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 5           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 5.3.6.3                                  *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /afs/cern.ch/user/a/avalassi/.mg5/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/input/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg5_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg5_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 16 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      2.489e-04 +- 1.0e-05 pb
+      Total abs(cross section): 4.757e-04 +- 1.3e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 18h26 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  3m 15s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > b b~ b b~ [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 2.489e-04 +- 1.0e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+quit
+INFO:  
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=
+ENV_AV_ME_MODE=F2
+ENV_AV_VECSIZE_USED=
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+START:    Tue Oct 20 06:26:15 PM CEST 2026
+END:      Tue Oct 20 06:29:36 PM CEST 2026
+ELAPSED:  201 seconds
+
+STATUS=0
+START:    Tue Oct 20 06:29:38 PM CEST 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eebbbb_vfalt
+
+EXECUTING: ./myLaunch.sh -o -x
+
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.9.21
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.3.6.3
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=
+ENV_AV_ME_MODE=F
+ENV_AV_VECSIZE_USED=
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 50][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 5           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 5.3.6.3                                  *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /afs/cern.ch/user/a/avalassi/.mg5/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/input/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg5_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg5_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 16 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      2.489e-04 +- 1.0e-05 pb
+      Total abs(cross section): 4.757e-04 +- 1.3e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 18h29 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  3m 42s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > b b~ b b~ [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 2.489e-04 +- 1.0e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+quit
+INFO:  
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=
+ENV_AV_ME_MODE=F
+ENV_AV_VECSIZE_USED=
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+START:    Tue Oct 20 06:29:38 PM CEST 2026
+END:      Tue Oct 20 06:33:25 PM CEST 2026
+ELAPSED:  227 seconds
+
+STATUS=0
+START:    Tue Oct 20 06:33:27 PM CEST 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eebbbb_vfalt
+
+EXECUTING: ./myLaunch.sh -o -x
+
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.9.21
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.3.6.3
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+lib/cudacpp/build.512y_d_inl0_hrd0/born
+total 268
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:33 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:33 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 178656 Oct 20 18:33 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.512y_d_inl0_hrd0/real1
+total 316
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:33 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:33 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 227704 Oct 20 18:33 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.512z_d_inl0_hrd0/born
+total 276
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:33 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:33 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 186848 Oct 20 18:33 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.512z_d_inl0_hrd0/real1
+total 332
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:33 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:33 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 244088 Oct 20 18:33 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.avx2_d_inl0_hrd0/born
+total 272
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:33 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:33 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 182752 Oct 20 18:33 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.avx2_d_inl0_hrd0/real1
+total 328
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:33 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:33 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 239992 Oct 20 18:33 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.cuda_d_inl0_hrd0/born
+total 2864
+lrwxrwxrwx. 1 avalassi zg      29 Oct 20 18:33 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cuda.so
+-rwxr-xr-x. 1 avalassi zg  896120 Oct 20 18:33 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 2030784 Oct 20 18:33 libmg5amc_epem_bbbxbx_cuda.so
+lib/cudacpp/build.cuda_d_inl0_hrd0/real1
+total 4284
+-rwxr-xr-x. 1 avalassi zg  896120 Oct 20 18:33 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg      30 Oct 20 18:33 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cuda.so
+-rwxr-xr-x. 1 avalassi zg 3483928 Oct 20 18:33 libmg5amc_epem_bbbxbxg_cuda.so
+
+lib/cudacpp/build.none_d_inl0_hrd0/born
+total 252
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:33 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:33 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 161560 Oct 20 18:33 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.none_d_inl0_hrd0/real1
+total 300
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:33 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:33 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 210680 Oct 20 18:33 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.sse4_d_inl0_hrd0/born
+total 272
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:33 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:33 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 182712 Oct 20 18:33 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.sse4_d_inl0_hrd0/real1
+total 332
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:33 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:33 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 244088 Oct 20 18:33 libmg5amc_epem_bbbxbxg_cpp.so
+
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=none
+ENV_AV_ME_MODE=C
+ENV_AV_VECSIZE_USED=1
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 50][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 5           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 5.3.6.3                                  *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /afs/cern.ch/user/a/avalassi/.mg5/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/input/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg5_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg5_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 16 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      2.489e-04 +- 1.0e-05 pb
+      Total abs(cross section): 4.757e-04 +- 1.3e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 18h33 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  2m 18s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > b b~ b b~ [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 2.489e-04 +- 1.0e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+quit
+INFO:  
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=none
+ENV_AV_ME_MODE=C
+ENV_AV_VECSIZE_USED=1
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+START:    Tue Oct 20 06:33:27 PM CEST 2026
+END:      Tue Oct 20 06:35:59 PM CEST 2026
+ELAPSED:  152 seconds
+
+STATUS=0
+START:    Tue Oct 20 06:36:01 PM CEST 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eebbbb_vfalt
+
+EXECUTING: ./myLaunch.sh -o -x
+
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.9.21
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.3.6.3
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+lib/cudacpp/build.512y_d_inl0_hrd0/born
+total 268
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:36 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:36 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 178656 Oct 20 18:36 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.512y_d_inl0_hrd0/real1
+total 316
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:36 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:36 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 227704 Oct 20 18:36 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.512z_d_inl0_hrd0/born
+total 276
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:36 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:36 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 186848 Oct 20 18:36 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.512z_d_inl0_hrd0/real1
+total 332
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:36 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:36 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 244088 Oct 20 18:36 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.avx2_d_inl0_hrd0/born
+total 272
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:36 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:36 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 182752 Oct 20 18:36 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.avx2_d_inl0_hrd0/real1
+total 328
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:36 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:36 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 239992 Oct 20 18:36 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.cuda_d_inl0_hrd0/born
+total 2864
+lrwxrwxrwx. 1 avalassi zg      29 Oct 20 18:36 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cuda.so
+-rwxr-xr-x. 1 avalassi zg  896120 Oct 20 18:36 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 2030784 Oct 20 18:36 libmg5amc_epem_bbbxbx_cuda.so
+lib/cudacpp/build.cuda_d_inl0_hrd0/real1
+total 4284
+-rwxr-xr-x. 1 avalassi zg  896120 Oct 20 18:36 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg      30 Oct 20 18:36 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cuda.so
+-rwxr-xr-x. 1 avalassi zg 3483928 Oct 20 18:36 libmg5amc_epem_bbbxbxg_cuda.so
+
+lib/cudacpp/build.none_d_inl0_hrd0/born
+total 252
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:36 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:36 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 161560 Oct 20 18:36 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.none_d_inl0_hrd0/real1
+total 300
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:36 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:36 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 210680 Oct 20 18:36 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.sse4_d_inl0_hrd0/born
+total 272
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:36 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:36 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 182712 Oct 20 18:36 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.sse4_d_inl0_hrd0/real1
+total 332
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:36 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:36 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 244088 Oct 20 18:36 libmg5amc_epem_bbbxbxg_cpp.so
+
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=sse4
+ENV_AV_ME_MODE=C
+ENV_AV_VECSIZE_USED=2
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 50][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 5           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 5.3.6.3                                  *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /afs/cern.ch/user/a/avalassi/.mg5/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/input/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg5_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg5_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 16 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      2.489e-04 +- 1.0e-05 pb
+      Total abs(cross section): 4.757e-04 +- 1.3e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 18h36 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  1m 20s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > b b~ b b~ [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 2.489e-04 +- 1.0e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+quit
+INFO:  
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=sse4
+ENV_AV_ME_MODE=C
+ENV_AV_VECSIZE_USED=2
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+START:    Tue Oct 20 06:36:01 PM CEST 2026
+END:      Tue Oct 20 06:37:34 PM CEST 2026
+ELAPSED:  93 seconds
+
+STATUS=0
+START:    Tue Oct 20 06:37:36 PM CEST 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eebbbb_vfalt
+
+EXECUTING: ./myLaunch.sh -o -x
+
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.9.21
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.3.6.3
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+lib/cudacpp/build.512y_d_inl0_hrd0/born
+total 268
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:37 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:37 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 178656 Oct 20 18:37 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.512y_d_inl0_hrd0/real1
+total 316
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:37 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:37 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 227704 Oct 20 18:37 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.512z_d_inl0_hrd0/born
+total 276
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:37 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:37 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 186848 Oct 20 18:37 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.512z_d_inl0_hrd0/real1
+total 332
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:37 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:37 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 244088 Oct 20 18:37 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.avx2_d_inl0_hrd0/born
+total 272
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:37 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:37 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 182752 Oct 20 18:37 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.avx2_d_inl0_hrd0/real1
+total 328
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:37 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:37 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 239992 Oct 20 18:37 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.cuda_d_inl0_hrd0/born
+total 2864
+lrwxrwxrwx. 1 avalassi zg      29 Oct 20 18:37 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cuda.so
+-rwxr-xr-x. 1 avalassi zg  896120 Oct 20 18:37 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 2030784 Oct 20 18:37 libmg5amc_epem_bbbxbx_cuda.so
+lib/cudacpp/build.cuda_d_inl0_hrd0/real1
+total 4284
+-rwxr-xr-x. 1 avalassi zg  896120 Oct 20 18:37 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg      30 Oct 20 18:37 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cuda.so
+-rwxr-xr-x. 1 avalassi zg 3483928 Oct 20 18:37 libmg5amc_epem_bbbxbxg_cuda.so
+
+lib/cudacpp/build.none_d_inl0_hrd0/born
+total 252
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:37 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:37 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 161560 Oct 20 18:37 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.none_d_inl0_hrd0/real1
+total 300
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:37 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:37 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 210680 Oct 20 18:37 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.sse4_d_inl0_hrd0/born
+total 272
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:37 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:37 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 182712 Oct 20 18:37 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.sse4_d_inl0_hrd0/real1
+total 332
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:37 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:37 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 244088 Oct 20 18:37 libmg5amc_epem_bbbxbxg_cpp.so
+
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=avx2
+ENV_AV_ME_MODE=C
+ENV_AV_VECSIZE_USED=4
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 50][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 5           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 5.3.6.3                                  *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /afs/cern.ch/user/a/avalassi/.mg5/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/input/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg5_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg5_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 16 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      2.489e-04 +- 1.0e-05 pb
+      Total abs(cross section): 4.757e-04 +- 1.3e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 18h37 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  47s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > b b~ b b~ [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 2.489e-04 +- 1.0e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+quit
+INFO:  
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=avx2
+ENV_AV_ME_MODE=C
+ENV_AV_VECSIZE_USED=4
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+START:    Tue Oct 20 06:37:36 PM CEST 2026
+END:      Tue Oct 20 06:38:36 PM CEST 2026
+ELAPSED:  60 seconds
+
+STATUS=0
+START:    Tue Oct 20 06:38:39 PM CEST 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eebbbb_vfalt
+
+EXECUTING: ./myLaunch.sh -o -x
+
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.9.21
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.3.6.3
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+lib/cudacpp/build.512y_d_inl0_hrd0/born
+total 268
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:38 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:38 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 178656 Oct 20 18:38 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.512y_d_inl0_hrd0/real1
+total 316
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:38 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:38 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 227704 Oct 20 18:38 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.512z_d_inl0_hrd0/born
+total 276
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:38 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:38 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 186848 Oct 20 18:38 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.512z_d_inl0_hrd0/real1
+total 332
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:38 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:38 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 244088 Oct 20 18:38 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.avx2_d_inl0_hrd0/born
+total 272
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:38 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:38 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 182752 Oct 20 18:38 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.avx2_d_inl0_hrd0/real1
+total 328
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:38 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:38 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 239992 Oct 20 18:38 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.cuda_d_inl0_hrd0/born
+total 2864
+lrwxrwxrwx. 1 avalassi zg      29 Oct 20 18:38 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cuda.so
+-rwxr-xr-x. 1 avalassi zg  896120 Oct 20 18:38 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 2030784 Oct 20 18:38 libmg5amc_epem_bbbxbx_cuda.so
+lib/cudacpp/build.cuda_d_inl0_hrd0/real1
+total 4284
+-rwxr-xr-x. 1 avalassi zg  896120 Oct 20 18:38 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg      30 Oct 20 18:38 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cuda.so
+-rwxr-xr-x. 1 avalassi zg 3483928 Oct 20 18:38 libmg5amc_epem_bbbxbxg_cuda.so
+
+lib/cudacpp/build.none_d_inl0_hrd0/born
+total 252
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:38 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:38 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 161560 Oct 20 18:38 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.none_d_inl0_hrd0/real1
+total 300
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:38 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:38 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 210680 Oct 20 18:38 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.sse4_d_inl0_hrd0/born
+total 272
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:38 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:38 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 182712 Oct 20 18:38 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.sse4_d_inl0_hrd0/real1
+total 332
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:38 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:38 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 244088 Oct 20 18:38 libmg5amc_epem_bbbxbxg_cpp.so
+
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=cuda
+ENV_AV_ME_MODE=C
+ENV_AV_VECSIZE_USED=32
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 50][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 5           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 5.3.6.3                                  *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /afs/cern.ch/user/a/avalassi/.mg5/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/input/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg5_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg5_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 16 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      2.489e-04 +- 1.0e-05 pb
+      Total abs(cross section): 4.757e-04 +- 1.3e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 18h38 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  1m 30s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > b b~ b b~ [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 2.489e-04 +- 1.0e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+quit
+INFO:  
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=cuda
+ENV_AV_ME_MODE=C
+ENV_AV_VECSIZE_USED=32
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+START:    Tue Oct 20 06:38:39 PM CEST 2026
+END:      Tue Oct 20 06:40:23 PM CEST 2026
+ELAPSED:  104 seconds
+
+STATUS=0
+START:    Tue Oct 20 06:40:25 PM CEST 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eebbbb_vfalt
+
+EXECUTING: ./myLaunch.sh -o -x
+
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.9.21
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.3.6.3
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+lib/cudacpp/build.512y_d_inl0_hrd0/born
+total 268
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:40 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:40 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 178656 Oct 20 18:40 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.512y_d_inl0_hrd0/real1
+total 316
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:40 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:40 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 227704 Oct 20 18:40 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.512z_d_inl0_hrd0/born
+total 276
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:40 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:40 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 186848 Oct 20 18:40 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.512z_d_inl0_hrd0/real1
+total 332
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:40 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:40 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 244088 Oct 20 18:40 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.avx2_d_inl0_hrd0/born
+total 272
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:40 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:40 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 182752 Oct 20 18:40 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.avx2_d_inl0_hrd0/real1
+total 328
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:40 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:40 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 239992 Oct 20 18:40 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.cuda_d_inl0_hrd0/born
+total 2864
+lrwxrwxrwx. 1 avalassi zg      29 Oct 20 18:40 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cuda.so
+-rwxr-xr-x. 1 avalassi zg  896120 Oct 20 18:40 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 2030784 Oct 20 18:40 libmg5amc_epem_bbbxbx_cuda.so
+lib/cudacpp/build.cuda_d_inl0_hrd0/real1
+total 4284
+-rwxr-xr-x. 1 avalassi zg  896120 Oct 20 18:40 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg      30 Oct 20 18:40 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cuda.so
+-rwxr-xr-x. 1 avalassi zg 3483928 Oct 20 18:40 libmg5amc_epem_bbbxbxg_cuda.so
+
+lib/cudacpp/build.none_d_inl0_hrd0/born
+total 252
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:40 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:40 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 161560 Oct 20 18:40 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.none_d_inl0_hrd0/real1
+total 300
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:40 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:40 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 210680 Oct 20 18:40 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.sse4_d_inl0_hrd0/born
+total 272
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:40 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:40 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 182712 Oct 20 18:40 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.sse4_d_inl0_hrd0/real1
+total 332
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:40 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:40 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 244088 Oct 20 18:40 libmg5amc_epem_bbbxbxg_cpp.so
+
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=cuda
+ENV_AV_ME_MODE=C
+ENV_AV_VECSIZE_USED=64
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 50][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 5           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 5.3.6.3                                  *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /afs/cern.ch/user/a/avalassi/.mg5/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/input/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg5_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg5_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 16 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      2.489e-04 +- 1.0e-05 pb
+      Total abs(cross section): 4.757e-04 +- 1.3e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 18h40 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  57.8s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > b b~ b b~ [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 2.489e-04 +- 1.0e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+quit
+INFO:  
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=cuda
+ENV_AV_ME_MODE=C
+ENV_AV_VECSIZE_USED=64
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+START:    Tue Oct 20 06:40:25 PM CEST 2026
+END:      Tue Oct 20 06:41:36 PM CEST 2026
+ELAPSED:  71 seconds
+
+STATUS=0
+START:    Tue Oct 20 06:41:38 PM CEST 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eebbbb_vfalt
+
+EXECUTING: ./myLaunch.sh -o -x
+
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.9.21
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.3.6.3
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+lib/cudacpp/build.512y_d_inl0_hrd0/born
+total 268
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:41 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:41 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 178656 Oct 20 18:41 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.512y_d_inl0_hrd0/real1
+total 316
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:41 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:41 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 227704 Oct 20 18:41 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.512z_d_inl0_hrd0/born
+total 276
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:41 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:41 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 186848 Oct 20 18:41 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.512z_d_inl0_hrd0/real1
+total 332
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:41 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:41 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 244088 Oct 20 18:41 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.avx2_d_inl0_hrd0/born
+total 272
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:41 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:41 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 182752 Oct 20 18:41 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.avx2_d_inl0_hrd0/real1
+total 328
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:41 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:41 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 239992 Oct 20 18:41 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.cuda_d_inl0_hrd0/born
+total 2864
+lrwxrwxrwx. 1 avalassi zg      29 Oct 20 18:41 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cuda.so
+-rwxr-xr-x. 1 avalassi zg  896120 Oct 20 18:41 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 2030784 Oct 20 18:41 libmg5amc_epem_bbbxbx_cuda.so
+lib/cudacpp/build.cuda_d_inl0_hrd0/real1
+total 4284
+-rwxr-xr-x. 1 avalassi zg  896120 Oct 20 18:41 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg      30 Oct 20 18:41 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cuda.so
+-rwxr-xr-x. 1 avalassi zg 3483928 Oct 20 18:41 libmg5amc_epem_bbbxbxg_cuda.so
+
+lib/cudacpp/build.none_d_inl0_hrd0/born
+total 252
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:41 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:41 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 161560 Oct 20 18:41 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.none_d_inl0_hrd0/real1
+total 300
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:41 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:41 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 210680 Oct 20 18:41 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.sse4_d_inl0_hrd0/born
+total 272
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:41 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:41 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 182712 Oct 20 18:41 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.sse4_d_inl0_hrd0/real1
+total 332
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:41 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:41 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 244088 Oct 20 18:41 libmg5amc_epem_bbbxbxg_cpp.so
+
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=cuda
+ENV_AV_ME_MODE=C
+ENV_AV_VECSIZE_USED=128
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 50][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 5           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 5.3.6.3                                  *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /afs/cern.ch/user/a/avalassi/.mg5/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/input/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg5_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg5_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 16 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      2.489e-04 +- 1.0e-05 pb
+      Total abs(cross section): 4.757e-04 +- 1.3e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 18h41 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  41.9s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > b b~ b b~ [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 2.489e-04 +- 1.0e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+quit
+INFO:  
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=cuda
+ENV_AV_ME_MODE=C
+ENV_AV_VECSIZE_USED=128
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+START:    Tue Oct 20 06:41:38 PM CEST 2026
+END:      Tue Oct 20 06:42:33 PM CEST 2026
+ELAPSED:  55 seconds
+
+STATUS=0
+START:    Tue Oct 20 06:42:35 PM CEST 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eebbbb_vfalt
+
+EXECUTING: ./myLaunch.sh -o -x
+
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.9.21
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.3.6.3
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+lib/cudacpp/build.512y_d_inl0_hrd0/born
+total 268
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:42 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:42 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 178656 Oct 20 18:42 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.512y_d_inl0_hrd0/real1
+total 316
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:42 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:42 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 227704 Oct 20 18:42 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.512z_d_inl0_hrd0/born
+total 276
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:42 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:42 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 186848 Oct 20 18:42 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.512z_d_inl0_hrd0/real1
+total 332
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:42 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:42 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 244088 Oct 20 18:42 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.avx2_d_inl0_hrd0/born
+total 272
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:42 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:42 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 182752 Oct 20 18:42 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.avx2_d_inl0_hrd0/real1
+total 328
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:42 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:42 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 239992 Oct 20 18:42 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.cuda_d_inl0_hrd0/born
+total 2864
+lrwxrwxrwx. 1 avalassi zg      29 Oct 20 18:42 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cuda.so
+-rwxr-xr-x. 1 avalassi zg  896120 Oct 20 18:42 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 2030784 Oct 20 18:42 libmg5amc_epem_bbbxbx_cuda.so
+lib/cudacpp/build.cuda_d_inl0_hrd0/real1
+total 4284
+-rwxr-xr-x. 1 avalassi zg  896120 Oct 20 18:42 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg      30 Oct 20 18:42 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cuda.so
+-rwxr-xr-x. 1 avalassi zg 3483928 Oct 20 18:42 libmg5amc_epem_bbbxbxg_cuda.so
+
+lib/cudacpp/build.none_d_inl0_hrd0/born
+total 252
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:42 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:42 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 161560 Oct 20 18:42 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.none_d_inl0_hrd0/real1
+total 300
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:42 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:42 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 210680 Oct 20 18:42 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.sse4_d_inl0_hrd0/born
+total 272
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:42 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:42 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 182712 Oct 20 18:42 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.sse4_d_inl0_hrd0/real1
+total 332
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:42 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:42 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 244088 Oct 20 18:42 libmg5amc_epem_bbbxbxg_cpp.so
+
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=cuda
+ENV_AV_ME_MODE=C
+ENV_AV_VECSIZE_USED=256
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 50][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 5           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 5.3.6.3                                  *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /afs/cern.ch/user/a/avalassi/.mg5/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/input/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg5_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg5_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 16 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      2.489e-04 +- 1.0e-05 pb
+      Total abs(cross section): 4.757e-04 +- 1.3e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 18h42 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  34.4s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > b b~ b b~ [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 2.489e-04 +- 1.0e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+quit
+INFO:  
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=cuda
+ENV_AV_ME_MODE=C
+ENV_AV_VECSIZE_USED=256
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+START:    Tue Oct 20 06:42:35 PM CEST 2026
+END:      Tue Oct 20 06:43:23 PM CEST 2026
+ELAPSED:  48 seconds
+
+STATUS=0
+START:    Tue Oct 20 06:43:25 PM CEST 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eebbbb_vfalt
+
+EXECUTING: ./myLaunch.sh -o -x
+
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.9.21
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.3.6.3
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+lib/cudacpp/build.512y_d_inl0_hrd0/born
+total 268
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:43 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:43 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 178656 Oct 20 18:43 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.512y_d_inl0_hrd0/real1
+total 316
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:43 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:43 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 227704 Oct 20 18:43 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.512z_d_inl0_hrd0/born
+total 276
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:43 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:43 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 186848 Oct 20 18:43 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.512z_d_inl0_hrd0/real1
+total 332
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:43 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:43 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 244088 Oct 20 18:43 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.avx2_d_inl0_hrd0/born
+total 272
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:43 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:43 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 182752 Oct 20 18:43 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.avx2_d_inl0_hrd0/real1
+total 328
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:43 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:43 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 239992 Oct 20 18:43 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.cuda_d_inl0_hrd0/born
+total 2864
+lrwxrwxrwx. 1 avalassi zg      29 Oct 20 18:43 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cuda.so
+-rwxr-xr-x. 1 avalassi zg  896120 Oct 20 18:43 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 2030784 Oct 20 18:43 libmg5amc_epem_bbbxbx_cuda.so
+lib/cudacpp/build.cuda_d_inl0_hrd0/real1
+total 4284
+-rwxr-xr-x. 1 avalassi zg  896120 Oct 20 18:43 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg      30 Oct 20 18:43 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cuda.so
+-rwxr-xr-x. 1 avalassi zg 3483928 Oct 20 18:43 libmg5amc_epem_bbbxbxg_cuda.so
+
+lib/cudacpp/build.none_d_inl0_hrd0/born
+total 252
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:43 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:43 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 161560 Oct 20 18:43 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.none_d_inl0_hrd0/real1
+total 300
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:43 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:43 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 210680 Oct 20 18:43 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.sse4_d_inl0_hrd0/born
+total 272
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:43 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:43 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 182712 Oct 20 18:43 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.sse4_d_inl0_hrd0/real1
+total 332
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:43 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:43 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 244088 Oct 20 18:43 libmg5amc_epem_bbbxbxg_cpp.so
+
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=cuda
+ENV_AV_ME_MODE=C
+ENV_AV_VECSIZE_USED=512
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 50][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 5           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 5.3.6.3                                  *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /afs/cern.ch/user/a/avalassi/.mg5/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/input/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg5_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg5_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 16 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      2.489e-04 +- 1.0e-05 pb
+      Total abs(cross section): 4.757e-04 +- 1.3e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 18h43 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  30.5s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > b b~ b b~ [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 2.489e-04 +- 1.0e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+quit
+INFO:  
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=cuda
+ENV_AV_ME_MODE=C
+ENV_AV_VECSIZE_USED=512
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+START:    Tue Oct 20 06:43:25 PM CEST 2026
+END:      Tue Oct 20 06:44:08 PM CEST 2026
+ELAPSED:  43 seconds
+
+STATUS=0
+START:    Tue Oct 20 06:44:11 PM CEST 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eebbbb_vfalt
+
+EXECUTING: ./myLaunch.sh -o -x
+
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.9.21
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.3.6.3
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+lib/cudacpp/build.512y_d_inl0_hrd0/born
+total 268
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:44 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:44 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 178656 Oct 20 18:44 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.512y_d_inl0_hrd0/real1
+total 316
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:44 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:44 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 227704 Oct 20 18:44 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.512z_d_inl0_hrd0/born
+total 276
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:44 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:44 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 186848 Oct 20 18:44 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.512z_d_inl0_hrd0/real1
+total 332
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:44 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:44 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 244088 Oct 20 18:44 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.avx2_d_inl0_hrd0/born
+total 272
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:44 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:44 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 182752 Oct 20 18:44 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.avx2_d_inl0_hrd0/real1
+total 328
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:44 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:44 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 239992 Oct 20 18:44 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.cuda_d_inl0_hrd0/born
+total 2864
+lrwxrwxrwx. 1 avalassi zg      29 Oct 20 18:44 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cuda.so
+-rwxr-xr-x. 1 avalassi zg  896120 Oct 20 18:44 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 2030784 Oct 20 18:44 libmg5amc_epem_bbbxbx_cuda.so
+lib/cudacpp/build.cuda_d_inl0_hrd0/real1
+total 4284
+-rwxr-xr-x. 1 avalassi zg  896120 Oct 20 18:44 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg      30 Oct 20 18:44 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cuda.so
+-rwxr-xr-x. 1 avalassi zg 3483928 Oct 20 18:44 libmg5amc_epem_bbbxbxg_cuda.so
+
+lib/cudacpp/build.none_d_inl0_hrd0/born
+total 252
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:44 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:44 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 161560 Oct 20 18:44 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.none_d_inl0_hrd0/real1
+total 300
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:44 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:44 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 210680 Oct 20 18:44 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.sse4_d_inl0_hrd0/born
+total 272
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:44 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:44 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 182712 Oct 20 18:44 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.sse4_d_inl0_hrd0/real1
+total 332
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:44 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:44 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 244088 Oct 20 18:44 libmg5amc_epem_bbbxbxg_cpp.so
+
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=cuda
+ENV_AV_ME_MODE=C
+ENV_AV_VECSIZE_USED=1024
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 50][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 5           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 5.3.6.3                                  *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /afs/cern.ch/user/a/avalassi/.mg5/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/input/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg5_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg5_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 16 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      2.489e-04 +- 1.0e-05 pb
+      Total abs(cross section): 4.757e-04 +- 1.3e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 18h44 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  26.8s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > b b~ b b~ [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 2.489e-04 +- 1.0e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+quit
+INFO:  
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=cuda
+ENV_AV_ME_MODE=C
+ENV_AV_VECSIZE_USED=1024
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+START:    Tue Oct 20 06:44:11 PM CEST 2026
+END:      Tue Oct 20 06:44:51 PM CEST 2026
+ELAPSED:  40 seconds
+
+STATUS=0
+START:    Tue Oct 20 06:44:53 PM CEST 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eebbbb_vfalt
+
+EXECUTING: ./myLaunch.sh -o -x
+
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.9.21
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.3.6.3
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+lib/cudacpp/build.512y_d_inl0_hrd0/born
+total 268
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:44 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:44 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 178656 Oct 20 18:44 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.512y_d_inl0_hrd0/real1
+total 316
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:44 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:44 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 227704 Oct 20 18:44 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.512z_d_inl0_hrd0/born
+total 276
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:44 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:44 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 186848 Oct 20 18:44 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.512z_d_inl0_hrd0/real1
+total 332
+-rwxr-xr-x. 1 avalassi zg  87488 Oct 20 18:44 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:44 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 244088 Oct 20 18:44 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.avx2_d_inl0_hrd0/born
+total 272
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:44 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:44 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 182752 Oct 20 18:44 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.avx2_d_inl0_hrd0/real1
+total 328
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:44 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:44 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 239992 Oct 20 18:44 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.cuda_d_inl0_hrd0/born
+total 2864
+lrwxrwxrwx. 1 avalassi zg      29 Oct 20 18:44 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cuda.so
+-rwxr-xr-x. 1 avalassi zg  896120 Oct 20 18:44 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 2030784 Oct 20 18:44 libmg5amc_epem_bbbxbx_cuda.so
+lib/cudacpp/build.cuda_d_inl0_hrd0/real1
+total 4284
+-rwxr-xr-x. 1 avalassi zg  896120 Oct 20 18:44 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg      30 Oct 20 18:44 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cuda.so
+-rwxr-xr-x. 1 avalassi zg 3483928 Oct 20 18:44 libmg5amc_epem_bbbxbxg_cuda.so
+
+lib/cudacpp/build.none_d_inl0_hrd0/born
+total 252
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:45 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:45 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 161560 Oct 20 18:45 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.none_d_inl0_hrd0/real1
+total 300
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:45 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:45 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 210680 Oct 20 18:45 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.sse4_d_inl0_hrd0/born
+total 272
+lrwxrwxrwx. 1 avalassi zg     28 Oct 20 18:45 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:45 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 182712 Oct 20 18:45 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.sse4_d_inl0_hrd0/real1
+total 332
+-rwxr-xr-x. 1 avalassi zg  87480 Oct 20 18:45 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Oct 20 18:45 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 244088 Oct 20 18:45 libmg5amc_epem_bbbxbxg_cpp.so
+
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=cuda
+ENV_AV_ME_MODE=C
+ENV_AV_VECSIZE_USED=2048
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 50][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 5           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 5.3.6.3                                  *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /afs/cern.ch/user/a/avalassi/.mg5/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/input/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg5_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg5_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 16 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      2.489e-04 +- 1.0e-05 pb
+      Total abs(cross section): 4.757e-04 +- 1.3e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 18h45 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  26s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > b b~ b b~ [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 2.489e-04 +- 1.0e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+quit
+INFO:  
+ENV_NEVENTS=200
+ENV_FOLDING=8,4,1
+ENV_AV_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/DEV/eebbbb_vfalt/lib/cudacpp
+ENV_AV_CUDACPP_BACKEND=cuda
+ENV_AV_ME_MODE=C
+ENV_AV_VECSIZE_USED=2048
+ENV_AV_KPOINT_BATCH=64
+ENV_AV_BSF_FUSED=-1
+ENV_AV_BSF_BRIDGE=
+ENV_AV_SBORN_BRIDGE=1
+ENV_AV_SBORN_GSCALE=1
+ENV_MINT0_ACC=0.5
+ENV_MINT0_NITERS=2
+ENV_MINT0_NPOINTS=50
+ENV_MINT1_NITERS=2
+ENV_MINT1_NPOINTS=50
+ENV_CHANNELS=11.0
+randinit=84100
+START:    Tue Oct 20 06:44:53 PM CEST 2026
+END:      Tue Oct 20 06:45:32 PM CEST 2026
+ELAPSED:  39 seconds
+
+STATUS=0
+
+-------------------------------------------------------------------------------
+
+START:    Tue Oct 20 06:15:47 PM CEST 2026
+END:      Tue Oct 20 06:45:34 PM CEST 2026
+ELAPSED:  1787 seconds
+
+-------------------------------------------------------------------------------
+
+STATUS=0 (launch REF2/CUDA/n200f841k64g1/step10b)
+
