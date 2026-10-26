@@ -1,0 +1,150 @@
+drwxr-xr-x. 1 avalassi zg 4096 Oct 26 10:38 Events/REF3/CUDA/n200f841k64g1/step10bCavx2
+drwxr-xr-x. 1 avalassi zg 4096 Oct 26 10:42 Events/REF3/CUDA/n200f841k64g1/step10bCcuda1024
+drwxr-xr-x. 1 avalassi zg 4096 Oct 26 10:40 Events/REF3/CUDA/n200f841k64g1/step10bCcuda128
+drwxr-xr-x. 1 avalassi zg 4096 Oct 26 10:42 Events/REF3/CUDA/n200f841k64g1/step10bCcuda2048
+drwxr-xr-x. 1 avalassi zg 4096 Oct 26 10:40 Events/REF3/CUDA/n200f841k64g1/step10bCcuda256
+drwxr-xr-x. 1 avalassi zg 4096 Oct 26 10:38 Events/REF3/CUDA/n200f841k64g1/step10bCcuda32
+drwxr-xr-x. 1 avalassi zg 4096 Oct 26 10:41 Events/REF3/CUDA/n200f841k64g1/step10bCcuda512
+drwxr-xr-x. 1 avalassi zg 4096 Oct 26 10:39 Events/REF3/CUDA/n200f841k64g1/step10bCcuda64
+drwxr-xr-x. 1 avalassi zg 4096 Oct 26 10:35 Events/REF3/CUDA/n200f841k64g1/step10bCnone
+drwxr-xr-x. 1 avalassi zg 4096 Oct 26 10:37 Events/REF3/CUDA/n200f841k64g1/step10bCsse4
+drwxr-xr-x. 1 avalassi zg 4096 Oct 26 10:32 Events/REF3/CUDA/n200f841k64g1/step10bF
+drwxr-xr-x. 1 avalassi zg 4096 Oct 26 10:25 Events/REF3/CUDA/n200f841k64g1/step10bS
+drwxr-xr-x. 1 avalassi zg 4096 Oct 26 10:28 Events/REF3/CUDA/n200f841k64g1/step10bT
+drwxr-xr-x. 1 avalassi zg 4096 Oct 26 10:20 Events/REF3/CUDA/n200f841k64g1/step10bZ
+
+-------------------------------------------------------------------------------
+
+Compare results using:
+  ./myBackends.sh --diff-o REF3/CUDA/n200f841k64g1/step10b
+
+=== diff Events/REF3/CUDA/n200f841k64g1/step10bS/VERSIONS.txt.tmp Events/REF3/CUDA/n200f841k64g1/step10bF/VERSIONS.txt.tmp
+=== diff Events/REF3/CUDA/n200f841k64g1/step10bS/events.lhe Events/REF3/CUDA/n200f841k64g1/step10bF/events.lhe
+=== diff Events/REF3/CUDA/n200f841k64g1/step10bS/nevents_unweighted Events/REF3/CUDA/n200f841k64g1/step10bF/nevents_unweighted
+=== diff Events/REF3/CUDA/n200f841k64g1/step10bS/results.dat Events/REF3/CUDA/n200f841k64g1/step10bF/results.dat
+=== diff Events/REF3/CUDA/n200f841k64g1/step10bS/summary.txt Events/REF3/CUDA/n200f841k64g1/step10bF/summary.txt
+=== diff Events/REF3/CUDA/n200f841k64g1/step10bS/res_2.txt Events/REF3/CUDA/n200f841k64g1/step10bF/res_2.txt
+STATUS=0
+
+=== diff Events/REF3/CUDA/n200f841k64g1/step10bT/VERSIONS.txt.tmp Events/REF3/CUDA/n200f841k64g1/step10bF/VERSIONS.txt.tmp
+=== diff Events/REF3/CUDA/n200f841k64g1/step10bT/events.lhe Events/REF3/CUDA/n200f841k64g1/step10bF/events.lhe
+=== diff Events/REF3/CUDA/n200f841k64g1/step10bT/nevents_unweighted Events/REF3/CUDA/n200f841k64g1/step10bF/nevents_unweighted
+=== diff Events/REF3/CUDA/n200f841k64g1/step10bT/results.dat Events/REF3/CUDA/n200f841k64g1/step10bF/results.dat
+=== diff Events/REF3/CUDA/n200f841k64g1/step10bT/summary.txt Events/REF3/CUDA/n200f841k64g1/step10bF/summary.txt
+=== diff Events/REF3/CUDA/n200f841k64g1/step10bT/res_2.txt Events/REF3/CUDA/n200f841k64g1/step10bF/res_2.txt
+STATUS=0
+
+=== diff Events/REF3/CUDA/n200f841k64g1/step10bF/VERSIONS.txt.tmp Events/REF3/CUDA/n200f841k64g1/step10bCnone/VERSIONS.txt.tmp
+=== python3 numdiff.py Events/REF3/CUDA/n200f841k64g1/step10bF/events.lhe Events/REF3/CUDA/n200f841k64g1/step10bCnone/events.lhe --rtol 1e-7 --atol 0
+[PASS] 22453 numbers compared, 0 outside tolerance (rtol=1.0e-07, atol=0.0e+00)
+=== python3 numdiff.py Events/REF3/CUDA/n200f841k64g1/step10bF/nevents_unweighted Events/REF3/CUDA/n200f841k64g1/step10bCnone/nevents_unweighted --rtol 1e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.0e-07, atol=0.0e+00)
+=== python3 numdiff.py Events/REF3/CUDA/n200f841k64g1/step10bF/results.dat Events/REF3/CUDA/n200f841k64g1/step10bCnone/results.dat --rtol 1e-7 --atol 0
+[PASS] 13 numbers compared, 0 outside tolerance (rtol=1.0e-07, atol=0.0e+00)
+=== python3 numdiff.py Events/REF3/CUDA/n200f841k64g1/step10bF/summary.txt Events/REF3/CUDA/n200f841k64g1/step10bCnone/summary.txt --rtol 1e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.0e-07, atol=0.0e+00)
+=== python3 numdiff.py Events/REF3/CUDA/n200f841k64g1/step10bF/res_2.txt Events/REF3/CUDA/n200f841k64g1/step10bCnone/res_2.txt --rtol 1e-7 --atol 0
+[PASS] 22 numbers compared, 0 outside tolerance (rtol=1.0e-07, atol=0.0e+00)
+STATUS=0
+
+=== diff Events/REF3/CUDA/n200f841k64g1/step10bF/VERSIONS.txt.tmp Events/REF3/CUDA/n200f841k64g1/step10bCsse4/VERSIONS.txt.tmp
+=== python3 numdiff.py Events/REF3/CUDA/n200f841k64g1/step10bF/events.lhe Events/REF3/CUDA/n200f841k64g1/step10bCsse4/events.lhe --rtol 1e-7 --atol 0
+[PASS] 22453 numbers compared, 0 outside tolerance (rtol=1.0e-07, atol=0.0e+00)
+=== python3 numdiff.py Events/REF3/CUDA/n200f841k64g1/step10bF/nevents_unweighted Events/REF3/CUDA/n200f841k64g1/step10bCsse4/nevents_unweighted --rtol 1e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.0e-07, atol=0.0e+00)
+=== python3 numdiff.py Events/REF3/CUDA/n200f841k64g1/step10bF/results.dat Events/REF3/CUDA/n200f841k64g1/step10bCsse4/results.dat --rtol 1e-7 --atol 0
+[PASS] 13 numbers compared, 0 outside tolerance (rtol=1.0e-07, atol=0.0e+00)
+=== python3 numdiff.py Events/REF3/CUDA/n200f841k64g1/step10bF/summary.txt Events/REF3/CUDA/n200f841k64g1/step10bCsse4/summary.txt --rtol 1e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.0e-07, atol=0.0e+00)
+=== python3 numdiff.py Events/REF3/CUDA/n200f841k64g1/step10bF/res_2.txt Events/REF3/CUDA/n200f841k64g1/step10bCsse4/res_2.txt --rtol 1e-7 --atol 0
+[PASS] 22 numbers compared, 0 outside tolerance (rtol=1.0e-07, atol=0.0e+00)
+STATUS=0
+
+=== diff Events/REF3/CUDA/n200f841k64g1/step10bF/VERSIONS.txt.tmp Events/REF3/CUDA/n200f841k64g1/step10bCavx2/VERSIONS.txt.tmp
+=== python3 numdiff.py Events/REF3/CUDA/n200f841k64g1/step10bF/events.lhe Events/REF3/CUDA/n200f841k64g1/step10bCavx2/events.lhe --rtol 1e-7 --atol 0
+[PASS] 22453 numbers compared, 0 outside tolerance (rtol=1.0e-07, atol=0.0e+00)
+=== python3 numdiff.py Events/REF3/CUDA/n200f841k64g1/step10bF/nevents_unweighted Events/REF3/CUDA/n200f841k64g1/step10bCavx2/nevents_unweighted --rtol 1e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.0e-07, atol=0.0e+00)
+=== python3 numdiff.py Events/REF3/CUDA/n200f841k64g1/step10bF/results.dat Events/REF3/CUDA/n200f841k64g1/step10bCavx2/results.dat --rtol 1e-7 --atol 0
+[PASS] 13 numbers compared, 0 outside tolerance (rtol=1.0e-07, atol=0.0e+00)
+=== python3 numdiff.py Events/REF3/CUDA/n200f841k64g1/step10bF/summary.txt Events/REF3/CUDA/n200f841k64g1/step10bCavx2/summary.txt --rtol 1e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.0e-07, atol=0.0e+00)
+=== python3 numdiff.py Events/REF3/CUDA/n200f841k64g1/step10bF/res_2.txt Events/REF3/CUDA/n200f841k64g1/step10bCavx2/res_2.txt --rtol 1e-7 --atol 0
+[PASS] 22 numbers compared, 0 outside tolerance (rtol=1.0e-07, atol=0.0e+00)
+STATUS=0
+
+
+Compared results using
+  ./myBackends.sh --diff-o REF3/CUDA/n200f841k64g1/step10b
+Modes F1/S, F2/T and F give identical results
+Modes F and all Cs are equal within tolerance
+  ./myDiffRun.sh -o REF3/CUDA/n200f841k64g1/step10bS REF3/CUDA/n200f841k64g1/step10bF
+  ./myDiffRun.sh -o REF3/CUDA/n200f841k64g1/step10bT REF3/CUDA/n200f841k64g1/step10bF
+  ./myDiffRun.sh -o -nd5 REF3/CUDA/n200f841k64g1/step10bF REF3/CUDA/n200f841k64g1/step10bCnone
+  ./myDiffRun.sh -o -nd5 REF3/CUDA/n200f841k64g1/step10bF REF3/CUDA/n200f841k64g1/step10bCsse4
+  ./myDiffRun.sh -o -nd5 REF3/CUDA/n200f841k64g1/step10bF REF3/CUDA/n200f841k64g1/step10bCavx2
+
+-------------------------------------------------------------------------------
+
+Compare results using:
+  ./myBackends.sh --diff2-o REF3/n200f841k1/step8n REF3/CUDA/n200f841k64g1/step10b
+
+Directory not found: Events/REF3/n200f841k1/step8nZ
+Directory not found: Events/REF3/n200f841k1/step8nF
+Directory not found: Events/REF3/n200f841k1/step8nF
+Directory not found: Events/REF3/n200f841k1/step8nF
+Directory not found: Events/REF3/n200f841k1/step8nCnone
+Directory not found: Events/REF3/n200f841k1/step8nCsse4
+Directory not found: Events/REF3/n200f841k1/step8nCavx2
+
+Compared results using
+  ./myBackends.sh --diff2-o REF3/n200f841k1/step8n REF3/CUDA/n200f841k64g1/step10b
+Z is identical to the last reference REF3/n200f841k1/step8n
+S, T and F are identical to the last reference REF3/n200f841k1/step8n
+Each C is identical to the last reference REF3/n200f841k1/step8n
+  ./myDiffRun.sh -o REF3/n200f841k1/step8nZ REF3/CUDA/n200f841k64g1/step10bZ
+  ./myDiffRun.sh -o REF3/n200f841k1/step8nF REF3/CUDA/n200f841k64g1/step10bS
+  ./myDiffRun.sh -o REF3/n200f841k1/step8nF REF3/CUDA/n200f841k64g1/step10bT
+  ./myDiffRun.sh -o REF3/n200f841k1/step8nF REF3/CUDA/n200f841k64g1/step10bF
+  ./myDiffRun.sh -o REF3/n200f841k1/step8nCnone REF3/CUDA/n200f841k64g1/step10bCnone
+  ./myDiffRun.sh -o REF3/n200f841k1/step8nCsse4 REF3/CUDA/n200f841k64g1/step10bCsse4
+  ./myDiffRun.sh -o REF3/n200f841k1/step8nCavx2 REF3/CUDA/n200f841k64g1/step10bCavx2
+
+
+-------------------------------------------------------------------------------
+
+Prepare timing table using:
+  ../myTimingTable.py Events/REF3/CUDA/n200f841k64g1/step10b
+
+
+==================== Events/REF3/CUDA/n200f841k64g1/step10b ====================
+### epem_bbbxbx | step10b | NEVENTS=200 | folding=8,4,1 | kbatch=64 | bsffused=-1 | sborn=1
+- bsffused -1: fused single-pass BSF kernel OFF for F0/F1, ON for F2/F/C
+- sborn 1: SBORN served from cudacpp, in mode C only
+- mode F0: 10031 kpoints = 76 virt + 9955 novi -> 200 events (10 virt + 190 novi)
+- mode F: 10172 kpoints = 144 virt + 10028 novi -> 200 events (13 virt + 187 novi) [same in F1, F2, Cs]
+- mode F: Born 183 batched calls, mean batch 1911.361 | Real 169 batched calls, mean batch 1958.722
+- F0*: F0 rescaled to the kpoints of F (separately for virt and novi)
+|-----------------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
+| mode/bknd       |    F0* |     F1 |     F2 |      F | C/none | C/sse4 | C/avx2 | C/cuda | C/cuda | C/cuda | C/cuda | C/cuda | C/cuda | C/cuda |
+| cudacpp_vecsize |      - |      - |      - |      - |      1 |      2 |      4 |     32 |     64 |    128 |    256 |    512 |   1024 |   2048 |
+| sborn_gscale    |      - |      - |      - |      - |      1 |      1 |      1 |      1 |      1 |      1 |      1 |      1 |      1 |      1 |
+| born_batch_avg  |      - |      - |      - | 1911.4 | 1911.4 | 1911.4 | 1911.4 | 1911.4 | 1911.4 | 1911.4 | 1911.4 | 1911.4 | 1911.4 | 1911.4 |
+| real_batch_avg  |      - |      - |      - | 1958.7 | 1958.7 | 1958.7 | 1958.7 | 1958.7 | 1958.7 | 1958.7 | 1958.7 | 1958.7 | 1958.7 | 1958.7 |
+| cpu_timer       | rusage | rusage | rusage | rusage | rusage | rusage | rusage | rusage | rusage | rusage | rusage | rusage | rusage | rusage |
+|-----------------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
+| TOTAL           |288.457 |289.150 |203.846 |228.423 |141.553 | 84.805 | 48.633 | 28.402 | 25.880 | 24.841 | 24.699 | 24.345 | 24.159 | 24.231 |
+| Born            | 93.307 | 93.339 | 28.716 | 27.680 |  1.506 |  1.270 |  1.091 |  1.082 |  1.024 |  1.030 |  1.055 |  1.068 |  1.077 |  1.112 |
+| Real            |152.532 |153.241 |147.263 |145.757 |119.152 | 61.687 | 26.736 |  5.881 |  3.531 |  2.345 |  1.798 |  1.606 |  1.558 |  1.508 |
+| Virtual         |  0.711 |  0.650 |  0.651 |  0.653 |  0.658 |  0.665 |  0.662 |  0.658 |  0.665 |  0.666 |  0.671 |  0.667 |  0.664 |  0.681 |
+| PS_Generation   |  1.714 |  1.694 |  1.620 |  3.030 |  2.910 |  2.965 |  2.899 |  2.916 |  2.907 |  2.919 |  3.128 |  2.908 |  2.936 |  2.958 |
+| CT_and_MCsub    | 29.897 | 29.905 | 15.792 | 33.430 |  3.351 |  3.584 |  3.329 |  3.332 |  3.318 |  3.338 |  3.361 |  3.376 |  3.341 |  3.354 |
+| Nbody_prefactor |  1.206 |  1.194 |  1.165 |  4.434 |  1.251 |  1.313 |  1.243 |  1.277 |  1.286 |  1.278 |  1.299 |  1.285 |  1.282 |  1.295 |
+| Misc            |  9.089 |  9.126 |  8.639 | 13.438 | 12.725 | 13.321 | 12.673 | 13.257 | 13.149 | 13.264 | 13.387 | 13.434 | 13.302 | 13.322 |
+|-----------------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
+
+
+-------------------------------------------------------------------------------
+
+STATUS=0 (diff REF3/CUDA/n200f841k64g1/step10b)
+
