@@ -40,6 +40,10 @@ C      constraints
 
 
 C     look for orders which match the born order constraint 
+C     AV road B step 9i+9j: SAVEAMP must hold these momenta (not
+C     the case when SBORN was served from cudacpp,
+C     ENV_VFOLD_SBORN_BRIDGE>0)
+      CALL VFOLD_ENSURE_SAVEAMP(P)
       CALL SBORN_HEL_SPLITORDERS(P,ANS)
       ANS_SUMMED = 0D0
       DO J = 1, MAX_BHEL
@@ -274,6 +278,7 @@ C     JAMPs contributing to orders QCD=1 QED=4
 
 
       SUBROUTINE PICKHELICITYMC(P,GOODHEL,HEL,IHEL_OUT,VOL)
+      USE VFOLD_RNG_SLOTS
       IMPLICIT NONE
       INCLUDE 'nexternal.inc'
       INCLUDE 'born_nhel.inc'
@@ -294,7 +299,6 @@ C     JAMPs contributing to orders QCD=1 QED=4
       DOUBLE PRECISION ACCUM, TARGET
       DOUBLE PRECISION BORN_WGT_RECOMP_DIRECT
 
-      DOUBLE PRECISION RAN2
 
       CALL SBORN_HEL(P,BORN_WGT_RECOMP_DIRECT)
 
@@ -319,7 +323,11 @@ C      compute for each order the sum
       ENDDO
 
 
-      TARGET=RAN2()
+C     AV road B step 2: draw the helicity of the virtual (mc_hel=1)
+C     from a fixed RNG slot (see vfold_rng_slots.f90) instead of a bare
+C     ran2(): the position of the BinothLHA calls in the random number
+C     stream differs between the vfold modes.
+      TARGET=VFOLD_NEWRAN2(ISLOT_FD_VIRT_HELICITY_PICK,.TRUE.)
       IHEL=1
       ACCUM=0D0
 

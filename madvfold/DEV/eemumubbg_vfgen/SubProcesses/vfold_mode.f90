@@ -1,0 +1,297 @@
+! Copyright (C) 2026 CERN.
+! Licensed under the GNU Lesser General Public License (version 3 or later).
+! Created by A. Valassi (Aug 2026) for project MadVFold (arXiv:2609.23500).
+
+! Road B prototype (eebb_vfalt) step 1: F0/F1/F/C mode scaffolding.
+! Holds the ENV_VFOLD_ME_MODE flag shared across the process. Five modes:
+!   F0 = untouched baseline (never touches the RNG-slot machinery added in
+!        later steps; kept as a permanent statistical cross-check)
+!   F1 = same single-pass control flow as F0 (no deferred Born/Real
+!        evaluation), but random numbers are drawn through the RNG-slot
+!        machinery like F: isolates "different control flow" from
+!        "different random numbers" in F0-vs-F comparisons (F1 and F
+!        are expected to give bit-identical results)
+!   F2 = same as F1, plus deduplication of the Born evaluations via the
+!        Born memo (all folds of a kpoint share the same p_born)
+!   F  = new single-pass Fortran-only implementation (RNG slots + deferred
+!        Born/Real evaluation via a plain Fortran loop, no cudacpp bridge)
+!   C  = same as F, but Born/Real evaluation is offloaded to the cudacpp
+!        bridge instead of a plain Fortran loop
+! MadVFold codegen status: F1 is implemented since step 12j (RNG slots),
+! F since step 12k (batched Born/Real MEs over the folds of a kpoint), F2
+! since step 12l (Born memo), the kpoint batching of F/C (and of the MINT2
+! candidates of F1/F2/F/C) since step 12m and the per-kpoint memos and lean
+! gathering walk of F2/F/C since step 12n. C evaluates the batched Born
+! and Real MEs with the cudacpp bridges since step 13d. F1, F2 and F must
+! all produce bit-identical results, different from those of F0; C differs
+! from F only by rounding (cudacpp MEs instead of SBORN/SMATRIX_REAL),
+! also with SBORN served from cudacpp since step 13e.
+module vfold_mode
+  implicit none
+  character(len=2), public, save :: vfold_me_mode = 'C '
+  ! Road B step 7b: number of events per cudacpp bridge call
+  integer, public, save :: vfold_vecsize_used = 128
+  ! Road B step 9: EVENT (kpoint) batching, orthogonal to vfold_me_mode. Modes
+  ! F/C batch the MEs over the folds of one kpoint only (width 1 at folding
+  ! 1,1,1). This knob gathers vfold_kpoint_batch whole kpoints per batch, so the
+  ! width becomes nkpoints*nfolds.
+  ! Not a new vfold_me_mode letter: gather/evaluate/replay is the same in F and
+  ! C, so C gets it for free. Default 1 = one kpoint per batch, i.e. the
+  ! previous behaviour, but through the new code path.
+  integer, public, save :: vfold_kpoint_batch = 1
+
+  ! Road B step 11q: time spent in the MC@NLO-Delta extra work of
+  ! complete_xmcsubt (Pythia8 stopping scales and dead zones, then the Delta
+  ! Sudakov factors), printed as 'Time spent in Delta_Pythia', subtracted
+  ! from MCsubtraction (compute_MC_subt_term) and from Other_tasks.
+  ! It is 0 if mcatnlo_delta is not set.
+  real, public, save :: vfold_tdelta = 0
+  real, private, save :: vfold_tdelta_t0 = 0
+
+  ! Road B step 11j: time spent creating and deleting the cudacpp bridges
+  ! (with cuda this includes the GPU initialisation and reset), printed as
+  ! 'Time spent in Bridge_create_delete' and subtracted from Other_tasks.
+  ! It is 0 in modes F0/F1/F2/F (no bridge).
+  real, public, save :: vfold_tbridge = 0
+  real, private, save :: vfold_tbridge_t0 = 0
+
+  ! Road B step 11d: with vfold_kpoint_batch>1, MINT2 keeps one candidate queue
+  ! per vn (virt, novi, born) but a single set of ME batch buffers, so that
+  ! a switch to another vn overwrites the batch of the previous one, which
+  ! vfold_mint2_regather must then rebuild (gather walks and MEs again) when
+  ! that vn comes back. ENV_VFOLD_BATCH_PERVN: 0 = regather (default), 1 = park
+  ! a copy of the not-yet-replayed entries of the outgoing batch and bring
+  ! it back instead (vfold_mint2_park in mint_module.f90). Opt-in as it costs
+  ! one more copy of the batch buffers per vn in memory.
+  integer, public, save :: vfold_batch_pervn = 0
+
+  ! Road B step 9i+9j: in mode C, serve SBORN itself from the cudacpp Born
+  ! library, so that mode C no longer runs a scalar SBORN per point: besides
+  ! the ME and the ten colour-linked Borns, cudacpp also returns AMP2 (for
+  ! the multichannel enhancement) and JAMP2 (for the MC counterterms), also
+  ! at the real-emission coupling. Any other SBORN call is still genuine.
+  ! ENV_VFOLD_SBORN_BRIDGE: 0 = off (default), 1 = on, 2 = on and also run the
+  ! genuine SBORN at every served call and report the largest differences.
+  ! Only used in mode C. Since step 11y the colour-linked Borns are taken from
+  ! the served points in sborn_sf.f (else computed in Fortran, after making sure
+  ! that SBORN's amplitude cache is filled). Falls back to 0 if the backend library does not provide the values
+  ! (e.g. cuda before step 10a). Opt-in as the served values differ by
+  ! rounding.
+  integer, public, save :: vfold_sborn_bridge = 0
+
+  ! Road B step 10b: when SBORN is served from cudacpp, also serve (p,g')
+  ! by rescaling a point served at the same p and another g by (g'/g)**n,
+  ! instead of bridge-evaluating (p,g') too. Exact up to rounding if the
+  ! Born has a single coupling combination (AMP_SPLIT_SIZE_BORN=1), with n
+  ! its QCD order (4 for e+ e- > b b b~ b~). This removes the bridge calls
+  ! for the SDE points at the real-emission coupling g' (one per fold, all
+  ! at the momenta of a Born point of the batch). ENV_VFOLD_SBORN_GSCALE:
+  ! 0 = off (default), 1 = on. Set up in vfold_born_batch.f90, which knows the
+  ! Born coupling orders. Opt-in as the rescaled values differ by rounding.
+  integer, public, save :: vfold_sborn_gscale = 0
+contains
+
+  ! Road B step 11q: time a complete_xmcsubt call into vfold_tdelta.
+  subroutine vfold_tdelta_start
+    implicit none
+    call cpu_time(vfold_tdelta_t0)
+  end subroutine vfold_tdelta_start
+
+  subroutine vfold_tdelta_stop
+    implicit none
+    real :: t1
+    call cpu_time(t1)
+    vfold_tdelta = vfold_tdelta + (t1-vfold_tdelta_t0)
+  end subroutine vfold_tdelta_stop
+
+  ! Road B step 11j: time a bridge create or delete call into vfold_tbridge.
+  subroutine vfold_tbridge_start
+    implicit none
+    call cpu_time(vfold_tbridge_t0)
+  end subroutine vfold_tbridge_start
+
+  subroutine vfold_tbridge_stop
+    implicit none
+    real :: t1
+    call cpu_time(t1)
+    vfold_tbridge = vfold_tbridge + (t1-vfold_tbridge_t0)
+  end subroutine vfold_tbridge_stop
+
+  subroutine setup_av_me_mode
+    implicit none
+    character(len=10) :: getenvvalue
+    call getenv('ENV_VFOLD_ME_MODE', getenvvalue)
+    if (getenvvalue.eq.'F0') then
+      vfold_me_mode = 'F0'
+    elseif (getenvvalue.eq.'F1') then
+      vfold_me_mode = 'F1'
+    elseif (getenvvalue.eq.'F2') then
+      vfold_me_mode = 'F2'
+    elseif (getenvvalue.eq.'F') then
+      vfold_me_mode = 'F '
+    elseif (getenvvalue.eq.'C') then
+      vfold_me_mode = 'C '
+    else
+      write(6,*) 'ERROR: ENV_VFOLD_ME_MODE must be F0, F1, F2, F or C, got: ', &
+                 trim(getenvvalue)
+      stop 1
+    endif
+    write(6,*) 'AV: ENV_VFOLD_ME_MODE=', vfold_me_mode
+  end subroutine setup_av_me_mode
+
+  ! Road B step 7b: read vfold_vecsize_used from ENV_VFOLD_VECSIZE_USED
+  ! Step 15i: stock MadGraph7 keeps the cached Born amplitudes if the momenta and the
+  ! couplings are unchanged, and rescales them if only alpha_S changed (gscale).
+  ! Step 15j: this is on in F0, F1, F2 and F (the memo and the replay restore the cached
+  ! amplitudes, and tell SBORN so, see BORN_AMPS_RESTORED). It is off in C, where it makes
+  ! no difference to the results (cudacpp serves the Borns).
+  ! ENV_VFOLD_MG7BORNNOOPT=1 also switches it off in F0, F1, F2 and F at run time, for
+  ! development (F1, F2 and F are then bit-identical, as in mg5amcnlo).
+  subroutine setup_av_mg7bornnoopt
+    implicit none
+    character(len=10) :: getenvvalue
+    logical :: check_born_amps, born_checks_amps
+    common /c_born_amps_check/ check_born_amps, born_checks_amps
+    if (vfold_use_cudacpp()) born_checks_amps = .false.
+    call getenv('ENV_VFOLD_MG7BORNNOOPT', getenvvalue)
+    if (len_trim(getenvvalue).gt.0) then
+      if (getenvvalue.eq.'1') then
+        born_checks_amps = .false.
+      elseif (getenvvalue.ne.'0') then
+        write(6,*) 'ERROR: invalid ENV_VFOLD_MG7BORNNOOPT: ', trim(getenvvalue)
+        stop 1
+      endif
+    endif
+    write(6,*) 'AV: born_checks_amps=', born_checks_amps
+  end subroutine setup_av_mg7bornnoopt
+
+  subroutine setup_av_vecsize_used
+    implicit none
+    character(len=10) :: getenvvalue
+    integer :: ios
+    call getenv('ENV_VFOLD_VECSIZE_USED', getenvvalue)
+    if (len_trim(getenvvalue).gt.0) then
+      read(getenvvalue, *, iostat=ios) vfold_vecsize_used
+      if (ios.ne.0 .or. vfold_vecsize_used.le.0) then
+        write(6,*) 'ERROR: invalid ENV_VFOLD_VECSIZE_USED: ', trim(getenvvalue)
+        stop 1
+      endif
+    endif
+    write(6,*) 'AV: vfold_vecsize_used=', vfold_vecsize_used
+  end subroutine setup_av_vecsize_used
+
+  ! Mode properties: later steps should test these instead of comparing
+  ! vfold_me_mode against explicit lists of mode strings, so that a new mode
+  ! only needs to be added here.
+
+  ! Draw random numbers through the RNG-slot machinery (F1, F2, F, C)
+  ! instead of bare ran2() calls (F0)?
+  logical function vfold_use_rng_slots()
+    implicit none
+    vfold_use_rng_slots = (vfold_me_mode.ne.'F0')
+  end function vfold_use_rng_slots
+
+  ! Use the batch API, i.e. deferred Born/Real evaluation of all folds of
+  ! each kpoint in a batch (F, C), instead of the original immediate
+  ! evaluation one fold at a time (F0, F1, F2)?
+  logical function vfold_use_batch_api()
+    implicit none
+    vfold_use_batch_api = (vfold_me_mode.eq.'F ' .or. vfold_me_mode.eq.'C ')
+  end function vfold_use_batch_api
+
+  ! Evaluate the batched Born/Real MEs through the cudacpp bridge (C),
+  ! instead of a plain Fortran loop over SBORN/SMATRIX_REAL (F)?
+  ! Only meaningful when vfold_use_batch_api() is true.
+  logical function vfold_use_cudacpp()
+    implicit none
+    vfold_use_cudacpp = (vfold_me_mode.eq.'C ')
+  end function vfold_use_cudacpp
+
+  ! Deduplicate the direct (unbatched) Born evaluations with the Born
+  ! memo (F2)? The batched evaluations of F and C always use the memo;
+  ! F0 and F1 never do (they are the reference points).
+  logical function vfold_use_born_memo()
+    implicit none
+    vfold_use_born_memo = (vfold_me_mode.eq.'F2')
+  end function vfold_use_born_memo
+
+  ! Road B step 11b: keep the original code (F0, F1: the reference points)
+  ! also for the changes that are not specific to the new modes, such as
+  ! the faster timers of step 11a (ENV_VFOLD_CPUTIME<0, see vfold_cpu_time.c)
+  ! and the doreweight gate on fill_rwgt_lines of step 11c (driver_mintMC.f)
+  logical function vfold_is_reference_mode()
+    implicit none
+    vfold_is_reference_mode = .not. (vfold_use_born_memo() .or. vfold_use_batch_api())
+  end function vfold_is_reference_mode
+
+  ! Road B step 11b: vfold_cpu_time.c chooses its implementation at the first
+  ! cpu_time call, before setup_av_me_mode, reading ENV_VFOLD_ME_MODE itself
+  ! for ENV_VFOLD_CPUTIME<0: check that it agrees with vfold_is_reference_mode().
+  subroutine check_av_cpu_time
+    implicit none
+    integer, external :: vfold_cpu_time_mode
+    integer :: mode, setting
+    mode = vfold_cpu_time_mode(setting)
+    if (setting.lt.0) then
+      if (vfold_is_reference_mode() .neqv. (mode.eq.0)) then
+        write(6,*) 'ERROR: vfold_cpu_time mode=', mode, ' for ENV_VFOLD_CPUTIME=', &
+             setting, ' in ENV_VFOLD_ME_MODE=', vfold_me_mode
+        stop 1
+      endif
+    endif
+  end subroutine check_av_cpu_time
+
+  subroutine setup_av_sborn_bridge
+    implicit none
+    character(len=10) :: getenvvalue
+    call getenv('ENV_VFOLD_SBORN_BRIDGE', getenvvalue)
+    if (len_trim(getenvvalue).gt.0) then
+      if (getenvvalue.eq.'0') then
+        vfold_sborn_bridge = 0
+      elseif (getenvvalue.eq.'1') then
+        vfold_sborn_bridge = 1
+      elseif (getenvvalue.eq.'2') then
+        vfold_sborn_bridge = 2
+      else
+        write(6,*) 'ERROR: invalid ENV_VFOLD_SBORN_BRIDGE: ', trim(getenvvalue)
+        stop 1
+      endif
+    endif
+    if (vfold_sborn_bridge.gt.0) then
+      if (.not.vfold_use_cudacpp()) then
+        vfold_sborn_bridge = 0 ! only meaningful in mode C
+      endif
+    endif
+    write(6,*) 'AV: vfold_sborn_bridge=', vfold_sborn_bridge
+  end subroutine setup_av_sborn_bridge
+
+  subroutine setup_av_kpoint_batch
+    implicit none
+    character(len=10) :: getenvvalue
+    integer :: ios
+    call getenv('ENV_VFOLD_KPOINT_BATCH', getenvvalue)
+    if (len_trim(getenvvalue).gt.0) then
+      read(getenvvalue, *, iostat=ios) vfold_kpoint_batch
+      if (ios.ne.0 .or. vfold_kpoint_batch.le.0) then
+        write(6,*) 'ERROR: invalid ENV_VFOLD_KPOINT_BATCH: ', trim(getenvvalue)
+        stop 1
+      endif
+    endif
+    write(6,*) 'AV: vfold_kpoint_batch=', vfold_kpoint_batch
+  end subroutine setup_av_kpoint_batch
+
+  subroutine setup_av_batch_pervn
+    implicit none
+    character(len=10) :: getenvvalue
+    integer :: ios
+    call getenv('ENV_VFOLD_BATCH_PERVN', getenvvalue)
+    if (len_trim(getenvvalue).gt.0) then
+      read(getenvvalue, *, iostat=ios) vfold_batch_pervn
+      if (ios.ne.0 .or. vfold_batch_pervn.lt.0 .or. vfold_batch_pervn.gt.1) then
+        write(6,*) 'ERROR: invalid ENV_VFOLD_BATCH_PERVN: ', trim(getenvvalue)
+        stop 1
+      endif
+    endif
+    write(6,*) 'AV: vfold_batch_pervn=', vfold_batch_pervn
+  end subroutine setup_av_batch_pervn
+end module vfold_mode

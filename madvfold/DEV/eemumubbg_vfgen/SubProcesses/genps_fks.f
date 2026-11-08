@@ -34,6 +34,9 @@
       common /c_vegas_x/xvar
       integer            this_config
       common/to_mconfigs/this_config
+c AV road B step 11l: the raw jacobians, for the PS memo (driver_mintMC.f)
+      double precision vfold_gm_jac_raw,vfold_gm_jac_cnt_raw(-2:2)
+      common/c_av_gm_raw/vfold_gm_jac_raw,vfold_gm_jac_cnt_raw
 c     
       call cpu_time(tBefore)
       this_config=iconfig
@@ -56,6 +59,8 @@ c
       enddo
 c
       call generate_momenta_conf_wrapper(ndim,jac,x,itree,qmass,qwidth,p)
+      vfold_gm_jac_raw=jac ! AV step 11l
+      vfold_gm_jac_cnt_raw(-2:2)=jac_cnt(-2:2) ! AV step 11l
 c If the input weight 'wgt' to this subroutine was not equal to one,
 c make sure we update all the (counter-event) jacobians and return also
 c the updated wgt (i.e. the jacobian for the event)
@@ -503,6 +508,7 @@ c
       subroutine generate_momenta_conf_wrapper(nndim,jac,x,itree,qmass
      $     ,qwidth,p)
       use mint_module
+      use vfold_rng_slots
       implicit none
       include 'nexternal.inc'
       include 'genps.inc'
@@ -739,7 +745,7 @@ c     1st term in eq.70 of the note
             MC_sum_factor=1d0
             if (compute_mapped.and.compute_non_shifted) then
 c     Could add importance sampling here
-               random=ran2()
+               random=vfold_newran2(ISLOT_FD_GENMOM_COINFLIP,.true.) ! AV step 2
                if (random.lt.0.5d0) then
                   compute_mapped=.false.
                else
@@ -866,6 +872,8 @@ c Conflicting BW stuff
       integer ns_channel, nt_channel, ionebody, nbranch
       logical one_body
       common/born_trees/itree_c,ns_channel,nt_channel,ionebody,nbranch,one_body
+      logical dump69
+      common /cdump69/dump69
 
       ndim_dummy=-1 ! this is actually not used anymore
 
@@ -898,6 +906,7 @@ c     not a Breit Wigner
          
 c Generate the rapditity of the Born system
            call generate_y(tau_born,rndx(2),ycm_born,ycmhat,xjac)
+           if (dump69) write(69,*)'TAUY',tau_born,ycm_born
 
         else                    ! this is for dressed ee collisions
            call generate_ee_tau_y(rndx(1), rndx(2), one_body, totmass,
@@ -1155,6 +1164,9 @@ c saves
       logical only_event_phsp,skip_event_phsp
       common /c_skip_only_event_phsp/only_event_phsp,skip_event_phsp
 
+      logical dump69
+      common /cdump69/dump69
+
       pass=.true.
       do i=1,nexternal-1
          if (i.lt.i_fks) then
@@ -1197,6 +1209,9 @@ c
       ! generate tau and y
       call generate_tau_y_wrapper(
      $ qmass,qwidth,totmass,stot,x(ndim-4:ndim-3),tau_born,ycm_born,ycmhat,xjac0)
+      if (dump69) then
+          write(69,*) 'JACPDF', xjac0
+      endif
       ! filter unphysical configurations
       if (xjac0.lt.0d0) goto 222
 
@@ -1232,6 +1247,10 @@ c Trivial, but prevents loss of accuracy
         call generate_momenta_born(x,shat_born,sqrtshat_born,totmass,
      $      m,s,
      $      qmass,qwidth,granny_m2_red,input_granny_m2,m_born,xpswgt0,xjac0)
+        if (dump69) then
+          write(69,*) 'JACPDFBORN', xjac0
+        endif
+
 
         call generate_FKS_kinematics(x,ndim,xjac0,xpswgt0,
      $      stot,shat_born,sqrtshat_born,tau_born,ycm_born,ycmhat,
@@ -1344,6 +1363,11 @@ c Set all to negative values and exit
       common /cxiimaxev/xiimax_ev
       double precision xiimax_cnt(-2:2)
       common /cxiimaxcnt/xiimax_cnt
+      double precision phidump
+      common /tophidump/phidump
+
+      logical dump69
+      common /cdump69/dump69
 
       logical fks_as_is
       parameter (fks_as_is=.false.)
@@ -1448,6 +1472,7 @@ c
 c set-up phi_i_fks
 c
       phi_i_fks=2d0*pi*x(ixpi)
+      phidump=phi_i_fks
       xjac=xjac*2d0*pi
 c To keep track of the special phase-space region with massive j_fks
       isolsign=0
@@ -1503,6 +1528,7 @@ c All done, so check four-momentum conservation
          endif
       endif
 
+      if (dump69) write(69,*) 'JACPDFBORNFKS',xjac,icountevts
       call compute_flux(shat,sqrtshat,m(1),m(2),xpswgt,xjac)
 c      
  112  continue
@@ -3627,8 +3653,8 @@ c Jacobian due to delta() of tau_born
       double precision tau,x,ycm,jac
       double precision ylim,ycmhat
       ylim=-0.5d0*log(tau)
-      ycmhat=2*x-1
-      ycm=ylim*ycmhat
+      ycmhat=2*x-1 ! -1 to 1
+      ycm=ylim*ycmhat ! -ylim to +ylim
       jac=jac*ylim*2
       return
       end

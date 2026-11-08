@@ -25,6 +25,8 @@ C     the charge-linked if it is a color singlet
       PARAMETER (ZERO=0D0)
       DOUBLE PRECISION AMP_SPLIT_SOFT(AMP_SPLIT_SIZE)
       COMMON /TO_AMP_SPLIT_SOFT/AMP_SPLIT_SOFT
+      LOGICAL BSF_SERVED, VFOLD_BSF_SERVED  ! AV road B step 11y
+      EXTERNAL VFOLD_BSF_SERVED
 
       CHARGEPROD = 0D0
 
@@ -36,21 +38,49 @@ C     the charge-linked if it is a color singlet
 C     check if need color or charge links, and include the gs/w**2
 C      term here
       IF (NEED_COLOR_LINKS) THEN
+C       AV road B step 11y: in mode C with SBORN served from
+C       cudacpp (ENV_VFOLD_SBORN_BRIDGE>0), take the colour-linked
+C       Borns computed by cudacpp for this point if available
+C       (VFOLD_BSF_SERVED), else compute them in Fortran: these
+C       read SBORN's amplitude cache SAVEAMP, which is not filled
+C       when SBORN is served, so make sure that it holds P_BORN
+        BSF_SERVED = VFOLD_BSF_SERVED(P_BORN)
+        IF (.NOT.BSF_SERVED) CALL VFOLD_ENSURE_SAVEAMP(P_BORN)
 C       link partons 3 and 3 
         IF (M.EQ.3 .AND. N.EQ.3) THEN
-          CALL SB_SF_LINK(P_BORN,1,WGT_COL)
+          IF (BSF_SERVED) THEN
+            CALL VFOLD_BSF_SERVED_LINK(1,WGT_COL)
+          ELSE
+            CALL SB_SF_LINK(P_BORN,1,WGT_COL)
+          ENDIF
 C         link partons 3 and 4 
         ELSEIF ((M.EQ.3 .AND. N.EQ.4).OR.(M.EQ.4 .AND. N.EQ.3)) THEN
-          CALL SB_SF_LINK(P_BORN,2,WGT_COL)
+          IF (BSF_SERVED) THEN
+            CALL VFOLD_BSF_SERVED_LINK(2,WGT_COL)
+          ELSE
+            CALL SB_SF_LINK(P_BORN,2,WGT_COL)
+          ENDIF
 C         link partons 3 and 7 
         ELSEIF ((M.EQ.3 .AND. N.EQ.7).OR.(M.EQ.7 .AND. N.EQ.3)) THEN
-          CALL SB_SF_LINK(P_BORN,3,WGT_COL)
+          IF (BSF_SERVED) THEN
+            CALL VFOLD_BSF_SERVED_LINK(3,WGT_COL)
+          ELSE
+            CALL SB_SF_LINK(P_BORN,3,WGT_COL)
+          ENDIF
 C         link partons 4 and 4 
         ELSEIF (M.EQ.4 .AND. N.EQ.4) THEN
-          CALL SB_SF_LINK(P_BORN,4,WGT_COL)
+          IF (BSF_SERVED) THEN
+            CALL VFOLD_BSF_SERVED_LINK(4,WGT_COL)
+          ELSE
+            CALL SB_SF_LINK(P_BORN,4,WGT_COL)
+          ENDIF
 C         link partons 4 and 7 
         ELSEIF ((M.EQ.4 .AND. N.EQ.7).OR.(M.EQ.7 .AND. N.EQ.4)) THEN
-          CALL SB_SF_LINK(P_BORN,5,WGT_COL)
+          IF (BSF_SERVED) THEN
+            CALL VFOLD_BSF_SERVED_LINK(5,WGT_COL)
+          ELSE
+            CALL SB_SF_LINK(P_BORN,5,WGT_COL)
+          ENDIF
         ENDIF
 
         WGT = WGT_COL * G**2

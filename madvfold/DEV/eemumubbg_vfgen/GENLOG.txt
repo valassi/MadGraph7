@@ -1,0 +1,201 @@
+START:    Sun Nov  8 07:05:05 PM CET 2026
+HOSTNAME: aicoral92.cern.ch
+fatal: No names found, cannot describe anything.
+Running MG7 in debug mode
+('WARNING: loading of madgraph too slow!!!', 0.5543355941772461)
+********************************************************************************
+*                                                                              *
+*                               W E L C O M E to                               *
+*                              M A D G R A P H [1;34m7[0m                               *
+*                                                                              *
+*                                                                              *
+*                                  ..........                                  *
+*                                @          ....                               *
+*                              @               ...                             *
+*                            @    M         M    .                             *
+*                           @     MM       MM    ..                            *
+*                           .     M  M   M  M  ..                              *
+*                           ..    M   M M   M ..                               *
+*                            .    M    M    M.                                 *
+*                            ...               [1;34m7777777[0m                         *
+*                              ....                 [1;34m7[0m                          *
+*                                 ................ [1;34m7[0m                           *
+*                                                 [1;34m7[0m                            *
+*                                                [1;34m7[0m                             *
+*                                                                              *
+*                   VERSION 0.2.1                 2026-09-24                   *
+*                   GIT                             vfold7cg                   *
+*                                                                              *
+*                 The MadGraph7 Development Team - Find us at                  *
+*                        http://madgraph.phys.ucl.ac.be/                       *
+*                                      and                                     *
+*                      http://amcatnlo.web.cern.ch/amcatnlo/                   *
+*                                                                              *
+*                         Type 'help' for in-line help.                        *
+*                 Type 'tutorial' to learn how MadGraph7 works                 *
+*                                                                              *
+********************************************************************************
+load MG7 configuration from input/mg7_configuration.txt 
+fastjet-config does not seem to correspond to a valid fastjet-config executable (v3+). We will use fjcore instead.
+ Please set the 'fastjet'variable to the full (absolute) /PATH/TO/fastjet-config (including fastjet-config).
+ MadGraph7> set fastjet /PATH/TO/fastjet-config
+
+eMELA-config does not seem to correspond to a valid eMELA-config executable.
+ Please set the 'fastjet'variable to the full (absolute) /PATH/TO/eMELA-config (including eMELA-config).
+ MadGraph7> set eMELA /PATH/TO/eMELA-config
+
+set ninja to /data/avalassi/NEGWGT2026/testCG-MadGraph7/HEPTools/lib
+set collier to /data/avalassi/NEGWGT2026/testCG-MadGraph7/HEPTools/lib
+set lhapdf to /data/avalassi/NEGWGT2026/testCG-MadGraph7/HEPTools/lhapdf6_py3/bin/lhapdf-config
+No valid eps viewer found. Please set in ./input/mg7_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg7_configuration.txt
+Using default gzip "pigz". Set another one in ./input/mg7_configuration.txt
+import /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen.mg
+The import format was not given, so we guess it as command
+set automatic_html_opening False --no_save
+set pythia8_path ./HEPTools/pythia8 --no_save
+set mg5amc_py8_interface_path ./HEPTools/MG5aMC_PY8_interface --no_save
+[1;34m'mg5amc_py8_interface_path' is not supported any more (the MG5aMC_PY8_interface has been removed, Pythia8 showers run its main164). Ignoring it.[0m
+set hepmc_path ./HEPTools/hepmc --no_save
+set lhapdf_py3 ./HEPTools/lhapdf6_py3/bin/lhapdf-config --no_save
+set lhapdf to ./HEPTools/lhapdf6_py3/bin/lhapdf-config
+set ninja ./HEPTools/lib --no_save
+set collier ./HEPTools/collier --no_save
+set collier to ./HEPTools/collier
+generate e+ e- > mu+ mu- b b~ g [QCD]
+No model currently active, so we import the Standard Model
+INFO: Details of the model import are written in /data/avalassi/NEGWGT2026/testCG-MadGraph7/models/sm/sm_debug.log 
+INFO: reload from .py file 
+INFO: reload from .py file 
+INFO: load particles 
+INFO: load vertices 
+INFO: Restrict model sm with file models/sm/restrict_default.dat . 
+INFO: Use 'explain_restriction' to see what that card removes from the model. 
+INFO: Apply flavor grouping to the model 
+INFO: Change particles name to pass to MG7 convention 
+Defined multiparticle p = g u c d s u~ c~ d~ s~
+Defined multiparticle j = g u c d s u~ c~ d~ s~
+Defined multiparticle l+ = e+ mu+
+Defined multiparticle l- = e- mu-
+Defined multiparticle vl = ve vm vt
+Defined multiparticle vl~ = ve~ vm~ vt~
+Defined multiparticle all = g u c d s _quark u~ c~ d~ s~ _anti_quark a ve vm vt e- mu- _lepton _neutrino ve~ vm~ vt~ e+ mu+ _anti_lepton _anti_neutrino t b t~ b~ z w+ h w- ta- ta+
+set apply_flavor_grouping False
+ import model sm
+INFO: Details of the model import are written in /data/avalassi/NEGWGT2026/testCG-MadGraph7/models/sm/sm_debug.log 
+INFO: reload from .py file 
+INFO: reload from .py file 
+INFO: load particles 
+INFO: load vertices 
+INFO: Restrict model sm with file models/sm/restrict_default.dat . 
+INFO: Use 'explain_restriction' to see what that card removes from the model. 
+INFO: Change particles name to pass to MG7 convention 
+Kept definitions of multiparticles p / j / l+ / l- / vl / vl~ unchanged
+Removed obsolete multiparticles all
+Defined multiparticle all = g u c d s u~ c~ d~ s~ a ve vm vt e- mu- ve~ vm~ vt~ e+ mu+ t b t~ b~ z w+ h w- ta- ta+
+The current model sm does not allow to generate loop corrections of type ['QCD'].
+MadGraph7 now loads 'loop_sm'.
+ import model loop_sm
+INFO: Details of the model import are written in /data/avalassi/NEGWGT2026/testCG-MadGraph7/models/loop_sm/loop_sm_debug.log 
+INFO: failed to load model from pickle file. Try importing UFO from File 
+[1;60mINFO: This model [version 1.2] is provided by V. Hirschi (email: valentin.hirschi@gmail.com). Please cite n/a [0m
+INFO: load particles 
+INFO: load vertices 
+INFO: Restrict model loop_sm with file models/loop_sm/restrict_default.dat . 
+INFO: Use 'explain_restriction' to see what that card removes from the model. 
+INFO: Change particles name to pass to MG7 convention 
+Kept definitions of multiparticles p / j / l+ / l- / vl / vl~ unchanged
+Removed obsolete multiparticles all
+Defined multiparticle all = g gh gh~ d u s c d~ u~ s~ c~ a ve vm vt e- mu- ve~ vm~ vt~ e+ mu+ b t b~ t~ z w+ h w- ta- ta+
+INFO: Checking for minimal orders which gives processes. 
+INFO: Please specify coupling orders to bypass this step. 
+INFO: Trying coupling order WEIGHTED<=9: WEIGHTED IS QCD+2*QED 
+[1mSetting the born squared orders automatically in the process definition to QED^2<=8 QCD^2<=2.
+If this is not what you need, please regenerate with the correct orders.[0m
+[1;34mThe process definition has leptons in the initial state[0m
+[1;34mThe flag 'include_lepton_initiated_processes' will be set to True[0m
+[1;34mWARNING: Use of multiparticles is non-trivial for NLO process generation and depends on the orders included, the process considered, as well as the PDF set chosen. See appendix D of arXiv:1804.10017 [hep-ph] for some guidance. [0m
+INFO: Generating FKS-subtracted matrix elements for born process: e+ e- > mu+ mu- b b~ g QCD^2=4 QED^2=8 (1 / 1) 
+INFO: Generating virtual matrix element with MadLoop for process: e+ e- > b b~ mu- mu+ g QCD^2=4 QED^2=8 (1 / 1) 
+INFO: Generated 1 subprocesses with 840 real emission diagrams, 58 born diagrams and 655 virtual diagrams 
+output madvfold/DEV/eemumubbg_vfgen --vfold-with-tests
+INFO: Writing out the aMC@NLO code, using optimized Loops 
+INFO: initialize a new directory: eemumubbg_vfgen 
+INFO: MadVFold: overlay /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/overlay/Template/NLO 
+INFO: MadVFold: overlay /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/overlay_test/Template/NLO 
+INFO: remove old information in eemumubbg_vfgen 
+INFO: Generating real emission matrix-elements... 
+INFO: Generating Helas calls for FKS process: e+ e- > b b~ mu- mu+ g [ all = QCD QED ] QCD^2=4 QED^2=8 (1 / 1) 
+INFO: Processing color information for process: e+ e- > b b~ mu- mu+ g [ all = QCD QED ] QCD^2=4 QED^2=8 
+INFO: ... Done 
+INFO: Writing files in P0_epem_bbxmummupg (1 / 1) 
+INFO: Creating files in directory V0_epem_bbxmummupg 
+[1;32mDEBUG: adding in aloha model 1 lorentz struct [0m
+ALOHA: aloha creates FFV1 set of routines with options: L1,P0[0m
+ALOHA: aloha creates FFV1 set of routines with options: L3[0m
+ALOHA: aloha creates FFV1 set of routines with options: L2,P0[0m
+ALOHA: aloha creates FFV1 set of routines with options: L3[0m
+ALOHA: aloha creates FFV1 set of routines with options: L2[0m
+ALOHA: aloha creates FFV2 set of routines with options: L2[0m
+ALOHA: aloha creates FFV3 set of routines with options: L2[0m
+ALOHA: aloha creates FFV1 set of routines with options: L1[0m
+ALOHA: aloha creates FFV2 set of routines with options: L1[0m
+ALOHA: aloha creates FFV3 set of routines with options: L1[0m
+ALOHA: aloha creates FFS1 set of routines with options: L2[0m
+ALOHA: aloha creates FFS1 set of routines with options: L1[0m
+ALOHA: aloha creates VVV1 set of routines with options: L2,P0[0m
+ALOHA: aloha creates FFV5 set of routines with options: L1[0m
+ALOHA: aloha creates FFV5 set of routines with options: L2[0m
+INFO: Computing diagram color coefficients 
+INFO: Particles with .true. are generated off-shell: ['.false.', '.false.', '.false.', '.false.', '.false.', '.false.', '.false.'] 
+INFO: Drawing loop Feynman diagrams for Process: e+ e- > b b~ mu- mu+ g [ all = QCD QED ] QCD^2=4 QED^2=8 
+INFO: Generating born Feynman diagrams for Process: e+ e- > b b~ mu- mu+ g [ all = QCD QED ] QCD^2=4 QED^2=8 
+[1;32mDEBUG: wanted_couplings: CTparan not supporting merging -> will be problematic for NLO [0m
+ALOHA: aloha starts to compute helicity amplitudes
+ALOHA: aloha creates FFV1 routines[0m
+ALOHA: aloha creates FFV2 routines[0m
+ALOHA: aloha creates FFV3 routines[0m
+ALOHA: aloha creates FFV4 routines[0m
+ALOHA: aloha creates VVS1 routines[0m
+ALOHA: aloha creates FFS1 routines[0m
+ALOHA: aloha creates VVV1 set of routines with options: P0[0m
+ALOHA: aloha creates FFV5 routines[0m
+ALOHA: aloha creates R2_QQ_1 routines[0m
+ALOHA: aloha creates R2_QQ_2 routines[0m
+ALOHA: aloha creates R2_GGZ routines[0m
+ALOHA: aloha creates R2_GGVV routines[0m
+ALOHA: aloha creates FFV2_3 routines[0m
+ALOHA: aloha creates FFV2_4 routines[0m
+ALOHA: aloha creates FFV2_5 routines[0m
+ALOHA: aloha creates R2_QQ_1_R2_QQ_2 routines[0m
+ALOHA: aloha creates 31 routines in  0.990 s
+The option include_lepton_initiated_processes is modified [False] but will not be written in the configuration files.
+If you want to make this value the default for future session, you can run 'save options --all'
+The option apply_flavor_grouping is modified [True] but will not be written in the configuration files.
+If you want to make this value the default for future session, you can run 'save options --all'
+save configuration file to /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt
+INFO: Use Fortran compiler gfortran 
+INFO: Use c++ compiler g++ 
+INFO: Generate jpeg diagrams 
+INFO: Generate web pages 
+Type "launch" to generate events from this process, or see
+/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/README
+Run "open index.html" to see more information about this process.
+MadVFold: run /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/vfold/generateCudacpp.sh
+INFO: generate CUDACPP (vfold/genCudacpp.sh)
+INFO: build the cudacpp libraries (vfold/buildCudacppLibs.sh, log in CUDACPP/buildCudacppLibs.log)
+INFO:   build the Born library epem_bbxmummupg.vfold.sa (all backends) at 19:07:18
+INFO:   build the Real library epem_bbxmummupgg.sa (real1, all backends) at 19:08:59
+INFO:   build the Real library epem_bbxmummupddx.sa (real2, all backends) at 19:10:34
+INFO:   build the Real library epem_bbxmummupuux.sa (real3, all backends) at 19:12:01
+INFO:   cudacpp libraries built at 19:13:33
+INFO: copy the cudacpp libraries to lib/cudacpp (vfold/copyCudacppLibs.sh)
+INFO: generateCudacpp.sh completed (to run in mode C, first: source vfold/setupVfoldDefaults.sh)
+MadVFold: run /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/test/setupVfoldTests.sh /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen
+INFO: setupVfoldTests.sh procdir=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen
+INFO: setupVfoldTests.sh gridsdir=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/test/grids/epem_bbxmummupg
+INFO: setupVfoldTests.sh completed
+quit
+START:    Sun Nov  8 07:05:05 PM CET 2026
+END:      Sun Nov  8 07:13:36 PM CET 2026
+ELAPSED:  511 seconds

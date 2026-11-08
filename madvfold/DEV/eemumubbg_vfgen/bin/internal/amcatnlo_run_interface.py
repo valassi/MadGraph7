@@ -1972,11 +1972,15 @@ class aMCatNLOCmd(CmdExtended, HelpToCmd, CompleteForCmd, common_run.CommonRunCm
 
             # Main loop over the three MINT generation steps:
             for mint_step, status in enumerate(mcatnlo_status):
+                print('DEBUG! mint_step=%i'%mint_step)
+                print('DEBUG! status=%s'%status)
                 if options['only_generation'] and mint_step < 2:
                     continue
                 self.update_status(status, level='parton')
                 self.run_all_jobs(jobs_to_run,mint_step,fixed_order=False)
                 self.collect_log_files(jobs_to_run,mint_step)
+                if mint_step == 1:
+                    self.collect_dump_files(jobs_to_run)
                 jobs_to_run,jobs_to_collect=self.collect_the_results(options,req_acc,jobs_to_run, \
                                 jobs_to_collect,mint_step,mode,mode_dict[mode],fixed_order=False)
                 if mint_step+1==2 and nevents==0:
@@ -2122,6 +2126,15 @@ class aMCatNLOCmd(CmdExtended, HelpToCmd, CompleteForCmd, common_run.CommonRunCm
                 try:
                     with open(pjoin(self.me_dir,'SubProcesses',p_dir,'channels.txt')) as chan_file:
                         channels=chan_file.readline().split()
+                    # AV: restrict to a subset of channels for fast dev/timing iteration
+                    # (e.g. some processes have many more channels/GF folders than others,
+                    # each running its own full mint0/mint1/mint2 sequence -- physics
+                    # accuracy is not needed for that use case).
+                    env_channels = os.environ.get('ENV_VFOLDTEST_CHANNELS', '')
+                    if env_channels:
+                        allowed = set(env_channels.split())
+                        channels = [c for c in channels if c in allowed]
+                        logger.info('ENV_VFOLDTEST_CHANNELS=%s: restricting to channels %s' % (env_channels, channels))
                 except IOError:
                     logger.warning('No integration channels found for contribution %s (too large masses/low energy?)' % p_dir)
                     continue
@@ -2196,6 +2209,25 @@ class aMCatNLOCmd(CmdExtended, HelpToCmd, CompleteForCmd, common_run.CommonRunCm
                     jobs_to_collect=pickle.load(f)
                     for job in jobs_to_collect:
                         job['dirname']=pjoin(self.me_dir,'SubProcesses',job['dirname'].rsplit('/SubProcesses/',1)[1])
+                # AV: job_status.pkl is written by the initial generation and
+                # therefore lists ALL integration channels. When only a subset
+                # of the channels has been restored (e.g. to rerun a single
+                # channel from previously optimized grids), the missing ones
+                # have no results to read and break the steps that follow.
+                # Keep only the channels that were actually restored, i.e.
+                # those whose MINT1 results file is present.
+                jobs_avail=[job for job in jobs_to_collect
+                            if os.path.exists(pjoin(job['dirname'],'res_1.dat'))]
+                if not jobs_avail:
+                    raise aMCatNLOError(
+                        'No channel with res_1.dat found in %s: cannot rerun '
+                        'from the saved job status' %
+                        pjoin(self.me_dir,'SubProcesses'))
+                if len(jobs_avail) != len(jobs_to_collect):
+                    logger.info('Using %d of the %d channels in job_status.pkl '
+                                '(the others have no res_1.dat)' %
+                                (len(jobs_avail),len(jobs_to_collect)))
+                jobs_to_collect=jobs_avail
                 jobs_to_run=copy.copy(jobs_to_collect)
             except:
                 raise aMCatNLOError('Cannot reconstruct jobs from saved job status in %s' % \
@@ -2274,8 +2306,20 @@ RESTART = %(mint_mode)s
                 job['fold_string']='1 1 1'
             else:
                 job['fold_string']=' '.join(map(str, self.run_card['folding']))
+            # AV: points/iterations per MINT step, overridable via env vars for fast
+            # dev/timing iteration (physics accuracy not needed for that use case).
+            # Defaults below reproduce the original hardcoded '-1 12' with no env vars set.
+            job['nlo_npoints'] = -1
+            job['nlo_niters'] = 12
+            if job['mint_mode'] == 0:
+                if os.environ.get('ENV_VFOLDTEST_MINT0_NPOINTS'): job['nlo_npoints'] = int(os.environ['ENV_VFOLDTEST_MINT0_NPOINTS'])
+                if os.environ.get('ENV_VFOLDTEST_MINT0_NITERS'):  job['nlo_niters']  = int(os.environ['ENV_VFOLDTEST_MINT0_NITERS'])
+                if os.environ.get('ENV_VFOLDTEST_MINT0_ACC'):     job['accuracy']    = float(os.environ['ENV_VFOLDTEST_MINT0_ACC'])
+            elif job['mint_mode'] == 1:
+                if os.environ.get('ENV_VFOLDTEST_MINT1_NPOINTS'): job['nlo_npoints'] = int(os.environ['ENV_VFOLDTEST_MINT1_NPOINTS'])
+                if os.environ.get('ENV_VFOLDTEST_MINT1_NITERS'):  job['nlo_niters']  = int(os.environ['ENV_VFOLDTEST_MINT1_NITERS'])
             content = \
-"""-1 12      ! points, iterations
+"""%(nlo_npoints)s %(nlo_niters)s      ! points, iterations
 %(accuracy)s       ! desired fractional accuracy
 1 -0.1     ! alpha, beta for Gsoft
 -1 -0.1    ! alpha, beta for Gazi
@@ -2753,11 +2797,15 @@ RESTART = %(mint_mode)s
                         job['niters']=int(round(math.sqrt(itmax_fl)))
                         job['npoints']=int(round(job['npoints_done']*itmax_fl/
                                                  round(math.sqrt(itmax_fl))))*2
+                    print('DEBUG!',job['niters'])
+                    print('DEBUG!',job['npoints'])
                     # Add the job to the list of jobs that need to be run
                     jobs_new.append(job)
             return jobs_new
         elif step+1 <= 2:
+            print('DEBUG! step=%i'%step)
             nevents=self.run_card['nevents']
+            print('DEBUG! nevents=%i'%nevents)
             # Total required accuracy for the upper bounding envelope
             if req_acc<0: 
                 req_acc2_inv=nevents
@@ -3224,6 +3272,17 @@ RESTART = %(mint_mode)s
 
         outfile.write('</font>\n</BODY></HTML>\n')
         outfile.close()
+
+    def collect_dump_files(self, jobs):
+        rundir = pjoin(self.me_dir, 'Events', self.run_name) 
+
+        for job in jobs:
+            # put an anchor
+            file=pjoin(job['dirname'],'dump.dat')
+            # AV there is no dump.dat if ENV_FVZ_NDUMP is 0 or not set
+            if not os.path.exists(file): continue
+            ###files.cp(file, pjoin(rundir,'dump_%s_GF%s.dat' % (job['p_dir'], job['channel'])))
+            files.mv(file, pjoin(rundir,'dump_%s_GF%s.dat' % (job['p_dir'], job['channel'])))
 
 
     def finalise_run_FO(self,folder_name,jobs):

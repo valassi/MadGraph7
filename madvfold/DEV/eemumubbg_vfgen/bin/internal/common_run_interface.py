@@ -4805,7 +4805,7 @@ class CommonRunCmd(HelpToCmd, CheckValidForCmd, cmd.Cmd):
            not os.path.isfile(pjoin(self.options['pythia8_path'],'bin','pythia8-config')):
             self.make_opts_var['PYTHIA8_PATH']='NotInstalled'
         else:
-            self.make_opts_var['PYTHIA8_PATH']=self.options['pythia8_path']
+            self.make_opts_var['PYTHIA8_PATH']='this_variable_is_not_used' # self.options['pythia8_path']
 
         self.make_opts_var['MG5AMC_VERSION'] = misc.get_pkg_info()['version']
 
