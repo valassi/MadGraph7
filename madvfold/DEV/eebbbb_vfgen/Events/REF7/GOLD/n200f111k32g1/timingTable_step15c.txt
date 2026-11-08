@@ -1,0 +1,30 @@
+
+==================== Events/REF7/GOLD/n200f111k32g1/step15c ====================
+### epem_bbbxbx | step15c | NEVENTS=200 | folding=1,1,1 | kbatch=32 | bsffused=N/A | sborn=1
+- N/A: that switch does not exist in the code of this step
+- sborn 1: SBORN served from cudacpp, in mode C only
+- timers: getrusage in F0*, F1; clock_gettime in F2, F, C/none, C/sse4, C/avx2, C/512y, C/512z
+- mode F0: 7675 kpoints = 306 virt + 7369 novi -> 200 events (10 virt + 190 novi)
+- mode F: 8146 kpoints = 287 virt + 7859 novi -> 200 events (9 virt + 191 novi) [same in F1, F2, Cs]
+- mode F: Born 255 batched calls, mean batch 32.000 | Real 246 batched calls, mean batch 31.988
+- F0*: F0 rescaled to the kpoints of F (separately for virt and novi)
+|-----------------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
+| mode/bknd       |    F0* |     F1 |     F2 |      F | C/none | C/sse4 | C/avx2 | C/512y | C/512z |
+| cudacpp_vecsize |      - |      - |      - |      - |      1 |      2 |      4 |      4 |      8 |
+| sborn_gscale    |      - |      - |      - |      - |      1 |      1 |      1 |      1 |      1 |
+| ml_reduction    |  ninja |  ninja |  ninja |  ninja |  ninja |  ninja |  ninja |  ninja |  ninja |
+| born_batch_avg  |      - |      - |      - |   32.0 |   32.0 |   32.0 |   32.0 |   32.0 |   32.0 |
+| real_batch_avg  |      - |      - |      - |   32.0 |   32.0 |   32.0 |   32.0 |   32.0 |   32.0 |
+| cpu_timer       | rusage | rusage |   mono |   mono |   mono |   mono |   mono |   mono |   mono |
+|-----------------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
+| TOTAL           |  4.137 |  4.136 |  4.088 |  4.219 |  3.427 |  2.314 |  1.692 |  1.647 |  1.499 |
+| Born            |  0.444 |  0.441 |  0.445 |  0.479 |  0.297 |  0.164 |  0.097 |  0.087 |  0.081 |
+| Real            |  2.539 |  2.536 |  2.540 |  2.543 |  2.017 |  1.043 |  0.459 |  0.425 |  0.274 |
+| Virtual         |  0.812 |  0.820 |  0.824 |  0.825 |  0.841 |  0.838 |  0.843 |  0.841 |  0.846 |
+| PS_Generation   |  0.031 |  0.032 |  0.016 |  0.028 |  0.027 |  0.028 |  0.030 |  0.030 |  0.030 |
+| CT_and_MCsub    |  0.090 |  0.088 |  0.126 |  0.151 |  0.066 |  0.067 |  0.073 |  0.073 |  0.073 |
+| Nbody_prefactor |  0.021 |  0.021 |  0.003 |  0.033 |  0.003 |  0.003 |  0.003 |  0.003 |  0.003 |
+| Bridge_crt_del  |  0.000 |  0.000 |  0.000 |  0.000 |  0.016 |  0.014 |  0.015 |  0.015 |  0.018 |
+| Misc            |  0.199 |  0.200 |  0.134 |  0.161 |  0.160 |  0.159 |  0.173 |  0.173 |  0.173 |
+|-----------------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
+
