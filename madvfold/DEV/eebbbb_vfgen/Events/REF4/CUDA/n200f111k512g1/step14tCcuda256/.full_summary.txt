@@ -1,0 +1,101 @@
+
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > b b~ b b~ [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 2.461e-04 +- 1.6e-05 pb
+   --------------------------------------------------------------
+
+
+  Number of loop ME evaluations (by MadLoop): 288
+    Stability unknown:                   0
+    Stable PS point:                     288
+    Unstable PS point (and rescued):     0
+    Unstable PS point (and not rescued): 0
+    Only double precision used:          288
+    Quadruple precision used:            0
+    Initialization phase-space points:   0
+    Reduction methods used:
+      > Ninja (double precision)         288
+
+  Statistics on virtual integration optimization : 
+  Could not find statistics on the integration optimization. 
+
+  Inclusive timing profile :
+    Overall slowest channel          0:00:02 (P0_epem_bbbxbx/GF11.0 [step 2])
+    Average channel running time     0:00:02
+    Aggregated total running time    0:00:02
+  Timing profile for <Virtuals> :
+    Overall fraction of time         54.756 %
+    Largest fraction of time         54.756 % (P0_epem_bbbxbx/GF11.0 [step 2])
+    Smallest fraction of time        54.756 % (P0_epem_bbbxbx/GF11.0 [step 2])
+  Timing profile for <Bridge_create_delete> :
+    Overall fraction of time         24.628 %
+    Largest fraction of time         24.628 % (P0_epem_bbbxbx/GF11.0 [step 2])
+    Smallest fraction of time        24.628 % (P0_epem_bbbxbx/GF11.0 [step 2])
+  Timing profile for <Other_tasks> :
+    Overall fraction of time         5.825 %
+    Largest fraction of time         5.825 % (P0_epem_bbbxbx/GF11.0 [step 2])
+    Smallest fraction of time        5.825 % (P0_epem_bbbxbx/GF11.0 [step 2])
+  Timing profile for <Reals_evaluation> :
+    Overall fraction of time         2.662 %
+    Largest fraction of time         2.662 % (P0_epem_bbbxbx/GF11.0 [step 2])
+    Smallest fraction of time        2.662 % (P0_epem_bbbxbx/GF11.0 [step 2])
+  Timing profile for <Write_events> :
+    Overall fraction of time         2.599 %
+    Largest fraction of time         2.599 % (P0_epem_bbbxbx/GF11.0 [step 2])
+    Smallest fraction of time        2.599 % (P0_epem_bbbxbx/GF11.0 [step 2])
+  Timing profile for <Integrated_CT> :
+    Overall fraction of time         2.089 %
+    Largest fraction of time         2.089 % (P0_epem_bbbxbx/GF11.0 [step 2])
+    Smallest fraction of time        2.089 % (P0_epem_bbbxbx/GF11.0 [step 2])
+  Timing profile for <Born> :
+    Overall fraction of time         1.855 %
+    Largest fraction of time         1.855 % (P0_epem_bbbxbx/GF11.0 [step 2])
+    Smallest fraction of time        1.855 % (P0_epem_bbbxbx/GF11.0 [step 2])
+  Timing profile for <PS_Generation> :
+    Overall fraction of time         1.720 %
+    Largest fraction of time         1.720 % (P0_epem_bbbxbx/GF11.0 [step 2])
+    Smallest fraction of time        1.720 % (P0_epem_bbbxbx/GF11.0 [step 2])
+  Timing profile for <AlphaS_dependencies> :
+    Overall fraction of time         0.962 %
+    Largest fraction of time         0.962 % (P0_epem_bbbxbx/GF11.0 [step 2])
+    Smallest fraction of time        0.962 % (P0_epem_bbbxbx/GF11.0 [step 2])
+  Timing profile for <MCsubtraction> :
+    Overall fraction of time         0.841 %
+    Largest fraction of time         0.841 % (P0_epem_bbbxbx/GF11.0 [step 2])
+    Smallest fraction of time        0.841 % (P0_epem_bbbxbx/GF11.0 [step 2])
+  Timing profile for <Counter_terms> :
+    Overall fraction of time         0.795 %
+    Largest fraction of time         0.795 % (P0_epem_bbbxbx/GF11.0 [step 2])
+    Smallest fraction of time        0.795 % (P0_epem_bbbxbx/GF11.0 [step 2])
+  Timing profile for <Applying_cuts> :
+    Overall fraction of time         0.627 %
+    Largest fraction of time         0.627 % (P0_epem_bbbxbx/GF11.0 [step 2])
+    Smallest fraction of time        0.627 % (P0_epem_bbbxbx/GF11.0 [step 2])
+  Timing profile for <Adding_alphas_pdf> :
+    Overall fraction of time         0.246 %
+    Largest fraction of time         0.246 % (P0_epem_bbbxbx/GF11.0 [step 2])
+    Smallest fraction of time        0.246 % (P0_epem_bbbxbx/GF11.0 [step 2])
+  Timing profile for <Nbody_prefactor> :
+    Overall fraction of time         0.202 %
+    Largest fraction of time         0.202 % (P0_epem_bbbxbx/GF11.0 [step 2])
+    Smallest fraction of time        0.202 % (P0_epem_bbbxbx/GF11.0 [step 2])
+  Timing profile for <Sum_ident_contr> :
+    Overall fraction of time         0.139 %
+    Largest fraction of time         0.139 % (P0_epem_bbbxbx/GF11.0 [step 2])
+    Smallest fraction of time        0.139 % (P0_epem_bbbxbx/GF11.0 [step 2])
+  Timing profile for <N1body_prefactor> :
+    Overall fraction of time         0.048 %
+    Largest fraction of time         0.048 % (P0_epem_bbbxbx/GF11.0 [step 2])
+    Smallest fraction of time        0.048 % (P0_epem_bbbxbx/GF11.0 [step 2])
+  Timing profile for <Pick_unwgt> :
+    Overall fraction of time         0.005 %
+    Largest fraction of time         0.005 % (P0_epem_bbbxbx/GF11.0 [step 2])
+    Smallest fraction of time        0.005 % (P0_epem_bbbxbx/GF11.0 [step 2])
+  Zero time record for Delta_Pythia.
+  Zero time record for FxFx_cluster.
+  Zero time record for Reweight_scale.
+  Zero time record for Reweight_pdf.
+  Zero time record for Filling_plots.
