@@ -50,6 +50,12 @@ C
       DOUBLE PRECISION MAX_VAL
       DOUBLE PRECISION       WGT_ME_BORN,WGT_ME_REAL
       COMMON /C_WGT_ME_TREE/ WGT_ME_BORN,WGT_ME_REAL
+      LOGICAL VFOLD_SBORN_SERVE  ! AV road B step 9i+9j
+      EXTERNAL VFOLD_SBORN_SERVE
+      INTEGER NFKSPROCESS
+      COMMON/C_NFKSPROCESS/NFKSPROCESS
+      INTEGER IJ_VALUES(2)
+      DATA IJ_VALUES /0, 0/
 
       DOUBLE PRECISION AMP2B(16), JAMP2B(0:2,0:NAMPSO)
       COMMON/TO_AMPS_BORN/  AMP2B,       JAMP2B
@@ -131,7 +137,15 @@ C        at most one contribution to be integrated at LO
         FIRSTTIME = .FALSE.
       ENDIF
 
-      CALL SBORN_SPLITORDERS(P,ANS)
+C     AV road B step 9i+9j: in mode C with ENV_VFOLD_SBORN_BRIDGE>0,
+C     answer from the Born points already evaluated by cudacpp whenever
+C     possible (see vfold_born_batch.f90); everything below is then
+C     derived as usual. Step 14g: also if the mother of the FKS
+C      splitting
+C     is massless (IJ_VALUES>0), as cudacpp now computes ANS(2) for it.
+      IF (.NOT.VFOLD_SBORN_SERVE(P,ANS,IJ_VALUES(NFKSPROCESS))) THEN
+        CALL SBORN_SPLITORDERS(P,ANS)
+      ENDIF
 
 C     the born to be integrated
       ANS_SUMMED = 0D0
@@ -477,9 +491,11 @@ C
       SAVE BORN_CACHE_ANS
       LOGICAL CHECK_BORN_AMPS, BORN_CHECKS_AMPS
       COMMON /C_BORN_AMPS_CHECK/ CHECK_BORN_AMPS, BORN_CHECKS_AMPS
+C     AV step 15j: in a common (not SAVE), see BORN_AMPS_RESTORED
       DOUBLE PRECISION SAVEMOM4(0:3,NEXTERNAL-1)
       DOUBLE COMPLEX SAVED_COUP(6)
-      SAVE SAVEMOM4, SAVED_COUP
+      DOUBLE PRECISION SAVED_G
+      COMMON /C_BORN_AMPS_SAVED/ SAVEMOM4, SAVED_COUP, SAVED_G
 C     gscale: the strong coupling SAVED_G of the cached amplitudes,
 C     and the powers RPOW(K) = (G/SAVED_G)**K used by BORN_GSCALE
       INTEGER MAXQCDPOW
@@ -488,10 +504,8 @@ C     and the powers RPOW(K) = (G/SAVED_G)**K used by BORN_GSCALE
       PARAMETER (DO_GSCALE=.TRUE.)
       DOUBLE PRECISION GSCALE_TOL
       PARAMETER (GSCALE_TOL=1D-12)
-      DOUBLE PRECISION SAVED_G, RG, RPOW(0:MAXQCDPOW)
+      DOUBLE PRECISION RG, RPOW(0:MAXQCDPOW)
       LOGICAL COUP_CHANGED, GSCALED
-      SAVE SAVED_G
-      DATA SAVED_G /0D0/
 C     ----------
 C     BEGIN CODE
 C     ----------
@@ -671,6 +685,38 @@ C       .0) then
       BORN_CACHE_ANS(:,:)=ANS(:,:)
       BORN_CACHE_NFKS=NFKSPROCESS
       BORN_CACHE_OK=.TRUE.
+      END
+
+
+      SUBROUTINE BORN_AMPS_RESTORED(P1)
+C     AV step 15j: SAVEAMP was just restored to the amplitudes at the
+C      momenta
+C     P1 and the current couplings, by a vfold memo or replay and not
+C      by
+C     SBORN_SPLITORDERS: tell it so. Otherwise its next check compares
+C      with
+C     the last amplitudes it computed itself, and the gscale would
+C      rescale
+C     the restored ones, which are already at the right coupling.
+      IMPLICIT NONE
+      INCLUDE 'nexternal.inc'
+      INCLUDE 'coupl.inc'
+      DOUBLE PRECISION P1(0:3,NEXTERNAL-1)
+      LOGICAL CHECK_BORN_AMPS, BORN_CHECKS_AMPS
+      COMMON /C_BORN_AMPS_CHECK/ CHECK_BORN_AMPS, BORN_CHECKS_AMPS
+      DOUBLE PRECISION SAVEMOM4(0:3,NEXTERNAL-1)
+      DOUBLE COMPLEX SAVED_COUP(6)
+      DOUBLE PRECISION SAVED_G
+      COMMON /C_BORN_AMPS_SAVED/ SAVEMOM4, SAVED_COUP, SAVED_G
+      SAVEMOM4(0:3,1:NEXTERNAL-1)=P1(0:3,1:NEXTERNAL-1)
+      SAVED_COUP(1)=GC_1
+      SAVED_COUP(2)=GC_21
+      SAVED_COUP(3)=GC_23
+      SAVED_COUP(4)=GC_24
+      SAVED_COUP(5)=GC_3
+      SAVED_COUP(6)=GC_5
+      SAVED_G=G
+      CHECK_BORN_AMPS=.FALSE.
       END
 
 
@@ -1420,6 +1466,14 @@ C     integers over DENOM)
       LOGICAL CHECK_BORN_AMPS, BORN_CHECKS_AMPS
       COMMON /C_BORN_AMPS_CHECK/ CHECK_BORN_AMPS, BORN_CHECKS_AMPS
       DATA CHECK_BORN_AMPS /.FALSE./
+C     AV step 15j: from SBORN_SPLITORDERS (no amplitudes yet:
+C      SAVED_G=0)
+      INCLUDE 'nexternal.inc'
+      DOUBLE PRECISION SAVEMOM4(0:3,NEXTERNAL-1)
+      DOUBLE COMPLEX SAVED_COUP(6)
+      DOUBLE PRECISION SAVED_G
+      COMMON /C_BORN_AMPS_SAVED/ SAVEMOM4, SAVED_COUP, SAVED_G
+      DATA SAVED_G /0D0/
       DATA BORN_CHECKS_AMPS /.TRUE./
       DATA DENOM(0)/1/
       DATA (CF(I,0),I=1,3) /9,6,9/

@@ -1,0 +1,67 @@
+Copy the cudacpp libraries from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eebbbb_vfgen/CUDACPP
+lib/cudacpp/build.512y_d_inl0_hrd0/born
+total 264
+lrwxrwxrwx. 1 avalassi zg     28 Nov  8 13:05 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87488 Nov  8 13:05 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 178608 Nov  8 13:05 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.512y_d_inl0_hrd0/real1
+total 272
+-rwxr-xr-x. 1 avalassi zg  87488 Nov  8 13:05 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Nov  8 13:05 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 186792 Nov  8 13:05 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.512z_d_inl0_hrd0/born
+total 272
+lrwxrwxrwx. 1 avalassi zg     28 Nov  8 13:05 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87488 Nov  8 13:05 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 186800 Nov  8 13:05 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.512z_d_inl0_hrd0/real1
+total 284
+-rwxr-xr-x. 1 avalassi zg  87488 Nov  8 13:05 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Nov  8 13:05 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 199080 Nov  8 13:05 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.avx2_d_inl0_hrd0/born
+total 268
+lrwxrwxrwx. 1 avalassi zg     28 Nov  8 13:05 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Nov  8 13:05 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 182704 Nov  8 13:05 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.avx2_d_inl0_hrd0/real1
+total 276
+-rwxr-xr-x. 1 avalassi zg  87480 Nov  8 13:05 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Nov  8 13:05 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 190888 Nov  8 13:05 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.cuda_d_inl0_hrd0/born
+total 2484
+lrwxrwxrwx. 1 avalassi zg      29 Nov  8 13:05 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cuda.so
+-rwxr-xr-x. 1 avalassi zg  896120 Nov  8 13:05 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 1646008 Nov  8 13:05 libmg5amc_epem_bbbxbx_cuda.so
+lib/cudacpp/build.cuda_d_inl0_hrd0/real1
+total 3500
+-rwxr-xr-x. 1 avalassi zg  896120 Nov  8 13:05 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg      30 Nov  8 13:05 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cuda.so
+-rwxr-xr-x. 1 avalassi zg 2685368 Nov  8 13:05 libmg5amc_epem_bbbxbxg_cuda.so
+
+lib/cudacpp/build.none_d_inl0_hrd0/born
+total 252
+lrwxrwxrwx. 1 avalassi zg     28 Nov  8 13:05 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Nov  8 13:05 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 165680 Nov  8 13:05 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.none_d_inl0_hrd0/real1
+total 264
+-rwxr-xr-x. 1 avalassi zg  87480 Nov  8 13:05 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Nov  8 13:05 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 177968 Nov  8 13:05 libmg5amc_epem_bbbxbxg_cpp.so
+
+lib/cudacpp/build.sse4_d_inl0_hrd0/born
+total 268
+lrwxrwxrwx. 1 avalassi zg     28 Nov  8 13:05 libmg5amc_cudacpp_born.so -> libmg5amc_epem_bbbxbx_cpp.so
+-rwxr-xr-x. 1 avalassi zg  87480 Nov  8 13:05 libmg5amc_cudacpp_common_born.so
+-rwxr-xr-x. 1 avalassi zg 182704 Nov  8 13:05 libmg5amc_epem_bbbxbx_cpp.so
+lib/cudacpp/build.sse4_d_inl0_hrd0/real1
+total 284
+-rwxr-xr-x. 1 avalassi zg  87480 Nov  8 13:05 libmg5amc_cudacpp_common_real1.so
+lrwxrwxrwx. 1 avalassi zg     29 Nov  8 13:05 libmg5amc_cudacpp_real1.so -> libmg5amc_epem_bbbxbxg_cpp.so
+-rwxr-xr-x. 1 avalassi zg 199080 Nov  8 13:05 libmg5amc_epem_bbbxbxg_cpp.so
+
