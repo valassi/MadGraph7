@@ -1,0 +1,235 @@
+      SUBROUTINE MP_HELAS_CALLS_UVCT_1(P,NHEL,H,IC)
+C     
+      USE POLYNOMIAL_CONSTANTS
+      USE ALOHA_OBJECT
+      IMPLICIT NONE
+C     
+C     CONSTANTS
+C     
+      INTEGER    NEXTERNAL
+      PARAMETER (NEXTERNAL=5)
+      INTEGER    NCOMB
+      PARAMETER (NCOMB=32)
+
+      INTEGER NBORNAMPS
+      PARAMETER (NBORNAMPS=18)
+      INTEGER    NLOOPS, NLOOPGROUPS, NCTAMPS
+      PARAMETER (NLOOPS=585, NLOOPGROUPS=272, NCTAMPS=852)
+      INTEGER    NLOOPAMPS
+      PARAMETER (NLOOPAMPS=1437)
+      INTEGER    NWAVEFUNCS,NLOOPWAVEFUNCS
+      PARAMETER (NWAVEFUNCS=48,NLOOPWAVEFUNCS=866)
+      REAL*16     ZERO
+      PARAMETER (ZERO=0.0E0_16)
+      COMPLEX*32     IZERO
+      PARAMETER (IZERO=CMPLX(0.0E0_16,0.0E0_16,KIND=16))
+C     These are constants related to the split orders
+      INTEGER    NSO, NSQUAREDSO, NAMPSO
+      PARAMETER (NSO=2, NSQUAREDSO=1, NAMPSO=2)
+C     
+C     ARGUMENTS
+C     
+      REAL*16 P(0:3,NEXTERNAL)
+      INTEGER NHEL(NEXTERNAL), IC(NEXTERNAL)
+      INTEGER H
+C     
+C     LOCAL VARIABLES
+C     
+      INTEGER I,J,K
+      INTEGER FLAVOR(NEXTERNAL)
+      DATA FLAVOR /NEXTERNAL*1/
+      COMPLEX*32 COEFS(MAXLWFSIZE,0:VERTEXMAXCOEFS-1,MAXLWFSIZE)
+C     
+C     GLOBAL VARIABLES
+C     
+
+      INCLUDE 'mp_coupl_same_name.inc'
+
+      INTEGER GOODHEL(NCOMB)
+      LOGICAL GOODAMP(NSQUAREDSO,NLOOPGROUPS)
+      COMMON/FILTERS/GOODAMP,GOODHEL
+
+      INTEGER SQSO_TARGET
+      COMMON/SOCHOICE/SQSO_TARGET
+
+      LOGICAL UVCT_REQ_SO_DONE,MP_UVCT_REQ_SO_DONE,CT_REQ_SO_DONE
+     $ ,MP_CT_REQ_SO_DONE,LOOP_REQ_SO_DONE,MP_LOOP_REQ_SO_DONE
+     $ ,CTCALL_REQ_SO_DONE,FILTER_SO
+      COMMON/SO_REQS/UVCT_REQ_SO_DONE,MP_UVCT_REQ_SO_DONE
+     $ ,CT_REQ_SO_DONE,MP_CT_REQ_SO_DONE,LOOP_REQ_SO_DONE
+     $ ,MP_LOOP_REQ_SO_DONE,CTCALL_REQ_SO_DONE,FILTER_SO
+
+      COMPLEX*32 AMP(NBORNAMPS)
+      COMMON/MP_AMPS/AMP
+      TYPE(MP_ALOHA) W(NWAVEFUNCS)
+      COMMON/MP_W/W
+
+      COMPLEX*32 WL(MAXLWFSIZE,0:LOOPMAXCOEFS-1,MAXLWFSIZE,
+     $ -1:NLOOPWAVEFUNCS)
+      COMPLEX*32 PL(0:3,-1:NLOOPWAVEFUNCS)
+      COMMON/MP_WL/WL,PL
+
+      COMPLEX*32 AMPL(3,NCTAMPS)
+      COMMON/MP_AMPL/AMPL
+
+C     
+C     ----------
+C     BEGIN CODE
+C     ----------
+
+C     The target squared split order contribution is already reached
+C      if true.
+      IF (FILTER_SO.AND.MP_UVCT_REQ_SO_DONE) THEN
+        GOTO 1001
+      ENDIF
+
+C     Amplitude(s) for UVCT diagram with ID 444
+      CALL MP_VVV1_0(W(6),W(7),W(5),GC_4,AMPL(2,817))
+      AMPL(2,817)=AMPL(2,817)*(6.0D0*UVWFCT_G_1_1EPS+2.0D0
+     $ *UVWFCT_B_0_1EPS)
+C     Amplitude(s) for UVCT diagram with ID 445
+      CALL MP_VVV1_0(W(6),W(7),W(5),GC_4,AMPL(1,818))
+      AMPL(1,818)=AMPL(1,818)*(3.0D0*UVWFCT_G_1+3.0D0*UVWFCT_G_2+2.0D0
+     $ *UVWFCT_T_0)
+C     Amplitude(s) for UVCT diagram with ID 446
+      CALL MP_FFV1_0(W(4),W(8),W(6),GC_5,AMPL(2,819))
+      AMPL(2,819)=AMPL(2,819)*(6.0D0*UVWFCT_G_1_1EPS+2.0D0
+     $ *UVWFCT_B_0_1EPS)
+C     Amplitude(s) for UVCT diagram with ID 447
+      CALL MP_FFV1_0(W(4),W(8),W(6),GC_5,AMPL(1,820))
+      AMPL(1,820)=AMPL(1,820)*(3.0D0*UVWFCT_G_1+3.0D0*UVWFCT_G_2+2.0D0
+     $ *UVWFCT_T_0)
+C     Amplitude(s) for UVCT diagram with ID 448
+      CALL MP_FFV1_0(W(9),W(3),W(6),GC_5,AMPL(2,821))
+      AMPL(2,821)=AMPL(2,821)*(6.0D0*UVWFCT_G_1_1EPS+2.0D0
+     $ *UVWFCT_B_0_1EPS)
+C     Amplitude(s) for UVCT diagram with ID 449
+      CALL MP_FFV1_0(W(9),W(3),W(6),GC_5,AMPL(1,822))
+      AMPL(1,822)=AMPL(1,822)*(3.0D0*UVWFCT_G_1+3.0D0*UVWFCT_G_2+2.0D0
+     $ *UVWFCT_T_0)
+C     Amplitude(s) for UVCT diagram with ID 450
+      CALL MP_FFV1_0(W(11),W(10),W(5),GC_5,AMPL(2,823))
+      AMPL(2,823)=AMPL(2,823)*(6.0D0*UVWFCT_G_1_1EPS+2.0D0
+     $ *UVWFCT_B_0_1EPS)
+C     Amplitude(s) for UVCT diagram with ID 451
+      CALL MP_FFV1_0(W(11),W(10),W(5),GC_5,AMPL(1,824))
+      AMPL(1,824)=AMPL(1,824)*(3.0D0*UVWFCT_G_1+3.0D0*UVWFCT_G_2+2.0D0
+     $ *UVWFCT_T_0)
+C     Amplitude(s) for UVCT diagram with ID 452
+      CALL MP_FFV1_0(W(4),W(10),W(12),GC_5,AMPL(2,825))
+      AMPL(2,825)=AMPL(2,825)*(6.0D0*UVWFCT_G_1_1EPS+2.0D0
+     $ *UVWFCT_B_0_1EPS)
+C     Amplitude(s) for UVCT diagram with ID 453
+      CALL MP_FFV1_0(W(4),W(10),W(12),GC_5,AMPL(1,826))
+      AMPL(1,826)=AMPL(1,826)*(3.0D0*UVWFCT_G_1+3.0D0*UVWFCT_G_2+2.0D0
+     $ *UVWFCT_T_0)
+C     Amplitude(s) for UVCT diagram with ID 454
+      CALL MP_FFV1_0(W(9),W(10),W(2),GC_5,AMPL(2,827))
+      AMPL(2,827)=AMPL(2,827)*(6.0D0*UVWFCT_G_1_1EPS+2.0D0
+     $ *UVWFCT_B_0_1EPS)
+C     Amplitude(s) for UVCT diagram with ID 455
+      CALL MP_FFV1_0(W(9),W(10),W(2),GC_5,AMPL(1,828))
+      AMPL(1,828)=AMPL(1,828)*(3.0D0*UVWFCT_G_1+3.0D0*UVWFCT_G_2+2.0D0
+     $ *UVWFCT_T_0)
+C     Amplitude(s) for UVCT diagram with ID 456
+      CALL MP_FFV1_0(W(13),W(14),W(5),GC_5,AMPL(2,829))
+      AMPL(2,829)=AMPL(2,829)*(6.0D0*UVWFCT_G_1_1EPS+2.0D0
+     $ *UVWFCT_B_0_1EPS)
+C     Amplitude(s) for UVCT diagram with ID 457
+      CALL MP_FFV1_0(W(13),W(14),W(5),GC_5,AMPL(1,830))
+      AMPL(1,830)=AMPL(1,830)*(3.0D0*UVWFCT_G_1+3.0D0*UVWFCT_G_2+2.0D0
+     $ *UVWFCT_T_0)
+C     Amplitude(s) for UVCT diagram with ID 458
+      CALL MP_FFV1_0(W(13),W(3),W(12),GC_5,AMPL(2,831))
+      AMPL(2,831)=AMPL(2,831)*(6.0D0*UVWFCT_G_1_1EPS+2.0D0
+     $ *UVWFCT_B_0_1EPS)
+C     Amplitude(s) for UVCT diagram with ID 459
+      CALL MP_FFV1_0(W(13),W(3),W(12),GC_5,AMPL(1,832))
+      AMPL(1,832)=AMPL(1,832)*(3.0D0*UVWFCT_G_1+3.0D0*UVWFCT_G_2+2.0D0
+     $ *UVWFCT_T_0)
+C     Amplitude(s) for UVCT diagram with ID 460
+      CALL MP_FFV1_0(W(13),W(8),W(2),GC_5,AMPL(2,833))
+      AMPL(2,833)=AMPL(2,833)*(6.0D0*UVWFCT_G_1_1EPS+2.0D0
+     $ *UVWFCT_B_0_1EPS)
+C     Amplitude(s) for UVCT diagram with ID 461
+      CALL MP_FFV1_0(W(13),W(8),W(2),GC_5,AMPL(1,834))
+      AMPL(1,834)=AMPL(1,834)*(3.0D0*UVWFCT_G_1+3.0D0*UVWFCT_G_2+2.0D0
+     $ *UVWFCT_T_0)
+C     Amplitude(s) for UVCT diagram with ID 462
+      CALL MP_FFV1_0(W(4),W(14),W(15),GC_5,AMPL(2,835))
+      AMPL(2,835)=AMPL(2,835)*(6.0D0*UVWFCT_G_1_1EPS+2.0D0
+     $ *UVWFCT_B_0_1EPS)
+C     Amplitude(s) for UVCT diagram with ID 463
+      CALL MP_FFV1_0(W(4),W(14),W(15),GC_5,AMPL(1,836))
+      AMPL(1,836)=AMPL(1,836)*(3.0D0*UVWFCT_G_1+3.0D0*UVWFCT_G_2+2.0D0
+     $ *UVWFCT_T_0)
+C     Amplitude(s) for UVCT diagram with ID 464
+      CALL MP_FFV1_0(W(11),W(3),W(15),GC_5,AMPL(2,837))
+      AMPL(2,837)=AMPL(2,837)*(6.0D0*UVWFCT_G_1_1EPS+2.0D0
+     $ *UVWFCT_B_0_1EPS)
+C     Amplitude(s) for UVCT diagram with ID 465
+      CALL MP_FFV1_0(W(11),W(3),W(15),GC_5,AMPL(1,838))
+      AMPL(1,838)=AMPL(1,838)*(3.0D0*UVWFCT_G_1+3.0D0*UVWFCT_G_2+2.0D0
+     $ *UVWFCT_T_0)
+C     Amplitude(s) for UVCT diagram with ID 466
+      CALL MP_VVV1_0(W(15),W(2),W(7),GC_4,AMPL(2,839))
+      AMPL(2,839)=AMPL(2,839)*(6.0D0*UVWFCT_G_1_1EPS+2.0D0
+     $ *UVWFCT_B_0_1EPS)
+C     Amplitude(s) for UVCT diagram with ID 467
+      CALL MP_VVV1_0(W(15),W(2),W(7),GC_4,AMPL(1,840))
+      AMPL(1,840)=AMPL(1,840)*(3.0D0*UVWFCT_G_1+3.0D0*UVWFCT_G_2+2.0D0
+     $ *UVWFCT_T_0)
+C     Amplitude(s) for UVCT diagram with ID 468
+      CALL MP_FFV1_0(W(9),W(14),W(1),GC_5,AMPL(2,841))
+      AMPL(2,841)=AMPL(2,841)*(6.0D0*UVWFCT_G_1_1EPS+2.0D0
+     $ *UVWFCT_B_0_1EPS)
+C     Amplitude(s) for UVCT diagram with ID 469
+      CALL MP_FFV1_0(W(9),W(14),W(1),GC_5,AMPL(1,842))
+      AMPL(1,842)=AMPL(1,842)*(3.0D0*UVWFCT_G_1+3.0D0*UVWFCT_G_2+2.0D0
+     $ *UVWFCT_T_0)
+C     Amplitude(s) for UVCT diagram with ID 470
+      CALL MP_FFV1_0(W(11),W(8),W(1),GC_5,AMPL(2,843))
+      AMPL(2,843)=AMPL(2,843)*(6.0D0*UVWFCT_G_1_1EPS+2.0D0
+     $ *UVWFCT_B_0_1EPS)
+C     Amplitude(s) for UVCT diagram with ID 471
+      CALL MP_FFV1_0(W(11),W(8),W(1),GC_5,AMPL(1,844))
+      AMPL(1,844)=AMPL(1,844)*(3.0D0*UVWFCT_G_1+3.0D0*UVWFCT_G_2+2.0D0
+     $ *UVWFCT_T_0)
+C     Amplitude(s) for UVCT diagram with ID 472
+      CALL MP_VVV1_0(W(1),W(12),W(7),GC_4,AMPL(2,845))
+      AMPL(2,845)=AMPL(2,845)*(6.0D0*UVWFCT_G_1_1EPS+2.0D0
+     $ *UVWFCT_B_0_1EPS)
+C     Amplitude(s) for UVCT diagram with ID 473
+      CALL MP_VVV1_0(W(1),W(12),W(7),GC_4,AMPL(1,846))
+      AMPL(1,846)=AMPL(1,846)*(3.0D0*UVWFCT_G_1+3.0D0*UVWFCT_G_2+2.0D0
+     $ *UVWFCT_T_0)
+C     Amplitude(s) for UVCT diagram with ID 474
+      CALL MP_FFV1_0(W(4),W(3),W(16),GC_5,AMPL(2,847))
+      AMPL(2,847)=AMPL(2,847)*(6.0D0*UVWFCT_G_1_1EPS+2.0D0
+     $ *UVWFCT_B_0_1EPS)
+      CALL MP_FFV1_0(W(4),W(3),W(17),GC_5,AMPL(2,848))
+      AMPL(2,848)=AMPL(2,848)*(6.0D0*UVWFCT_G_1_1EPS+2.0D0
+     $ *UVWFCT_B_0_1EPS)
+      CALL MP_FFV1_0(W(4),W(3),W(18),GC_5,AMPL(2,849))
+      AMPL(2,849)=AMPL(2,849)*(6.0D0*UVWFCT_G_1_1EPS+2.0D0
+     $ *UVWFCT_B_0_1EPS)
+C     Amplitude(s) for UVCT diagram with ID 475
+      CALL MP_FFV1_0(W(4),W(3),W(16),GC_5,AMPL(1,850))
+      AMPL(1,850)=AMPL(1,850)*(3.0D0*UVWFCT_G_1+3.0D0*UVWFCT_G_2+2.0D0
+     $ *UVWFCT_T_0)
+      CALL MP_FFV1_0(W(4),W(3),W(17),GC_5,AMPL(1,851))
+      AMPL(1,851)=AMPL(1,851)*(3.0D0*UVWFCT_G_1+3.0D0*UVWFCT_G_2+2.0D0
+     $ *UVWFCT_T_0)
+      CALL MP_FFV1_0(W(4),W(3),W(18),GC_5,AMPL(1,852))
+      AMPL(1,852)=AMPL(1,852)*(3.0D0*UVWFCT_G_1+3.0D0*UVWFCT_G_2+2.0D0
+     $ *UVWFCT_T_0)
+C     At this point, all UVCT amps needed for (QCD=8 QED=0), i.e. of
+C      split order ID=1, are computed.
+      IF(FILTER_SO.AND.SQSO_TARGET.EQ.1) GOTO 3000
+
+      GOTO 1001
+ 3000 CONTINUE
+      MP_UVCT_REQ_SO_DONE=.TRUE.
+ 1001 CONTINUE
+      END
+
