@@ -147,7 +147,7 @@ endif
 ifdef madloop
 ifneq ("$(wildcard */loop_matrix.f)","") # this is to skip ML for LOonly
 libmadloop=libMadLoop.a
-libcuttools=-lcts  -Wl,-rpath,/data/avalassi/NEGWGT2026/test-MadGraph7/HEPTools/lib/ -liregi -L/data/avalassi/NEGWGT2026/test-MadGraph7/HEPTools/lib/ -lninja -L/data/avalassi/NEGWGT2026/test-MadGraph7/HEPTools/lib/ -lavh_olo -L/data/avalassi/NEGWGT2026/test-MadGraph7/HEPTools/lib/ -lcollier
+libcuttools=-lcts  -Wl,-rpath,/data/avalassi/NEGWGT2026/testCG-MadGraph7/HEPTools/lib/ -liregi -L/data/avalassi/NEGWGT2026/testCG-MadGraph7/HEPTools/lib/ -lninja -L/data/avalassi/NEGWGT2026/testCG-MadGraph7/HEPTools/lib/ -lavh_olo -L/data/avalassi/NEGWGT2026/testCG-MadGraph7/HEPTools/lib/ -lcollier
 endif
 else
 libmadloop=
