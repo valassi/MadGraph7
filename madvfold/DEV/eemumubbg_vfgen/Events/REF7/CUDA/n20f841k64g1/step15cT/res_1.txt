@@ -1,0 +1,21 @@
+
+
+Cross section per integration channel:
+  P0_epem_bbxmummupg             58.0   3.29456786e-04    2.6422e-05       8.0199%  
+
+
+ABS cross section per integration channel:
+  P0_epem_bbxmummupg             58.0   8.04711667e-04    2.6595e-05       3.3049%  
+
+
+ABS cross section per dir
+  P0_epem_bbxmummupg   8.04711667e-04    2.6595e-05 
+
+
+Cross section per dir
+  P0_epem_bbxmummupg   3.29456786e-04    2.6422e-05 
+
+Total ABS and 
+Total: 
+                      8.04711667e-04 +- 2.6595e-05  (3.3049e+00%)
+                      3.29456786e-04 +- 2.6422e-05  (8.0199e+00%) 

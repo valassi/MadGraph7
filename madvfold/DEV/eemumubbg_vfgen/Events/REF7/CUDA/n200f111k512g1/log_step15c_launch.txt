@@ -1,0 +1,2698 @@
+
+START:    Sun Nov  8 08:09:50 PM CET 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eemumubbg_vfgen
+
+-------------------------------------------------------------------------------
+
+Launch eemumubbg_vfgen tests on itscrd90.cern.ch:
+  ENV_VFOLDTEST_NEVENTS=200 ENV_VFOLDTEST_FOLDING='1,1,1' ENV_VFOLD_KPOINT_BATCH=512 ENV_VFOLD_SBORN_GSCALE=1 \
+    ./vfold/myBackends.sh --ninja-and-collier --launch-o-cudascan REF7/CUDA/n200f111k512g1/step15c
+
+START:    Sun Nov  8 08:09:50 PM CET 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eemumubbg_vfgen
+
+EXECUTING: ./vfold/myLaunch.sh -o
+
+CCACHE_DIR=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ccache
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.12.15
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.0.2.1
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=
+ENV_VFOLD_ME_MODE=F0
+ENV_VFOLD_VECSIZE_USED=
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 46][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 7           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                        ..........                        *
+*                      @          ....                     *
+*                    @               ...                   *
+*                  @    M         M    .                   *
+*                 @     MM       MM    ..                  *
+*                 .     M  M   M  M  ..                    *
+*                 ..    M   M M   M ..                     *
+*                  .    M    M    M.                       *
+*                  ...                   7777777           *
+*                    ....                     7            *
+*                       .................... 7             *
+*                                           7              *
+*                                          7               *
+*                                                          *
+*         VERSION 5.0.2.1                                  *
+*                                                          *
+*       The MadGraph7 Development Team - Find us at        *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/input/mg7_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg7_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg7_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg7_configuration.txt
+Using default gzip "pigz". Set another one in ./input/mg7_configuration.txt
+launch -f -p -o
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: Compiling source... 
+INFO:           ...done, continuing with P* directories 
+INFO: Compiling directories... 
+INFO: Compiling on 4 cores 
+INFO:  Compiling P0_epem_bbxmummupg... 
+INFO:     P0_epem_bbxmummupg done. 
+INFO: Checking test output: 
+INFO: P0_epem_bbxmummupg 
+INFO:  Result for test_ME: 
+INFO:    Passed. 
+INFO:  Result for test_MC: 
+INFO:    Passed. 
+INFO:  Result for check_poles: 
+INFO:    Poles successfully cancel for 20 points over 20 (tolerance=1.0e-05) 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 58 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      3.355e-04 +- 1.6e-05 pb
+      Total abs(cross section): 9.851e-04 +- 1.6e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 20h10 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  31.4s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > mu+ mu- b b~ g [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 3.355e-04 +- 1.6e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+INFO: References for this run written to Events/run_01/citations.bib 
+quit
+INFO:  
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=
+ENV_VFOLD_ME_MODE=F0
+ENV_VFOLD_VECSIZE_USED=
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+START:    Sun Nov  8 08:09:50 PM CET 2026
+END:      Sun Nov  8 08:11:12 PM CET 2026
+ELAPSED:  82 seconds
+
+STATUS=0
+START:    Sun Nov  8 08:11:14 PM CET 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eemumubbg_vfgen
+
+EXECUTING: ./vfold/myLaunch.sh -o -x
+
+CCACHE_DIR=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ccache
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.12.15
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.0.2.1
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=
+ENV_VFOLD_ME_MODE=F1
+ENV_VFOLD_VECSIZE_USED=
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 46][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 7           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                        ..........                        *
+*                      @          ....                     *
+*                    @               ...                   *
+*                  @    M         M    .                   *
+*                 @     MM       MM    ..                  *
+*                 .     M  M   M  M  ..                    *
+*                 ..    M   M M   M ..                     *
+*                  .    M    M    M.                       *
+*                  ...                   7777777           *
+*                    ....                     7            *
+*                       .................... 7             *
+*                                           7              *
+*                                          7               *
+*                                                          *
+*         VERSION 5.0.2.1                                  *
+*                                                          *
+*       The MadGraph7 Development Team - Find us at        *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/input/mg7_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg7_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg7_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg7_configuration.txt
+Using default gzip "pigz". Set another one in ./input/mg7_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 58 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      3.355e-04 +- 1.6e-05 pb
+      Total abs(cross section): 9.851e-04 +- 1.6e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 20h11 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  39.3s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > mu+ mu- b b~ g [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 3.355e-04 +- 1.6e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+INFO: References for this run written to Events/run_01/citations.bib 
+quit
+INFO:  
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=
+ENV_VFOLD_ME_MODE=F1
+ENV_VFOLD_VECSIZE_USED=
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+START:    Sun Nov  8 08:11:14 PM CET 2026
+END:      Sun Nov  8 08:12:00 PM CET 2026
+ELAPSED:  46 seconds
+
+STATUS=0
+START:    Sun Nov  8 08:12:03 PM CET 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eemumubbg_vfgen
+
+EXECUTING: ./vfold/myLaunch.sh -o -x
+
+CCACHE_DIR=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ccache
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.12.15
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.0.2.1
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=
+ENV_VFOLD_ME_MODE=F1
+ENV_VFOLD_VECSIZE_USED=
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=ninja
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 46][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 7           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                        ..........                        *
+*                      @          ....                     *
+*                    @               ...                   *
+*                  @    M         M    .                   *
+*                 @     MM       MM    ..                  *
+*                 .     M  M   M  M  ..                    *
+*                 ..    M   M M   M ..                     *
+*                  .    M    M    M.                       *
+*                  ...                   7777777           *
+*                    ....                     7            *
+*                       .................... 7             *
+*                                           7              *
+*                                          7               *
+*                                                          *
+*         VERSION 5.0.2.1                                  *
+*                                                          *
+*       The MadGraph7 Development Team - Find us at        *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/input/mg7_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg7_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg7_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg7_configuration.txt
+Using default gzip "pigz". Set another one in ./input/mg7_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 58 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      3.355e-04 +- 1.6e-05 pb
+      Total abs(cross section): 9.851e-04 +- 1.6e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 20h12 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  40.7s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > mu+ mu- b b~ g [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 3.355e-04 +- 1.6e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+INFO: References for this run written to Events/run_01/citations.bib 
+quit
+INFO:  
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=
+ENV_VFOLD_ME_MODE=F1
+ENV_VFOLD_VECSIZE_USED=
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=ninja
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+START:    Sun Nov  8 08:12:03 PM CET 2026
+END:      Sun Nov  8 08:12:50 PM CET 2026
+ELAPSED:  47 seconds
+
+STATUS=0
+START:    Sun Nov  8 08:12:52 PM CET 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eemumubbg_vfgen
+
+EXECUTING: ./vfold/myLaunch.sh -o -x
+
+CCACHE_DIR=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ccache
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.12.15
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.0.2.1
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=
+ENV_VFOLD_ME_MODE=F2
+ENV_VFOLD_VECSIZE_USED=
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 46][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 7           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                        ..........                        *
+*                      @          ....                     *
+*                    @               ...                   *
+*                  @    M         M    .                   *
+*                 @     MM       MM    ..                  *
+*                 .     M  M   M  M  ..                    *
+*                 ..    M   M M   M ..                     *
+*                  .    M    M    M.                       *
+*                  ...                   7777777           *
+*                    ....                     7            *
+*                       .................... 7             *
+*                                           7              *
+*                                          7               *
+*                                                          *
+*         VERSION 5.0.2.1                                  *
+*                                                          *
+*       The MadGraph7 Development Team - Find us at        *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/input/mg7_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg7_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg7_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg7_configuration.txt
+Using default gzip "pigz". Set another one in ./input/mg7_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 58 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      3.355e-04 +- 1.6e-05 pb
+      Total abs(cross section): 9.851e-04 +- 1.6e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 20h12 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  39.8s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > mu+ mu- b b~ g [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 3.355e-04 +- 1.6e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+INFO: References for this run written to Events/run_01/citations.bib 
+quit
+INFO:  
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=
+ENV_VFOLD_ME_MODE=F2
+ENV_VFOLD_VECSIZE_USED=
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+START:    Sun Nov  8 08:12:52 PM CET 2026
+END:      Sun Nov  8 08:13:39 PM CET 2026
+ELAPSED:  47 seconds
+
+STATUS=0
+START:    Sun Nov  8 08:13:41 PM CET 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eemumubbg_vfgen
+
+EXECUTING: ./vfold/myLaunch.sh -o -x
+
+CCACHE_DIR=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ccache
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.12.15
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.0.2.1
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=
+ENV_VFOLD_ME_MODE=F
+ENV_VFOLD_VECSIZE_USED=
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 46][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 7           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                        ..........                        *
+*                      @          ....                     *
+*                    @               ...                   *
+*                  @    M         M    .                   *
+*                 @     MM       MM    ..                  *
+*                 .     M  M   M  M  ..                    *
+*                 ..    M   M M   M ..                     *
+*                  .    M    M    M.                       *
+*                  ...                   7777777           *
+*                    ....                     7            *
+*                       .................... 7             *
+*                                           7              *
+*                                          7               *
+*                                                          *
+*         VERSION 5.0.2.1                                  *
+*                                                          *
+*       The MadGraph7 Development Team - Find us at        *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/input/mg7_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg7_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg7_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg7_configuration.txt
+Using default gzip "pigz". Set another one in ./input/mg7_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 58 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      3.355e-04 +- 1.6e-05 pb
+      Total abs(cross section): 9.851e-04 +- 1.6e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 20h13 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  42.6s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > mu+ mu- b b~ g [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 3.355e-04 +- 1.6e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+INFO: References for this run written to Events/run_01/citations.bib 
+quit
+INFO:  
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=
+ENV_VFOLD_ME_MODE=F
+ENV_VFOLD_VECSIZE_USED=
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+START:    Sun Nov  8 08:13:41 PM CET 2026
+END:      Sun Nov  8 08:14:30 PM CET 2026
+ELAPSED:  49 seconds
+
+STATUS=0
+START:    Sun Nov  8 08:14:33 PM CET 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eemumubbg_vfgen
+
+EXECUTING: ./vfold/myLaunch.sh -o -x
+
+CCACHE_DIR=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ccache
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.12.15
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.0.2.1
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=none
+ENV_VFOLD_ME_MODE=C
+ENV_VFOLD_VECSIZE_USED=1
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 46][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 7           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                        ..........                        *
+*                      @          ....                     *
+*                    @               ...                   *
+*                  @    M         M    .                   *
+*                 @     MM       MM    ..                  *
+*                 .     M  M   M  M  ..                    *
+*                 ..    M   M M   M ..                     *
+*                  .    M    M    M.                       *
+*                  ...                   7777777           *
+*                    ....                     7            *
+*                       .................... 7             *
+*                                           7              *
+*                                          7               *
+*                                                          *
+*         VERSION 5.0.2.1                                  *
+*                                                          *
+*       The MadGraph7 Development Team - Find us at        *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/input/mg7_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg7_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg7_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg7_configuration.txt
+Using default gzip "pigz". Set another one in ./input/mg7_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 58 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      3.355e-04 +- 1.6e-05 pb
+      Total abs(cross section): 9.851e-04 +- 1.6e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 20h14 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  36.6s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > mu+ mu- b b~ g [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 3.355e-04 +- 1.6e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+INFO: References for this run written to Events/run_01/citations.bib 
+quit
+INFO:  
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=none
+ENV_VFOLD_ME_MODE=C
+ENV_VFOLD_VECSIZE_USED=1
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+START:    Sun Nov  8 08:14:33 PM CET 2026
+END:      Sun Nov  8 08:15:16 PM CET 2026
+ELAPSED:  43 seconds
+
+STATUS=0
+START:    Sun Nov  8 08:15:19 PM CET 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eemumubbg_vfgen
+
+EXECUTING: ./vfold/myLaunch.sh -o -x
+
+CCACHE_DIR=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ccache
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.12.15
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.0.2.1
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=sse4
+ENV_VFOLD_ME_MODE=C
+ENV_VFOLD_VECSIZE_USED=2
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 46][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 7           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                        ..........                        *
+*                      @          ....                     *
+*                    @               ...                   *
+*                  @    M         M    .                   *
+*                 @     MM       MM    ..                  *
+*                 .     M  M   M  M  ..                    *
+*                 ..    M   M M   M ..                     *
+*                  .    M    M    M.                       *
+*                  ...                   7777777           *
+*                    ....                     7            *
+*                       .................... 7             *
+*                                           7              *
+*                                          7               *
+*                                                          *
+*         VERSION 5.0.2.1                                  *
+*                                                          *
+*       The MadGraph7 Development Team - Find us at        *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/input/mg7_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg7_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg7_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg7_configuration.txt
+Using default gzip "pigz". Set another one in ./input/mg7_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 58 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      3.355e-04 +- 1.6e-05 pb
+      Total abs(cross section): 9.851e-04 +- 1.6e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 20h15 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  30.7s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > mu+ mu- b b~ g [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 3.355e-04 +- 1.6e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+INFO: References for this run written to Events/run_01/citations.bib 
+quit
+INFO:  
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=sse4
+ENV_VFOLD_ME_MODE=C
+ENV_VFOLD_VECSIZE_USED=2
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+START:    Sun Nov  8 08:15:19 PM CET 2026
+END:      Sun Nov  8 08:15:57 PM CET 2026
+ELAPSED:  38 seconds
+
+STATUS=0
+START:    Sun Nov  8 08:15:59 PM CET 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eemumubbg_vfgen
+
+EXECUTING: ./vfold/myLaunch.sh -o -x
+
+CCACHE_DIR=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ccache
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.12.15
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.0.2.1
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=avx2
+ENV_VFOLD_ME_MODE=C
+ENV_VFOLD_VECSIZE_USED=4
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 46][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 7           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                        ..........                        *
+*                      @          ....                     *
+*                    @               ...                   *
+*                  @    M         M    .                   *
+*                 @     MM       MM    ..                  *
+*                 .     M  M   M  M  ..                    *
+*                 ..    M   M M   M ..                     *
+*                  .    M    M    M.                       *
+*                  ...                   7777777           *
+*                    ....                     7            *
+*                       .................... 7             *
+*                                           7              *
+*                                          7               *
+*                                                          *
+*         VERSION 5.0.2.1                                  *
+*                                                          *
+*       The MadGraph7 Development Team - Find us at        *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/input/mg7_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg7_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg7_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg7_configuration.txt
+Using default gzip "pigz". Set another one in ./input/mg7_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 58 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      3.355e-04 +- 1.6e-05 pb
+      Total abs(cross section): 9.851e-04 +- 1.6e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 20h16 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  27.7s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > mu+ mu- b b~ g [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 3.355e-04 +- 1.6e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+INFO: References for this run written to Events/run_01/citations.bib 
+quit
+INFO:  
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=avx2
+ENV_VFOLD_ME_MODE=C
+ENV_VFOLD_VECSIZE_USED=4
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+START:    Sun Nov  8 08:15:59 PM CET 2026
+END:      Sun Nov  8 08:16:34 PM CET 2026
+ELAPSED:  35 seconds
+
+STATUS=0
+START:    Sun Nov  8 08:16:37 PM CET 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eemumubbg_vfgen
+
+EXECUTING: ./vfold/myLaunch.sh -o -x
+
+CCACHE_DIR=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ccache
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.12.15
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.0.2.1
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=cuda
+ENV_VFOLD_ME_MODE=C
+ENV_VFOLD_VECSIZE_USED=32
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 46][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 7           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                        ..........                        *
+*                      @          ....                     *
+*                    @               ...                   *
+*                  @    M         M    .                   *
+*                 @     MM       MM    ..                  *
+*                 .     M  M   M  M  ..                    *
+*                 ..    M   M M   M ..                     *
+*                  .    M    M    M.                       *
+*                  ...                   7777777           *
+*                    ....                     7            *
+*                       .................... 7             *
+*                                           7              *
+*                                          7               *
+*                                                          *
+*         VERSION 5.0.2.1                                  *
+*                                                          *
+*       The MadGraph7 Development Team - Find us at        *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/input/mg7_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg7_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg7_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg7_configuration.txt
+Using default gzip "pigz". Set another one in ./input/mg7_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 58 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      3.355e-04 +- 1.6e-05 pb
+      Total abs(cross section): 9.851e-04 +- 1.6e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 20h16 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  27.2s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > mu+ mu- b b~ g [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 3.355e-04 +- 1.6e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+INFO: References for this run written to Events/run_01/citations.bib 
+quit
+INFO:  
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=cuda
+ENV_VFOLD_ME_MODE=C
+ENV_VFOLD_VECSIZE_USED=32
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+START:    Sun Nov  8 08:16:37 PM CET 2026
+END:      Sun Nov  8 08:17:11 PM CET 2026
+ELAPSED:  34 seconds
+
+STATUS=0
+START:    Sun Nov  8 08:17:13 PM CET 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eemumubbg_vfgen
+
+EXECUTING: ./vfold/myLaunch.sh -o -x
+
+CCACHE_DIR=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ccache
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.12.15
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.0.2.1
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=cuda
+ENV_VFOLD_ME_MODE=C
+ENV_VFOLD_VECSIZE_USED=64
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 46][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 7           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                        ..........                        *
+*                      @          ....                     *
+*                    @               ...                   *
+*                  @    M         M    .                   *
+*                 @     MM       MM    ..                  *
+*                 .     M  M   M  M  ..                    *
+*                 ..    M   M M   M ..                     *
+*                  .    M    M    M.                       *
+*                  ...                   7777777           *
+*                    ....                     7            *
+*                       .................... 7             *
+*                                           7              *
+*                                          7               *
+*                                                          *
+*         VERSION 5.0.2.1                                  *
+*                                                          *
+*       The MadGraph7 Development Team - Find us at        *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/input/mg7_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg7_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg7_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg7_configuration.txt
+Using default gzip "pigz". Set another one in ./input/mg7_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 58 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      3.355e-04 +- 1.6e-05 pb
+      Total abs(cross section): 9.851e-04 +- 1.6e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 20h17 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  26.8s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > mu+ mu- b b~ g [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 3.355e-04 +- 1.6e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+INFO: References for this run written to Events/run_01/citations.bib 
+quit
+INFO:  
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=cuda
+ENV_VFOLD_ME_MODE=C
+ENV_VFOLD_VECSIZE_USED=64
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+START:    Sun Nov  8 08:17:13 PM CET 2026
+END:      Sun Nov  8 08:17:47 PM CET 2026
+ELAPSED:  34 seconds
+
+STATUS=0
+START:    Sun Nov  8 08:17:49 PM CET 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eemumubbg_vfgen
+
+EXECUTING: ./vfold/myLaunch.sh -o -x
+
+CCACHE_DIR=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ccache
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.12.15
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.0.2.1
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=cuda
+ENV_VFOLD_ME_MODE=C
+ENV_VFOLD_VECSIZE_USED=128
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 46][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 7           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                        ..........                        *
+*                      @          ....                     *
+*                    @               ...                   *
+*                  @    M         M    .                   *
+*                 @     MM       MM    ..                  *
+*                 .     M  M   M  M  ..                    *
+*                 ..    M   M M   M ..                     *
+*                  .    M    M    M.                       *
+*                  ...                   7777777           *
+*                    ....                     7            *
+*                       .................... 7             *
+*                                           7              *
+*                                          7               *
+*                                                          *
+*         VERSION 5.0.2.1                                  *
+*                                                          *
+*       The MadGraph7 Development Team - Find us at        *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/input/mg7_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg7_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg7_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg7_configuration.txt
+Using default gzip "pigz". Set another one in ./input/mg7_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 58 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      3.355e-04 +- 1.6e-05 pb
+      Total abs(cross section): 9.851e-04 +- 1.6e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 20h17 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  26.9s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > mu+ mu- b b~ g [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 3.355e-04 +- 1.6e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+INFO: References for this run written to Events/run_01/citations.bib 
+quit
+INFO:  
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=cuda
+ENV_VFOLD_ME_MODE=C
+ENV_VFOLD_VECSIZE_USED=128
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+START:    Sun Nov  8 08:17:49 PM CET 2026
+END:      Sun Nov  8 08:18:23 PM CET 2026
+ELAPSED:  34 seconds
+
+STATUS=0
+START:    Sun Nov  8 08:18:25 PM CET 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eemumubbg_vfgen
+
+EXECUTING: ./vfold/myLaunch.sh -o -x
+
+CCACHE_DIR=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ccache
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.12.15
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.0.2.1
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=cuda
+ENV_VFOLD_ME_MODE=C
+ENV_VFOLD_VECSIZE_USED=256
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 46][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 7           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                        ..........                        *
+*                      @          ....                     *
+*                    @               ...                   *
+*                  @    M         M    .                   *
+*                 @     MM       MM    ..                  *
+*                 .     M  M   M  M  ..                    *
+*                 ..    M   M M   M ..                     *
+*                  .    M    M    M.                       *
+*                  ...                   7777777           *
+*                    ....                     7            *
+*                       .................... 7             *
+*                                           7              *
+*                                          7               *
+*                                                          *
+*         VERSION 5.0.2.1                                  *
+*                                                          *
+*       The MadGraph7 Development Team - Find us at        *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/input/mg7_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg7_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg7_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg7_configuration.txt
+Using default gzip "pigz". Set another one in ./input/mg7_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 58 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      3.355e-04 +- 1.6e-05 pb
+      Total abs(cross section): 9.851e-04 +- 1.6e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 20h18 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  26.9s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > mu+ mu- b b~ g [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 3.355e-04 +- 1.6e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+INFO: References for this run written to Events/run_01/citations.bib 
+quit
+INFO:  
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=cuda
+ENV_VFOLD_ME_MODE=C
+ENV_VFOLD_VECSIZE_USED=256
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+START:    Sun Nov  8 08:18:25 PM CET 2026
+END:      Sun Nov  8 08:18:59 PM CET 2026
+ELAPSED:  34 seconds
+
+STATUS=0
+START:    Sun Nov  8 08:19:02 PM CET 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eemumubbg_vfgen
+
+EXECUTING: ./vfold/myLaunch.sh -o -x
+
+CCACHE_DIR=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ccache
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.12.15
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.0.2.1
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=cuda
+ENV_VFOLD_ME_MODE=C
+ENV_VFOLD_VECSIZE_USED=512
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 46][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 7           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                        ..........                        *
+*                      @          ....                     *
+*                    @               ...                   *
+*                  @    M         M    .                   *
+*                 @     MM       MM    ..                  *
+*                 .     M  M   M  M  ..                    *
+*                 ..    M   M M   M ..                     *
+*                  .    M    M    M.                       *
+*                  ...                   7777777           *
+*                    ....                     7            *
+*                       .................... 7             *
+*                                           7              *
+*                                          7               *
+*                                                          *
+*         VERSION 5.0.2.1                                  *
+*                                                          *
+*       The MadGraph7 Development Team - Find us at        *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/input/mg7_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg7_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg7_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg7_configuration.txt
+Using default gzip "pigz". Set another one in ./input/mg7_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 58 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      3.355e-04 +- 1.6e-05 pb
+      Total abs(cross section): 9.851e-04 +- 1.6e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 20h19 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  26.8s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > mu+ mu- b b~ g [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 3.355e-04 +- 1.6e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+INFO: References for this run written to Events/run_01/citations.bib 
+quit
+INFO:  
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=cuda
+ENV_VFOLD_ME_MODE=C
+ENV_VFOLD_VECSIZE_USED=512
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+START:    Sun Nov  8 08:19:02 PM CET 2026
+END:      Sun Nov  8 08:19:35 PM CET 2026
+ELAPSED:  33 seconds
+
+STATUS=0
+START:    Sun Nov  8 08:19:38 PM CET 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eemumubbg_vfgen
+
+EXECUTING: ./vfold/myLaunch.sh -o -x
+
+CCACHE_DIR=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ccache
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.12.15
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.0.2.1
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=cuda
+ENV_VFOLD_ME_MODE=C
+ENV_VFOLD_VECSIZE_USED=1024
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 46][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 7           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                        ..........                        *
+*                      @          ....                     *
+*                    @               ...                   *
+*                  @    M         M    .                   *
+*                 @     MM       MM    ..                  *
+*                 .     M  M   M  M  ..                    *
+*                 ..    M   M M   M ..                     *
+*                  .    M    M    M.                       *
+*                  ...                   7777777           *
+*                    ....                     7            *
+*                       .................... 7             *
+*                                           7              *
+*                                          7               *
+*                                                          *
+*         VERSION 5.0.2.1                                  *
+*                                                          *
+*       The MadGraph7 Development Team - Find us at        *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/input/mg7_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg7_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg7_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg7_configuration.txt
+Using default gzip "pigz". Set another one in ./input/mg7_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 58 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      3.355e-04 +- 1.6e-05 pb
+      Total abs(cross section): 9.851e-04 +- 1.6e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 20h19 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  26.8s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > mu+ mu- b b~ g [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 3.355e-04 +- 1.6e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+INFO: References for this run written to Events/run_01/citations.bib 
+quit
+INFO:  
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=cuda
+ENV_VFOLD_ME_MODE=C
+ENV_VFOLD_VECSIZE_USED=1024
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+START:    Sun Nov  8 08:19:38 PM CET 2026
+END:      Sun Nov  8 08:20:11 PM CET 2026
+ELAPSED:  33 seconds
+
+STATUS=0
+START:    Sun Nov  8 08:20:14 PM CET 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eemumubbg_vfgen
+
+EXECUTING: ./vfold/myLaunch.sh -o -x
+
+CCACHE_DIR=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ccache
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.12.15
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.0.2.1
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=cuda
+ENV_VFOLD_ME_MODE=C
+ENV_VFOLD_VECSIZE_USED=512
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=1
+CUDACPP_RUNTIME_BLASCOLORSUM_VFOLDBORN=
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 46][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 7           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                        ..........                        *
+*                      @          ....                     *
+*                    @               ...                   *
+*                  @    M         M    .                   *
+*                 @     MM       MM    ..                  *
+*                 .     M  M   M  M  ..                    *
+*                 ..    M   M M   M ..                     *
+*                  .    M    M    M.                       *
+*                  ...                   7777777           *
+*                    ....                     7            *
+*                       .................... 7             *
+*                                           7              *
+*                                          7               *
+*                                                          *
+*         VERSION 5.0.2.1                                  *
+*                                                          *
+*       The MadGraph7 Development Team - Find us at        *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/input/mg7_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg7_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg7_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg7_configuration.txt
+Using default gzip "pigz". Set another one in ./input/mg7_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 58 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      3.355e-04 +- 1.6e-05 pb
+      Total abs(cross section): 9.851e-04 +- 1.6e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 20h20 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  27.5s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > mu+ mu- b b~ g [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 3.355e-04 +- 1.6e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+INFO: References for this run written to Events/run_01/citations.bib 
+quit
+INFO:  
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=cuda
+ENV_VFOLD_ME_MODE=C
+ENV_VFOLD_VECSIZE_USED=512
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=1
+CUDACPP_RUNTIME_BLASCOLORSUM_VFOLDBORN=
+randinit=84100
+START:    Sun Nov  8 08:20:14 PM CET 2026
+END:      Sun Nov  8 08:20:48 PM CET 2026
+ELAPSED:  34 seconds
+
+STATUS=0
+START:    Sun Nov  8 08:20:51 PM CET 2026
+HOSTNAME: itscrd90.cern.ch
+PROC:     eemumubbg_vfgen
+
+EXECUTING: ./vfold/myLaunch.sh -o -x
+
+CCACHE_DIR=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ccache
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+Python 3.12.15
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.0.2.1
+f90cache is not installed
+Cuda compilation tools, release 12.0, V12.0.140
+PYTHIA_VERSION 8.317
+WARNING! removing existing SubProcesses/P*/GF*
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=cuda
+ENV_VFOLD_ME_MODE=C
+ENV_VFOLD_VECSIZE_USED=1024
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=1
+CUDACPP_RUNTIME_BLASCOLORSUM_VFOLDBORN=
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 46][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 7           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                        ..........                        *
+*                      @          ....                     *
+*                    @               ...                   *
+*                  @    M         M    .                   *
+*                 @     MM       MM    ..                  *
+*                 .     M  M   M  M  ..                    *
+*                 ..    M   M M   M ..                     *
+*                  .    M    M    M.                       *
+*                  ...                   7777777           *
+*                    ....                     7            *
+*                       .................... 7             *
+*                                           7              *
+*                                          7               *
+*                                                          *
+*         VERSION 5.0.2.1                                  *
+*                                                          *
+*       The MadGraph7 Development Team - Find us at        *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/input/mg7_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg7_configuration.txt
+Using default eps viewer "evince". Set another one in ./input/mg7_configuration.txt
+Using default web browser "firefox". Set another one in ./input/mg7_configuration.txt
+Using default gzip "pigz". Set another one in ./input/mg7_configuration.txt
+launch -f -p -o -x
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+Lepton-lepton collisions: ignoring PDF related parameters in the run_card.dat (pdlabel, lhaid, reweight_pdf, ...)
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Generating events without running the shower. 
+INFO: Using 1 of the 58 channels in job_status.pkl (the others have no res_1.dat) 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=200
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      3.355e-04 +- 1.6e-05 pb
+      Total abs(cross section): 9.851e-04 +- 1.6e-05 pb 
+
+ 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 20h20 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  27.8s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > mu+ mu- b b~ g [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 3.355e-04 +- 1.6e-05 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/Events/run_01/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+INFO: References for this run written to Events/run_01/citations.bib 
+quit
+INFO:  
+ENV_VFOLDTEST_NEVENTS=200
+ENV_VFOLDTEST_FOLDING=1,1,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=cuda
+ENV_VFOLD_ME_MODE=C
+ENV_VFOLD_VECSIZE_USED=1024
+ENV_VFOLD_KPOINT_BATCH=512
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MG7BORNNOOPT=
+ENV_VFOLDTEST_MLREDUCTION=collier
+ENV_VFOLDTEST_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLDTEST_MINT0_ACC=0.5
+ENV_VFOLDTEST_MINT0_NITERS=2
+ENV_VFOLDTEST_MINT0_NPOINTS=50
+ENV_VFOLDTEST_MINT1_NITERS=2
+ENV_VFOLDTEST_MINT1_NPOINTS=50
+ENV_VFOLDTEST_CHANNELS=58.0
+ENV_VFOLDTEST_NOSHUFFLE=1
+ENV_VFOLDTEST_MCATNLODELTA=
+ENV_VFOLDTEST_PHYSICS=
+ENV_VFOLDTEST_REQACC=
+ENV_VFOLDTEST_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=1
+CUDACPP_RUNTIME_BLASCOLORSUM_VFOLDBORN=
+randinit=84100
+START:    Sun Nov  8 08:20:51 PM CET 2026
+END:      Sun Nov  8 08:21:25 PM CET 2026
+ELAPSED:  34 seconds
+
+STATUS=0
+
+-------------------------------------------------------------------------------
+
+START:    Sun Nov  8 08:09:50 PM CET 2026
+END:      Sun Nov  8 08:21:28 PM CET 2026
+ELAPSED:  698 seconds
+
+-------------------------------------------------------------------------------
+
+STATUS=0 (launch REF7/CUDA/n200f111k512g1/step15c)
+
