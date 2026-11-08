@@ -75,7 +75,7 @@
 #!  Defines the path to the pythia8 installation directory (i.e. the
 #!  on containing the lib, bin and include directories) .
 #!  If using a relative path, that starts from the mg5 directory
-pythia8_path = ./HEPTools/pythia8
+pythia8_path = ../../../HEPTools/pythia8
 
 #! HepMC3 path
 #!  Defines the path to the HepMC3 installation directory (the one
