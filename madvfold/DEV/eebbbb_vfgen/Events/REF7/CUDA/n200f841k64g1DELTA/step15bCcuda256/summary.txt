@@ -1,0 +1,8 @@
+
+   --------------------------------------------------------------
+      Summary:
+      Process e+ e- > b b~ b b~ [QCD]
+      Run at l-l collider (500.0 + 500.0 GeV)
+      Number of events generated: 200
+      Total cross section: 2.068e-04 +- 1.1e-05 pb
+   --------------------------------------------------------------

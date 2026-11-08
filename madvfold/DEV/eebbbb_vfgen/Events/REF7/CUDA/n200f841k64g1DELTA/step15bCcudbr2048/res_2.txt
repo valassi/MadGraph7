@@ -1,0 +1,21 @@
+
+
+Cross section per integration channel:
+      P0_epem_bbbxbx             11.0   2.06810457e-04    1.0937e-05       5.2884%  
+
+
+ABS cross section per integration channel:
+      P0_epem_bbbxbx             11.0   4.09170585e-04    1.1100e-05       2.7127%  
+
+
+ABS cross section per dir
+      P0_epem_bbbxbx   4.09170585e-04    1.1100e-05 
+
+
+Cross section per dir
+      P0_epem_bbbxbx   2.06810457e-04    1.0937e-05 
+
+Total ABS and 
+Total: 
+                      4.09170585e-04 +- 1.1100e-05  (2.7127e+00%)
+                      2.06810457e-04 +- 1.0937e-05  (5.2884e+00%) 

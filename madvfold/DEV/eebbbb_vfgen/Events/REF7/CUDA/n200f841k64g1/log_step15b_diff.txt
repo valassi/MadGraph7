@@ -1,0 +1,256 @@
+drwxr-xr-x. 1 avalassi zg 4096 Nov  8 13:30 Events/REF7/CUDA/n200f841k64g1/step15bCavx2
+drwxr-xr-x. 1 avalassi zg 4096 Nov  8 13:32 Events/REF7/CUDA/n200f841k64g1/step15bCcuda1024
+drwxr-xr-x. 1 avalassi zg 4096 Nov  8 13:31 Events/REF7/CUDA/n200f841k64g1/step15bCcuda128
+drwxr-xr-x. 1 avalassi zg 4096 Nov  8 13:33 Events/REF7/CUDA/n200f841k64g1/step15bCcuda2048
+drwxr-xr-x. 1 avalassi zg 4096 Nov  8 13:32 Events/REF7/CUDA/n200f841k64g1/step15bCcuda256
+drwxr-xr-x. 1 avalassi zg 4096 Nov  8 13:30 Events/REF7/CUDA/n200f841k64g1/step15bCcuda32
+drwxr-xr-x. 1 avalassi zg 4096 Nov  8 13:32 Events/REF7/CUDA/n200f841k64g1/step15bCcuda512
+drwxr-xr-x. 1 avalassi zg 4096 Nov  8 13:31 Events/REF7/CUDA/n200f841k64g1/step15bCcuda64
+drwxr-xr-x. 1 avalassi zg 4096 Nov  8 13:33 Events/REF7/CUDA/n200f841k64g1/step15bCcudbr1024
+drwxr-xr-x. 1 avalassi zg 4096 Nov  8 13:33 Events/REF7/CUDA/n200f841k64g1/step15bCcudbr2048
+drwxr-xr-x. 1 avalassi zg 4096 Nov  8 13:28 Events/REF7/CUDA/n200f841k64g1/step15bCnone
+drwxr-xr-x. 1 avalassi zg 4096 Nov  8 13:29 Events/REF7/CUDA/n200f841k64g1/step15bCsse4
+drwxr-xr-x. 1 avalassi zg 4096 Nov  8 13:26 Events/REF7/CUDA/n200f841k64g1/step15bF
+drwxr-xr-x. 1 avalassi zg 4096 Nov  8 13:20 Events/REF7/CUDA/n200f841k64g1/step15bS
+drwxr-xr-x. 1 avalassi zg 4096 Nov  8 13:23 Events/REF7/CUDA/n200f841k64g1/step15bT
+drwxr-xr-x. 1 avalassi zg 4096 Nov  8 13:17 Events/REF7/CUDA/n200f841k64g1/step15bZ
+
+-------------------------------------------------------------------------------
+
+Compare results using:
+  ./vfold/myBackends.sh --diff-o REF7/CUDA/n200f841k64g1/step15b
+
+=== diff Events/REF7/CUDA/n200f841k64g1/step15bS/VERSIONS.txt.tmp Events/REF7/CUDA/n200f841k64g1/step15bF/VERSIONS.txt.tmp
+=== diff Events/REF7/CUDA/n200f841k64g1/step15bS/events.lhe.tmp Events/REF7/CUDA/n200f841k64g1/step15bF/events.lhe.tmp
+=== diff Events/REF7/CUDA/n200f841k64g1/step15bS/nevents_unweighted Events/REF7/CUDA/n200f841k64g1/step15bF/nevents_unweighted
+=== diff Events/REF7/CUDA/n200f841k64g1/step15bS/results.dat Events/REF7/CUDA/n200f841k64g1/step15bF/results.dat
+=== diff Events/REF7/CUDA/n200f841k64g1/step15bS/summary.txt Events/REF7/CUDA/n200f841k64g1/step15bF/summary.txt
+=== diff Events/REF7/CUDA/n200f841k64g1/step15bS/res_2.txt Events/REF7/CUDA/n200f841k64g1/step15bF/res_2.txt
+STATUS=0
+
+=== diff Events/REF7/CUDA/n200f841k64g1/step15bT/VERSIONS.txt.tmp Events/REF7/CUDA/n200f841k64g1/step15bF/VERSIONS.txt.tmp
+=== diff Events/REF7/CUDA/n200f841k64g1/step15bT/events.lhe.tmp Events/REF7/CUDA/n200f841k64g1/step15bF/events.lhe.tmp
+=== diff Events/REF7/CUDA/n200f841k64g1/step15bT/nevents_unweighted Events/REF7/CUDA/n200f841k64g1/step15bF/nevents_unweighted
+=== diff Events/REF7/CUDA/n200f841k64g1/step15bT/results.dat Events/REF7/CUDA/n200f841k64g1/step15bF/results.dat
+=== diff Events/REF7/CUDA/n200f841k64g1/step15bT/summary.txt Events/REF7/CUDA/n200f841k64g1/step15bF/summary.txt
+=== diff Events/REF7/CUDA/n200f841k64g1/step15bT/res_2.txt Events/REF7/CUDA/n200f841k64g1/step15bF/res_2.txt
+STATUS=0
+
+=== diff Events/REF7/CUDA/n200f841k64g1/step15bF/VERSIONS.txt.tmp Events/REF7/CUDA/n200f841k64g1/step15bCavx2/VERSIONS.txt.tmp
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/events.lhe.tmp Events/REF7/CUDA/n200f841k64g1/step15bCavx2/events.lhe.tmp --rtol 1.2e-7 --atol 0
+[PASS] 22430 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/nevents_unweighted Events/REF7/CUDA/n200f841k64g1/step15bCavx2/nevents_unweighted --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/results.dat Events/REF7/CUDA/n200f841k64g1/step15bCavx2/results.dat --rtol 1.2e-7 --atol 0
+[PASS] 13 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/summary.txt Events/REF7/CUDA/n200f841k64g1/step15bCavx2/summary.txt --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/res_2.txt Events/REF7/CUDA/n200f841k64g1/step15bCavx2/res_2.txt --rtol 1.2e-7 --atol 0
+[PASS] 22 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+STATUS=0
+
+=== diff Events/REF7/CUDA/n200f841k64g1/step15bF/VERSIONS.txt.tmp Events/REF7/CUDA/n200f841k64g1/step15bCcuda32/VERSIONS.txt.tmp
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/events.lhe.tmp Events/REF7/CUDA/n200f841k64g1/step15bCcuda32/events.lhe.tmp --rtol 1.2e-7 --atol 0
+[PASS] 22430 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/nevents_unweighted Events/REF7/CUDA/n200f841k64g1/step15bCcuda32/nevents_unweighted --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/results.dat Events/REF7/CUDA/n200f841k64g1/step15bCcuda32/results.dat --rtol 1.2e-7 --atol 0
+[PASS] 13 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/summary.txt Events/REF7/CUDA/n200f841k64g1/step15bCcuda32/summary.txt --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/res_2.txt Events/REF7/CUDA/n200f841k64g1/step15bCcuda32/res_2.txt --rtol 1.2e-7 --atol 0
+[PASS] 22 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+STATUS=0
+
+=== diff Events/REF7/CUDA/n200f841k64g1/step15bF/VERSIONS.txt.tmp Events/REF7/CUDA/n200f841k64g1/step15bCcuda64/VERSIONS.txt.tmp
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/events.lhe.tmp Events/REF7/CUDA/n200f841k64g1/step15bCcuda64/events.lhe.tmp --rtol 1.2e-7 --atol 0
+[PASS] 22430 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/nevents_unweighted Events/REF7/CUDA/n200f841k64g1/step15bCcuda64/nevents_unweighted --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/results.dat Events/REF7/CUDA/n200f841k64g1/step15bCcuda64/results.dat --rtol 1.2e-7 --atol 0
+[PASS] 13 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/summary.txt Events/REF7/CUDA/n200f841k64g1/step15bCcuda64/summary.txt --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/res_2.txt Events/REF7/CUDA/n200f841k64g1/step15bCcuda64/res_2.txt --rtol 1.2e-7 --atol 0
+[PASS] 22 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+STATUS=0
+
+=== diff Events/REF7/CUDA/n200f841k64g1/step15bF/VERSIONS.txt.tmp Events/REF7/CUDA/n200f841k64g1/step15bCcuda128/VERSIONS.txt.tmp
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/events.lhe.tmp Events/REF7/CUDA/n200f841k64g1/step15bCcuda128/events.lhe.tmp --rtol 1.2e-7 --atol 0
+[PASS] 22430 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/nevents_unweighted Events/REF7/CUDA/n200f841k64g1/step15bCcuda128/nevents_unweighted --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/results.dat Events/REF7/CUDA/n200f841k64g1/step15bCcuda128/results.dat --rtol 1.2e-7 --atol 0
+[PASS] 13 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/summary.txt Events/REF7/CUDA/n200f841k64g1/step15bCcuda128/summary.txt --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/res_2.txt Events/REF7/CUDA/n200f841k64g1/step15bCcuda128/res_2.txt --rtol 1.2e-7 --atol 0
+[PASS] 22 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+STATUS=0
+
+=== diff Events/REF7/CUDA/n200f841k64g1/step15bF/VERSIONS.txt.tmp Events/REF7/CUDA/n200f841k64g1/step15bCcuda256/VERSIONS.txt.tmp
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/events.lhe.tmp Events/REF7/CUDA/n200f841k64g1/step15bCcuda256/events.lhe.tmp --rtol 1.2e-7 --atol 0
+[PASS] 22430 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/nevents_unweighted Events/REF7/CUDA/n200f841k64g1/step15bCcuda256/nevents_unweighted --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/results.dat Events/REF7/CUDA/n200f841k64g1/step15bCcuda256/results.dat --rtol 1.2e-7 --atol 0
+[PASS] 13 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/summary.txt Events/REF7/CUDA/n200f841k64g1/step15bCcuda256/summary.txt --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/res_2.txt Events/REF7/CUDA/n200f841k64g1/step15bCcuda256/res_2.txt --rtol 1.2e-7 --atol 0
+[PASS] 22 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+STATUS=0
+
+=== diff Events/REF7/CUDA/n200f841k64g1/step15bF/VERSIONS.txt.tmp Events/REF7/CUDA/n200f841k64g1/step15bCcuda512/VERSIONS.txt.tmp
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/events.lhe.tmp Events/REF7/CUDA/n200f841k64g1/step15bCcuda512/events.lhe.tmp --rtol 1.2e-7 --atol 0
+[PASS] 22430 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/nevents_unweighted Events/REF7/CUDA/n200f841k64g1/step15bCcuda512/nevents_unweighted --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/results.dat Events/REF7/CUDA/n200f841k64g1/step15bCcuda512/results.dat --rtol 1.2e-7 --atol 0
+[PASS] 13 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/summary.txt Events/REF7/CUDA/n200f841k64g1/step15bCcuda512/summary.txt --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/res_2.txt Events/REF7/CUDA/n200f841k64g1/step15bCcuda512/res_2.txt --rtol 1.2e-7 --atol 0
+[PASS] 22 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+STATUS=0
+
+=== diff Events/REF7/CUDA/n200f841k64g1/step15bF/VERSIONS.txt.tmp Events/REF7/CUDA/n200f841k64g1/step15bCcuda1024/VERSIONS.txt.tmp
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/events.lhe.tmp Events/REF7/CUDA/n200f841k64g1/step15bCcuda1024/events.lhe.tmp --rtol 1.2e-7 --atol 0
+[PASS] 22430 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/nevents_unweighted Events/REF7/CUDA/n200f841k64g1/step15bCcuda1024/nevents_unweighted --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/results.dat Events/REF7/CUDA/n200f841k64g1/step15bCcuda1024/results.dat --rtol 1.2e-7 --atol 0
+[PASS] 13 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/summary.txt Events/REF7/CUDA/n200f841k64g1/step15bCcuda1024/summary.txt --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/res_2.txt Events/REF7/CUDA/n200f841k64g1/step15bCcuda1024/res_2.txt --rtol 1.2e-7 --atol 0
+[PASS] 22 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+STATUS=0
+
+=== diff Events/REF7/CUDA/n200f841k64g1/step15bF/VERSIONS.txt.tmp Events/REF7/CUDA/n200f841k64g1/step15bCcuda2048/VERSIONS.txt.tmp
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/events.lhe.tmp Events/REF7/CUDA/n200f841k64g1/step15bCcuda2048/events.lhe.tmp --rtol 1.2e-7 --atol 0
+[PASS] 22430 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/nevents_unweighted Events/REF7/CUDA/n200f841k64g1/step15bCcuda2048/nevents_unweighted --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/results.dat Events/REF7/CUDA/n200f841k64g1/step15bCcuda2048/results.dat --rtol 1.2e-7 --atol 0
+[PASS] 13 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/summary.txt Events/REF7/CUDA/n200f841k64g1/step15bCcuda2048/summary.txt --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/res_2.txt Events/REF7/CUDA/n200f841k64g1/step15bCcuda2048/res_2.txt --rtol 1.2e-7 --atol 0
+[PASS] 22 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+STATUS=0
+
+=== diff Events/REF7/CUDA/n200f841k64g1/step15bF/VERSIONS.txt.tmp Events/REF7/CUDA/n200f841k64g1/step15bCcudbr1024/VERSIONS.txt.tmp
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/events.lhe.tmp Events/REF7/CUDA/n200f841k64g1/step15bCcudbr1024/events.lhe.tmp --rtol 1.2e-7 --atol 0
+[PASS] 22430 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/nevents_unweighted Events/REF7/CUDA/n200f841k64g1/step15bCcudbr1024/nevents_unweighted --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/results.dat Events/REF7/CUDA/n200f841k64g1/step15bCcudbr1024/results.dat --rtol 1.2e-7 --atol 0
+[PASS] 13 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/summary.txt Events/REF7/CUDA/n200f841k64g1/step15bCcudbr1024/summary.txt --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/res_2.txt Events/REF7/CUDA/n200f841k64g1/step15bCcudbr1024/res_2.txt --rtol 1.2e-7 --atol 0
+[PASS] 22 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+STATUS=0
+
+=== diff Events/REF7/CUDA/n200f841k64g1/step15bF/VERSIONS.txt.tmp Events/REF7/CUDA/n200f841k64g1/step15bCcudbr2048/VERSIONS.txt.tmp
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/events.lhe.tmp Events/REF7/CUDA/n200f841k64g1/step15bCcudbr2048/events.lhe.tmp --rtol 1.2e-7 --atol 0
+[PASS] 22430 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/nevents_unweighted Events/REF7/CUDA/n200f841k64g1/step15bCcudbr2048/nevents_unweighted --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/results.dat Events/REF7/CUDA/n200f841k64g1/step15bCcudbr2048/results.dat --rtol 1.2e-7 --atol 0
+[PASS] 13 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/summary.txt Events/REF7/CUDA/n200f841k64g1/step15bCcudbr2048/summary.txt --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/res_2.txt Events/REF7/CUDA/n200f841k64g1/step15bCcudbr2048/res_2.txt --rtol 1.2e-7 --atol 0
+[PASS] 22 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+STATUS=0
+
+=== diff Events/REF7/CUDA/n200f841k64g1/step15bF/VERSIONS.txt.tmp Events/REF7/CUDA/n200f841k64g1/step15bCnone/VERSIONS.txt.tmp
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/events.lhe.tmp Events/REF7/CUDA/n200f841k64g1/step15bCnone/events.lhe.tmp --rtol 1.2e-7 --atol 0
+[PASS] 22430 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/nevents_unweighted Events/REF7/CUDA/n200f841k64g1/step15bCnone/nevents_unweighted --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/results.dat Events/REF7/CUDA/n200f841k64g1/step15bCnone/results.dat --rtol 1.2e-7 --atol 0
+[PASS] 13 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/summary.txt Events/REF7/CUDA/n200f841k64g1/step15bCnone/summary.txt --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/res_2.txt Events/REF7/CUDA/n200f841k64g1/step15bCnone/res_2.txt --rtol 1.2e-7 --atol 0
+[PASS] 22 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+STATUS=0
+
+=== diff Events/REF7/CUDA/n200f841k64g1/step15bF/VERSIONS.txt.tmp Events/REF7/CUDA/n200f841k64g1/step15bCsse4/VERSIONS.txt.tmp
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/events.lhe.tmp Events/REF7/CUDA/n200f841k64g1/step15bCsse4/events.lhe.tmp --rtol 1.2e-7 --atol 0
+[PASS] 22430 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/nevents_unweighted Events/REF7/CUDA/n200f841k64g1/step15bCsse4/nevents_unweighted --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/results.dat Events/REF7/CUDA/n200f841k64g1/step15bCsse4/results.dat --rtol 1.2e-7 --atol 0
+[PASS] 13 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/summary.txt Events/REF7/CUDA/n200f841k64g1/step15bCsse4/summary.txt --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/CUDA/n200f841k64g1/step15bF/res_2.txt Events/REF7/CUDA/n200f841k64g1/step15bCsse4/res_2.txt --rtol 1.2e-7 --atol 0
+[PASS] 22 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+STATUS=0
+
+
+Compared results using
+  ./vfold/myBackends.sh --diff-o REF7/CUDA/n200f841k64g1/step15b
+Modes F1/S, F2/T (and F1 with the MadLoop library of F) and F give identical results
+Modes F and all Cs are equal within tolerance
+  ./vfold/myDiffRun.sh -o REF7/CUDA/n200f841k64g1/step15bS REF7/CUDA/n200f841k64g1/step15bF
+  ./vfold/myDiffRun.sh -o REF7/CUDA/n200f841k64g1/step15bT REF7/CUDA/n200f841k64g1/step15bF
+  ./vfold/myDiffRun.sh -o -nd5 REF7/CUDA/n200f841k64g1/step15bF REF7/CUDA/n200f841k64g1/step15bCavx2
+  ./vfold/myDiffRun.sh -o -nd5 REF7/CUDA/n200f841k64g1/step15bF REF7/CUDA/n200f841k64g1/step15bCcuda32
+  ./vfold/myDiffRun.sh -o -nd5 REF7/CUDA/n200f841k64g1/step15bF REF7/CUDA/n200f841k64g1/step15bCcuda64
+  ./vfold/myDiffRun.sh -o -nd5 REF7/CUDA/n200f841k64g1/step15bF REF7/CUDA/n200f841k64g1/step15bCcuda128
+  ./vfold/myDiffRun.sh -o -nd5 REF7/CUDA/n200f841k64g1/step15bF REF7/CUDA/n200f841k64g1/step15bCcuda256
+  ./vfold/myDiffRun.sh -o -nd5 REF7/CUDA/n200f841k64g1/step15bF REF7/CUDA/n200f841k64g1/step15bCcuda512
+  ./vfold/myDiffRun.sh -o -nd5 REF7/CUDA/n200f841k64g1/step15bF REF7/CUDA/n200f841k64g1/step15bCcuda1024
+  ./vfold/myDiffRun.sh -o -nd5 REF7/CUDA/n200f841k64g1/step15bF REF7/CUDA/n200f841k64g1/step15bCcuda2048
+  ./vfold/myDiffRun.sh -o -nd5 REF7/CUDA/n200f841k64g1/step15bF REF7/CUDA/n200f841k64g1/step15bCcudbr1024
+  ./vfold/myDiffRun.sh -o -nd5 REF7/CUDA/n200f841k64g1/step15bF REF7/CUDA/n200f841k64g1/step15bCcudbr2048
+  ./vfold/myDiffRun.sh -o -nd5 REF7/CUDA/n200f841k64g1/step15bF REF7/CUDA/n200f841k64g1/step15bCnone
+  ./vfold/myDiffRun.sh -o -nd5 REF7/CUDA/n200f841k64g1/step15bF REF7/CUDA/n200f841k64g1/step15bCsse4
+STATUS=0 (all comparisons above)
+
+-------------------------------------------------------------------------------
+
+Prepare timing table using:
+  ./vfold/myTimingTable.py -f txt Events/REF7/CUDA/n200f841k64g1/step15b
+
+
+==================== Events/REF7/CUDA/n200f841k64g1/step15b ====================
+### epem_bbbxbx | step15b | NEVENTS=200 | folding=8,4,1 | kbatch=64 | bsffused=N/A | sborn=1
+- N/A: that switch does not exist in the code of this step
+- sborn 1: SBORN served from cudacpp, in mode C only
+- cudbr: cuda backend with BLAS colour sums for the Real libraries only
+- timers: getrusage in F0*, F1; clock_gettime in F2, F, C/none, C/sse4, C/avx2, C/cuda, C/cudbr
+- mode F0: 10031 kpoints = 76 virt + 9955 novi -> 200 events (10 virt + 190 novi)
+- mode F: 10172 kpoints = 144 virt + 10028 novi -> 200 events (13 virt + 187 novi) [same in F1, F2, Cs]
+- mode F: Born 160 batched calls, mean batch 2047.725 | Real 157 batched calls, mean batch 2047.083
+- F0*: F0 rescaled to the kpoints of F (separately for virt and novi)
+|-----------------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
+| mode/bknd       |    F0* |     F1 |     F2 |      F | C/none | C/sse4 | C/avx2 | C/cuda | C/cuda | C/cuda | C/cuda | C/cuda | C/cuda | C/cuda | C/cudbr | C/cudbr |
+| cudacpp_vecsize |      - |      - |      - |      - |      1 |      2 |      4 |     32 |     64 |    128 |    256 |    512 |   1024 |   2048 |   1024 |   2048 |
+| sborn_gscale    |      - |      - |      - |      - |      1 |      1 |      1 |      1 |      1 |      1 |      1 |      1 |      1 |      1 |      1 |      1 |
+| ml_reduction    |  ninja |  ninja |  ninja |  ninja |  ninja |  ninja |  ninja |  ninja |  ninja |  ninja |  ninja |  ninja |  ninja |  ninja |  ninja |  ninja |
+| born_batch_avg  |      - |      - |      - | 2047.7 | 2047.7 | 2047.7 | 2047.7 | 2047.7 | 2047.7 | 2047.7 | 2047.7 | 2047.7 | 2047.7 | 2047.7 | 2047.7 | 2047.7 |
+| real_batch_avg  |      - |      - |      - | 2047.1 | 2047.1 | 2047.1 | 2047.1 | 2047.1 | 2047.1 | 2047.1 | 2047.1 | 2047.1 | 2047.1 | 2047.1 | 2047.1 | 2047.1 |
+| cpu_timer       | rusage | rusage |   mono |   mono |   mono |   mono |   mono |   mono |   mono |   mono |   mono |   mono |   mono |   mono |   mono |   mono |
+|-----------------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
+| TOTAL           |156.337 |155.967 |151.911 |158.607 |126.323 | 69.105 | 35.968 | 16.120 | 13.776 | 12.535 | 12.095 | 12.312 | 11.771 | 12.274 | 12.618 | 12.583 |
+| Born            |  3.638 |  3.639 |  6.779 |  7.445 |  1.181 |  0.937 |  0.799 |  0.779 |  0.733 |  0.723 |  0.743 |  0.744 |  0.753 |  0.807 |  0.757 |  0.790 |
+| Real            |136.411 |135.974 |136.149 |136.416 |115.730 | 58.729 | 25.620 |  5.343 |  3.094 |  1.970 |  1.427 |  1.257 |  1.188 |  1.171 |  1.970 |  1.904 |
+| Virtual         |  0.694 |  0.639 |  0.657 |  0.659 |  0.671 |  0.663 |  0.660 |  0.676 |  0.665 |  0.674 |  0.679 |  0.667 |  0.667 |  0.667 |  0.680 |  0.670 |
+| PS_Generation   |  1.513 |  1.562 |  0.705 |  1.253 |  1.236 |  1.249 |  1.258 |  1.253 |  1.258 |  1.242 |  1.253 |  1.288 |  1.232 |  1.289 |  1.245 |  1.259 |
+| CT_and_MCsub    |  4.985 |  4.933 |  3.180 |  4.469 |  1.896 |  1.894 |  1.971 |  1.890 |  1.894 |  1.875 |  1.891 |  2.018 |  1.873 |  2.024 |  1.889 |  1.881 |
+| Nbody_prefactor |  1.060 |  1.072 |  0.161 |  2.759 |  0.166 |  0.169 |  0.171 |  0.172 |  0.170 |  0.172 |  0.174 |  0.179 |  0.169 |  0.177 |  0.169 |  0.167 |
+| Bridge_crt_del  |  0.000 |  0.000 |  0.000 |  0.000 |  0.052 |  0.051 |  0.051 |  0.594 |  0.547 |  0.548 |  0.540 |  0.548 |  0.545 |  0.542 |  0.541 |  0.542 |
+| Misc            |  8.036 |  8.147 |  4.280 |  5.608 |  5.390 |  5.413 |  5.440 |  5.412 |  5.413 |  5.332 |  5.388 |  5.611 |  5.344 |  5.596 |  5.368 |  5.369 |
+|-----------------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
+
+
+-------------------------------------------------------------------------------
+
+STATUS=0 (diff REF7/CUDA/n200f841k64g1/step15b)
+
