@@ -1,0 +1,631 @@
+<LesHouchesEvents version="3.0">
+<header>
+<!--
+#*********************************************************************
+#                                                                    *
+#                         MadGraph7                          *
+#                                                                    *
+#                   http://madgraph.hep.uiuc.edu                     *
+#                   http://madgraph.phys.ucl.ac.be                   *
+#                   http://amcatnlo.cern.ch                          *
+#                                                                    *
+#                     The MadGraph7 team                     *
+#                                                                    *
+#....................................................................*
+#                                                                    *
+# This file contains all the information necessary to reproduce      *
+# the events generated                                               *
+#                                                                    *
+# 1. software version                                                *
+# 2. proc_card.dat      : code generation info including model       *
+# 3. param_card.dat     : model primary parameters in the LH format  *
+# 4. run_card.dat       : running parameters (collider and cuts)     *
+#                                                                    *
+#                                                                    *
+#*********************************************************************
+-->
+<MGVersion>
+#5.0.2.1
+</MGVersion>
+<MG5ProcCard>
+#************************************************************
+#*                         MadGraph7                        *
+#*                                                          *
+#*                        ..........                        *
+#*                      @          ....                     *
+#*                    @               ...                   *
+#*                  @    M         M    .                   *
+#*                 @     MM       MM    ..                  *
+#*                 .     M  M   M  M  ..                    *
+#*                 ..    M   M M   M ..                     *
+#*                  .    M    M    M.                       *
+#*                  ...                   7777777           *
+#*                    ....                     7            *
+#*                       .................... 7             *
+#*                                           7              *
+#*                                          7               *
+#*                                                          *
+#*                                                          *
+#*         VERSION 0.2.1                 2026-09-24         *
+#*         GIT                             vfold7cg         *
+#*                                                          *
+#*       The MadGraph7 Development Team - Find us at        *
+#*    https://server06.fynu.ucl.ac.be/projects/madgraph     *
+#*                                                          *
+#************************************************************
+#*                                                          *
+#*                Command File for MadGraph7                *
+#*                                                          *
+#*     run as ./bin/madgraph  filename                      *
+#*                                                          *
+#************************************************************
+set group_subprocesses Auto
+set ignore_six_quark_processes False
+set low_mem_multicore_nlo_generation False
+set complex_mass_scheme False
+set include_lepton_initiated_processes False
+set gauge unitary
+set loop_optimized_output True
+set loop_color_flows False
+set max_npoint_for_channel 0
+set default_unset_couplings 99
+set max_t_for_channel 99
+set zerowidth_tchannel True
+set nlo_mixed_expansion True
+set apply_flavor_grouping True
+set color_basis auto
+set merge_same_topologies True
+set merge_quartic_vertices False
+set automatic_html_opening False --no_save
+set pythia8_path ./HEPTools/pythia8 --no_save
+set mg5amc_py8_interface_path ./HEPTools/MG5aMC_PY8_interface --no_save
+set hepmc_path ./HEPTools/hepmc --no_save
+set lhapdf_py3 ./HEPTools/lhapdf6_py3/bin/lhapdf-config --no_save
+set ninja ./HEPTools/lib --no_save
+set collier ./HEPTools/collier --no_save
+generate g g > t t~ g [QCD]
+define p = g u c d s u~ c~ d~ s~
+define j = g u c d s u~ c~ d~ s~
+define l+ = e+ mu+
+define l- = e- mu-
+define vl = ve vm vt
+define vl~ = ve~ vm~ vt~
+set apply_flavor_grouping False
+output madvfold/DEV/ggttg_vfgen --vfold-with-tests
+</MG5ProcCard>
+<MGRunCard>
+#***********************************************************************
+#                        MadGraph7                             *
+#                                                                      *
+#                      run_card.dat aMC@NLO                            *
+#                                                                      *
+#  This file is used to set the parameters of the run.                 *
+#                                                                      *
+#  Some notation/conventions:                                          *
+#                                                                      *
+#   Lines starting with a hash (#) are info or comments                *
+#                                                                      *
+#   mind the format:   value    = variable     ! comment               *
+#                                                                      *
+#   Some of the values of variables can be list. These can either be   *
+#   comma or space separated.                                          *
+#                                                                      *
+#   To display additional parameter, you can use the command:          *
+#      update to_full                                                  *
+#***********************************************************************
+#
+#*******************                                                 
+# Running parameters
+#*******************                                                 
+#
+#***********************************************************************
+# Tag name for the run (one word)                                      *
+#***********************************************************************
+  tag_1     = run_tag ! name of the run 
+#***********************************************************************
+# Number of LHE events (and their normalization) and the required      *
+# (relative) accuracy on the Xsec.                                     *
+# These values are ignored for fixed order runs                        *
+#***********************************************************************
+  20 = nevents ! Number of unweighted events requested 
+ -1.0 = req_acc ! Required accuracy (-1=auto determined from nevents)
+ -1 = nevt_job! Max number of events per job in event generation. 
+                 !  (-1= no split).
+#***********************************************************************
+# Output format
+#***********************************************************************
+  -1.0 = time_of_flight ! threshold (in mm) below which the invariant lifetime is not written (-1 means not written)
+  average =  event_norm       ! average/sum/bias. Normalization of the weight in the LHEF
+#***********************************************************************
+# Number of points per integration channel (ignored for aMC@NLO runs)   *
+#***********************************************************************
+ 0.01   = req_acc_FO       ! Required accuracy (-1=ignored, and use the 
+ 	                   ! number of points and iter. below)
+# These numbers are ignored except if req_acc_FO is equal to -1
+ 5000   = npoints_FO_grid  ! number of points to setup grids
+ 4      = niters_FO_grid   ! number of iter. to setup grids
+ 10000  = npoints_FO       ! number of points to compute Xsec
+ 6      = niters_FO        ! number of iter. to compute Xsec
+# Separate integration channels for the hard real emission (0<x0<1: on,
+# -1: off). Default chosen at output from the real-emission diagrams
+ 0.05  = real_channels_x0 ! f(x)=1/(1+(x/x0)^2), x=2ki.kj/shat
+#***********************************************************************
+# Random number seed                                                   *
+#***********************************************************************
+  84118    = iseed       ! rnd seed (0=assigned automatically=default))
+#***********************************************************************
+# Collider type and energy                                             *
+#    0 = no PDF                                                        *
+#    1/-1 = proton/antiproton                                          *
+#    2 = elastic photon of proton/ion beam                             *
+#    3/-3 = electron/positron with ISR/Beamstrahlung;                  * 
+#    4/-4 = muon/antimuon with ISR/Beamstrahlung;                      * 
+#***********************************************************************
+ 1   = lpp1    ! beam 1 type (0 = no PDF)
+ 1   = lpp2    ! beam 2 type (0 = no PDF)
+ 6500.0   = ebeam1  ! beam 1 energy in GeV
+ 6500.0   = ebeam2  ! beam 2 energy in GeV
+
+#***********************************************************************
+# PDF choice: this automatically fixes also alpha_s(MZ) and its evol.  *
+# pdlabel: lhapdf = LHAPDF (installation needed) [1412.7420]           *
+#          edff = EDFF in gamma-UPC            [eq.(11) in 2207.03012] *
+#          chff = ChFF in gamma-UPC            [eq.(13) in 2207.03012] *
+#***********************************************************************
+ nn23nlo = pdlabel ! PDF set
+ 244600  = lhaid   ! If pdlabel=lhapdf, this is the lhapdf number. Only 
+              ! numbers for central PDF sets are allowed. Can be a list; 
+              ! PDF sets beyond the first are included via reweighting.
+  0	= pdfscheme ! the scheme of the input PDFs. 0->MSbar; 1->DIS
+	            ! 2->eta (leptonic); 3->beta (leptonic) 
+		    ! 4->mixed (leptonic); 6->delta (leptonic)
+                    ! if pdlabel==emela, this is set automatically
+# To see heavy ion options: type "update ion_pdf"
+#***********************************************************************
+# The following block is specific to lepton collisions (lpp=+-3)       *
+#***********************************************************************
+ True   = photons_from_lepton ! whether to include or not photons from 
+                              ! lepton ISR
+#***********************************************************************
+# Include the NLO Monte Carlo subtr. terms for the following parton    *
+# shower (HERWIG6 | HERWIGPP | PYTHIA6Q | PYTHIA6PT | PYTHIA8)         *
+# WARNING: PYTHIA6PT works only for processes without FSR!!!!          *
+#***********************************************************************
+  PYTHIA8 = parton_shower
+  1.0 = shower_scale_factor ! multiply default shower starting
+                            ! scale by this factor
+  False = MCatNLO_DELTA ! use MC@NLO-Delta matching, arXiv:2002.12716
+                        ! (only with Pythia8309 or later)
+#***********************************************************************
+# Renormalization and factorization scales                             *
+# (Default functional form for the non-fixed scales is the sum of      *
+# the transverse masses divided by two of all final state particles    * 
+# and partons. This can be changed in SubProcesses/set_scales.f or via *
+# dynamical_scale_choice option)                                       *
+#***********************************************************************
+ False    = fixed_ren_scale  ! if .true. use fixed ren scale
+ False    = fixed_fac_scale  ! if .true. use fixed fac scale
+ 91.118   = muR_ref_fixed    ! fixed ren reference scale 
+ 91.118   = muF_ref_fixed    ! fixed fact reference scale
+ -1 = dynamical_scale_choice ! Choose one (or more) of the predefined
+           ! dynamical choices. Can be a list; scale choices beyond the
+           ! first are included via reweighting
+ 1.0  = muR_over_ref  ! ratio of current muR over reference muR
+ 1.0  = muF_over_ref  ! ratio of current muF over reference muF
+ 
+#*********************************************************************** 
+# Reweight variables for scale dependence and PDF uncertainty          *
+#***********************************************************************
+ 1.0, 2.0, 0.5 = rw_rscale ! muR factors to be included by reweighting
+ 1.0, 2.0, 0.5 = rw_fscale ! muF factors to be included by reweighting
+  False = reweight_scale ! Reweight to get scale variation using the 
+            ! rw_rscale and rw_fscale factors. Should be a list of 
+            ! booleans of equal length to dynamical_scale_choice to
+            ! specify for which choice to include scale dependence.
+ False = reweight_PDF  ! Reweight to get PDF uncertainty. Should be a
+            ! list booleans of equal length to lhaid to specify for
+            !  which PDF set to include the uncertainties.
+#***********************************************************************
+# Store reweight information in the LHE file for off-line model-       *
+# parameter reweighting at NLO+PS accuracy                             *
+#***********************************************************************
+ False = store_rwgt_info ! Store info for reweighting in LHE file
+#***********************************************************************
+#  Customization of the code. List of files containing user hook function 
+#***********************************************************************
+  = custom_fcts ! List of files containing user hook function
+#***********************************************************************
+# ickkw parameter:                                                     *
+#   0: No merging                                                      *
+#   3: FxFx Merging - WARNING! Applies merging only at the hard-event  *
+#      level. After showering an MLM-type merging should be applied as *
+#      well. See http://amcatnlo.cern.ch/FxFx_merging.htm for details. *
+#   4: UNLOPS merging (with pythia8 only). No interface from within    *
+#      MadGraph7 available, but available in Pythia8.                    *
+#  -1: NNLL+NLO jet-veto computation. See arxiv:1412.8408 [hep-ph].    *
+#***********************************************************************
+ 0        = ickkw
+#***********************************************************************
+#
+#***********************************************************************
+# BW cutoff (M+/-bwcutoff*Gamma). Determines which resonances are      *
+# written in the LHE event file                                        *
+#***********************************************************************
+ 15.0  = bwcutoff
+#***********************************************************************
+# Cuts on the jets. Jet clustering is performed by FastJet.            *
+#  - If gamma_is_j, photons are also clustered with jets.              *
+#    Otherwise, they will be treated as tagged particles and photon    * 
+#    isolation will be applied. Note that photons in the real emission *
+#    will always be clustered with QCD partons.                        *
+#  - When matching to a parton shower, these generation cuts should be *
+#    considerably softer than the analysis cuts.                       *
+#  - More specific cuts can be specified in SubProcesses/cuts.f        *
+#***********************************************************************
+  1.0  = jetalgo   ! FastJet jet algorithm (1=kT, 0=C/A, -1=anti-kT)
+  0.7  = jetradius ! The radius parameter for the jet algorithm
+ 10.0  = ptj       ! Min jet transverse momentum
+ -1.0  = etaj      ! Max jet abs(pseudo-rap) (a value .lt.0 means no cut)
+ False = gamma_is_j! Wether to cluster photons as jets or not
+#***********************************************************************
+# Cuts on the charged leptons (e+, e-, mu+, mu-, tau+ and tau-)        *
+# More specific cuts can be specified in SubProcesses/cuts.f           *
+#***********************************************************************
+  0.0  = ptl     ! Min lepton transverse momentum
+ -1.0  = etal    ! Max lepton abs(pseudo-rap) (a value .lt.0 means no cut)
+  0.0  = drll    ! Min distance between opposite sign lepton pairs
+  0.0  = drll_sf ! Min distance between opp. sign same-flavor lepton pairs
+  0.0  = mll     ! Min inv. mass of all opposite sign lepton pairs
+  30.0  = mll_sf  ! Min inv. mass of all opp. sign same-flavor lepton pairs
+#***********************************************************************
+# Fermion-photon recombination parameters                              *
+# If Rphreco=0, no recombination is performed                          *
+#***********************************************************************
+ 0.1  = Rphreco  ! Minimum fermion-photon distance for recombination
+ -1.0  = etaphreco  ! Maximum abs(pseudo-rap) for photons to be recombined (a value .lt.0 means no cut)
+ False  = lepphreco  ! Recombine photons and leptons together
+ False  = quarkphreco  ! Recombine photons and quarks together
+#***********************************************************************
+# Photon-isolation cuts, according to hep-ph/9801442                   *
+# Not applied if gamma_is_j                                            *
+# When ptgmin=0, all the other parameters are ignored                  *
+# More specific cuts can be specified in SubProcesses/cuts.f           *
+#***********************************************************************
+  20.0  = ptgmin    ! Min photon transverse momentum
+  -1.0  = etagamma  ! Max photon abs(pseudo-rap)
+  0.4  = R0gamma   ! Radius of isolation code
+  1.0  = xn        ! n parameter of eq.(3.4) in hep-ph/9801442
+  1.0  = epsgamma  ! epsilon_gamma parameter of eq.(3.4) in hep-ph/9801442
+ True  = isoEM  ! isolate photons from EM energy (photons and leptons)
+#***********************************************************************
+# Cuts associated to MASSIVE particles identified by their PDG codes.  *
+# All cuts are applied to both particles and anti-particles, so use    *
+# POSITIVE PDG CODES only. Example of the syntax is {6 : 100} or       *
+# {6:100, 25:200} for multiple particles                               *
+#***********************************************************************
+  {} = pt_min_pdg ! Min pT for a massive particle
+  {} = pt_max_pdg ! Max pT for a massive particle
+  {} = mxx_min_pdg ! inv. mass for any pair of (anti)particles
+#***********************************************************************
+# Use PineAPPL to generate PDF-independent fast-interpolation grid     *
+# (https://zenodo.org/record/3992765#.X2EWy5MzbVo)                     *
+#***********************************************************************
+ False = pineappl ! PineAPPL switch 
+#***********************************************************************
+# Folding parameters for S-events to reduce the number of negatively   *
+# weighted events. Allowed values are 1, 2, 4 or 8 for each of the     *
+# three variables. Typically, folding in xi_i or y_ij results in the   *
+# largest reduction of negatively weighted events. (arXiv:2002.12716)  *
+#***********************************************************************
+  8,4,1 = folding ! correspond to folding in xi_i, y_ij, and phi_i
+#***********************************************************************
+</MGRunCard>
+<slha>
+######################################################################
+## PARAM_CARD AUTOMATICALLY GENERATED BY MG5 FOLLOWING UFO MODEL   ####
+######################################################################
+##                                                                  ##
+##  Width set on Auto will be computed following the information    ##
+##        present in the decay.py files of the model.               ##
+##        See  arXiv:1402.1178 for more details.                    ##
+##                                                                  ##
+######################################################################
+
+###################################
+## INFORMATION FOR MASS
+###################################
+Block mass 
+    5 4.700000e+00 # MB 
+    6 1.730000e+02 # MT 
+   15 1.777000e+00 # MTA 
+   23 9.118800e+01 # MZ 
+   25 1.250000e+02 # MH 
+## Dependent parameters, given by model restrictions.
+## Those values should be edited following the 
+## analytical expression. MG5 ignores those values 
+## but they are important for interfacing the output of MG5
+## to external programs such as Pythia.
+  1 0.000000e+00 # d : 0.0 
+  2 0.000000e+00 # u : 0.0 
+  3 0.000000e+00 # s : 0.0 
+  4 0.000000e+00 # c : 0.0 
+  11 0.000000e+00 # e- : 0.0 
+  12 0.000000e+00 # ve : 0.0 
+  13 0.000000e+00 # mu- : 0.0 
+  14 0.000000e+00 # vm : 0.0 
+  16 0.000000e+00 # vt : 0.0 
+  21 0.000000e+00 # g : 0.0 
+  22 0.000000e+00 # a : 0.0 
+  24 8.041900e+01 # w+ : cmath.sqrt(MZ__exp__2/2. + cmath.sqrt(MZ__exp__4/4. - (aEW*cmath.pi*MZ__exp__2)/(Gf*sqrt__2))) 
+
+###################################
+## INFORMATION FOR SMINPUTS
+###################################
+Block sminputs 
+    1 1.325070e+02 # aEWM1 
+    2 1.166390e-05 # Gf 
+    3 1.180000e-01 # aS (Note: this Parameter is not used if you use a PDF set) 
+
+###################################
+## INFORMATION FOR YUKAWA
+###################################
+Block yukawa 
+    5 4.700000e+00 # ymb 
+    6 1.730000e+02 # ymt 
+   15 1.777000e+00 # ymtau 
+
+###################################
+## INFORMATION FOR DECAY
+###################################
+DECAY   6 0.000000e+00 # WT 
+DECAY  23 2.441404e+00 # WZ 
+DECAY  24 2.047600e+00 # WW 
+DECAY  25 6.382339e-03 # WH 
+## Dependent parameters, given by model restrictions.
+## Those values should be edited following the 
+## analytical expression. MG5 ignores those values 
+## but they are important for interfacing the output of MG5
+## to external programs such as Pythia.
+DECAY  1 0.000000e+00 # d : 0.0 
+DECAY  2 0.000000e+00 # u : 0.0 
+DECAY  3 0.000000e+00 # s : 0.0 
+DECAY  4 0.000000e+00 # c : 0.0 
+DECAY  5 0.000000e+00 # b : 0.0 
+DECAY  11 0.000000e+00 # e- : 0.0 
+DECAY  12 0.000000e+00 # ve : 0.0 
+DECAY  13 0.000000e+00 # mu- : 0.0 
+DECAY  14 0.000000e+00 # vm : 0.0 
+DECAY  15 0.000000e+00 # ta- : 0.0 
+DECAY  16 0.000000e+00 # vt : 0.0 
+DECAY  21 0.000000e+00 # g : 0.0 
+DECAY  22 0.000000e+00 # a : 0.0 
+#===========================================================
+# QUANTUM NUMBERS OF NEW STATE(S) (NON SM PDG CODE)
+#===========================================================
+
+Block QNUMBERS 82  # gh 
+        1 0  # 3 times electric charge
+        2 1  # number of spin states (2S+1)
+        3 8  # colour rep (1: singlet, 3: triplet, 8: octet)
+        4 1  # Particle/Antiparticle distinction (0=own anti)
+</slha>
+<scalesfunctionalform>
+H_T/2 := sum_i mT(i)/2, i=final state
+H_T/2 := sum_i mT(i)/2, i=final state
+H_T/2 := sum_i mT(i)/2, i=final state
+H_T/2 := sum_i mT(i)/2, i=final state
+  </scalesfunctionalform>
+<MonteCarloMasses>
+       1   0.330000E+00
+       2   0.330000E+00
+       3   0.500000E+00
+       4   0.150000E+01
+       5   0.480000E+01
+      11   0.510999E-03
+      13   0.105658E+00
+      15   0.177682E+01
+      21   0.000000E+00
+  </MonteCarloMasses>
+</header>
+<init>
+   2212   2212 0.65000000E+04 0.65000000E+04 -1 -1   244800   244800 -4   1
+ 0.16408975E+04 0.12903000E+03 0.18608907E+04      0
+  </init>
+<event>
+  6      0 0.18608907E+04 0.61056961E+02 0.75467711E-02 0.94105617E-01
+       -1 -1    0    0    0  502  0.00000000000000000E+00  0.00000000000000000E+00  0.69231990796400305E+03  0.69231998661261059E+03  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+       21 -1    0    0  501  503  0.00000000000000000E+00  0.00000000000000000E+00 -0.75244389311414034E+03  0.75244389311414022E+03  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+        6  1    1    2  501    0 -0.14830458577340067E+02  0.11394480525678387E+03 -0.20622607671896390E+03  0.29267995466980068E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+       -6  1    1    2    0  504  0.23710655106582657E+00 -0.17327668096432623E+03 -0.47159285137132224E+03  0.53136962827213165E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+       -1  1    1    2    0  503  0.14538931411696831E+02  0.59328753108891263E+02  0.61738743257426358E+03  0.62040199247962573E+03  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+       21  1    1    2  504  502  0.54420614577411701E-01  0.31225986511055071E-02  0.30751036588628189E+00  0.31230430519100127E+00  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+#aMCatNLO 2  5  1  1  4 0.15465350D+02 0.00000000D+00   0  0  0 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+  </event>
+<event>
+  6      0 0.18608907E+04 0.58290718E+02 0.75467711E-02 0.87941908E-01
+       -3 -1    0    0    0  502  0.00000000000000000E+00  0.00000000000000000E+00  0.18321965581242785E+04  0.18321966263483955E+04  0.50000000000000000E+00 0.0000E+00 0.9000E+01
+       21 -1    0    0  501  503  0.00000000000000000E+00  0.00000000000000000E+00 -0.11809019247609481E+04  0.11809019247609481E+04  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+        6  1    1    2  501    0  0.69867345655061854E+02 -0.33676817951724651E+02 -0.37532058504957661E+03  0.42048794943279171E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+       -6  1    1    2    0  504 -0.15357767428530341E+02  0.13024610733245472E+02 -0.77283450312454556E+03  0.79221693413162075E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+       -3  1    1    2    0  503 -0.54509579064666482E+02  0.20652207536025887E+02  0.17994497205316511E+04  0.18003936665649962E+04  0.50000000000000000E+00 0.0000E+00 0.9000E+01
+       21  1    1    2  504  502  0.83813497197224335E-06 -0.31754670796186812E-06  0.10057976262488577E-05  0.97993465749725701E-06  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+#aMCatNLO 2  5  1  1  5 0.83787916D+01 0.00000000D+00   0  0  0 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+  </event>
+<event>
+  6      0 0.18608907E+04 0.52100974E+02 0.75467711E-02 0.93142767E-01
+       21 -1    0    0  504  502  0.00000000000000000E+00  0.00000000000000000E+00  0.11533950357225399E+03  0.11533950357225396E+03  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+        2 -1    0    0  501    0  0.00000000000000000E+00  0.00000000000000000E+00 -0.71819419705991481E+03  0.71819427287505982E+03  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+        6  1    1    2  501    0 -0.73925682437148694E+02 -0.51557407234365400E+02 -0.41995053186900452E+03  0.46304494596268739E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+       -6  1    1    2    0  502 -0.72753981539049626E+01  0.72656466058672663E+02 -0.30798075482332251E+02  0.19028771618748374E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+        2  1    1    2  503    0  0.58171231458373249E+02 -0.26517903975773464E+02 -0.13936644159938027E+03  0.15333037971884582E+03  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+       21  1    1    2  504  503  0.23029849132680404E+02  0.54188451514661971E+01 -0.12739644536943874E+02  0.26870734578296762E+02  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+#aMCatNLO 2  5  2  2  1 0.12106367D+04 0.00000000D+00   0  0  0 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+  </event>
+<event>
+  5      0 0.18608907E+04 0.44658114E+02 0.75467711E-02 0.99410663E-01
+       21 -1    0    0  503  502  0.00000000000000000E+00  0.00000000000000000E+00  0.76969461734954280E+03  0.76969461734954280E+03  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+       21 -1    0    0  501  503  0.00000000000000000E+00  0.00000000000000000E+00 -0.13714487307269064E+03  0.13714487307269064E+03  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+        6  1    1    2  501    0 -0.92542468948907313E+02 -0.79359579014270253E+02  0.34356704452334463E+03  0.40352120814523187E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+       -6  1    1    2    0  504  0.93473307394549650E+02  0.34711166882960434E+02 -0.11047293431099376E+02  0.19998291675492067E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+       21  1    1    2  504  502 -0.93083844564234153E+00  0.44648412131309826E+02  0.30002999318460684E+03  0.30333536552208091E+03  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+#aMCatNLO 1  6  2  2  3 0.11151807D+04 0.00000000D+00   0  0  0 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+  </event>
+<event>
+  6      0 0.18608907E+04 0.12433396E+02 0.75467711E-02 0.10711763E+00
+       21 -1    0    0  504  502  0.00000000000000000E+00  0.00000000000000000E+00  0.28543939788529769E+02  0.28543939788529769E+02  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+        2 -1    0    0  501    0  0.00000000000000000E+00  0.00000000000000000E+00 -0.12019537389369650E+04  0.12019537842382088E+04  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+        6  1    1    2  501    0 -0.79139676715558886E+01  0.18260086264307425E+01 -0.58606938681618237E+03  0.61112379380523737E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+       -6  1    1    2    0  502 -0.47167883895185305E+01 -0.43298215025938438E+01 -0.56615704680990223E+03  0.59203361146092516E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+        2  1    1    2  503    0  0.29983176037035963E+00 -0.30154908700106725E+00  0.13763956359448422E+01  0.14779025282629341E+01  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+       21  1    1    2  504  503  0.12330924300704060E+02  0.28053619631641689E+01 -0.22559761158295711E+02  0.25862416232313063E+02  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+#aMCatNLO 2  5  2  2  1 0.84353417D+03 0.00000000D+00   0  0  0 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+  </event>
+<event>
+  6      0 0.18608907E+04 0.19958055E+03 0.75467711E-02 0.90268648E-01
+       21 -1    0    0  504  502  0.00000000000000000E+00  0.00000000000000000E+00  0.24044382845824933E+03  0.24044382845824936E+03  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+        2 -1    0    0  501    0  0.00000000000000000E+00  0.00000000000000000E+00 -0.23200298348328406E+04  0.23200298583023659E+04  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+        6  1    1    2  501    0 -0.98023375014658669E+02 -0.16489913013102898E+03  0.13101958593580568E+03  0.28964709055335675E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+       -6  1    1    2    0  502  0.80507741533442498E+02 -0.70003800541579665E+02 -0.44135500394196822E+03  0.48590664539775094E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+        2  1    1    2  503    0  0.17515335185902142E+02  0.23490378698890163E+03 -0.17692794066862866E+04  0.17848911182289469E+04  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+       21  1    1    2  504  503  0.29829531403295466E-03 -0.85631629295166573E-03  0.28818317857732395E-01  0.28832580561532237E-01  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+#aMCatNLO 2  5  2  2  1 0.23664765D+02 0.00000000D+00   0  0  0 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+  </event>
+<event>
+  6      0 0.18608907E+04 0.17053862E+02 0.75467711E-02 0.99157835E-01
+       21 -1    0    0  503  502  0.00000000000000000E+00  0.00000000000000000E+00  0.15957776008593407E+03  0.15957776008593402E+03  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+        2 -1    0    0  501    0  0.00000000000000000E+00  0.00000000000000000E+00 -0.47577090318673311E+03  0.47577101763255791E+03  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+        6  1    1    2  501    0 -0.18767374377793526E+01  0.19787078722483663E+02  0.81008050738295410E+02  0.19205820709409528E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+       -6  1    1    2    0  504 -0.14856428590343631E+02 -0.16495371151026269E+02 -0.32226574945348818E+03  0.36643829495658406E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+        2  1    1    2  503    0  0.16733167472980007E+02 -0.32917078556861412E+01 -0.74935471778791481E+02  0.76852248275480136E+02  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+       21  1    1    2  504  502 -0.14448570257436771E-05  0.28422874686837590E-06  0.27393185194491449E-04  0.27392332633464641E-04  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+#aMCatNLO 2  5  2  2  5 0.23277204D+02 0.00000000D+00   0  0  0 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+  </event>
+<event>
+  6      0 0.18608907E+04 0.13155766E+02 0.75467711E-02 0.92411921E-01
+        2 -1    0    0  503    0  0.00000000000000000E+00  0.00000000000000000E+00  0.50570291574737126E+03  0.50570302341927209E+03  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+       21 -1    0    0  501  503  0.00000000000000000E+00  0.00000000000000000E+00 -0.36646251265549745E+03  0.36646251265549739E+03  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+        6  1    1    2  501    0  0.45621908947406823E+02 -0.77620381270545423E+02 -0.22207072387417730E+03  0.29555149900921060E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+       -6  1    1    2    0  504 -0.47785212113730708E+02  0.90587108876205491E+02 -0.13570080492738384E+02  0.20150086321374198E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+        2  1    1    2  502    0  0.21639390445355020E+01 -0.12986711327481784E+02  0.37433033613104914E+03  0.37456193980605684E+03  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+       21  1    1    2  504  502 -0.63587821161640613E-03  0.19983721821707923E-01  0.55087132774019199E+00  0.55123404576022816E+00  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+#aMCatNLO 2  5  1  1  2 0.73785905D+03 0.00000000D+00   0  0  0 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+  </event>
+<event>
+  6      0 0.18608907E+04 0.10692243E+02 0.75467711E-02 0.90795551E-01
+       21 -1    0    0  503  502  0.00000000000000000E+00  0.00000000000000000E+00  0.92794251067979189E+02  0.92794251067979019E+02  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+        2 -1    0    0  501    0  0.00000000000000000E+00  0.00000000000000000E+00 -0.10478970324632000E+04  0.10478970844244109E+04  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+        6  1    1    2  501    0  0.43085328160135674E+01 -0.10044758063876665E+03 -0.44511055361133799E+02  0.20498417978119710E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+       -6  1    1    2    0  504 -0.15068792529308958E+02  0.10026148235259494E+03 -0.86798629388458494E+03  0.89084714722747367E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+        2  1    1    2  503    0  0.10809851798895565E+02  0.43380211353434917E+00 -0.43027586410842829E+02  0.44368042243605245E+02  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+       21  1    1    2  504  502 -0.49592085600180011E-01 -0.24770382736263885E+00  0.42215426134037060E+00  0.49196624011420598E+00  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+#aMCatNLO 2  5  2  2  4 0.16743853D+02 0.00000000D+00   0  0  0 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+  </event>
+<event>
+  6      0 0.18608907E+04 0.43711001E+02 0.75467711E-02 0.83792220E-01
+       -1 -1    0    0    0  502  0.00000000000000000E+00  0.00000000000000000E+00  0.14856386636252064E+04  0.14856387002761098E+04  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+       21 -1    0    0  501  503  0.00000000000000000E+00  0.00000000000000000E+00 -0.16790353315344868E+03  0.16790353315344873E+03  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+        6  1    1    2  501    0  0.46781491491103431E+02 -0.11381690477740689E+03  0.15597809824733025E+03  0.26344062498425586E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+       -6  1    1    2    0  502 -0.90535953324801469E+02  0.11307112691274644E+03 -0.18715071957282419E+01  0.22564206417450782E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+       -1  1    1    2    0  504  0.43728453518503969E+02  0.78740261727311056E+00  0.11635029270792986E+04  0.11643246831842471E+04  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+       21  1    1    2  504  503  0.26008315194084867E-01 -0.41624752612654678E-01  0.12561234085752487E+00  0.13486108654836865E+00  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+#aMCatNLO 2  5  1  1  3 0.12246414D+03 0.00000000D+00   0  0  0 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+  </event>
+<event>
+  6      0 0.18608907E+04 0.15507567E+03 0.75467711E-02 0.79350962E-01
+        3 -1    0    0  503    0  0.00000000000000000E+00  0.00000000000000000E+00  0.71054318595139091E+03  0.71054336187311799E+03  0.50000000000000000E+00 0.0000E+00 0.9000E+01
+       21 -1    0    0  501  503  0.00000000000000000E+00  0.00000000000000000E+00 -0.27500763334672661E+03  0.27500763334672661E+03  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+        6  1    1    2  501    0 -0.77553900124574511E+02  0.14273528673036957E+02 -0.15187454787982043E+03  0.24333766526991326E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+       -6  1    1    2    0  504 -0.35675460153343849E+02 -0.12057582377099064E+03  0.11328158681519218E+03  0.24201856467340215E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+        3  1    1    2  502    0  0.11346160591783236E+03  0.10599427406569333E+03  0.44946992602897103E+03  0.47553316031235448E+03  0.50000000000000000E+00 0.0000E+00 0.9000E+01
+       21  1    1    2  504  502 -0.23224563991401048E+00  0.30802103226034738E+00  0.24658587640321539E+02  0.24661604964174412E+02  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+#aMCatNLO 2  5  1  1  2 0.14754140D+03 0.00000000D+00   0  0  0 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+  </event>
+<event>
+  5      0 0.18608907E+04 0.21187882E+02 0.75467711E-02 0.92608433E-01
+       21 -1    0    0  504  502  0.00000000000000000E+00  0.00000000000000000E+00  0.88483729124136994E+03  0.88483729124136994E+03  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+       21 -1    0    0  501  503  0.00000000000000000E+00  0.00000000000000000E+00 -0.16029771238537427E+03  0.16029771238537433E+03  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+        6  1    1    2  501    0  0.54250349787389474E+02 -0.36896313626761867E+02  0.29244930920513377E+03  0.34606363123832938E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+       -6  1    1    2    0  502 -0.49015334093753182E+02  0.16365338548032408E+02 -0.72114380972130675E+02  0.19442173547499146E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+       21  1    1    2  504  503 -0.52350156936362939E+01  0.20530975078729458E+02  0.50420465062299252E+03  0.50464963691342331E+03  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+#aMCatNLO 1  6  1  1  5 0.19171804D+02 0.00000000D+00   0  0  0 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+  </event>
+<event>
+  6      0 0.18608907E+04 0.10666456E+02 0.75467711E-02 0.76788439E-01
+        1 -1    0    0  503    0  0.00000000000000000E+00  0.00000000000000000E+00  0.72498894568063940E+03  0.72498902078522894E+03  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+       21 -1    0    0  501  503  0.00000000000000000E+00  0.00000000000000000E+00 -0.32426978897471128E+03  0.32426978897471133E+03  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+        6  1    1    2  501    0  0.14178432039691552E+03  0.11030198971051341E+02  0.15749671844720777E+03  0.27378581979605002E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+       -6  1    1    2    0  504 -0.13945141350694854E+03 -0.35977675285437929E+01 -0.21940475314102389E+03  0.31229326979803619E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+        1  1    1    2  502    0 -0.68615816373162355E+01 -0.12115805478829841E+02  0.39344957460916731E+03  0.39369601306731710E+03  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+       21  1    1    2  504  502  0.45286747473492461E+01  0.46833740363222960E+01  0.69177616790577076E+02  0.69483707098537181E+02  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+#aMCatNLO 2  5  1  1  5 0.44075971D+01 0.00000000D+00   0  0  0 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+  </event>
+<event>
+  6      0 0.18608907E+04 0.10208779E+02 0.75467711E-02 0.92370918E-01
+       21 -1    0    0  504  502  0.00000000000000000E+00  0.00000000000000000E+00  0.10402751779355881E+04  0.10402751779355881E+04  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+        1 -1    0    0  501    0  0.00000000000000000E+00  0.00000000000000000E+00 -0.43494300187020690E+03  0.43494312705900575E+03  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+        6  1    1    2  501    0  0.48760709575537433E+02 -0.13214194561088345E+03  0.82458200216567457E+03  0.85422688958127060E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+       -6  1    1    2    0  502 -0.53335812713494953E+02  0.12301565397981412E+03  0.14114599378554198E+03  0.26043953540812225E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+        1  1    1    2  503    0  0.45748333058355684E+01  0.91265475333457271E+01 -0.36040148640264215E+03  0.36054620129865270E+03  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+       21  1    1    2  504  503  0.26983212195866210E-03 -0.25590227637258640E-03  0.56665168068831869E-02  0.56787065491873245E-02  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+#aMCatNLO 2  5  2  2  5 0.47180415D+02 0.00000000D+00   0  0  0 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+  </event>
+<event>
+  6      0 0.18608907E+04 0.32529096E+02 0.75467711E-02 0.82984820E-01
+        2 -1    0    0  503    0  0.00000000000000000E+00  0.00000000000000000E+00  0.56562966587459277E+03  0.56562976213898492E+03  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+       21 -1    0    0  501  503  0.00000000000000000E+00  0.00000000000000000E+00 -0.15415063106688767E+04  0.15415063106688767E+04  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+        6  1    1    2  501    0 -0.50526668642158739E+02  0.11049278123696367E+03 -0.70934112949738733E+03  0.74017257240874801E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+       -6  1    1    2    0  504  0.78339775434987260E+02 -0.12748809634814164E+03 -0.80022793763002994E+03  0.83227644883733694E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+        2  1    1    2  502    0 -0.23896300014188924E+02  0.14579948621816234E+02  0.45650751913928730E+03  0.45736509703615275E+03  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+       21  1    1    2  504  502 -0.39168067786396055E+01  0.24153664893617393E+01  0.77184903193846878E+02  0.77321954525623767E+02  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+#aMCatNLO 2  5  1  1  3 0.27997818D+02 0.00000000D+00   0  0  0 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+  </event>
+<event>
+  5      0 0.18608907E+04 0.59970697E+02 0.75467711E-02 0.99301724E-01
+       21 -1    0    0  504  502  0.00000000000000000E+00  0.00000000000000000E+00  0.49231591649409563E+03  0.49231591649409563E+03  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+       21 -1    0    0  501  503 -0.00000000000000000E+00 -0.00000000000000000E+00 -0.84616608575758880E+03  0.84616608575758880E+03  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+        6  1    1    2  501    0  0.27577061965052269E+03  0.34087345723316801E+02 -0.65116975391957931E+03  0.72880891200683004E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+       -6  1    1    2    0  502 -0.21835195688247506E+03 -0.16778916568798781E+02 -0.26506846159877504E+02  0.28034036814018128E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+       21  1    1    2  504  503 -0.57418662768047611E+02 -0.17308429154518002E+02  0.32382643081596348E+03  0.32933272210467288E+03  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+#aMCatNLO 1  6  5  5  4 0.70483739D+02 0.00000000D+00   0  0  0 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+  </event>
+<event>
+  6      0 0.18608907E+04 0.32491980E+02 0.75467711E-02 0.98427863E-01
+       -1 -1    0    0    0  502  0.00000000000000000E+00  0.00000000000000000E+00  0.50531618055133720E+02  0.50532695586817113E+02  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+       21 -1    0    0  501  503  0.00000000000000000E+00  0.00000000000000000E+00 -0.18327269857055367E+04  0.18327269857055369E+04  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+        6  1    1    2  501    0 -0.12701532803356068E+03  0.14164405263198927E+03 -0.50746539138552458E+03  0.56889898457946856E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+       -6  1    1    2    0  504  0.15463452551060107E+03 -0.12452947963801131E+03 -0.88685776771052747E+03  0.92512978977400917E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+       -1  1    1    2    0  503 -0.27619199441027405E+02 -0.17114574210986522E+02 -0.38787221564632807E+03  0.38923089985069049E+03  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+       21  1    1    2  504  502  0.19639870282891801E-05  0.12170085456980826E-05  0.70919777957573568E-05  0.70881849111298757E-05  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+#aMCatNLO 2  5  1  1  3 0.10013066D+03 0.00000000D+00   0  0  0 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+  </event>
+<event>
+  6      0 0.18608907E+04 0.18762705E+02 0.75467711E-02 0.10152462E+00
+        2 -1    0    0  503    0  0.00000000000000000E+00  0.00000000000000000E+00  0.36853265037175657E+03  0.36853279811982998E+03  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+       21 -1    0    0  501  503  0.00000000000000000E+00  0.00000000000000000E+00 -0.13012737462650642E+03  0.13012737462650642E+03  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+        6  1    1    2  501    0  0.39311343369681538E+02 -0.63674582289331255E+02  0.83129970881747624E+02  0.20600831586625344E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+       -6  1    1    2    0  504 -0.45166089307664606E+02  0.45853005124343738E+02  0.16863848844456075E+03  0.25002082610684107E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+        2  1    1    2  502    0  0.58400606831032604E+01  0.17845388708528500E+02 -0.24847895838754393E+02  0.31146284442199409E+02  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+       21  1    1    2  504  502  0.14685254879810719E-01 -0.23811543540979252E-01  0.11484712257696003E+02  0.11484746331042299E+02  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+#aMCatNLO 2  5  1  1  4 0.25539423D+04 0.00000000D+00   0  0  0 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+  </event>
+<event>
+  6      0 0.18608907E+04 0.11647308E+02 0.75467711E-02 0.90620610E-01
+        2 -1    0    0  504    0  0.00000000000000000E+00  0.00000000000000000E+00  0.31174576366824135E+03  0.31174593832974790E+03  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+       21 -1    0    0  501  503  0.00000000000000000E+00  0.00000000000000000E+00 -0.52782859927322056E+03  0.52782859927322056E+03  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+        6  1    1    2  501    0 -0.78737455092711059E+02 -0.14438000727559745E+03 -0.13793874199443201E+03  0.27568327819870535E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+       -6  1    1    2    0  502  0.78719698825377677E+02  0.15600530568181946E+03 -0.27372464465137710E+03  0.36795193636337717E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+        2  1    1    2  502    0  0.94134731117232917E-01 -0.11700534797872065E+02  0.19480863921513605E+03  0.19516000150839528E+03  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+       21  1    1    2  504  503 -0.76378463783863912E-01  0.75236391650051831E-01  0.77191182569355665E+00  0.77932153249096237E+00  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+#aMCatNLO 2  5  1  1  4 0.58779613D+02 0.00000000D+00   0  0  0 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+  </event>
+<event>
+  6      0 0.18608907E+04 0.18412517E+03 0.75467711E-02 0.89447597E-01
+        2 -1    0    0  503    0  0.00000000000000000E+00  0.00000000000000000E+00  0.31230613349743594E+04  0.31230613524091755E+04  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+       21 -1    0    0  501  503  0.00000000000000000E+00  0.00000000000000000E+00 -0.51857711407065949E+02  0.51857711407066063E+02  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+        6  1    1    2  501    0  0.34725423801691981E+02  0.11254741243938604E+03  0.81470200286737611E+03  0.84115464011150925E+03  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+       -6  1    1    2    0  504  0.17567071833387553E+03  0.11657269289839763E+03  0.12871137046093399E+04  0.13156899644683408E+04  0.17300000000000000E+03 0.0000E+00 0.9000E+01
+        2  1    1    2  502    0 -0.21039614368948349E+03 -0.22912010702998865E+03  0.96938788464812978E+03  0.10180744277936733E+04  0.33000000000000002E+00 0.0000E+00 0.9000E+01
+       21  1    1    2  504  502  0.15539160300743748E-05  0.16922050037747526E-05  0.31442448264142502E-04  0.31442718776484189E-04  0.00000000000000000E+00 0.0000E+00 0.9000E+01
+#aMCatNLO 2  5  1  1  3 0.79099496D+03 0.00000000D+00   0  0  0 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+  </event>
+</LesHouchesEvents>
