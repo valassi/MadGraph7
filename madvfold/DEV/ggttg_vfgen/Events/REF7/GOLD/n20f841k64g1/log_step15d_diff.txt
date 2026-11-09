@@ -1,0 +1,152 @@
+drwxr-xr-x. 1 avalassi zg 4096 Nov  9 20:39 Events/REF7/GOLD/n20f841k64g1/step15dC512y
+drwxr-xr-x. 1 avalassi zg 4096 Nov  9 20:40 Events/REF7/GOLD/n20f841k64g1/step15dC512z
+drwxr-xr-x. 1 avalassi zg 4096 Nov  9 20:38 Events/REF7/GOLD/n20f841k64g1/step15dCavx2
+drwxr-xr-x. 1 avalassi zg 4096 Nov  9 20:33 Events/REF7/GOLD/n20f841k64g1/step15dCnone
+drwxr-xr-x. 1 avalassi zg 4096 Nov  9 20:36 Events/REF7/GOLD/n20f841k64g1/step15dCsse4
+drwxr-xr-x. 1 avalassi zg 4096 Nov  9 20:29 Events/REF7/GOLD/n20f841k64g1/step15dF
+drwxr-xr-x. 1 avalassi zg 4096 Nov  9 20:19 Events/REF7/GOLD/n20f841k64g1/step15dS
+drwxr-xr-x. 1 avalassi zg 4096 Nov  9 20:22 Events/REF7/GOLD/n20f841k64g1/step15dSc
+drwxr-xr-x. 1 avalassi zg 4096 Nov  9 20:26 Events/REF7/GOLD/n20f841k64g1/step15dT
+drwxr-xr-x. 1 avalassi zg 4096 Nov  9 20:16 Events/REF7/GOLD/n20f841k64g1/step15dZ
+
+-------------------------------------------------------------------------------
+
+Compare results using:
+  ./vfold/myBackends.sh --diff-o REF7/GOLD/n20f841k64g1/step15d
+
+=== diff Events/REF7/GOLD/n20f841k64g1/step15dS/VERSIONS.txt.tmp Events/REF7/GOLD/n20f841k64g1/step15dF/VERSIONS.txt.tmp
+=== diff Events/REF7/GOLD/n20f841k64g1/step15dS/events.lhe.tmp Events/REF7/GOLD/n20f841k64g1/step15dF/events.lhe.tmp
+=== diff Events/REF7/GOLD/n20f841k64g1/step15dS/nevents_unweighted Events/REF7/GOLD/n20f841k64g1/step15dF/nevents_unweighted
+=== diff Events/REF7/GOLD/n20f841k64g1/step15dS/results.dat Events/REF7/GOLD/n20f841k64g1/step15dF/results.dat
+=== diff Events/REF7/GOLD/n20f841k64g1/step15dS/summary.txt Events/REF7/GOLD/n20f841k64g1/step15dF/summary.txt
+=== diff Events/REF7/GOLD/n20f841k64g1/step15dS/res_2.txt Events/REF7/GOLD/n20f841k64g1/step15dF/res_2.txt
+STATUS=0
+
+=== diff Events/REF7/GOLD/n20f841k64g1/step15dT/VERSIONS.txt.tmp Events/REF7/GOLD/n20f841k64g1/step15dF/VERSIONS.txt.tmp
+=== diff Events/REF7/GOLD/n20f841k64g1/step15dT/events.lhe.tmp Events/REF7/GOLD/n20f841k64g1/step15dF/events.lhe.tmp
+=== diff Events/REF7/GOLD/n20f841k64g1/step15dT/nevents_unweighted Events/REF7/GOLD/n20f841k64g1/step15dF/nevents_unweighted
+=== diff Events/REF7/GOLD/n20f841k64g1/step15dT/results.dat Events/REF7/GOLD/n20f841k64g1/step15dF/results.dat
+=== diff Events/REF7/GOLD/n20f841k64g1/step15dT/summary.txt Events/REF7/GOLD/n20f841k64g1/step15dF/summary.txt
+=== diff Events/REF7/GOLD/n20f841k64g1/step15dT/res_2.txt Events/REF7/GOLD/n20f841k64g1/step15dF/res_2.txt
+STATUS=0
+
+=== diff Events/REF7/GOLD/n20f841k64g1/step15dF/VERSIONS.txt.tmp Events/REF7/GOLD/n20f841k64g1/step15dC512y/VERSIONS.txt.tmp
+=== python3 vfold/numdiff.py Events/REF7/GOLD/n20f841k64g1/step15dF/events.lhe.tmp Events/REF7/GOLD/n20f841k64g1/step15dC512y/events.lhe.tmp --rtol 1.2e-7 --atol 0
+[PASS] 2402 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/GOLD/n20f841k64g1/step15dF/nevents_unweighted Events/REF7/GOLD/n20f841k64g1/step15dC512y/nevents_unweighted --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/GOLD/n20f841k64g1/step15dF/results.dat Events/REF7/GOLD/n20f841k64g1/step15dC512y/results.dat --rtol 1.2e-7 --atol 0
+[PASS] 13 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/GOLD/n20f841k64g1/step15dF/summary.txt Events/REF7/GOLD/n20f841k64g1/step15dC512y/summary.txt --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/GOLD/n20f841k64g1/step15dF/res_2.txt Events/REF7/GOLD/n20f841k64g1/step15dC512y/res_2.txt --rtol 1.2e-7 --atol 0
+[PASS] 22 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+STATUS=0
+
+=== diff Events/REF7/GOLD/n20f841k64g1/step15dF/VERSIONS.txt.tmp Events/REF7/GOLD/n20f841k64g1/step15dC512z/VERSIONS.txt.tmp
+=== python3 vfold/numdiff.py Events/REF7/GOLD/n20f841k64g1/step15dF/events.lhe.tmp Events/REF7/GOLD/n20f841k64g1/step15dC512z/events.lhe.tmp --rtol 1.2e-7 --atol 0
+[PASS] 2402 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/GOLD/n20f841k64g1/step15dF/nevents_unweighted Events/REF7/GOLD/n20f841k64g1/step15dC512z/nevents_unweighted --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/GOLD/n20f841k64g1/step15dF/results.dat Events/REF7/GOLD/n20f841k64g1/step15dC512z/results.dat --rtol 1.2e-7 --atol 0
+[PASS] 13 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/GOLD/n20f841k64g1/step15dF/summary.txt Events/REF7/GOLD/n20f841k64g1/step15dC512z/summary.txt --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/GOLD/n20f841k64g1/step15dF/res_2.txt Events/REF7/GOLD/n20f841k64g1/step15dC512z/res_2.txt --rtol 1.2e-7 --atol 0
+[PASS] 22 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+STATUS=0
+
+=== diff Events/REF7/GOLD/n20f841k64g1/step15dF/VERSIONS.txt.tmp Events/REF7/GOLD/n20f841k64g1/step15dCavx2/VERSIONS.txt.tmp
+=== python3 vfold/numdiff.py Events/REF7/GOLD/n20f841k64g1/step15dF/events.lhe.tmp Events/REF7/GOLD/n20f841k64g1/step15dCavx2/events.lhe.tmp --rtol 1.2e-7 --atol 0
+[PASS] 2402 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/GOLD/n20f841k64g1/step15dF/nevents_unweighted Events/REF7/GOLD/n20f841k64g1/step15dCavx2/nevents_unweighted --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/GOLD/n20f841k64g1/step15dF/results.dat Events/REF7/GOLD/n20f841k64g1/step15dCavx2/results.dat --rtol 1.2e-7 --atol 0
+[PASS] 13 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/GOLD/n20f841k64g1/step15dF/summary.txt Events/REF7/GOLD/n20f841k64g1/step15dCavx2/summary.txt --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/GOLD/n20f841k64g1/step15dF/res_2.txt Events/REF7/GOLD/n20f841k64g1/step15dCavx2/res_2.txt --rtol 1.2e-7 --atol 0
+[PASS] 22 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+STATUS=0
+
+=== diff Events/REF7/GOLD/n20f841k64g1/step15dF/VERSIONS.txt.tmp Events/REF7/GOLD/n20f841k64g1/step15dCnone/VERSIONS.txt.tmp
+=== python3 vfold/numdiff.py Events/REF7/GOLD/n20f841k64g1/step15dF/events.lhe.tmp Events/REF7/GOLD/n20f841k64g1/step15dCnone/events.lhe.tmp --rtol 1.2e-7 --atol 0
+[PASS] 2402 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/GOLD/n20f841k64g1/step15dF/nevents_unweighted Events/REF7/GOLD/n20f841k64g1/step15dCnone/nevents_unweighted --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/GOLD/n20f841k64g1/step15dF/results.dat Events/REF7/GOLD/n20f841k64g1/step15dCnone/results.dat --rtol 1.2e-7 --atol 0
+[PASS] 13 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/GOLD/n20f841k64g1/step15dF/summary.txt Events/REF7/GOLD/n20f841k64g1/step15dCnone/summary.txt --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/GOLD/n20f841k64g1/step15dF/res_2.txt Events/REF7/GOLD/n20f841k64g1/step15dCnone/res_2.txt --rtol 1.2e-7 --atol 0
+[PASS] 22 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+STATUS=0
+
+=== diff Events/REF7/GOLD/n20f841k64g1/step15dF/VERSIONS.txt.tmp Events/REF7/GOLD/n20f841k64g1/step15dCsse4/VERSIONS.txt.tmp
+=== python3 vfold/numdiff.py Events/REF7/GOLD/n20f841k64g1/step15dF/events.lhe.tmp Events/REF7/GOLD/n20f841k64g1/step15dCsse4/events.lhe.tmp --rtol 1.2e-7 --atol 0
+[PASS] 2402 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/GOLD/n20f841k64g1/step15dF/nevents_unweighted Events/REF7/GOLD/n20f841k64g1/step15dCsse4/nevents_unweighted --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/GOLD/n20f841k64g1/step15dF/results.dat Events/REF7/GOLD/n20f841k64g1/step15dCsse4/results.dat --rtol 1.2e-7 --atol 0
+[PASS] 13 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/GOLD/n20f841k64g1/step15dF/summary.txt Events/REF7/GOLD/n20f841k64g1/step15dCsse4/summary.txt --rtol 1.2e-7 --atol 0
+[PASS] 5 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+=== python3 vfold/numdiff.py Events/REF7/GOLD/n20f841k64g1/step15dF/res_2.txt Events/REF7/GOLD/n20f841k64g1/step15dCsse4/res_2.txt --rtol 1.2e-7 --atol 0
+[PASS] 22 numbers compared, 0 outside tolerance (rtol=1.2e-07, atol=0.0e+00)
+STATUS=0
+
+
+Compared results using
+  ./vfold/myBackends.sh --diff-o REF7/GOLD/n20f841k64g1/step15d
+Modes F1/S, F2/T (and F1 with the MadLoop library of F) and F give identical results
+Modes F and all Cs are equal within tolerance
+  ./vfold/myDiffRun.sh -o REF7/GOLD/n20f841k64g1/step15dS REF7/GOLD/n20f841k64g1/step15dF
+  ./vfold/myDiffRun.sh -o REF7/GOLD/n20f841k64g1/step15dT REF7/GOLD/n20f841k64g1/step15dF
+  ./vfold/myDiffRun.sh -o -nd5 REF7/GOLD/n20f841k64g1/step15dF REF7/GOLD/n20f841k64g1/step15dC512y
+  ./vfold/myDiffRun.sh -o -nd5 REF7/GOLD/n20f841k64g1/step15dF REF7/GOLD/n20f841k64g1/step15dC512z
+  ./vfold/myDiffRun.sh -o -nd5 REF7/GOLD/n20f841k64g1/step15dF REF7/GOLD/n20f841k64g1/step15dCavx2
+  ./vfold/myDiffRun.sh -o -nd5 REF7/GOLD/n20f841k64g1/step15dF REF7/GOLD/n20f841k64g1/step15dCnone
+  ./vfold/myDiffRun.sh -o -nd5 REF7/GOLD/n20f841k64g1/step15dF REF7/GOLD/n20f841k64g1/step15dCsse4
+NOT compared: REF7/GOLD/n20f841k64g1/step15dSc(F uses ninja)
+STATUS=0 (all comparisons above)
+
+-------------------------------------------------------------------------------
+
+Prepare timing table using:
+  ./vfold/myTimingTable.py -f txt Events/REF7/GOLD/n20f841k64g1/step15d
+
+
+==================== Events/REF7/GOLD/n20f841k64g1/step15d ====================
+### gg_ttxg | step15d | NEVENTS=20 | folding=8,4,1 | kbatch=64 | bsffused=N/A | sborn=1
+- N/A: that switch does not exist in the code of this step
+- sborn 1: SBORN served from cudacpp, in mode C only
+- timers: getrusage in F0*, F1[n], F1[c]; clock_gettime in F2, F, C/none, C/sse4, C/avx2, C/512y, C/512z
+- mode F0: 13456 kpoints = 0 virt + 13456 novi -> 20 events (0 virt + 20 novi)
+- mode F: 16600 kpoints = 118 virt + 16482 novi -> 20 events (1 virt + 19 novi) [same in F1, F2, Cs]
+- mode F: Born 260 batched calls, mean batch 273.946 | Real 258 batched calls, mean batch 4794.244
+- F0*: F0 rescaled to the kpoints of F (separately for virt and novi)
+|-----------------|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|
+| mode/bknd       |     F0* |   F1[n] |   F1[c] |      F2 |       F |  C/none |  C/sse4 |  C/avx2 |  C/512y |  C/512z |
+| cudacpp_vecsize |       - |       - |       - |       - |       - |       1 |       2 |       4 |       4 |       8 |
+| sborn_gscale    |       - |       - |       - |       - |       - |       1 |       1 |       1 |       1 |       1 |
+| ml_reduction    |   ninja |   ninja | collier |   ninja |   ninja |   ninja |   ninja |   ninja |   ninja |   ninja |
+| born_batch_avg  |       - |       - |       - |       - |   273.9 |   273.9 |   273.9 |   273.9 |   273.9 |   273.9 |
+| real_batch_avg  |       - |       - |       - |       - |  4794.2 |  4794.2 |  4794.2 |  4794.2 |  4794.2 |  4794.2 |
+| cpu_timer       |  rusage |  rusage |  rusage |    mono |    mono |    mono |    mono |    mono |    mono |    mono |
+|-----------------|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|
+| TOTAL           | 203.734 | 203.679 | 203.766 | 189.895 | 204.197 | 259.351 | 153.759 |  86.554 |  81.118 |  64.516 |
+| Born            |  10.912 |  11.002 |  10.972 |  10.362 |  10.460 |   1.315 |   1.358 |   1.341 |   1.308 |   1.504 |
+| Real            | 155.535 | 155.733 | 155.770 | 155.631 | 156.653 | 224.410 | 119.563 |  51.190 |  46.831 |  30.524 |
+| Virtual         |   0.000 |   0.242 |   0.260 |   0.250 |   0.252 |   0.255 |   0.253 |   0.252 |   0.252 |   0.251 |
+| PS_Generation   |   4.420 |   4.412 |   4.417 |   3.809 |   7.446 |   7.444 |   7.486 |   7.450 |   7.470 |   7.477 |
+| CT_and_MCsub    |   5.207 |   5.087 |   5.089 |   5.090 |   6.930 |   4.436 |   4.325 |   4.421 |   4.424 |   4.334 |
+| Nbody_prefactor |   1.163 |   1.169 |   1.163 |   0.153 |   2.488 |   0.184 |   0.179 |   0.179 |   0.182 |   0.181 |
+| Bridge_crt_del  |   0.000 |   0.000 |   0.000 |   0.000 |   0.000 |   1.518 |   0.712 |   1.917 |   0.805 |   0.244 |
+| Misc            |  26.497 |  26.034 |  26.096 |  14.600 |  19.967 |  19.789 |  19.884 |  19.803 |  19.845 |  20.000 |
+|-----------------|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|
+
+
+-------------------------------------------------------------------------------
+
+STATUS=0 (diff REF7/GOLD/n20f841k64g1/step15d)
+

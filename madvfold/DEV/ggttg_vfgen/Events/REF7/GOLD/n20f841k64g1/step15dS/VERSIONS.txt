@@ -1,0 +1,8 @@
+Python 3.12.15
+gcc (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+GNU Fortran (GCC) 11.5.0 20240719 (Red Hat 11.5.0-14)
+FC=
+MG5_VERSION 5.0.2.1
+f90cache is not installed
+nvcc is not installed
+PYTHIA_VERSION 8.317

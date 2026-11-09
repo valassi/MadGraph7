@@ -1,0 +1,14 @@
+-1 12      ! points, iterations
+0.2       ! desired fractional accuracy
+1 -0.1     ! alpha, beta for Gsoft
+-1 -0.1    ! alpha, beta for Gazi
+1          ! Suppress amplitude (0 no, 1 yes)?
+1          ! Exact helicity sum (0 yes, n = number/event)?
+10.0          ! Enter Configuration Number:
+2          ! MINT imode: 0 to set-up grids, 1 to perform integral, 2 generate events
+1 1 1      ! if imode is 1: Folding parameters for xi_i, y_ij and phi_i
+all        ! all, born, real, virt
+0 20 ! process label and number of events requested for this job
+20 2.40563579e+03 2.3139e+02 2.05344762e+03 2.3140e+02 ! total nevents, xsecABS, errABS, xsec, err
+1 ! number of separate processes for <init> block
+0 2.40563579e+03 2.3139e+02 2.05344762e+03 2.3140e+02 ! nevents, xsecABS, errABS, xsec, err

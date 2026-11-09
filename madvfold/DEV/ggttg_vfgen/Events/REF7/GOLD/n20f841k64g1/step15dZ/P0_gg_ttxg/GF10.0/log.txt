@@ -1,0 +1,1178 @@
+ AV: vfold_cpu_time mode=0 (getrusage) set by ENV_VFOLD_CPUTIME=-1
+      194661
+ ===============================================================
+ INFO: MadFKS read these parameters from FKS_params.dat                                                  
+ ===============================================================
+  > IRPoleCheckThreshold      =    1.0000000000000001E-005
+  > PrecisionVirtualAtRunTime =    1.0000000000000000E-003
+  > SelectedContributionTypes = All
+  > VetoedContributionTypes   = None
+  > QCD_squared_selected      = All
+  > QED_squared_selected      = All
+  > SelectedCouplingOrders    = All
+  > NHelForMCoverHels         =            4
+  > VirtualFraction           =    1.0000000000000000     
+  > MinVirtualFraction        =    5.0000000000000001E-003
+  > SeparateFlavourConfigs    =  F
+  > UsePolyVirtual            =  F
+ ===============================================================
+ SPLIT TYPE USED: T F
+ A PDF is used, so alpha_s(MZ) is going to be modified
+ Old value of alpha_s from param_card:   0.11799999999999999     
+  ****************************************
+ 
+       NNPDFDriver version 1.0.3
+   Grid: NNPDF23nlo_as_0119_qed_mem0.grid
+  ****************************************
+ New value of alpha_s from PDF nn23nlo:  0.11899999999999999     
+ *****************************************************
+ *               MadGraph/MadEvent                   *
+ *        --------------------------------           *
+ *          http://madgraph.hep.uiuc.edu             *
+ *          http://madgraph.phys.ucl.ac.be           *
+ *          http://madgraph.roma2.infn.it            *
+ *        --------------------------------           *
+ *                                                   *
+ *          PARAMETER AND COUPLING VALUES            *
+ *                                                   *
+ *****************************************************
+
+  External Params
+  ---------------------------------
+  
+ MU_R =    91.188000000000002     
+ mdl_MB =    4.7000000000000002     
+ mdl_MT =    173.00000000000000     
+ mdl_MTA =    1.7769999999999999     
+ mdl_MZ =    91.188000000000002     
+ mdl_MH =    125.00000000000000     
+ aEWM1 =    132.50700000000001     
+ mdl_Gf =    1.1663900000000000E-005
+ aS =   0.11799999999999999     
+ mdl_ymb =    4.7000000000000002     
+ mdl_ymt =    173.00000000000000     
+ mdl_ymtau =    1.7769999999999999     
+ mdl_WT =    0.0000000000000000     
+ mdl_WZ =    2.4414039999999999     
+ mdl_WW =    2.0476000000000001     
+ mdl_WH =    6.3823389999999999E-003
+  Internal Params
+  ---------------------------------
+  
+ mdl_lhv =    1.0000000000000000     
+ mdl_conjg__CKM3x3 =    1.0000000000000000     
+ mdl_conjg__CKM22 =    1.0000000000000000     
+ mdl_CKM3x3 =    1.0000000000000000     
+ mdl_CKM33 =    1.0000000000000000     
+ mdl_CKM22 =    1.0000000000000000     
+ mdl_Ncol =    3.0000000000000000     
+ mdl_CA =    3.0000000000000000     
+ mdl_TF =   0.50000000000000000     
+ mdl_CF =    1.3333333333333333     
+ mdl_complexi =                (0.0000000000000000,1.0000000000000000)
+ mdl_MZ__exp__2 =    8315.2513440000002     
+ mdl_MZ__exp__4 =    69143404.913893804     
+ mdl_sqrt__2 =    1.4142135623730951     
+ mdl_MH__exp__2 =    15625.000000000000     
+ mdl_Ncol__exp__2 =    9.0000000000000000     
+ mdl_MB__exp__2 =    22.090000000000003     
+ mdl_MT__exp__2 =    29929.000000000000     
+ mdl_aEW =    7.5467711139788835E-003
+ mdl_MW =    80.419002445756163     
+ mdl_sqrt__aEW =    8.6872153846781555E-002
+ mdl_ee =   0.30795376724436879     
+ mdl_MW__exp__2 =    6467.2159543705357     
+ mdl_sw2 =   0.22224648578577766     
+ mdl_cw =   0.88190334743339216     
+ mdl_sqrt__sw2 =   0.47143025548407230     
+ mdl_sw =   0.47143025548407230     
+ mdl_g1 =   0.34919219678733299     
+ mdl_gw =   0.65323293034757990     
+ mdl_v =    246.21845810181637     
+ mdl_v__exp__2 =    60623.529110035903     
+ mdl_lam =   0.12886910601690263     
+ mdl_yb =    2.6995554250465490E-002
+ mdl_yt =   0.99366614581500623     
+ mdl_ytau =    1.0206617000654717E-002
+ mdl_muH =    88.388347648318430     
+ mdl_AxialZUp =  -0.18517701861793787     
+ mdl_AxialZDown =   0.18517701861793787     
+ mdl_VectorZUp =    7.5430507588273299E-002
+ mdl_VectorZDown =  -0.13030376310310560     
+ mdl_VectorAUp =   0.20530251149624587     
+ mdl_VectorADown =  -0.10265125574812294     
+ mdl_VectorWmDxU =   0.23095271737156670     
+ mdl_AxialWmDxU =  -0.23095271737156670     
+ mdl_VectorWpUxD =   0.23095271737156670     
+ mdl_AxialWpUxD =  -0.23095271737156670     
+ mdl_I1x33 =          (2.69955542504654901E-002,0.0000000000000000)
+ mdl_I2x33 =               (0.99366614581500623,0.0000000000000000)
+ mdl_I3x33 =               (0.99366614581500623,0.0000000000000000)
+ mdl_I4x33 =          (2.69955542504654901E-002,0.0000000000000000)
+ mdl_Vector_tbGp =              (-0.96667059156454072,0.0000000000000000)
+ mdl_Axial_tbGp =              (-1.0206617000654716,-0.0000000000000000)
+ mdl_Vector_tbGm =               (0.96667059156454072,0.0000000000000000)
+ mdl_Axial_tbGm =              (-1.0206617000654716,-0.0000000000000000)
+ mdl_gw__exp__2 =   0.42671326129048615     
+ mdl_cw__exp__2 =   0.77775351421422245     
+ mdl_ee__exp__2 =    9.4835522759998875E-002
+ mdl_sw__exp__2 =   0.22224648578577769     
+ mdl_yb__exp__2 =    7.2875994928982540E-004
+ mdl_yt__exp__2 =   0.98737240933884918     
+  Internal Params evaluated point by point
+  ----------------------------------------
+  
+ mdl_sqrt__aS =   0.34351128074635334     
+ mdl_G__exp__4 =    2.1987899468922913     
+ mdl_G__exp__2 =    1.4828317324943823     
+ mdl_G_UVg_1EPS_ =   -5.1645779033320030E-002
+ mdl_G_UVb_1EPS_ =    3.1300472141406080E-003
+ mdl_tMass_UV_1EPS_ =                (0.0000000000000000,6.4979780165559031)
+ mdl_G__exp__3 =    1.8056676068262196     
+ mdl_MU_R__exp__2 =    8315.2513440000002     
+ mdl_G_UVb_FIN_ =    1.8563438626678915E-002
+ mdl_G_UVt_FIN_ =   -4.0087659331150384E-003
+ mdl_tMass_UV_FIN_ =               (0.0000000000000000,0.34177261159438416)
+  Couplings of loop_sm
+  ---------------------------------
+  
+         GC_4 =  -0.12177E+01   0.00000E+00
+         GC_5 =   0.00000E+00   0.12177E+01
+         GC_6 =   0.00000E+00   0.14828E+01
+       R2_3Gq =   0.76230E-02   0.00000E+00
+       R2_3Gg =   0.31445E-01   0.00000E+00
+  R2GC_137_43 =   0.00000E+00   0.11603E-02
+  R2GC_137_44 =  -0.00000E+00  -0.34810E-02
+  R2GC_138_45 =  -0.00000E+00  -0.11603E-02
+  R2GC_138_46 =   0.00000E+00   0.34810E-02
+  R2GC_139_47 =  -0.00000E+00  -0.46413E-02
+  R2GC_140_48 =   0.00000E+00   0.77356E-03
+  R2GC_140_49 =  -0.00000E+00  -0.69620E-02
+  R2GC_141_50 =  -0.00000E+00  -0.13924E-01
+  R2GC_141_51 =  -0.00000E+00  -0.48734E-01
+  R2GC_142_52 =   0.00000E+00   0.13924E-01
+  R2GC_142_53 =   0.00000E+00   0.48734E-01
+  R2GC_143_54 =   0.00000E+00   0.12764E-01
+  R2GC_143_55 =   0.00000E+00   0.52215E-01
+  R2GC_144_56 =  -0.00000E+00  -0.10443E-01
+  R2GC_144_57 =  -0.00000E+00  -0.59177E-01
+  R2GC_145_58 =  -0.11603E-02   0.00000E+00
+  R2GC_145_59 =   0.34810E-02   0.00000E+00
+       R2_GQQ =  -0.00000E+00  -0.30492E-01
+       R2_GGq =   0.00000E+00   0.62601E-02
+       R2_GGb =  -0.00000E+00  -0.82971E+00
+       R2_GGt =  -0.00000E+00  -0.11242E+04
+     R2_GGg_1 =   0.00000E+00   0.28170E-01
+     R2_GGg_2 =  -0.00000E+00  -0.18780E-01
+       R2_QQq =   0.00000E+00   0.12520E-01
+       R2_QQt =   0.00000E+00   0.43320E+01
+  UV_3Gg_1eps =   0.62890E-01   0.00000E+00
+  UV_3Gb_1eps =  -0.38115E-02   0.00000E+00
+  UV_4Gg_1eps =   0.00000E+00  -0.15316E+00
+  UV_4Gb_1eps =   0.00000E+00   0.92827E-02
+ UV_GQQg_1eps =   0.00000E+00  -0.62890E-01
+ UV_GQQb_1eps =   0.00000E+00   0.38115E-02
+ UV_tMass_1eps =  0.00000E+00   0.64980E+01
+ UVWfct_b_0_1eps -0.18780E-01   0.00000E+00
+ UVWfct_G_1_1eps -0.31300E-02   0.00000E+00
+       UV_3Gb =  -0.22605E-01   0.00000E+00
+       UV_3Gt =   0.48815E-02   0.00000E+00
+       UV_4Gb =   0.00000E+00   0.55053E-01
+      UV_4Ggt =   0.00000E+00  -0.11889E-01
+      UV_GQQb =   0.00000E+00   0.22605E-01
+      UV_GQQt =   0.00000E+00  -0.48815E-02
+     UV_tMass =   0.00000E+00   0.34177E+00
+   UVWfct_t_0 =  -0.98778E-03  -0.00000E+00
+   UVWfct_G_1 =  -0.18563E-01   0.00000E+00
+   UVWfct_G_2 =   0.40088E-02   0.00000E+00
+
+ Collider parameters:
+ --------------------
+
+ Running at P P   machine @    13000.000000000000       GeV
+ PDF set = nn23nlo
+ alpha_s(Mz)= 0.1190 running at 2 loops.
+ alpha_s(Mz)= 0.1190 running at 2 loops.
+ Renormalization scale set on event-by-event basis
+ Factorization   scale set on event-by-event basis
+
+
+INFO: orders_tag_plot is computed as:         + QCD *        1         + QED *      100
+ orders_tag_plot=            6  for QCD,QED, =            6 ,           0 ,
+ AMP_SPLIT:            1 correspond to S.O.           6           0
+ orders_tag_plot=            8  for QCD,QED, =            8 ,           0 ,
+ AMP_SPLIT:            2 correspond to S.O.           8           0
+ ENV_FVZ_ITMAX           0
+ ENV_FVZ_NDUMP           5
+ AV: ENV_VFOLD_ME_MODE=F0
+ AV: born_checks_amps= T
+ AV: vfold_vecsize_used=         128
+ AV: vfold_kpoint_batch=          64
+ AV: vfold_batch_pervn=           1
+ AV: vfold_sborn_bridge=           0
+ AV: vfold_sborn_gscale=           0
+ getting user params
+Enter number of events and iterations: 
+ Number of events and iterations           -1          12
+Enter desired fractional accuracy: 
+ Desired fractional accuracy:   0.20000000000000001     
+ Enter alpha, beta for G_soft
+   Enter alpha<0 to set G_soft=1 (no ME soft)
+ for G_soft: alpha=   1.0000000000000000      , beta= -0.10000000000000001     
+ Enter alpha, beta for G_azi
+   Enter alpha>0 to set G_azi=0 (no azi corr)
+ for G_azi: alpha=  -1.0000000000000000      , beta= -0.10000000000000001     
+ Doing the S and H events together
+ Suppress amplitude (0 no, 1 yes)? 
+ Using suppressed amplitude.
+ Exact helicity sum (0 yes, n = number/event)? 
+ Do MC over helicities for the virtuals
+Enter Configuration Number: 
+ Running Configuration Number:           10           0
+Enter running mode for MINT:
+0 to set-up grids, 1 to integrate, 2 to generate events
+ MINT running mode:           2
+ Generating events, doing only one iteration
+Set the three folding parameters for MINT
+xi_i, y_ij, phi_i
+           8           4           1
+ 'all ', 'born', 'real', 'virt', 'novi' or 'grid'?
+ Enter 'born0' or 'virt0' to perform
+  a pure n-body integration (no S functions)
+ doing the all  of this channel
+ Normal integration (Sfunction != 1)
+ DEBUG! ncalls0 (from get_user_param)          -1
+ DEBUG! itmax (from get_user_param)           1
+ DEBUG! itmax (overloaded!)           1
+ about to integrate           10          -1           1          10
+ AV: Born memo slots=        2112  (folds=          32 , kpoints=          64 , wanted=        2112 , cap=       21217 , MB=                   19 )
+ Generating           20  events
+ Generating virt :: novi approx.           0          20
+ imode is            2
+Using random seed offsets:    10 ,      1 ,      0
+  with seed                84118
+ Ranmar initialization seeds       25606        6657
+ Total number of FKS directories is          10
+ FKS process map (sum=           3 ) :
+           1 -->           3 :           1           6           7
+           2 -->           3 :           2           8           9
+           3 -->           1 :           3
+           4 -->           1 :           4
+           5 -->           2 :           5          10
+ ================================
+ process combination map (specified per FKS dir):
+  1 map        1
+  1 inv. map   1
+  2 map        1
+  2 inv. map   1
+  3 map        1
+  3 inv. map   1
+  4 map        1
+  4 inv. map   1
+  5 map        1
+  5 inv. map   1
+  6 map        1   1   1   1
+  6 inv. map   4
+  7 map        1   1   1   1
+  7 inv. map   4
+  8 map        1   1   1   1
+  8 inv. map   4
+  9 map        1   1   1   1
+  9 inv. map   4
+ 10 map        1   1   1   1
+ 10 inv. map   4
+ ================================
+tau_min   1     1 : 0.34600E+03      --       0.35600E+03
+tau_min   2     1 : 0.34600E+03      --       0.35600E+03
+tau_min   3     1 : 0.35600E+03  0.35600E+03  0.35600E+03
+tau_min   4     1 : 0.35600E+03  0.35600E+03  0.35600E+03
+tau_min   5     1 : 0.35600E+03  0.35600E+03  0.35600E+03
+tau_min   6     1 : 0.34600E+03      --       0.35600E+03
+tau_min   7     1 : 0.34600E+03      --       0.35600E+03
+tau_min   8     1 : 0.34600E+03      --       0.35600E+03
+#--------------------------------------------------------------------------
+#                     FastJet release 3.1.3 [fjcore]
+#                 M. Cacciari, G.P. Salam and G. Soyez                  
+#     A software package for jet finding and analysis at colliders      
+#                           http://fastjet.fr                           
+#	                                                                      
+# Please cite EPJC72(2012)1896 [arXiv:1111.6097] if you use this package
+# for scientific work and optionally PLB641(2006)57 [hep-ph/0512210].   
+#                                                                       
+# FastJet is provided without warranty under the terms of the GNU GPLv2.
+# It uses T. Chan's closest pair algorithm, S. Fortune's Voronoi code
+# and 3rd party plugin jet algorithms. See COPYING file for details.
+#--------------------------------------------------------------------------
+tau_min   9     1 : 0.34600E+03      --       0.35600E+03
+tau_min  10     1 : 0.35600E+03  0.35600E+03  0.35600E+03
+ Filling grid for alpha_S computation ... 
+ done... 
+ Scale values (may change event by event):
+ muR,  muR_reference:  0.186536D+03 0.186536D+03  1.00
+ muF1, muF1_reference: 0.186536D+03 0.186536D+03  1.00
+ muF2, muF2_reference: 0.186536D+03 0.186536D+03  1.00
+ QES,  QES_reference:  0.186536D+03 0.186536D+03  1.00
+  
+ muR_reference [functional form]:
+    H_T/2 := sum_i mT(i)/2, i=final state
+ muF1_reference [functional form]:
+    H_T/2 := sum_i mT(i)/2, i=final state
+ muF2_reference [functional form]:
+    H_T/2 := sum_i mT(i)/2, i=final state
+ QES_reference [functional form]: 
+    H_T/2 := sum_i mT(i)/2, i=final state
+  
+ alpha_s=  0.10733989690076517     
+ counterterm S.O           1 QCD
+ BORN: keeping split order           1
+ counterterm S.O           2 QED
+ BORN: not keeping split order           1
+ REAL 1: keeping split order            1
+ REAL 4: keeping split order            1
+ REAL 5: keeping split order            1
+ REAL 2: keeping split order            1
+ REAL 3: keeping split order            1
+ Charge-linked born are not used
+ Color-linked born are used
+ Parameters related to the different treatment of alpha in ME and PDFs
+ alphascheme           0
+ nlep_run             -1
+ nupq_run             -1
+ ndnq_run             -1
+ w_run                 1
+ PDFscheme           0
+ REAL 6: keeping split order            1
+ Warning in get_cms_costh_fks   1.1094576525144506     
+ Warning in get_cms_costh_fks   1.1280900666626399     
+ Warning in get_cms_costh_fks   1.1086002505578296     
+ Warning in get_cms_costh_fks   1.0991721464225088     
+ Warning in get_cms_costh_fks   1.0599146616860293     
+ Warning in get_cms_costh_fks   1.0484347735305157     
+ Warning in get_cms_costh_fks   1.0354146514776565     
+ Warning in get_cms_costh_fks   1.0229211620003291     
+ Warning in get_cms_costh_fks   1.0087154043180719     
+ Warning in get_cms_costh_fks   1.0239866637339912     
+ Warning in get_cms_costh_fks   1.0268704926011099     
+ Warning in get_cms_costh_fks   1.0218971711456899     
+ Warning in get_cms_costh_fks   1.0279063366348069     
+ Warning in get_cms_costh_fks   1.0138625964422958     
+ Warning in get_cms_costh_fks   1.0375310800319388     
+ Warning in get_cms_costh_fks   1.0254269553983681     
+ Warning in get_cms_costh_fks   1.0445555238349704     
+ Warning in get_cms_costh_fks   1.0137098476003250     
+ Warning in get_cms_costh_fks   1.0516601401465158     
+ Warning in get_cms_costh_fks   1.0898565228082777     
+ Warning in get_cms_costh_fks   1.0589485252289084     
+ Warning in get_cms_costh_fks   1.0007726638942780     
+ Warning in get_cms_costh_fks   1.0007766841181382     
+ Warning in get_cms_costh_fks   1.0002534050300182     
+ Warning in get_cms_costh_fks   1.0005153913410498     
+ Warning in get_cms_costh_fks   1.0002765202083923     
+ Warning in get_cms_costh_fks   1.0000521541061731     
+ SPLIT TYPE USED: T F
+ A PDF is used, so alpha_s(MZ) is going to be modified
+ Old value of alpha_s from param_card:   0.11799999999999999     
+  ****************************************
+ 
+       NNPDFDriver version 1.0.3
+   Grid: NNPDF23nlo_as_0119_qed_mem0.grid
+  ****************************************
+ New value of alpha_s from PDF nn23nlo:  0.11899999999999999     
+ Warning in get_cms_costh_fks   1.0001501555723351     
+ Warning in get_cms_costh_fks   1.0000534090402788     
+ Warning in get_cms_costh_fks   1.0003750685217450     
+ Warning in get_cms_costh_fks   1.0003128384919879     
+ Warning in get_cms_costh_fks   1.0004602481957618     
+ Warning in get_cms_costh_fks   1.0001921098677602     
+ Warning in get_cms_costh_fks   1.0016044066726830     
+ Warning in get_cms_costh_fks   1.0009132417039788     
+ Warning in get_cms_costh_fks   1.0017617022429597     
+ Warning in get_cms_costh_fks   1.0003231616752786     
+ Warning in get_cms_costh_fks   1.0058963130331460     
+ Warning in get_cms_costh_fks   1.0068408581826009     
+ Warning in get_cms_costh_fks   1.0027199551140193     
+ Warning in get_cms_costh_fks   1.0016532084211716     
+ Warning in get_cms_costh_fks   1.0032914031559561     
+ Warning in get_cms_costh_fks   1.0019989719812574     
+ Warning in get_cms_costh_fks   1.0027414384551405     
+ Warning in get_cms_costh_fks   1.0019386590592219     
+ Warning in get_cms_costh_fks   1.0003766633238074     
+ Warning in get_cms_costh_fks   1.0013039156006287     
+ Warning in get_cms_costh_fks   1.0008248944985347     
+ Warning in get_cms_costh_fks   1.0000766471328666     
+ Warning in get_cms_costh_fks   1.0183438067428605     
+ Warning in get_cms_costh_fks   1.0191124220356225     
+ Warning in get_cms_costh_fks   1.0164439653599835     
+ Warning in get_cms_costh_fks   1.0157724768694867     
+ Warning in get_cms_costh_fks   1.0137535947544223     
+ Warning in get_cms_costh_fks   1.0109023192867643     
+ Warning in get_cms_costh_fks   1.0105083454027806     
+ Warning in get_cms_costh_fks   1.0043396727273814     
+ Warning in get_cms_costh_fks   1.0081450941352548     
+ Warning in get_cms_costh_fks   1.0065936562179620     
+ Warning in get_cms_costh_fks   1.0048525078014008     
+ Warning in get_cms_costh_fks   1.0042310172963305     
+ Warning in get_cms_costh_fks   1.0018431418367268     
+ Warning in get_cms_costh_fks   1.0012327057583581     
+ Warning in get_cms_costh_fks   1.0000150746509233     
+ Warning in get_cms_costh_fks   1.0341143658509722     
+ Warning in get_cms_costh_fks   1.0327226553931728     
+ Warning in get_cms_costh_fks   1.0304947221271117     
+ Warning in get_cms_costh_fks   1.0387188796539939     
+ Warning in get_cms_costh_fks   1.0276177764467742     
+ Warning in get_cms_costh_fks   1.0394278608573768     
+ Warning in get_cms_costh_fks   1.0239107218335539     
+ Warning in get_cms_costh_fks   1.0401543027769111     
+ Warning in get_cms_costh_fks   1.0188276152417237     
+ Warning in get_cms_costh_fks   1.0408641810197807     
+ Warning in get_cms_costh_fks   1.0121420096772771     
+ Warning in get_cms_costh_fks   1.0018908877487227     
+ Warning in get_cms_costh_fks   1.0027024382920986     
+ Warning in get_cms_costh_fks   1.0015694945909563     
+ Warning in get_cms_costh_fks   1.0013690773892687     
+ Warning in get_cms_costh_fks   1.0036894025935550     
+ Warning in get_cms_costh_fks   1.0034934919858904     
+ Warning in get_cms_costh_fks   1.0017251241472784     
+ Warning in get_cms_costh_fks   1.0107285033066502     
+ Warning in get_cms_costh_fks   1.0131963465090013     
+ Warning in get_cms_costh_fks   1.0071378967282241     
+ Warning in get_cms_costh_fks   1.0171988742737694     
+ Warning in get_cms_costh_fks   1.0112231868968578     
+ Warning in get_cms_costh_fks  -1.0063070479136134     
+ Warning in get_cms_costh_fks   1.0200970525840798     
+ Warning in get_cms_costh_fks   1.0022988282444267     
+ Warning in get_cms_costh_fks   1.0219807297399262     
+ Warning in get_cms_costh_fks  -1.0028947857967452     
+ Warning in get_cms_costh_fks   1.0038087679749759     
+ Warning in get_cms_costh_fks   1.0032716340721413     
+ Warning in get_cms_costh_fks   1.0019328254155075     
+ Warning in get_cms_costh_fks   1.0029070549309680     
+ Warning in get_cms_costh_fks   1.0005225894601344     
+ Warning in get_cms_costh_fks   1.0018862593450204     
+ Warning in get_cms_costh_fks   1.0008834924235972     
+ Warning in get_cms_costh_fks   1.0014040123931729     
+ Warning in get_cms_costh_fks   1.0007806391251624     
+ Warning in get_cms_costh_fks   1.0000876987688680     
+ Warning in get_cms_costh_fks   1.0000578742364148     
+ Warning in get_cms_costh_fks   1.0292514318577126     
+ Warning in get_cms_costh_fks   1.0318042852411593     
+ Warning in get_cms_costh_fks   1.0268128168156481     
+ Warning in get_cms_costh_fks   1.0314555010853841     
+ Warning in get_cms_costh_fks   1.0223063776079966     
+ Warning in get_cms_costh_fks   1.0190415131989505     
+ Warning in get_cms_costh_fks   1.0258535413142744     
+ Warning in get_cms_costh_fks   1.0186015196857485     
+ Warning in get_cms_costh_fks   1.0175311312182895     
+ Warning in get_cms_costh_fks   1.0073797824445478     
+ Warning in get_cms_costh_fks   1.0088777141300327     
+ Warning in get_cms_costh_fks   1.0148486239812122     
+ Warning in get_cms_costh_fks   1.0129127019747604     
+ Warning in get_cms_costh_fks   1.0112292277857811     
+ Warning in get_cms_costh_fks   1.0082142308791271     
+ Warning in get_cms_costh_fks   1.0073183496136779     
+ Warning in get_cms_costh_fks   1.0028416898038628     
+ Warning in get_cms_costh_fks   1.0032918537392501     
+ Warning in get_cms_costh_fks   1.0026981589175712     
+ Warning in get_cms_costh_fks   1.0021000106881881     
+ Warning in get_cms_costh_fks   1.0035328860740607     
+ Warning in get_cms_costh_fks   1.0029509112141866     
+ Warning in get_cms_costh_fks   1.0013303877506960     
+ Warning in get_cms_costh_fks   1.0100436498219563     
+ Warning in get_cms_costh_fks   1.0076172948367019     
+ Warning in get_cms_costh_fks   1.0125631433510485     
+ Warning in get_cms_costh_fks   1.0070453400799544     
+ Warning in get_cms_costh_fks   1.0006880033094938     
+ Warning in get_cms_costh_fks   1.0136580145367917     
+ Warning in get_cms_costh_fks   1.0134537987705534     
+ Warning in get_cms_costh_fks   1.0241109716611796     
+ Warning in get_cms_costh_fks   1.0099674721298499     
+ Warning in get_cms_costh_fks   1.0331028129467750     
+ Warning in get_cms_costh_fks   1.0466897261317614     
+ Warning in get_cms_costh_fks   1.0026530360077255     
+ Warning in get_cms_costh_fks   1.0024079124091778     
+ Warning in get_cms_costh_fks   1.0039138802591367     
+ Warning in get_cms_costh_fks   1.0028461275866900     
+ Warning in get_cms_costh_fks   1.0059920417047996     
+ Warning in get_cms_costh_fks   1.0064654144068339     
+ Warning in get_cms_costh_fks   1.0061874465235467     
+ Warning in get_cms_costh_fks   1.0004494336578769     
+ Warning in get_cms_costh_fks   1.0035003098811004     
+ Warning in get_cms_costh_fks   1.0029721144356789     
+ Warning in get_cms_costh_fks   1.0019440786421205     
+ Warning in get_cms_costh_fks   1.0022704808121268     
+ Warning in get_cms_costh_fks   1.0012126710204814     
+ Warning in get_cms_costh_fks   1.0003340569983319     
+ Warning in get_cms_costh_fks   1.0009779217609320     
+ Warning in get_cms_costh_fks   1.0004000222026463     
+ Warning in get_cms_costh_fks   1.0217574982946829     
+ Warning in get_cms_costh_fks   1.0188307595992558     
+ Warning in get_cms_costh_fks   1.0177408620237434     
+ Warning in get_cms_costh_fks   1.0233372064079111     
+ Warning in get_cms_costh_fks   1.0147516904505995     
+ Warning in get_cms_costh_fks   1.0157994599200066     
+ Warning in get_cms_costh_fks   1.0294048756832304     
+ Warning in get_cms_costh_fks   1.0247877016966092     
+ Warning in get_cms_costh_fks   1.0124504703150079     
+ Warning in get_cms_costh_fks   1.0360198246253700     
+ Warning in get_cms_costh_fks   1.0225465271735639     
+ Warning in get_cms_costh_fks   1.0087727253798298     
+ Warning in get_cms_costh_fks   1.0422616977189390     
+ Warning in get_cms_costh_fks   1.0147778170597808     
+ Warning in get_cms_costh_fks   1.0059900694007928     
+ Warning in get_cms_costh_fks   1.0547941207013714     
+ Warning in get_cms_costh_fks   1.0015853938640824     
+ Warning in get_cms_costh_fks   1.0649483507364215     
+ Warning in get_cms_costh_fks   1.1363567209437058     
+ Warning in get_cms_costh_fks   1.1549637958119912     
+ Warning in get_cms_costh_fks   1.1253338054942021     
+ Warning in get_cms_costh_fks   1.1590992674138143     
+ Warning in get_cms_costh_fks   1.0986135478407000     
+ Warning in get_cms_costh_fks   1.1022736706575842     
+ Warning in get_cms_costh_fks   1.1591933293459227     
+ Warning in get_cms_costh_fks   1.0779016205570544     
+ Warning in get_cms_costh_fks   1.0751821228951390     
+ Warning in get_cms_costh_fks   1.1411987649843951     
+ Warning in get_cms_costh_fks   1.0651739979872532     
+ Warning in get_cms_costh_fks   1.0639419076623307     
+ Warning in get_cms_costh_fks   1.0535624234952232     
+ Warning in get_cms_costh_fks   1.1078940471283247     
+ Warning in get_cms_costh_fks   1.0461130553325912     
+ Warning in get_cms_costh_fks   1.0436577236894986     
+ Warning in get_cms_costh_fks   1.0156579061818212     
+ Warning in get_cms_costh_fks   1.0304214610915545     
+ Warning in get_cms_costh_fks   1.0266452805228643     
+ Warning in get_cms_costh_fks   1.0272001663130317     
+ Warning in get_cms_costh_fks   1.0078497008200833     
+ Warning in get_cms_costh_fks   1.0009999435021784     
+ Warning in get_cms_costh_fks   1.1373459863943218     
+ Warning in get_cms_costh_fks   1.1576448865878273     
+ Warning in get_cms_costh_fks   1.1183734927826352     
+ Warning in get_cms_costh_fks   1.1245555568090178     
+ Warning in get_cms_costh_fks   1.1625338484519898     
+ Warning in get_cms_costh_fks   1.0961745680642103     
+ Warning in get_cms_costh_fks   1.1010171797247548     
+ Warning in get_cms_costh_fks   1.1631144607442230     
+ Warning in get_cms_costh_fks   1.0753245778778069     
+ Warning in get_cms_costh_fks   1.0746775165588698     
+ Warning in get_cms_costh_fks   1.0728925653891688     
+ Warning in get_cms_costh_fks   1.1465483893649129     
+ Warning in get_cms_costh_fks   1.0612321312733812     
+ Warning in get_cms_costh_fks   1.0598688198232713     
+ Warning in get_cms_costh_fks   1.0498041475339597     
+ Warning in get_cms_costh_fks   1.1143379643570834     
+ Warning in get_cms_costh_fks   1.0412565235631608     
+ Warning in get_cms_costh_fks   1.0385247582501600     
+ Warning in get_cms_costh_fks   1.0091205206232905     
+ Warning in get_cms_costh_fks   1.0247581999662050     
+ Warning in get_cms_costh_fks   1.0205148486111009     
+ Warning in get_cms_costh_fks   1.0226105406683632     
+ Warning in get_cms_costh_fks   1.0006777929859330     
+ Warning in get_cms_costh_fks   1.0012876795040000     
+ Warning in get_cms_costh_fks   1.0023086576308169     
+ Warning in get_cms_costh_fks   1.0011794072094808     
+ Warning in get_cms_costh_fks   1.0050574746210406     
+ Warning in get_cms_costh_fks   1.0964850923896949     
+ Warning in get_cms_costh_fks   1.0804313993143564     
+ Warning in get_cms_costh_fks   1.1024808474640198     
+ Warning in get_cms_costh_fks   1.0743890698740675     
+ Warning in get_cms_costh_fks   1.1335349990381289     
+ Warning in get_cms_costh_fks   1.1123279030841018     
+ Warning in get_cms_costh_fks   1.0555765857044717     
+ Warning in get_cms_costh_fks   1.1671473829155070     
+ Warning in get_cms_costh_fks   1.1150495116323222     
+ Warning in get_cms_costh_fks   1.0250872804723219     
+ Warning in get_cms_costh_fks   1.2144454949861345     
+ Warning in get_cms_costh_fks   1.2008170598300649     
+ Warning in get_cms_costh_fks   1.1050772588206668     
+ Warning in get_cms_costh_fks   1.0363225161198004     
+ Warning in get_cms_costh_fks   1.0017420766833618     
+ Warning in get_cms_costh_fks   1.0008275287008690     
+ Warning in get_cms_costh_fks   1.0008798963588341     
+ Warning in get_cms_costh_fks   1.0018732772549832     
+ Warning in get_cms_costh_fks   1.0004341345785774     
+ Warning in get_cms_costh_fks   1.0035635528843931     
+ Warning in get_cms_costh_fks   1.0038828523537255     
+ Warning in get_cms_costh_fks   1.0028802476541447     
+ Warning in get_cms_costh_fks   1.0136187307527456     
+ Warning in get_cms_costh_fks   1.0118624223843100     
+ Warning in get_cms_costh_fks   1.0135940663595520     
+ Warning in get_cms_costh_fks   1.0095960319415296     
+ Warning in get_cms_costh_fks   1.0169587041476893     
+ Warning in get_cms_costh_fks   1.0108498522888387     
+ Warning in get_cms_costh_fks   1.0189559060340703     
+ Warning in get_cms_costh_fks   1.0015792229754807     
+ Warning in get_cms_costh_fks   1.0246733036099995     
+ Warning in get_cms_costh_fks   1.0202097335408418     
+ Warning in get_cms_costh_fks   1.0309486062358753     
+ Warning in get_cms_costh_fks   1.0200709010178355     
+ Warning in get_cms_costh_fks   1.0403963358527113     
+ Warning in get_cms_costh_fks   1.0134900061538747     
+ Warning in get_cms_costh_fks   1.0030127761622820     
+ Warning in get_cms_costh_fks   1.0037233930050415     
+ Warning in get_cms_costh_fks   1.0013752822217030     
+ Warning in get_cms_costh_fks   1.0026551945267246     
+ Warning in get_cms_costh_fks   1.0028478609724587     
+ Warning in get_cms_costh_fks   1.0006836281098173     
+ Warning in get_cms_costh_fks   1.0051439338188524     
+ Warning in get_cms_costh_fks   1.0053355385856528     
+ Warning in get_cms_costh_fks   1.0043672772012484     
+ Warning in get_cms_costh_fks   1.0096048229775205     
+ Warning in get_cms_costh_fks   1.0112684574642152     
+ Warning in get_cms_costh_fks   1.0076649927253516     
+ Warning in get_cms_costh_fks   1.0112048027725591     
+ Warning in get_cms_costh_fks   1.0149710945084840     
+ Warning in get_cms_costh_fks   1.0092704118083495     
+ Warning in get_cms_costh_fks   1.0163929314031981     
+ Warning in get_cms_costh_fks   1.0053759503027500     
+ Warning in get_cms_costh_fks   1.0182270557916993     
+ Warning in get_cms_costh_fks   1.0195304565952514     
+ Warning in get_cms_costh_fks   1.0178430121386337     
+ Warning in get_cms_costh_fks   1.0011200366466646     
+ Warning in get_cms_costh_fks   1.0010812471441637     
+ Warning in get_cms_costh_fks   1.0009190557120005     
+ Warning in get_cms_costh_fks   1.0022782826642507     
+ Warning in get_cms_costh_fks   1.0014226334482199     
+ Warning in get_cms_costh_fks   1.1325927843060706     
+ Warning in get_cms_costh_fks   1.1528062159345125     
+ Warning in get_cms_costh_fks   1.1313739721612459     
+ Warning in get_cms_costh_fks   1.1794573481756034     
+ Warning in get_cms_costh_fks   1.1201097954570816     
+ Warning in get_cms_costh_fks   1.2296649281576557     
+ Warning in get_cms_costh_fks   1.2111004661268874     
+ Warning in get_cms_costh_fks   1.0932637638005256     
+ Warning in get_cms_costh_fks   1.2735766905957702     
+ Warning in get_cms_costh_fks   1.2385557755927790     
+ Warning in get_cms_costh_fks   1.0583140588968016     
+ Warning in get_cms_costh_fks   1.0857400171732305     
+ Warning in get_cms_costh_fks   1.0332939722751346     
+ Warning in get_cms_costh_fks   1.0218651905781810     
+ Warning in get_cms_costh_fks   1.0188174241177508     
+ Warning in get_cms_costh_fks   1.0285236291049489     
+ Warning in get_cms_costh_fks   1.0172701365079646     
+ Warning in get_cms_costh_fks   1.0147822475820889     
+ Warning in get_cms_costh_fks   1.0315053527285323     
+ Warning in get_cms_costh_fks   1.0007521971380502     
+ Warning in get_cms_costh_fks   1.0067519194179890     
+ Warning in get_cms_costh_fks   1.0444754225643800     
+ Warning in get_cms_costh_fks   1.0324552478159452     
+ Warning in get_cms_costh_fks   1.0532432630788711     
+ Warning in get_cms_costh_fks   1.0289202204591101     
+ Warning in get_cms_costh_fks   1.0727155915440929     
+ Warning in get_cms_costh_fks   1.0006510773007065     
+ Warning in get_cms_costh_fks   1.0168809037266957     
+ Warning in get_cms_costh_fks   1.0145538569462973     
+ Warning in get_cms_costh_fks   1.0206978701401286     
+ Warning in get_cms_costh_fks   1.0122295108448580     
+ Warning in get_cms_costh_fks   1.0051452487949735     
+ Warning in get_cms_costh_fks   1.0219576415783556     
+ Warning in get_cms_costh_fks   1.0106689598478396     
+ Warning in get_cms_costh_fks   1.0085493948680004     
+ Warning in get_cms_costh_fks   1.0206849716587274     
+ Warning in get_cms_costh_fks   1.0083831994892674     
+ Warning in get_cms_costh_fks   1.0047230198967161     
+ Warning in get_cms_costh_fks   1.0134991442849155     
+ Warning in get_cms_costh_fks   1.0061070508606642     
+ Warning in get_cms_costh_fks   1.0005014420885314     
+ Warning in get_cms_costh_fks   1.0036346703821641     
+ Warning in get_cms_costh_fks   1.0010128451547569     
+ Warning in get_cms_costh_fks   1.0030868234632886     
+ Warning in get_cms_costh_fks   1.0042333367958618     
+ Warning in get_cms_costh_fks   1.0032187920245799     
+ Warning in get_cms_costh_fks   1.0003288337510101     
+ Warning in get_cms_costh_fks   1.0031395383132478     
+ Warning in get_cms_costh_fks   1.0028139886183767     
+ Warning in get_cms_costh_fks   1.0016386753662960     
+ Warning in get_cms_costh_fks   1.0020521208649884     
+ Warning in get_cms_costh_fks   1.0015006429391928     
+ Warning in get_cms_costh_fks   1.0006656717544951     
+ Warning in get_cms_costh_fks   1.0381777520773863     
+ Warning in get_cms_costh_fks   1.0423009298246837     
+ Warning in get_cms_costh_fks   1.0325150528885405     
+ Warning in get_cms_costh_fks   1.0373003837078241     
+ Warning in get_cms_costh_fks   1.0267669704860334     
+ Warning in get_cms_costh_fks   1.0233389339425214     
+ Warning in get_cms_costh_fks   1.0210057996542385     
+ Warning in get_cms_costh_fks   1.0203723165658116     
+ Warning in get_cms_costh_fks   1.0121486812137936     
+ Warning in get_cms_costh_fks   1.0170414400143779     
+ Warning in get_cms_costh_fks   1.0155256394917225     
+ Warning in get_cms_costh_fks   1.0022345981856011     
+ Warning in get_cms_costh_fks   1.0112022518202410     
+ Warning in get_cms_costh_fks   1.0087969787548199     
+ Warning in get_cms_costh_fks   1.0061359917546782     
+ Warning in get_cms_costh_fks   1.0027538203583404     
+ Warning in get_cms_costh_fks   1.1606028563600654     
+ Warning in get_cms_costh_fks   1.1619092959590451     
+ Warning in get_cms_costh_fks   1.0005064817557459     
+ Warning in get_cms_costh_fks   1.0006162440870312     
+ Warning in get_cms_costh_fks   1.0001822958073472     
+ Warning in get_cms_costh_fks  -1.0022527311131253     
+ Warning in get_cms_costh_fks   1.0005586418902475     
+ Warning in get_cms_costh_fks   1.0008230887258911     
+ Warning in get_cms_costh_fks   1.0004356294611469     
+ Warning in get_cms_costh_fks   1.0004152215609650     
+ Warning in get_cms_costh_fks   1.0001981075633317     
+ Warning in get_cms_costh_fks   1.2850588027135581     
+ Warning in get_cms_costh_fks   1.2306773625151837     
+ Warning in get_cms_costh_fks   1.1585365351872658     
+ Warning in get_cms_costh_fks   1.0964482949546634     
+ Warning in get_cms_costh_fks   1.0150994209436854     
+ Warning in get_cms_costh_fks   1.0134079970985397     
+ Warning in get_cms_costh_fks   1.0174749799210010     
+ Warning in get_cms_costh_fks   1.0138224825451461     
+ Warning in get_cms_costh_fks   1.0110637612868651     
+ Warning in get_cms_costh_fks   1.0196516799091624     
+ Warning in get_cms_costh_fks   1.0042077577573121     
+ Warning in get_cms_costh_fks   1.0021447912888701     
+ Warning in get_cms_costh_fks   1.0266057946874132     
+ Warning in get_cms_costh_fks   1.0205607562687529     
+ Warning in get_cms_costh_fks   1.0315688146212534     
+ Warning in get_cms_costh_fks   1.0188700423963672     
+ Warning in get_cms_costh_fks   1.0419575299031452     
+ Warning in get_cms_costh_fks   1.0049151756689767     
+ Warning in get_cms_costh_fks   1.0570515454593195     
+ Warning in get_cms_costh_fks   1.0704650155121238     
+ Warning in get_cms_costh_fks   1.0811783726646267     
+ Warning in get_cms_costh_fks   1.0679939912025114     
+ Warning in get_cms_costh_fks   1.0906122140937951     
+ Warning in get_cms_costh_fks   1.0578764057215559     
+ Warning in get_cms_costh_fks   1.0365630710506633     
+ Warning in get_cms_costh_fks   1.0140301763200203     
+ Warning in get_cms_costh_fks   1.0114732311581069     
+ Warning in get_cms_costh_fks   1.0131693544363685     
+ Warning in get_cms_costh_fks   1.0088498039571376     
+ Warning in get_cms_costh_fks   1.0178780975337227     
+ Warning in get_cms_costh_fks   1.0072829304576638     
+ Warning in get_cms_costh_fks   1.0192233363909029     
+ Warning in get_cms_costh_fks   1.0197057925478556     
+ Warning in get_cms_costh_fks   1.0299934237717430     
+ Warning in get_cms_costh_fks   1.0184914571861459     
+ Warning in get_cms_costh_fks   1.0365115080586447     
+ Warning in get_cms_costh_fks   1.0124717477221570     
+ Warning in get_cms_costh_fks   1.0486066734991326     
+ Warning in get_cms_costh_fks   1.0009852690160268     
+ Warning in get_cms_costh_fks   1.0004932108015243     
+ Warning in get_cms_costh_fks   1.0005734905723787     
+ Warning in get_cms_costh_fks   1.0002610362416144     
+ Warning in get_cms_costh_fks   1.1276692224267169     
+ Warning in get_cms_costh_fks   1.1113667857169418     
+ Warning in get_cms_costh_fks   1.1367496714750327     
+ Warning in get_cms_costh_fks   1.1069458567611936     
+ Warning in get_cms_costh_fks   1.0893940563678268     
+ Warning in get_cms_costh_fks   1.0583976186217272     
+ Warning in get_cms_costh_fks   1.0243231263699171     
+ Warning in get_cms_costh_fks   1.0078335303341162     
+ Warning in get_cms_costh_fks   1.0054534250992930     
+ Warning in get_cms_costh_fks   1.0069047625085050     
+ Warning in get_cms_costh_fks  -1.0004749528082479     
+ Warning in get_cms_costh_fks   1.0102278938438582     
+ Warning in get_cms_costh_fks   1.0023648185006933     
+ Warning in get_cms_costh_fks   1.0108259116818030     
+ Warning in get_cms_costh_fks   1.0103201765899075     
+ Warning in get_cms_costh_fks   1.0217212152390964     
+ Warning in get_cms_costh_fks   1.0048035667779867     
+ Warning in get_cms_costh_fks   1.0301932602001134     
+ Warning in get_cms_costh_fks   1.0024142007102432     
+ Warning in get_cms_costh_fks   1.0013463688385018     
+ Warning in get_cms_costh_fks   1.0011930584156363     
+ Warning in get_cms_costh_fks   1.0016283204963921     
+ Warning in get_cms_costh_fks   1.0006578945986888     
+ Warning in get_cms_costh_fks   1.0007679559923688     
+ Warning in get_cms_costh_fks   1.0003283627625710     
+ Warning in get_cms_costh_fks   1.0124161116397186     
+ Warning in get_cms_costh_fks   1.0111308841132511     
+ Warning in get_cms_costh_fks   1.0114501568366518     
+ Warning in get_cms_costh_fks   1.0089329720143776     
+ Warning in get_cms_costh_fks   1.0154528732314339     
+ Warning in get_cms_costh_fks   1.0062124321758628     
+ Warning in get_cms_costh_fks   1.0024204663883565     
+ Warning in get_cms_costh_fks   1.0163899251168742     
+ Warning in get_cms_costh_fks   1.0243292039835152     
+ Warning in get_cms_costh_fks   1.0152446564444870     
+ Warning in get_cms_costh_fks   1.0297218467627189     
+ Warning in get_cms_costh_fks   1.0093683037583607     
+ Warning in get_cms_costh_fks   1.0400563132277876     
+ Warning in get_cms_costh_fks   1.0208445352483986     
+ Warning in get_cms_costh_fks   1.0206495968361078     
+ Warning in get_cms_costh_fks   1.0188805393014704     
+ Warning in get_cms_costh_fks   1.0218640752409600     
+ Warning in get_cms_costh_fks   1.0217988040343418     
+ Warning in get_cms_costh_fks   1.0212771184081093     
+ Warning in get_cms_costh_fks   1.0170699300816579     
+ Warning in get_cms_costh_fks   1.0245398629737450     
+ Warning in get_cms_costh_fks   1.0242703773423081     
+ Warning in get_cms_costh_fks   1.0221398569204749     
+ Warning in get_cms_costh_fks   1.0078653171273049     
+ Warning in get_cms_costh_fks   1.0276859047398335     
+ Warning in get_cms_costh_fks   1.0269995312642943     
+ Warning in get_cms_costh_fks   1.0216221834257797     
+ Warning in get_cms_costh_fks   1.0308338247337536     
+ Warning in get_cms_costh_fks   1.0295364951824812     
+ Warning in get_cms_costh_fks   1.0194555149776050     
+ Warning in get_cms_costh_fks   1.0354343852907333     
+ Warning in get_cms_costh_fks   1.0328898103287540     
+ Warning in get_cms_costh_fks   1.0133509078215788     
+ Warning in get_cms_costh_fks   1.0413380214781855     
+ Warning in get_cms_costh_fks   1.0365643592183251     
+ Warning in get_cms_costh_fks   1.0005006727312962     
+ Warning in get_cms_costh_fks   1.0510245202491011     
+ Warning in get_cms_costh_fks   1.0410204279692306     
+ Warning in get_cms_costh_fks   1.0655117491805963     
+ Warning in get_cms_costh_fks   1.0709405493060609     
+ Warning in get_cms_costh_fks   1.0588012646909120     
+ Warning in get_cms_costh_fks   1.0639138018675613     
+ Warning in get_cms_costh_fks   1.0487729743125733     
+ Warning in get_cms_costh_fks   1.0475950940995926     
+ Warning in get_cms_costh_fks   1.0448738617026396     
+ Warning in get_cms_costh_fks   1.0390303262516054     
+ Warning in get_cms_costh_fks   1.0360197943865679     
+ Warning in get_cms_costh_fks   1.0133760719524367     
+ Warning in get_cms_costh_fks   1.0324204704997260     
+ Warning in get_cms_costh_fks   1.0277253581675014     
+ Warning in get_cms_costh_fks   1.0227903902372311     
+ Warning in get_cms_costh_fks   1.0149237919101930     
+ Warning in get_cms_costh_fks   1.0147604476551513     
+ Warning in get_cms_costh_fks   1.0033903699673024     
+ Warning in get_cms_costh_fks   1.0044263320349498     
+ Warning in get_cms_costh_fks   1.0039351823653762     
+ Warning in get_cms_costh_fks   1.0026887117304608     
+ Warning in get_cms_costh_fks   1.0029053753445454     
+ Warning in get_cms_costh_fks   1.0017785558023207     
+ Warning in get_cms_costh_fks   1.0007974802159434     
+ Warning in get_cms_costh_fks   1.0012443094689005     
+ Warning in get_cms_costh_fks   1.0005436489633741     
+ Warning in get_cms_costh_fks   1.0010134970073434     
+ Warning in get_cms_costh_fks   1.0018979076556565     
+ Warning in get_cms_costh_fks   1.0017155989108604     
+ Warning in get_cms_costh_fks   1.0029004751959827     
+ Warning in get_cms_costh_fks   1.0009031500256813     
+ Warning in get_cms_costh_fks   1.0025893699077553     
+ Warning in get_cms_costh_fks   1.0015419706595003     
+ Warning in get_cms_costh_fks   1.0002740886319528     
+ Warning in get_cms_costh_fks   1.0007471947722528     
+ Warning in get_cms_costh_fks   1.0013416257760801     
+ Warning in get_cms_costh_fks   1.0011689583122676     
+ Warning in get_cms_costh_fks   1.1540467469362303     
+ Warning in get_cms_costh_fks   1.1322253536558948     
+ Warning in get_cms_costh_fks   1.1538429601776365     
+ Warning in get_cms_costh_fks   1.1158687272456809     
+ Warning in get_cms_costh_fks   1.1489365254128652     
+ Warning in get_cms_costh_fks   1.0941707408028862     
+ Warning in get_cms_costh_fks   1.0943601693675231     
+ Warning in get_cms_costh_fks   1.1316681085491509     
+ Warning in get_cms_costh_fks   1.0749697563083211     
+ Warning in get_cms_costh_fks   1.0714844923357871     
+ Warning in get_cms_costh_fks   1.0941675872249808     
+ Warning in get_cms_costh_fks   1.0614068680345832     
+ Warning in get_cms_costh_fks   1.0604986254655286     
+ Warning in get_cms_costh_fks   1.0528182525567498     
+ Warning in get_cms_costh_fks   1.0422585318341553     
+ Warning in get_cms_costh_fks   1.0430886064367033     
+ Warning in get_cms_costh_fks   1.0414546436410839     
+ Warning in get_cms_costh_fks   1.0258782622037008     
+ Warning in get_cms_costh_fks   1.0272122332873865     
+ Warning in get_cms_costh_fks   1.0247799947434828     
+ Warning in get_cms_costh_fks   1.0110181513023002     
+ Warning in get_cms_costh_fks   1.0017097394504668     
+ Warning in get_cms_costh_fks   1.0010191967141628     
+ Warning in get_cms_costh_fks   1.0005746944485776     
+ Warning in get_cms_costh_fks   1.0012449727915516     
+ Warning in get_cms_costh_fks   1.0002865538971211     
+ Warning in get_cms_costh_fks   1.0010291820462176     
+ Warning in get_cms_costh_fks   1.0006287968085226     
+ Warning in get_cms_costh_fks   1.0002122191967109     
+ Warning in get_cms_costh_fks   1.0536958330987494     
+ Warning in get_cms_costh_fks   1.0590850214329144     
+ Warning in get_cms_costh_fks   1.0496933857210218     
+ Warning in get_cms_costh_fks   1.0564194625129999     
+ Warning in get_cms_costh_fks   1.0415686835540985     
+ Warning in get_cms_costh_fks   1.0405185908868138     
+ Warning in get_cms_costh_fks   1.0447440753103239     
+ Warning in get_cms_costh_fks   1.0336421494615804     
+ Warning in get_cms_costh_fks   1.0301213806431515     
+ Warning in get_cms_costh_fks   1.0210126609885866     
+ Warning in get_cms_costh_fks   1.0263312176076569     
+ Warning in get_cms_costh_fks   1.0194022756643315     
+ Warning in get_cms_costh_fks   1.0207230627647657     
+ Warning in get_cms_costh_fks   1.0193142593772029     
+ Warning in get_cms_costh_fks   1.0079618971661253     
+ Warning in get_cms_costh_fks   1.0136735113127666     
+ Warning in get_cms_costh_fks   1.0115993845291313     
+ Warning in get_cms_costh_fks   1.0065406135971029     
+ Warning in get_cms_costh_fks   1.0036177842672187     
+ Warning in get_cms_costh_fks   1.0006194047969470     
+ Warning in get_cms_costh_fks   1.0009140570115231     
+ Warning in get_cms_costh_fks   1.0010904352148460     
+ Warning in get_cms_costh_fks   1.0002838254624806     
+ Warning in get_cms_costh_fks   1.0013335775183470     
+ Warning in get_cms_costh_fks   1.0007497262593950     
+ Warning in get_cms_costh_fks   1.0006494609879226     
+ Warning in get_cms_costh_fks   1.0003001947565913     
+ Warning in get_cms_costh_fks   1.0006901669932964     
+ Warning in get_cms_costh_fks   1.0018323735041392     
+ Warning in get_cms_costh_fks   1.0012730208475000     
+ Warning in get_cms_costh_fks   1.0024013143330737     
+ Warning in get_cms_costh_fks   1.0017669896591217     
+ Warning in get_cms_costh_fks   1.0037400505029654     
+ Warning in get_cms_costh_fks   1.0004221816037489     
+ Warning in get_cms_costh_fks   1.0036216025284803     
+ Warning in get_cms_costh_fks   1.0027355475628321     
+ Warning in get_cms_costh_fks   1.0062511607811928     
+ Warning in get_cms_costh_fks   1.0068823231600306     
+ Warning in get_cms_costh_fks   1.0057304753152929     
+ Warning in get_cms_costh_fks   1.0041308278464529     
+ Warning in get_cms_costh_fks   1.0048421219640136     
+ Warning in get_cms_costh_fks   1.0041600869728131     
+ Warning in get_cms_costh_fks   1.0036907819158187     
+ Warning in get_cms_costh_fks   1.0023787144799088     
+ Warning in get_cms_costh_fks   1.0029104484753826     
+ Warning in get_cms_costh_fks   1.0010036500372608     
+ Warning in get_cms_costh_fks   1.0017640577131959     
+ Warning in get_cms_costh_fks   1.0007840602670113     
+ Warning in get_cms_costh_fks   1.1680820913008036     
+ Warning in get_cms_costh_fks   1.1420768720789920     
+ Warning in get_cms_costh_fks   1.1742344606368422     
+ Warning in get_cms_costh_fks   1.1205296923555361     
+ Warning in get_cms_costh_fks   1.1268915115111660     
+ Warning in get_cms_costh_fks   1.1775329773873442     
+ Warning in get_cms_costh_fks   1.0986400144303778     
+ Warning in get_cms_costh_fks   1.1022228252880288     
+ Warning in get_cms_costh_fks   1.1728968555289214     
+ Warning in get_cms_costh_fks   1.0781635386728223     
+ Warning in get_cms_costh_fks   1.0774132370832057     
+ Warning in get_cms_costh_fks   1.0736166107346636     
+ Warning in get_cms_costh_fks   1.1470057961607829     
+ Warning in get_cms_costh_fks   1.0636876364218744     
+ Warning in get_cms_costh_fks   1.0622278558261462     
+ Warning in get_cms_costh_fks   1.0496736369360937     
+ Warning in get_cms_costh_fks   1.1017490802327632     
+ Warning in get_cms_costh_fks   1.0438789735139229     
+ Warning in get_cms_costh_fks   1.0411529164681539     
+ Warning in get_cms_costh_fks   1.0096312967775003     
+ Warning in get_cms_costh_fks   1.0271929342209478     
+ Warning in get_cms_costh_fks   1.0230778764949844     
+ Warning in get_cms_costh_fks   1.0004279639082521     
+ Warning in get_cms_costh_fks   1.0014225199378253     
+ Warning in get_cms_costh_fks   1.0023878323168736     
+ Warning in get_cms_costh_fks   1.0019569574408771     
+ Warning in get_cms_costh_fks  -1.0023493255886979     
+ Warning in get_cms_costh_fks   1.0013397696213964     
+ Warning in get_cms_costh_fks   1.0009337849423969     
+ Warning in get_cms_costh_fks   1.0010490047339466     
+ Warning in get_cms_costh_fks   1.0033719081082437     
+ Warning in get_cms_costh_fks   1.0034179622764612     
+ Warning in get_cms_costh_fks   1.0021299943533184     
+ Warning in get_cms_costh_fks   1.0010036137145399     
+ Warning in get_cms_costh_fks   1.0013519734603278     
+ Warning in get_cms_costh_fks   1.0012789255424974     
+ Warning in get_cms_costh_fks   1.0007189279202702     
+ Warning in get_cms_costh_fks   1.0002736940469767     
+ Warning in get_cms_costh_fks   1.0012333565408464     
+ Warning in get_cms_costh_fks   1.0017546464214970     
+ Warning in get_cms_costh_fks   1.0013088917330071     
+ Warning in get_cms_costh_fks   1.0022910513403611     
+ Warning in get_cms_costh_fks   1.0003668220142707     
+ Warning in get_cms_costh_fks   1.0022422684707637     
+ Warning in get_cms_costh_fks   1.0016209994750622     
+ Warning in get_cms_costh_fks   1.0211176390695387     
+ Warning in get_cms_costh_fks   1.0190822142528781     
+ Warning in get_cms_costh_fks   1.0199459273927645     
+ Warning in get_cms_costh_fks   1.0171609734317877     
+ Warning in get_cms_costh_fks   1.0265562945885136     
+ Warning in get_cms_costh_fks   1.0110453285793648     
+ Warning in get_cms_costh_fks   1.0107328775956448     
+ Warning in get_cms_costh_fks   1.0285301686936321     
+ Warning in get_cms_costh_fks   1.0023495684824688     
+ Warning in get_cms_costh_fks   1.0375475820505180     
+ Warning in get_cms_costh_fks   1.0289438733692349     
+ Warning in get_cms_costh_fks   1.0455679795870165     
+ Warning in get_cms_costh_fks   1.0258180467621971     
+ Warning in get_cms_costh_fks   1.0558294278692000     
+ Warning in get_cms_costh_fks   1.0130821150488760     
+ Warning in get_cms_costh_fks   1.0755391368987282     
+ Warning in get_cms_costh_fks   1.0404467383091263     
+ Warning in get_cms_costh_fks   1.0387271135476053     
+ Warning in get_cms_costh_fks   1.0364969217005990     
+ Warning in get_cms_costh_fks   1.0363224895097445     
+ Warning in get_cms_costh_fks   1.0340534533284087     
+ Warning in get_cms_costh_fks   1.0350262553092575     
+ Warning in get_cms_costh_fks   1.0304729522053167     
+ Warning in get_cms_costh_fks   1.0337572184307233     
+ Warning in get_cms_costh_fks   1.0262817620248339     
+ Warning in get_cms_costh_fks   1.0012776334980125     
+ Warning in get_cms_costh_fks   1.0008617903636996     
+ Warning in get_cms_costh_fks   1.0007541311404675     
+ Warning in get_cms_costh_fks   1.0015709918179490     
+ Warning in get_cms_costh_fks   1.0011400260508942     
+ Warning in get_cms_costh_fks   1.0016140913385496     
+ Warning in get_cms_costh_fks   1.0014791382092052     
+ Warning in get_cms_costh_fks   1.0000661622369520     
+ Warning in get_cms_costh_fks   1.0020269679994100     
+ Warning in get_cms_costh_fks   1.0017207275092039     
+ Warning in get_cms_costh_fks   1.0028138206622701     
+ Warning in get_cms_costh_fks   1.0008392189578534     
+ Warning in get_cms_costh_fks   1.0030334159737115     
+ Warning in get_cms_costh_fks   1.0032678955648715     
+ Warning in get_cms_costh_fks   1.0032808995957947     
+ Warning in get_cms_costh_fks   1.0291318026342973     
+ Warning in get_cms_costh_fks   1.0259478749613726     
+ Warning in get_cms_costh_fks   1.0276909598469190     
+ Warning in get_cms_costh_fks   1.0234897542694985     
+ Warning in get_cms_costh_fks   1.0376208396877646     
+ Warning in get_cms_costh_fks   1.0198709287660277     
+ Warning in get_cms_costh_fks   1.0175721542843961     
+ Warning in get_cms_costh_fks   1.0414569272429692     
+ Warning in get_cms_costh_fks   1.0095067117885936     
+ Warning in get_cms_costh_fks   1.0568617143800554     
+ Warning in get_cms_costh_fks   1.0436368229105046     
+ Warning in get_cms_costh_fks   1.0695108234283461     
+ Warning in get_cms_costh_fks   1.0411177016801836     
+ Warning in get_cms_costh_fks   1.0924096437937110     
+ Warning in get_cms_costh_fks   1.0184664367428535     
+ Warning in get_cms_costh_fks   1.0004879844948351     
+ Warning in get_cms_costh_fks   1.0012940308589513     
+ Warning in get_cms_costh_fks   1.0023249553433504     
+ Warning in get_cms_costh_fks   1.0009554490898867     
+ Warning in get_cms_costh_fks   1.0017501112869809     
+ Warning in get_cms_costh_fks   1.0002951827701645     
+ Warning in get_cms_costh_fks   1.0145877622918038     
+ Warning in get_cms_costh_fks   1.0127591667564479     
+ Warning in get_cms_costh_fks   1.0181699969411733     
+ Warning in get_cms_costh_fks   1.0119998563163994     
+ Warning in get_cms_costh_fks   1.0101294139722332     
+ Warning in get_cms_costh_fks   1.0198220474492472     
+ Warning in get_cms_costh_fks   1.0022149657186628     
+ Warning in get_cms_costh_fks   1.0276888035417244     
+ Warning in get_cms_costh_fks   1.0195325743059458     
+ Warning in get_cms_costh_fks   1.0324864676728236     
+ Warning in get_cms_costh_fks   1.0161138522470132     
+ Warning in get_cms_costh_fks   1.0423763897764158     
+ Warning in get_cms_costh_fks   1.0549649552823874     
+ Warning in get_cms_costh_fks   1.0036009908212788     
+ Warning in get_cms_costh_fks   1.0039405947635971     
+ Warning in get_cms_costh_fks   1.0022442015976418     
+ Warning in get_cms_costh_fks   1.0025925331989849     
+ Warning in get_cms_costh_fks   1.0025118241975763     
+ Warning in get_cms_costh_fks   1.0024855409542297     
+ Warning in get_cms_costh_fks   1.0011693667225987     
+ Warning in get_cms_costh_fks   1.0019346985733313     
+ Warning in get_cms_costh_fks   1.0013194405325829     
+ Warning in get_cms_costh_fks   1.0006768428383450     
+ Warning in get_cms_costh_fks   1.0251848711162228     
+ Warning in get_cms_costh_fks   1.0288950322805681     
+ Warning in get_cms_costh_fks   1.0226212709165647     
+ Warning in get_cms_costh_fks   1.0294133598767188     
+ Warning in get_cms_costh_fks   1.0109080945167725     
+ Warning in get_cms_costh_fks   1.0382933134415073     
+ Warning in get_cms_costh_fks   1.0268784284917269     
+ Warning in get_cms_costh_fks   1.0418495437199173     
+ Warning in get_cms_costh_fks   1.0217588864349882     
+ Warning in get_cms_costh_fks   1.0474115446636405     
+ Warning in get_cms_costh_fks   1.0061981591198426     
+ Warning in get_cms_costh_fks   1.0624781905986678     
+ Warning in get_cms_costh_fks   1.0528767409853792     
+ Warning in get_cms_costh_fks   1.0827044689782734     
+ Warning in get_cms_costh_fks   1.0590675547346762     
+ Warning in get_cms_costh_fks   1.0029718253843449     
+ Warning in get_cms_costh_fks   1.0051177467346335     
+ Warning in get_cms_costh_fks   1.0037952667673538     
+ Warning in get_cms_costh_fks   1.0034550688216499     
+ Warning in get_cms_costh_fks   1.0022259822084958     
+ Warning in get_cms_costh_fks   1.0026948400654936     
+ Warning in get_cms_costh_fks   1.0021385401075926     
+ Warning in get_cms_costh_fks   1.0012781806442788     
+ Warning in get_cms_costh_fks   1.0005320609287363     
+ Warning in get_cms_costh_fks   1.0140079573376606     
+ Warning in get_cms_costh_fks   1.0127345496038234     
+ Warning in get_cms_costh_fks   1.0110454636734181     
+ Warning in get_cms_costh_fks   1.0174911710517551     
+ Warning in get_cms_costh_fks   1.0093752075891638     
+ Warning in get_cms_costh_fks   1.0169095047853227     
+ Warning in get_cms_costh_fks   1.0082301343199351     
+ Warning in get_cms_costh_fks   1.0055936049759140     
+ Warning in get_cms_costh_fks   1.0107762482021567     
+ Warning in get_cms_costh_fks   1.0065771339199987     
+ Warning in get_cms_costh_fks   1.0026000370739823     
+ Warning in get_cms_costh_fks   1.0042281531306818     
+ Warning in get_cms_costh_fks   1.0021563453325537     
+ Warning in get_cms_costh_fks   1.1613065435732206     
+ Warning in get_cms_costh_fks   1.1535066688742761     
+ Warning in get_cms_costh_fks   1.1364511953614520     
+ Warning in get_cms_costh_fks   1.1727312765716933     
+ Warning in get_cms_costh_fks   1.1568283854670447     
+ Warning in get_cms_costh_fks   1.1278921497752137     
+ Warning in get_cms_costh_fks   1.2117381434817993     
+ Warning in get_cms_costh_fks   1.2070169627486385     
+ Warning in get_cms_costh_fks   1.1587556258879748     
+ Warning in get_cms_costh_fks   1.1054645812808783     
+ Warning in get_cms_costh_fks   1.1455948845042960     
+ Warning in get_cms_costh_fks   1.0823066174850633     
+ Warning in get_cms_costh_fks   1.0642159877871282     
+ Warning in get_cms_costh_fks   1.0375840823251661     
+ Warning in get_cms_costh_fks   1.0105411100887303     
+ Warning in get_cms_costh_fks   1.2040004841734431     
+ Warning in get_cms_costh_fks   1.1657266145929612     
+ Warning in get_cms_costh_fks   1.1914513164193778     
+ Warning in get_cms_costh_fks   1.1356347806266738     
+ Warning in get_cms_costh_fks   1.1364946114156069     
+ Warning in get_cms_costh_fks   1.1651034553957200     
+ Warning in get_cms_costh_fks   1.1083008789934634     
+ Warning in get_cms_costh_fks   1.1078460182715451     
+ Warning in get_cms_costh_fks   1.1257587698238272     
+ Warning in get_cms_costh_fks   1.0890450991459488     
+ Warning in get_cms_costh_fks   1.0871354868279104     
+ Warning in get_cms_costh_fks   1.0855645410152495     
+ Warning in get_cms_costh_fks   1.0628124137889055     
+ Warning in get_cms_costh_fks   1.0581381179953298     
+ Warning in get_cms_costh_fks   1.0035801030128721     
+ Warning in get_cms_costh_fks   1.0407705777462175     
+ Warning in get_cms_costh_fks   1.0328654201335155     
+ Warning in get_cms_costh_fks   1.0003792877417617     
+ Warning in get_cms_costh_fks   1.0001223997759017     
+ Warning in get_cms_costh_fks   1.0002524109399193     
+ Warning in get_cms_costh_fks   1.0004006948033497     
+ Warning in get_cms_costh_fks   1.0001017294377086     
+ Warning in get_cms_costh_fks   1.0000104505422553     
+ Warning in get_cms_costh_fks   1.2955662138371640     
+ Warning in get_cms_costh_fks   1.3537737777792376     
+ Warning in get_cms_costh_fks   1.2850803870743013     
+ Warning in get_cms_costh_fks   1.4261858218374066     
+ Warning in get_cms_costh_fks   1.4027856601525766     
+ Warning in get_cms_costh_fks   1.2582389501942863     
+ Warning in get_cms_costh_fks   1.2183062987337663     
+ Warning in get_cms_costh_fks   1.1805327686772729     
+ Warning in get_cms_costh_fks   1.1014105032041208     
+ another call to the function:       13456
+ events generated, novi:          20
+ upper bound failure, novi:           1
+ vetoed calls in inclusive cross section:       13436
+ failed generation cuts:         487
+ Generation efficiencies:   1.4863258026159335E-003  -1.0000000000000000     
+ AV: mode=F0 born_batch_avg=   0.0000000000000000       born_batch_ncalls=                    0  real_batch_avg=   0.0000000000000000       real_batch_ncalls=                    0
+ counters for the granny resonances
+ ntot                0
+ counter for the diverging MC subtraction           0
+ Time spent in Born :    8.90863609    
+ Time spent in PS_Generation :    3.60824823    
+ Time spent in Reals_evaluation:    126.979858    
+ Time spent in MCsubtraction :    3.22306943    
+ Time spent in Delta_Pythia :    0.00000000    
+ Time spent in Counter_terms :   0.523890376    
+ Time spent in Integrated_CT :   0.504146934    
+ Time spent in Virtuals :    0.00000000    
+ Time spent in FxFx_cluster :    0.00000000    
+ Time spent in Nbody_prefactor :   0.949292839    
+ Time spent in N1body_prefactor :   0.465227067    
+ Time spent in Adding_alphas_pdf :    1.32832909    
+ Time spent in Reweight_scale :    0.00000000    
+ Time spent in Reweight_pdf :    0.00000000    
+ Time spent in Filling_plots :    0.00000000    
+ Time spent in Applying_cuts :    4.97385597    
+ Time spent in Sum_ident_contr :   0.311628670    
+ Time spent in Pick_unwgt :    6.77108765E-05
+ Time spent in Write_events :    3.97024155E-02
+ Time spent in AlphaS_dependencies :   0.916087270    
+ Time spent in Bridge_create_delete :    0.00000000    
+ Time spent in Other_tasks :    13.5972290    
+ Time spent in Total :    166.329269    
+Time in seconds: 166
