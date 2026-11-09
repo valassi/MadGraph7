@@ -1,0 +1,30 @@
+
+==================== Events/REF7/GOLD/n200f111k512g1/step15c ====================
+### epem_bbxmummupg | step15c | NEVENTS=200 | folding=1,1,1 | kbatch=512 | bsffused=N/A | sborn=1
+- N/A: that switch does not exist in the code of this step
+- sborn 1: SBORN served from cudacpp, in mode C only
+- timers: getrusage in F0*, F1[n], F1[c]; clock_gettime in F2, F, C/none, C/sse4, C/avx2, C/512y, C/512z
+- mode F0: 11705 kpoints = 1639 virt + 10066 novi -> 200 events (27 virt + 173 novi)
+- mode F: 13422 kpoints = 2341 virt + 11081 novi -> 200 events (27 virt + 173 novi) [same in F1, F2, Cs]
+- mode F: Born 27 batched calls, mean batch 398.963 | Real 22 batched calls, mean batch 869.636
+- F0*: F0 rescaled to the kpoints of F (separately for virt and novi)
+|-----------------|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|
+| mode/bknd       |     F0* |   F1[n] |   F1[c] |      F2 |       F |  C/none |  C/sse4 |  C/avx2 |  C/512y |  C/512z |
+| cudacpp_vecsize |       - |       - |       - |       - |       - |       1 |       2 |       4 |       4 |       8 |
+| sborn_gscale    |       - |       - |       - |       - |       - |       1 |       1 |       1 |       1 |       1 |
+| ml_reduction    | collier |   ninja | collier | collier | collier | collier | collier | collier | collier | collier |
+| born_batch_avg  |       - |       - |       - |       - |   399.0 |   399.0 |   399.0 |   399.0 |   399.0 |   399.0 |
+| real_batch_avg  |       - |       - |       - |       - |   869.6 |   869.6 |   869.6 |   869.6 |   869.6 |   869.6 |
+| cpu_timer       |  rusage |  rusage |  rusage |    mono |    mono |    mono |    mono |    mono |    mono |    mono |
+|-----------------|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|
+| TOTAL           |  27.129 |  28.497 |  26.784 |  27.252 |  29.240 |  24.103 |  20.219 |  17.739 |  17.773 |  17.068 |
+| Born            |   1.894 |   1.960 |   1.965 |   2.548 |   3.114 |   1.109 |   0.606 |   0.287 |   0.265 |   0.191 |
+| Real            |   8.724 |   8.708 |   8.710 |   8.750 |   8.850 |   6.955 |   3.572 |   1.483 |   1.385 |   0.848 |
+| Virtual         |  15.050 |  16.370 |  14.632 |  14.674 |  14.584 |  14.764 |  14.758 |  14.698 |  14.837 |  14.745 |
+| PS_Generation   |   0.128 |   0.131 |   0.135 |   0.115 |   0.201 |   0.199 |   0.199 |   0.200 |   0.199 |   0.199 |
+| CT_and_MCsub    |   0.221 |   0.222 |   0.227 |   0.333 |   0.566 |   0.109 |   0.110 |   0.109 |   0.111 |   0.111 |
+| Nbody_prefactor |   0.415 |   0.404 |   0.404 |   0.364 |   1.032 |   0.371 |   0.370 |   0.371 |   0.372 |   0.372 |
+| Bridge_crt_del  |   0.000 |   0.000 |   0.000 |   0.000 |   0.000 |   0.034 |   0.035 |   0.032 |   0.040 |   0.035 |
+| Misc            |   0.697 |   0.702 |   0.712 |   0.468 |   0.894 |   0.561 |   0.570 |   0.559 |   0.564 |   0.567 |
+|-----------------|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|
+
