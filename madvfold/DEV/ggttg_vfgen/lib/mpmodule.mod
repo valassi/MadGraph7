@@ -1,1 +1,1 @@
-/data/avalassi/NEGWGT2026/test-MadGraph7/vendor/CutTools/includects/mpmodule.mod
+../../../../vendor/CutTools/includects/mpmodule.mod

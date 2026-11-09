@@ -622,6 +622,7 @@ c min(i_fks,j_fks) is the mother of the FKS pair
       
       subroutine compute_xmcsubt_complete(p,probne,gfactsf,gfactcl
      $     ,flagmc,lzone,zhw,nofpartners,xmcxsec)
+      use vfold_mode, only: vfold_tdelta_start, vfold_tdelta_stop ! AV road B step 11q
       implicit none
       include 'nexternal.inc'
       include 'madfks_mcatnlo.inc'
@@ -760,8 +761,13 @@ c min(i_fks,j_fks) is the mother of the FKS pair
       call check_positivity_MCxsec(sumMCsec,xmcxsec,xmcxsec2)
       if (mcatnlo_delta) then
 ! compute and include the Delta Sudakov:
-         if(.not.is_pt_hard) call complete_xmcsubt(p,lzone,xmcxsec
+c AV road B step 11q: time it separately (Delta_Pythia, not MCsubtraction)
+         if(.not.is_pt_hard) then
+            call vfold_tdelta_start
+            call complete_xmcsubt(p,lzone,xmcxsec
      $        ,xmcxsec2,MCsec,probne)
+            call vfold_tdelta_stop
+         endif
       else
 ! assign emsca on statistical basis (don't need flow here): 
          if(.not.is_pt_hard) call assign_emsca_and_flow_statistical(
@@ -1497,6 +1503,7 @@ c Finalises the MC counterterm computations performed in xmcsubt(),
 c fills arrays relevant to shower scales, and computes Delta
       subroutine complete_xmcsubt(p,lzone,xmcxsec,xmcxsec2,MCsec
      $     ,probne)
+      use vfold_rng_slots, only: vfold_icolor_h_in_walk ! AV step 14b
       implicit none
       include "born_nhel.inc"
       include 'nFKSconfigs.inc'
@@ -1793,7 +1800,11 @@ c Fake call for initialisation
          MOTHUP_H(2,i)=MOTHUP_D(nFKSprocess,2,i,1)
       enddo
 c Fill selected color configuration into jpart array. 
+c AV step 14b: this call is inside the walk, its colour-flow draws come
+c from a fold slot (see vfold_newran2_icolor_h in vfold_rng_slots.f90)
+      vfold_icolor_h_in_walk=.true.
       call fill_icolor_H(jflow,jpart)
+      vfold_icolor_h_in_walk=.false.
       do i=1,nexternal
         ICOLUP_H(1,i)=jpart(4,i)
         ICOLUP_H(2,i)=jpart(5,i)
@@ -1845,12 +1856,14 @@ c
       call fill_HEPEUP_event(p_lab, wgt, nexternal_now, idup_h,
      &       istup_local, mothup_h, icolup_h, spinup_local,
      &       emsca, scales_for_HEPEUP)
-      xscales=-1d0
-      xmasses=-1d0
-      dzones=.true.
-      xscales2=-1d0
-      xmasses2=-1d0
-      dzones2=.true.
+c AV road B step 11n: reset only the (0:nexternal,0:nexternal) block, the
+c only one read below (the full 0:99 arrays cost ~340 KB of writes per call)
+      xscales(0:nexternal,0:nexternal)=-1d0
+      xmasses(0:nexternal,0:nexternal)=-1d0
+      dzones(0:nexternal,0:nexternal)=.true.
+      xscales2(0:nexternal,0:nexternal)=-1d0
+      xmasses2(0:nexternal,0:nexternal)=-1d0
+      dzones2(0:nexternal,0:nexternal)=.true.
       if (is_pythia_active.eq.0) then
 c Fill masses
          do i=7,20
@@ -2530,6 +2543,7 @@ c
       
       subroutine assign_emsca_and_flow_statistical(xmcxsec,xmcxsec2
      $     ,MCsec,lzone,jflow,wgt)
+      use vfold_rng_slots
       implicit none
       include 'nexternal.inc'
       include 'run.inc'
@@ -2574,6 +2588,12 @@ c Stuff to be written (depending on AddInfoLHE) onto the LHE file
       COMMON/C_NFKSPROCESS/NFKSPROCESS
       double precision ran2
       external ran2
+c AV FIX: jpartner is only assigned inside the dampMCsubt.and.wgt.gt.1d-30
+c branches below, but it is always read in the AddInfoLHE block at the end,
+c where jpartner.eq.0 triggers an extra ran2() call. Initialize it, so that
+c the sequence of random numbers does not depend on the value left by the
+c previous call (local variables are static with -fno-automatic).
+      jpartner=0
       if (mcatnlo_delta) then
 c Input check
          do npartner=1,ipartners(0)
@@ -2630,7 +2650,7 @@ c
 c Assign flow on statistical basis
          if (wgt2.gt.0d0) then
             ! use born-bars times kernels
-            rrnd=ran2()
+            rrnd=vfold_newran2(ISLOT_FD_JPARTNER_1,.true.) ! AV step 2
             wgt1=0d0
             jflow=0
             cflows=0
@@ -2650,7 +2670,7 @@ c Assign flow on statistical basis
             do i=1,max_bcol
                wgt1=wgt1+jamp2(i)
             enddo
-            wgt2=ran2()*wgt1
+            wgt2=vfold_newran2(ISLOT_FD_JPARTNER_2,.true.)*wgt1 ! AV step 2
             jflow=0
             wgt1=0d0
             do while (wgt1 .lt. wgt2)
@@ -2660,7 +2680,7 @@ c Assign flow on statistical basis
          endif
 c Assign emsca (scalar) on statistical basis -- ensure backward compatibility
          if(dampMCsubt.and.wgt.gt.1d-30)then
-            rrnd=ran2()
+            rrnd=vfold_newran2(ISLOT_FD_JPARTNER_3,.true.) ! AV step 2
             wgt1=0d0
             jpartner=0
             do npartner=1,ipartners(0)
@@ -2689,7 +2709,7 @@ c Compute MC cross section
          enddo
 c Assign emsca on statistical basis
          if(dampMCsubt.and.wgt.gt.1d-30)then
-            rrnd=ran2()
+            rrnd=vfold_newran2(ISLOT_FD_JPARTNER_4,.true.) ! AV step 2
             wgt1=0d0
             jpartner=0
             do npartner=1,ipartners(0)
@@ -2721,7 +2741,9 @@ c Additional information for LHE
             ipartner_lhe(nFKSprocess)=jpartner
          else
 c min() avoids troubles if ran2()=1
-            ipartner_lhe(nFKSprocess)=min(int(ran2()*ipartners(0))+1,
+            ipartner_lhe(nFKSprocess)=min(int(
+     $           vfold_newran2(ISLOT_FD_JPARTNER_LHE,.true.) ! AV step 2
+     $           *ipartners(0))+1,
      $           ipartners(0) )
             ipartner_lhe(nFKSprocess)=
      $           ipartners(ipartner_lhe(nFKSprocess))
@@ -4540,6 +4562,7 @@ c
 c Shower scale
 
       subroutine assign_emsca(pp,xi_i_fks,y_ij_fks)
+      use vfold_rng_slots
       implicit none
       include "nexternal.inc"
       include "madfks_mcatnlo.inc"
@@ -4579,7 +4602,7 @@ c Consistency check
             emsca_bare=scalemax
             emsca=emsca_bare
          else
-            rrnd=ran2()
+            rrnd=vfold_newran2(ISLOT_FD_ASSIGN_EMSCA,.true.) ! AV step 2
             rrnd=emscainv(rrnd,1d0)
             emsca_bare=scalemin+rrnd*(scalemax-scalemin)
             ptresc=(qMC-scalemin)/(scalemax-scalemin)
@@ -4593,6 +4616,7 @@ c Consistency check
 
 
       subroutine assign_emsca_array(pp,xi_i_fks,y_ij_fks)
+      use vfold_rng_slots
       implicit none
       include "nexternal.inc"
       include "madfks_mcatnlo.inc"
@@ -4672,11 +4696,13 @@ c     skip if not QCD dipole (safety)
                   emsca_bare_a2(i,j)=scalemax_a(i,j)
                   emsca_a(i,j)=emsca_bare_a(i,j)
                else
-                  rrnd=ran2()
+c                 AV road B step 11m: one pair of fold slots per dipole
+c                 (the repeated calls within a fold still share them).
+                  rrnd=vfold_newran2_delta(1,i,j)
                   rrnd=emscainv(rrnd,1d0)
                   emsca_bare_a(i,j)=scalemin_a(i,j)+
      #                               rrnd*(scalemax_a(i,j)-scalemin_a(i,j))
-                  rrnd=ran2()
+                  rrnd=vfold_newran2_delta(2,i,j)
                   rrnd=emscainv(rrnd,1d0)
                   emsca_bare_a2(i,j)=scalemin_a(i,j)+
      #                               rrnd*(scalemax_a(i,j)-scalemin_a(i,j))

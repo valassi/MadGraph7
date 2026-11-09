@@ -1,0 +1,5 @@
+set stdout_level DEBUG
+set apply_flavor_grouping False --no_save
+set zerowidth_tchannel F
+generate g d~ > t t~ d~ g
+output standalone_cudacpp gdx_ttxdxg.sa 

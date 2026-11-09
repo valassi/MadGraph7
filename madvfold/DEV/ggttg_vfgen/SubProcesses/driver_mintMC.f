@@ -5,6 +5,10 @@ c**************************************************************************
       use extra_weights
       use mint_module
       use FKSParams
+      use vfold_mode
+      use vfold_born_batch
+      use vfold_real_batch
+      use vfold_rng_slots, only: vfold_delta_slots_init ! AV road B step 11m
       implicit none
 C
 C     CONSTANTS
@@ -89,6 +93,13 @@ c general MadFKS parameters
      &     ,dermax,xi_i_fks_ev_der_max,y_ij_fks_ev_der_max
       integer                     n_MC_subt_diverge
       common/counter_subt_diverge/n_MC_subt_diverge
+      integer env_fvz_itmax, env_fvz_ndump
+      common/envncalls/env_fvz_itmax, env_fvz_ndump
+      character*10 getenvvalue
+      logical dump69
+      common /cdump69/dump69
+      include 'vfold_tests.inc'
+c 
 C-----
 C  BEGIN CODE
 C-----  
@@ -141,7 +152,39 @@ c
       call run_printout          !Prints out a summary of the run settings
       call fill_configurations_common
       call check_amp_split 
-c     
+
+      ! AV MadVFold: the FVZ dumps (and the ENV_FVZ_* variables) are only
+      ! enabled by 'output --vfold-with-tests' (see vfold_tests.inc)
+      env_fvz_itmax = 0 ! keep defaults
+      env_fvz_ndump = 0 ! default: skip dump
+      if (vfold_tests) then
+      CALL getenv('ENV_FVZ_ITMAX',getenvvalue)
+      if (getenvvalue.ne.'') then
+        read(getenvvalue,*) env_fvz_itmax
+      else
+        env_fvz_itmax = 0 ! keep defaults
+      endif
+      write(6,*) 'ENV_FVZ_ITMAX', env_fvz_itmax
+
+      CALL getenv('ENV_FVZ_NDUMP',getenvvalue)
+      if (getenvvalue.ne.'') then
+        read(getenvvalue,*) env_fvz_ndump
+      else
+        env_fvz_ndump = 0 ! default: skip dump
+      endif
+      write(6,*) 'ENV_FVZ_NDUMP', env_fvz_ndump
+      endif
+
+      call setup_av_me_mode ! AV (road B step 1): F0/F1/F2/F/C
+      call setup_av_mg7bornnoopt ! AV (step 15i): stock Born reuse off?
+      call check_av_cpu_time ! AV (road B step 11b): timers vs reference modes
+      call setup_av_vecsize_used ! AV (road B step 7b): cudacpp bridge chunk size
+      call setup_av_kpoint_batch ! AV (road B step 9): kpoints per ME batch
+      call setup_av_batch_pervn ! AV (road B step 11d): park batches per MINT2 queue
+      call setup_av_sborn_bridge ! AV (road B step 9i+9j): SBORN served from cudacpp in mode C
+      call setup_av_sborn_gscale ! AV (road B step 10b): SBORN at g' by rescaling the Born at g
+      
+c
 c     Get user input
 c
       write(*,*) "getting user params"
@@ -159,6 +202,18 @@ c Only do the reweighting when actually generating the events
          only_virt=.true.
       else
          only_virt=.false.
+      endif
+
+      !MZ (AV: only if ENV_FVZ_NDUMP>0, no empty dump.dat otherwise)
+      if(imode.eq.1 .and. env_fvz_ndump.gt.0)
+     &     open(unit=69,file='dump.dat',status='unknown')
+      !AV
+      dump69 = .false.
+      if (vfold_tests) then
+      write(6,*) 'DEBUG! ncalls0 (from get_user_param)', ncalls0
+      write(6,*) 'DEBUG! itmax (from get_user_param)', itmax
+      if ( env_fvz_itmax.ne.0 ) itmax = env_fvz_itmax
+      write(6,*) 'DEBUG! itmax (overloaded!)', itmax
       endif
 
       if(imode.eq.0)then
@@ -198,6 +253,12 @@ c     Prepare the MINT folding
       ifold(ifold_energy)=ixi_i
       ifold(ifold_phi)=iphi_i
       ifold(ifold_yij)=iy_ij
+c AV road B step 7k: size the Born memo from the folding
+      call vfold_born_memo_init(ixi_i*iy_ij*iphi_i)
+c AV road B step 11h: size the served-point ring from the folding
+      call vfold_served_init(ixi_i*iy_ij*iphi_i)
+c AV road B step 11m: one pair of fold slots per dipole for MC@NLO-Delta
+      if (mcatnlo_delta) call vfold_delta_slots_init(nexternal-1)
 
 c*************************************************************
 c     setting of the grids
@@ -294,13 +355,26 @@ c Randomly pick the contribution that will be written in the event file
                call include_inverse_bias_wgt(inv_bias)
                weight=event_weight*inv_bias
             endif
-            call fill_rwgt_lines
+c AV road B step 11c: the reweighting lines filled here are only written
+c in the event file (<mgrwgt> block) if doreweight is true (write_event.f),
+c so do not spend ~2 ms per event (internal writes) when they are not used,
+c but keep the original unconditional call in the reference modes F0/F1
+            if (doreweight .or. vfold_is_reference_mode())
+     $           call fill_rwgt_lines
             call finalize_event(x_save(1,ifold_picked),weight,lunlhe
      $           ,putonshell,p_label)
          enddo
          call deallocate_weight_lines
          vn=-1
          call gen(sigintF,3,vn,x) ! print counters generation efficiencies
+         write(6,*) 'AV: mode=', vfold_me_mode,
+     $        ' born_batch_avg=',
+     $        dble(vfold_born_batch_sum)/max(1,vfold_born_batch_ncalls),
+     $        ' born_batch_ncalls=', vfold_born_batch_ncalls,
+     $        ' real_batch_avg=',
+     $        dble(vfold_real_batch_sum)/max(1,vfold_real_batch_ncalls),
+     $        ' real_batch_ncalls=', vfold_real_batch_ncalls
+         if (sv_nhit+sv_nmiss.gt.0) call vfold_served_report ! AV road B step 9i+9j
          write (lunlhe,'(a)') "</LesHouchesEvents>"
          close(lunlhe)
       endif
@@ -359,11 +433,13 @@ c Randomly pick the contribution that will be written in the event file
       tTot = tAfter-tBefore
       tOther = tTot - (tBorn+tGenPS+tReal+tCount+tIS+tFxFx+tf_nb+tf_all
      $     +t_as+tr_s+tr_pdf+t_plot+t_cuts+t_MC_subt+t_isum+t_p_unw
-     $     +t_write+t_coupl)
+     $     +t_write+t_coupl+vfold_tbridge ! AV road B step 11j: + vfold_tbridge
+     $     +vfold_tdelta) ! AV road B step 11q: + vfold_tdelta
       write(*,*) 'Time spent in Born : ',tBorn
       write(*,*) 'Time spent in PS_Generation : ',tGenPS
       write(*,*) 'Time spent in Reals_evaluation: ',tReal
       write(*,*) 'Time spent in MCsubtraction : ',t_MC_subt
+      write(*,*) 'Time spent in Delta_Pythia : ',vfold_tdelta ! AV road B step 11q
       write(*,*) 'Time spent in Counter_terms : ',tCount
       write(*,*) 'Time spent in Integrated_CT : ',tIS-tOLP
       write(*,*) 'Time spent in Virtuals : ',tOLP      
@@ -379,8 +455,13 @@ c Randomly pick the contribution that will be written in the event file
       write(*,*) 'Time spent in Pick_unwgt : ',t_p_unw
       write(*,*) 'Time spent in Write_events : ',t_write
       write(*,*) 'Time spent in AlphaS_dependencies : ',t_coupl
+      write(*,*) 'Time spent in Bridge_create_delete : ',vfold_tbridge ! AV road B step 11j
       write(*,*) 'Time spent in Other_tasks : ',tOther
       write(*,*) 'Time spent in Total : ',tTot
+
+
+      !MZ (AV: only if ENV_FVZ_NDUMP>0, no empty dump.dat otherwise)
+      if(imode.eq.1 .and. env_fvz_ndump.gt.0) close(69)
 
       open (unit=12, file='res.dat',status='unknown')
       if (imode.eq.0) then
@@ -533,7 +614,7 @@ c-----
       write(*,*)'  Enter alpha>0 to set G_azi=0 (no azi corr)'
       read(*,*)alazi,beazi
       write (*,*) 'for G_azi: alpha=',alazi,', beta=',beazi
-      i=2
+      i=2 ! AV: this is the default (but setting i=1 here does NOT disable H events)
       if (i.eq.0) then
          Hevents=.true.
          write (*,*) 'Doing the H-events'
@@ -693,6 +774,8 @@ c
       function sigintF(xx,vegas_wgt,ifl,f)
       use weight_lines
       use mint_module
+      use vfold_born_batch
+      use vfold_rng_slots ! AV road B step 8p: vfold_replay_mode
       implicit none
       include 'nexternal.inc'
       include 'nFKSconfigs.inc'
@@ -700,6 +783,10 @@ c
       include 'orders.inc'
       include 'fks_info.inc'
       logical firsttime,passcuts,passcuts_nbody,passcuts_n1body
+      logical vfold_passcuts_nbody
+      external vfold_passcuts_nbody
+      logical vfold_gm_memo_restore ! AV road B step 11l
+      external vfold_gm_memo_restore
       integer i,j,ifl,proc_map(0:fks_configs,0:fks_configs)
      $     ,nFKS_picked_nbody,nFKS_in,nFKS_out,izero,ione,itwo,mohdr
      $     ,iFKS,sum
@@ -740,6 +827,20 @@ c
       common /c_vegas_x_fold/x_save,ifold_picked
       integer icolup_s(2,nexternal-1),icolup_h(2,nexternal)
       common /colour_connections/ icolup_s,icolup_h
+
+      !MZ
+      double precision xi_i_fks_ev,y_ij_fks_ev
+      double precision p_i_fks_ev(0:3),p_i_fks_cnt(0:3,-2:2)
+      common/fksvariables/xi_i_fks_ev,y_ij_fks_ev,p_i_fks_ev,p_i_fks_cnt
+      double precision phidump
+      common /tophidump/phidump
+      double precision xi_i_hat_ev,xi_i_hat_cnt(-2:2)
+      common /cxi_i_hat/xi_i_hat_ev,xi_i_hat_cnt
+      !AV
+      double precision xiimax_ev
+      common /cxiimaxev/xiimax_ev
+      logical dump69
+      common /cdump69/dump69
 c
       if (new_point .and. ifl.ne.2) then
          pass_cuts_check=.false.
@@ -771,6 +872,7 @@ c "npNLO".
 
       fold=ifl
       if (ifl.eq.0 .or. ifl.eq.1) then
+         call vfold_gm_memo_invalidate ! AV road B step 11l
          if (ifl.eq.0) then
             icontr=0
             virt_wgt_mint(0:amp_split_size)=0d0
@@ -782,6 +884,10 @@ c "npNLO".
          wgt_me_born=0d0
          if (ickkw.eq.3) call set_FxFx_scale(0,p)
          call update_vegas_x(xx,x)
+         !AV (ifl=0 for ifold_counter=1; ifl=1 for ifold_counter>1)
+         if (dump69) write(69,*) 'IFOLD', ifold_counter
+         !MZ
+         if (dump69) write(69,*) 'NEWPS', x(1:nndim)
          do i=1,nndim
             x_save(i,ifold_counter)=x(i)
          enddo
@@ -821,30 +927,70 @@ c FKS configurations (for the shower scale) (multiply by
 c 1/proc_map(0,0)*vol1)
          jac=jac/(proc_map(0,0)*vol1)
          call generate_momenta(nndim,iconfig,jac,x,p)
+         call vfold_gm_memo_save(nndim,iconfig,nFKS_picked_nbody,x,p) ! AV step 11l
+         !MZ/AV
+         if (dump69) then
+           write(69,*) 'XIYPHI',xi_i_fks_ev,y_ij_fks_ev,phidump
+           write(69,*) 'XIMAX',xiimax_ev
+           write(69,*) 'XIHAT',xi_i_hat_ev,xi_i_hat_cnt(-2),xi_i_hat_cnt(-1),xi_i_hat_cnt(0),xi_i_hat_cnt(1),xi_i_hat_cnt(2)
+           do i = 1, nexternal
+             write(69,*) 'P', i , p(:,i)
+           enddo
+           do i = 1, nexternal-1
+             write(69,*) 'PB', i , p1_cnt(:,i,0)
+           enddo
+           write(69,*)'VEGASWGT', vegas_wgt
+         endif
+
          if (p_born(0,1).lt.0d0) goto 12
          call compute_prefactors_nbody(vegas_wgt)
          call set_cms_stuff(izero)
-         call set_shower_scale_noshape(p,nFKS_picked_nbody*2-1)
+c AV road B step 11k: lean gathering walk, the shower scales and colour
+c connections are only read by code that the gathering walk skips (the
+c replay walk sets them again for every fold before they are used)
+         if (.not. born_gathering)
+     $        call set_shower_scale_noshape(p,nFKS_picked_nbody*2-1)
          if (ickkw.eq.3) call set_FxFx_scale(1,p1_cnt(0,1,0))
-         passcuts_nbody=passcuts(p1_cnt(0,1,0),rwgt)
+         passcuts_nbody=vfold_passcuts_nbody(p1_cnt(0,1,0),rwgt)
          if (passcuts_nbody) then
             pass_cuts_check=.true.
             call set_alphaS(p1_cnt(0,1,0))
             call include_multichannel_enhance(1)
-            if (abrv(1:2).ne.'vi') then
+c AV road B step 8p: in the two-walk modes (F/C) also virt candidates
+c call compute_born, so that their Born goes through the batch (it is
+c then a cache hit for the sborn call in bornsoftvirtual).
+c compute_born does not add the Born weight for virt candidates.
+            if (abrv(1:2).ne.'vi' .or. born_gathering .or.
+     $           vfold_replay_mode) then
                call compute_born
+c AV road B step 3: compute_born is self-gating (stashes and returns
+c early during the gathering walk); everything else below it that adds
+c a weight-line contribution must be skipped entirely during gathering,
+c same as the old two-pass architecture's real_collecting/
+c born_collecting gates -- see vfold_born_batch.f90's header comment.
+               if (abrv(1:2).ne.'vi') then
+               if (.not. born_gathering) then
                if(abrv.ne.'born'.and.abrv.ne.'bovi') call compute_ewsudakov
+               endif
+               endif
 
             endif
             if (abrv.ne.'born') then
+               if (.not. born_gathering) then
                call compute_nbody_noborn
+               endif
             endif
          endif
 c Update the shower starting scale. This might be updated again below if
 c the nFKSprocess is the same.
+         if (.not. born_gathering) then
          call include_shape_in_shower_scale(p,nFKS_picked_nbody
      $        ,ifold_counter)
          call set_colour_connections(nFKS_picked_nbody,ifold_counter)
+         else
+c AV step 11k: the cms state include_shape_in_shower_scale leaves
+         call set_cms_stuff(mohdr)
+         endif
             
          
  11      continue
@@ -867,13 +1013,18 @@ c compares all the components of the momenta instead.
             wgt_me_born=0d0
             iFKS=proc_map(proc_map(0,1),i)
             call update_fks_dir(iFKS)
+            if (dump69) then
+                write(69,*)'NFKS',nFKS_picked_nbody,iFKS
+            endif
             jac=1d0/vol1
             probne=1d0
             gfactsf=1.d0
             gfactcl=1.d0
             MCcntcalled=0
             icolup_s(1,1)=-1    ! set colour connection to -1: i.e., complete_xmcsubt has not been called
-            call generate_momenta(nndim,iconfig,jac,x,p)
+c AV road B step 11l PS memo: same momenta as the n-body call above
+            if (.not.vfold_gm_memo_restore(nndim,iconfig,iFKS,x,p,jac))
+     $           call generate_momenta(nndim,iconfig,jac,x,p)
 c Every contribution has to have a viable set of Born momenta (even if
 c counter-event momenta do not exist).
             if (p_born(0,1).lt.0d0) cycle
@@ -884,12 +1035,14 @@ c Set the shower scales
                call set_FxFx_scale(0,p) ! reset the FxFx scales
             endif
             call set_cms_stuff(izero)
-            call set_shower_scale_noshape(p,iFKS*2-1)
+            if (.not. born_gathering) ! AV step 11k
+     $           call set_shower_scale_noshape(p,iFKS*2-1)
             if (ickkw.eq.3) then
                call set_FxFx_scale(2,p1_cnt(0,1,0))
             endif
             call set_cms_stuff(mohdr)
-            call set_shower_scale_noshape(p,iFKS*2)
+            if (.not. born_gathering) ! AV step 11k
+     $           call set_shower_scale_noshape(p,iFKS*2)
             if (ickkw.eq.3) then
                if (p(0,1).gt.0d0) then
                   call set_FxFx_scale(3,p)
@@ -898,7 +1051,7 @@ c Set the shower scales
 c check if event or counter-event passes cuts
             call set_cms_stuff(izero)
             if (ickkw.eq.3) call set_FxFx_scale(-2,p1_cnt(0,1,0))
-            passcuts_nbody=passcuts(p1_cnt(0,1,0),rwgt)
+            passcuts_nbody=vfold_passcuts_nbody(p1_cnt(0,1,0),rwgt)
             call set_cms_stuff(mohdr)
             if (ickkw.eq.3) call set_FxFx_scale(-3,p)
             passcuts_n1body=passcuts(p,rwgt)
@@ -911,8 +1064,12 @@ c Include the MonteCarlo subtraction terms
                   if (ickkw.eq.3) call set_FxFx_scale(-3,p)
                   call set_alphaS(p)
                   call include_multichannel_enhance(4)
+c AV road B step 3: skip during the gathering walk, same as the old
+c two-pass architecture's real_collecting gate on this exact call.
+                  if (.not. born_gathering) then
                   call compute_MC_subt_term(p,passcuts_nbody,gfactsf
      $                 ,gfactcl,probne)
+                  endif
                else
 c For UNLOPS all real-emission contributions need to be added to the
 c S-events. Do this by setting probne to 0. For UNLOPS, no MC counter
@@ -929,6 +1086,10 @@ c by the call to compute_MC_subt_term) through the 'replace_MC_subt'.
                if (ickkw.eq.3) call set_FxFx_scale(-2,p1_cnt(0,1,0))
                call set_alphaS(p1_cnt(0,1,0))
                call include_multichannel_enhance(3)
+c AV road B step 3: skip all three during the gathering walk (their
+c inputs, gfactsf/gfactcl/probne, are stale/unset from a skipped
+c compute_MC_subt_term above, and their result is not used anyway).
+               if (.not. born_gathering) then
                replace_MC_subt=(1d0-gfactsf)*probne
                call compute_soft_counter_term(replace_MC_subt)
                call set_cms_stuff(ione)
@@ -937,6 +1098,7 @@ c by the call to compute_MC_subt_term) through the 'replace_MC_subt'.
                call set_cms_stuff(itwo)
                replace_MC_subt=(1d0-gfactcl)*(1d0-gfactsf)*probne
                call compute_soft_collinear_counter_term(replace_MC_subt)
+               endif
             endif
 c Include the real-emission contribution.
             if (passcuts_n1body) then
@@ -945,13 +1107,26 @@ c Include the real-emission contribution.
                if (ickkw.eq.3) call set_FxFx_scale(-3,p)
                call set_alphaS(p)
                call include_multichannel_enhance(2)
+c AV road B step 4: unlike compute_MC_subt_term/the three FKS counter
+c terms above, compute_real_emission must run in BOTH walks -- its own
+c sreal() call is what carries the real_gathering/vfold_replay_mode gate
+c (see vfold_real_batch.f90's header comment). During the gathering walk
+c probne is still its neutral default (1d0, set above and never
+c overwritten since compute_MC_subt_term was skipped), which is safe:
+c sreal() returns amp_split=0 while gathering, so compute_real_emission's
+c own iamp loop (gated on amp_split(iamp).ne.0d0) does nothing anyway --
+c mirrors eebb_vfold's real_collecting precedent exactly.
                sudakov_damp=probne
                call compute_real_emission(p,sudakov_damp)
             endif
 c Update the shower starting scale with the shape from the MC
 c subtraction terms.
+            if (.not. born_gathering) then ! AV step 11k
             call include_shape_in_shower_scale(p,iFKS,ifold_counter)
             call set_colour_connections(iFKS,ifold_counter)
+            else
+            call set_cms_stuff(mohdr)
+            endif
          enddo
  12      continue
       elseif(ifl.eq.2) then
@@ -962,6 +1137,16 @@ c subtraction terms.
             write (*,*) ifold(:)
             stop 1
          endif
+c AV road B step 3: this whole finalisation block (including the
+c dump69-gated WGTS/UNWGT/VIRTW debug output in
+c fill_mint_function_NLOPS) operates on weight_lines' current icontr
+c accumulation. During the gathering walk nothing was ever added to it
+c (every call above that could call add_wgt was skipped), so there is
+c nothing valid to finalise or dump -- skip entirely. f (this
+c function's own return value) is left unset in that case, which is
+c safe: compute_integrand never copies the gathering walk's closing-
+c call f1 into its own returned f(), only the replay walk's.
+      if (.not. born_gathering) then
 c Special check: in rare cases there can be S-event contributions,
 c without a single FKS configuration that contains a soft singularity
 c passing cuts (this only happens if n-body configuration does not pass
@@ -981,6 +1166,7 @@ c determined which contributions are identical.
          call update_shower_scale_Sevents(ifold_counter,ifold_picked)
          call fill_mint_function_NLOPS(f,n1body_wgt)
          call fill_MC_integer(1,proc_map(0,1),n1body_wgt*vol1)
+      endif
       endif
       return
       end
@@ -1233,10 +1419,10 @@ c     include all quarks (except top quark) and the gluon.
 
       subroutine update_vegas_x(xx,x)
       use mint_module
+      use vfold_rng_slots
       implicit none
       integer i
-      double precision xx(ndimmax),x(99),ran2
-      external ran2
+      double precision xx(ndimmax),x(99)
       integer         nndim
       common/tosigint/nndim
       character*4      abrv
@@ -1245,8 +1431,12 @@ c     include all quarks (except top quark) and the gluon.
          if (abrv.eq.'born') then
             if(i.le.nndim-3)then
                x(i)=xx(i)
-            elseif(i.le.nndim) then
-               x(i)=ran2()      ! Choose them flat when not including real-emision
+            elseif(i.eq.nndim-2) then
+               x(i)=vfold_newran2(ISLOT_FD_VEGAS_X_BORN_1,.true.)      ! Choose them flat when not including real-emision
+            elseif(i.eq.nndim-1) then
+               x(i)=vfold_newran2(ISLOT_FD_VEGAS_X_BORN_2,.true.)      ! Choose them flat when not including real-emision
+            elseif(i.eq.nndim) then
+               x(i)=vfold_newran2(ISLOT_FD_VEGAS_X_BORN_3,.true.)      ! Choose them flat when not including real-emision
             else
                x(i)=0.d0
             endif
@@ -1369,3 +1559,160 @@ c     if there are no soft singularities at all, just do something trivial
       return
       end
 
+
+c AV road B step 11f passcuts memo (F2/F/C): passcuts of the n-body
+c momenta p1_cnt is called twice per fold and the result is the same
+c for all folds of a kpoint, so keep the last result for the same inputs
+      logical function vfold_passcuts_nbody(p,rwgt)
+      use vfold_mode
+      implicit none
+      include 'nexternal.inc'
+      include 'genps.inc'
+      double precision p(0:3,nexternal),rwgt
+      logical passcuts
+      external passcuts
+      double precision ybst_til_tolab,ybst_til_tocm,sqrtshat,shat
+      common/parton_cms_stuff/ybst_til_tolab,ybst_til_tocm,
+     #                        sqrtshat,shat
+      double precision pmass(nexternal)
+      common/to_mass/pmass
+      integer idup(nexternal,maxproc),mothup(2,nexternal,maxproc),
+     &     icolup(2,nexternal,maxflow),niprocs
+      common /c_leshouche_inc/idup,mothup,icolup,niprocs
+      logical pcm_have,pcm_pass
+      double precision pcm_p(0:3,nexternal),pcm_y,pcm_m(nexternal)
+      integer pcm_id(nexternal)
+      save pcm_have,pcm_pass,pcm_p,pcm_y,pcm_m,pcm_id
+      data pcm_have /.false./
+      if (vfold_is_reference_mode()) then
+         vfold_passcuts_nbody=passcuts(p,rwgt)
+         return
+      endif
+      if (pcm_have .and. ybst_til_tolab.eq.pcm_y .and.
+     &     all(p.eq.pcm_p) .and. all(pmass.eq.pcm_m) .and.
+     &     all(idup(1:nexternal,1).eq.pcm_id)) then
+         rwgt=1d0
+         vfold_passcuts_nbody=pcm_pass
+         return
+      endif
+      vfold_passcuts_nbody=passcuts(p,rwgt)
+      pcm_have=.true.
+      pcm_pass=vfold_passcuts_nbody
+      pcm_p=p
+      pcm_y=ybst_til_tolab
+      pcm_m=pmass
+      pcm_id=idup(1:nexternal,1)
+      end
+
+
+c AV road B step 11l PS memo (F2/F/C): in the n+1 loop of sigintF,
+c generate_momenta is called again with the same nFKSprocess, iconfig
+c and x as the n-body call of the same fold, so it returns the same
+c momenta: restore its outputs instead. Only the input weight jac
+c differs, and generate_momenta applies it last, as a factor on the
+c raw jacobians (vfold_gm_jac_raw, vfold_gm_jac_cnt_raw), as done here.
+c Any other generate_momenta call in between invalidates the memo.
+      subroutine vfold_gm_memo_save(ndim,iconfig,nfks,x,p)
+      use vfold_mode
+      implicit none
+      include 'nexternal.inc'
+      integer ndim,iconfig,nfks
+      double precision x(99),p(0:3,nexternal)
+      double precision p1_cnt(0:3,nexternal,-2:2),wgt_cnt(-2:2)
+      double precision pswgt_cnt(-2:2),jac_cnt(-2:2)
+      common/counterevnts/p1_cnt,wgt_cnt,pswgt_cnt,jac_cnt
+      double precision cms(4)
+      common/parton_cms_stuff/cms
+      double precision vfold_gm_jac_raw,vfold_gm_jac_cnt_raw(-2:2)
+      common/c_av_gm_raw/vfold_gm_jac_raw,vfold_gm_jac_cnt_raw
+      double precision gmm_x(99),gmm_p(0:3,nexternal)
+      double precision gmm_p1_cnt(0:3,nexternal,-2:2)
+      double precision gmm_wgt_cnt(-2:2),gmm_pswgt_cnt(-2:2)
+      double precision gmm_jac_raw,gmm_jac_cnt_raw(-2:2),gmm_cms(4)
+      integer gmm_ndim,gmm_iconfig,gmm_nfks
+      logical gmm_valid,gmm_nbody
+      common/c_av_gm_memo/gmm_x,gmm_p,gmm_p1_cnt,gmm_wgt_cnt,
+     $     gmm_pswgt_cnt,gmm_jac_raw,gmm_jac_cnt_raw,gmm_cms,
+     $     gmm_ndim,gmm_iconfig,gmm_nfks,gmm_valid,gmm_nbody
+      logical nbody
+      common/cnbody/nbody
+      gmm_valid=.not.vfold_is_reference_mode()
+      if (.not.gmm_valid) return
+      gmm_nbody=nbody
+      gmm_ndim=ndim
+      gmm_iconfig=iconfig
+      gmm_nfks=nfks
+      gmm_x(1:ndim)=x(1:ndim)
+      gmm_p=p
+      gmm_p1_cnt=p1_cnt
+      gmm_wgt_cnt=wgt_cnt
+      gmm_pswgt_cnt=pswgt_cnt
+      gmm_jac_raw=vfold_gm_jac_raw
+      gmm_jac_cnt_raw=vfold_gm_jac_cnt_raw
+      gmm_cms=cms
+      return
+      end
+
+      logical function vfold_gm_memo_restore(ndim,iconfig,nfks,x,p,jac)
+      implicit none
+      include 'nexternal.inc'
+      integer ndim,iconfig,nfks,i
+      double precision x(99),p(0:3,nexternal),jac
+      double precision p1_cnt(0:3,nexternal,-2:2),wgt_cnt(-2:2)
+      double precision pswgt_cnt(-2:2),jac_cnt(-2:2)
+      common/counterevnts/p1_cnt,wgt_cnt,pswgt_cnt,jac_cnt
+      double precision cms(4)
+      common/parton_cms_stuff/cms
+      double precision gmm_x(99),gmm_p(0:3,nexternal)
+      double precision gmm_p1_cnt(0:3,nexternal,-2:2)
+      double precision gmm_wgt_cnt(-2:2),gmm_pswgt_cnt(-2:2)
+      double precision gmm_jac_raw,gmm_jac_cnt_raw(-2:2),gmm_cms(4)
+      integer gmm_ndim,gmm_iconfig,gmm_nfks
+      logical gmm_valid,gmm_nbody
+      common/c_av_gm_memo/gmm_x,gmm_p,gmm_p1_cnt,gmm_wgt_cnt,
+     $     gmm_pswgt_cnt,gmm_jac_raw,gmm_jac_cnt_raw,gmm_cms,
+     $     gmm_ndim,gmm_iconfig,gmm_nfks,gmm_valid,gmm_nbody
+      logical nbody
+      common/cnbody/nbody
+      double precision pmass(nexternal)
+      common/to_mass/pmass
+      integer i_fks,j_fks
+      common/fks_indices/i_fks,j_fks
+      vfold_gm_memo_restore=.false.
+      if (.not.gmm_valid) return
+      gmm_valid=.false. ! a miss calls generate_momenta
+      if (ndim.ne.gmm_ndim .or. iconfig.ne.gmm_iconfig .or.
+     $     nfks.ne.gmm_nfks) return
+c Not if nbody changed and j_fks is massless: then generate_momenta also
+c computes the collinear and soft-collinear counter-event momenta in the
+c n+1 loop (nbody=.false.), but not in the n-body call (nbody=.true.)
+      if (nbody.neqv.gmm_nbody .and. pmass(j_fks).eq.0d0) return
+      if (any(x(1:ndim).ne.gmm_x(1:ndim))) return
+      p=gmm_p
+      p1_cnt=gmm_p1_cnt
+      wgt_cnt=gmm_wgt_cnt
+      pswgt_cnt=gmm_pswgt_cnt
+      do i=-2,2
+         jac_cnt(i)=gmm_jac_cnt_raw(i)*jac ! as in generate_momenta
+      enddo
+      jac=jac*gmm_jac_raw ! as in generate_momenta
+      cms=gmm_cms
+      vfold_gm_memo_restore=.true.
+      return
+      end
+
+      subroutine vfold_gm_memo_invalidate
+      implicit none
+      include 'nexternal.inc'
+      double precision gmm_x(99),gmm_p(0:3,nexternal)
+      double precision gmm_p1_cnt(0:3,nexternal,-2:2)
+      double precision gmm_wgt_cnt(-2:2),gmm_pswgt_cnt(-2:2)
+      double precision gmm_jac_raw,gmm_jac_cnt_raw(-2:2),gmm_cms(4)
+      integer gmm_ndim,gmm_iconfig,gmm_nfks
+      logical gmm_valid,gmm_nbody
+      common/c_av_gm_memo/gmm_x,gmm_p,gmm_p1_cnt,gmm_wgt_cnt,
+     $     gmm_pswgt_cnt,gmm_jac_raw,gmm_jac_cnt_raw,gmm_cms,
+     $     gmm_ndim,gmm_iconfig,gmm_nfks,gmm_valid,gmm_nbody
+      gmm_valid=.false.
+      return
+      end

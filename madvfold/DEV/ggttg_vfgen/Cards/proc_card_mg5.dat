@@ -17,7 +17,7 @@
 #*                                                          *
 #*                                                          *
 #*         VERSION 0.2.1                 2026-09-24         *
-#*         GIT vfold7cgV002BASE-26-ge1675c0a4f  vfold7cg         *
+#*         GIT                             vfold7cg         *
 #*                                                          *
 #*       The MadGraph7 Development Team - Find us at        *
 #*    https://server06.fynu.ucl.ac.be/projects/madgraph     *
@@ -46,13 +46,19 @@ set apply_flavor_grouping True
 set color_basis auto
 set merge_same_topologies True
 set merge_quartic_vertices False
-import model sm
+set automatic_html_opening False --no_save
+set pythia8_path ./HEPTools/pythia8 --no_save
+set mg5amc_py8_interface_path ./HEPTools/MG5aMC_PY8_interface --no_save
+set hepmc_path ./HEPTools/hepmc --no_save
+set lhapdf_py3 ./HEPTools/lhapdf6_py3/bin/lhapdf-config --no_save
+set ninja ./HEPTools/lib --no_save
+set collier ./HEPTools/collier --no_save
+generate g g > t t~ g [QCD]
 define p = g u c d s u~ c~ d~ s~
 define j = g u c d s u~ c~ d~ s~
 define l+ = e+ mu+
 define l- = e- mu-
 define vl = ve vm vt
 define vl~ = ve~ vm~ vt~
-generate g g > t t~ g [QCD]
 set apply_flavor_grouping False
-output madvfold/DEV/ggttg_stock
+output madvfold/DEV/ggttg_vfgen --vfold-with-tests

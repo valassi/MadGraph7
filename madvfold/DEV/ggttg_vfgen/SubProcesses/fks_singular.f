@@ -2,6 +2,8 @@
 c This subroutine computes the Born matrix elements and adds its value
 c to the list of weights using the add_wgt subroutine
       use extra_weights
+      use vfold_born_batch
+      use vfold_rng_slots
       implicit none
       include 'nexternal.inc'
       include 'coupl.inc'
@@ -30,13 +32,62 @@ c to the list of weights using the add_wgt subroutine
       double precision     xiScut_used,xiBSVcut_used
       common /cxiScut_used/xiScut_used,xiBSVcut_used
       double precision g22
+      double precision f_b_used, g_used
       integer get_orders_tag
+      character*4      abrv ! AV road B step 8p
+      common /to_abrv/ abrv ! AV road B step 8p
       call cpu_time(tBefore)
       if (f_b.eq.0d0) return
       if (xi_i_hat_ev*xiimax_cnt(0) .gt. xiBSVcut_used) return
-c Born of the n-body contribution, evaluated in the me_frame rest frame
-c (identity unless the run_card asks for a frame; see boost_to_frame.f).
-      call sborn_frame(p_born,wgt_c)
+c AV road B step 3: gathering walk -- stash momenta+f_b+g for later
+c batched evaluation, skip the ME call and the iamp/add_wgt loop
+c entirely this walk (no ambient add_wgt state is touched here).
+      if (born_gathering) then
+        call vfold_stash_born(f_b, g)
+        call cpu_time(tAfter)
+        tBorn=tBorn+(tAfter-tBefore)
+        return
+      endif
+c AV road B step 3: finishing walk (replay) -- retrieve the
+c batch-evaluated amp_split/wgt_ME_born (already restored into their
+c normal common blocks by vfold_retrieve_born) instead of calling SBORN
+c again. F0, and F/C outside the two-walk structure (should not happen,
+c but kept as a safe fallback), still call SBORN directly and immediately.
+c
+c AV road B step 7c+7d: in the replay walk, use the live f_b and g, not
+c those stashed in walk 1. With SDE batching, f_b in walk 1 includes a
+c placeholder enhance=1; in walk 2 it has the true enhance. The call to
+c vfold_retrieve_born is still needed to restore amp_split/wgt_ME_born.
+      if (vfold_replay_mode) then
+        block
+          double precision f_b_dummy, g_dummy
+          call vfold_retrieve_born(f_b_dummy, g_dummy)
+        end block
+        f_b_used = f_b
+        g_used = g
+      else
+        f_b_used = f_b
+        g_used = g
+c AV road B step 7k: in F2, reuse the Born memo (vfold_born_batch.f90)
+        if (vfold_use_born_memo()) then
+          if (vfold_born_memo_hit(p_born,g)) then
+            call vfold_born_memo_restore
+          else
+            call sborn_frame(p_born,wgt_c)
+            call vfold_born_memo_store(p_born,g)
+          endif
+        else
+          call sborn_frame(p_born,wgt_c)
+        endif
+      endif
+c AV road B step 8p: virt candidates only get here in modes F/C, to keep
+c their Born in the batch: do not add it to the weight lines, as
+c bornsoftvirtual removes it for virt (the novi sample carries the Born).
+      if (abrv(1:2).eq.'vi') then
+        call cpu_time(tAfter)
+        tBorn=tBorn+(tAfter-tBefore)
+        return
+      endif
       do iamp=1, amp_split_size
         if (amp_split(iamp).eq.0d0) cycle
         call amp_split_pos_to_orders(iamp, orders)
@@ -45,7 +96,7 @@ c (identity unless the run_card asks for a frame; see boost_to_frame.f).
         if (cpower_pos.gt.0) wgtcpower=dble(orders(cpower_pos))
         orders_tag=get_orders_tag(orders)
         amp_pos=iamp
-        wgt1=amp_split(iamp)*f_b/g**(qcd_power)
+        wgt1=amp_split(iamp)*f_b_used/g_used**(qcd_power)
 c     For UPC processes, we only need to fill the Born contribution for
 c     photon-photon initial state
         if ((abs(lpp(1)).eq.2 .and. abs(lpp(2)).eq.2) 
@@ -432,6 +483,7 @@ c This subroutine computes the soft-virtual matrix elements and adds its
 c value to the list of weights using the add_wgt subroutine
       use extra_weights
       use mint_module
+      use vfold_mode
       implicit none
       include 'nexternal.inc'
       include 'coupl.inc'
@@ -440,6 +492,19 @@ c value to the list of weights using the add_wgt subroutine
       include 'orders.inc'
       integer orders(nsplitorders)
       integer iamp, i
+c AV step 11e BSV memo: bornsoftvirtual's outputs, saved at the first fold of a kpoint
+      integer fold,ifold_counter
+      common /cfl/fold,ifold_counter
+      integer nFKSprocess
+      common/c_nFKSprocess/nFKSprocess
+      double precision virtual_over_born
+      common/c_vob/virtual_over_born
+      logical bsvm_have
+      integer bsvm_nfks
+      double precision bsvm_p(0:3,nexternal),bsvm_wgt(4),
+     &     bsvm_bsv(amp_split_size,3),bsvm_virt(amp_split_size,3)
+      save bsvm_have,bsvm_nfks,bsvm_p,bsvm_wgt,bsvm_bsv,bsvm_virt
+      data bsvm_have /.false./
       double precision amp_split_virt(amp_split_size),
      &     amp_split_born_for_virt(amp_split_size),
      &     amp_split_avv(amp_split_size)
@@ -493,7 +558,37 @@ c value to the list of weights using the add_wgt subroutine
       call cpu_time(tBefore)
       if (f_nb.eq.0d0) return
       if (xi_i_hat_ev*xiimax_cnt(0) .gt. xiBSVcut_used) return
-      call bornsoftvirtual(p1_cnt(0,1,0),bsv_wgt,virt_wgt,born_wgt)
+c AV step 11e BSV memo (F2/F/C): outputs of bornsoftvirtual are identical
+c for all folds of a kpoint (same p_born and nFKSprocess; the virtual is
+c only computed at fold 0), so compute them at fold 0 and reuse them.
+      if (.not.vfold_is_reference_mode() .and. fold.ne.0 .and. bsvm_have
+     &     .and. nFKSprocess.eq.bsvm_nfks .and.
+     &     all(p1_cnt(:,:,0).eq.bsvm_p)) then
+         bsv_wgt=bsvm_wgt(1)
+         virt_wgt=bsvm_wgt(2)
+         born_wgt=bsvm_wgt(3)
+         virtual_over_born=bsvm_wgt(4)
+         amp_split_wgtnstmp=bsvm_bsv(:,1)
+         amp_split_wgtwnstmpmuf=bsvm_bsv(:,2)
+         amp_split_wgtwnstmpmur=bsvm_bsv(:,3)
+         amp_split_virt=bsvm_virt(:,1)
+         amp_split_born_for_virt=bsvm_virt(:,2)
+         amp_split_avv=bsvm_virt(:,3)
+      else
+         call bornsoftvirtual(p1_cnt(0,1,0),bsv_wgt,virt_wgt,born_wgt)
+         if (.not.vfold_is_reference_mode()) then
+            bsvm_have=.true.
+            bsvm_nfks=nFKSprocess
+            bsvm_p=p1_cnt(:,:,0)
+            bsvm_wgt=(/bsv_wgt,virt_wgt,born_wgt,virtual_over_born/)
+            bsvm_bsv(:,1)=amp_split_wgtnstmp
+            bsvm_bsv(:,2)=amp_split_wgtwnstmpmuf
+            bsvm_bsv(:,3)=amp_split_wgtwnstmpmur
+            bsvm_virt(:,1)=amp_split_virt
+            bsvm_virt(:,2)=amp_split_born_for_virt
+            bsvm_virt(:,3)=amp_split_avv
+         endif
+      endif
       if (ickkw.eq.-1) then
          if (wgtbpower.ne.0) then
             write (*,*) 'ERROR in VETO XSec: bpower should'/
@@ -620,6 +715,7 @@ c This subroutine computes the real-emission matrix elements and adds
 c its value to the list of weights using the add_wgt subroutine
       use extra_weights
       use mint_module, only: fixed_order
+      use vfold_real_batch
       implicit none
       include 'nexternal.inc'
       include 'coupl.inc'
@@ -634,16 +730,50 @@ c its value to the list of weights using the add_wgt subroutine
       external fks_Sij
       integer            i_fks,j_fks
       common/fks_indices/i_fks,j_fks
+      integer            nFKSprocess
+      common/c_nFKSprocess/nFKSprocess
       double precision    xi_i_fks_ev,y_ij_fks_ev,p_i_fks_ev(0:3)
      $                    ,p_i_fks_cnt(0:3,-2:2)
       common/fksvariables/xi_i_fks_ev,y_ij_fks_ev,p_i_fks_ev,p_i_fks_cnt
       double precision     f_r,f_s,f_c,f_dc,f_sc,f_dsc(4)
       common/factor_n1body/f_r,f_s,f_c,f_dc,f_sc,f_dsc
       integer get_orders_tag
+      logical softtest,colltest
+      common/sctests/softtest,colltest
+      double precision tiny
+      logical near_singular_pt
       call cpu_time(tBefore)
       if (f_r.eq.0d0) return
       s_ev = fks_Sij(p,i_fks,j_fks,xi_i_fks_ev,y_ij_fks_ev)
       if (s_ev.le.0.d0) return
+c AV road B step 7g: gate the expensive generic real-emission ME here,
+c like compute_born does for the Born. Previously only sreal() itself
+c was gated, so compute_real_emission still ran in full during the
+c gathering walk (fks_Sij, sreal call chain, cheap near-singular
+c kernels): twice as many calls in F/C as in F0/F1.
+c Only the folds for which sreal() reaches its generic SMATRIX_REAL
+c branch may be stashed here, i.e. this must replicate sreal()'s own
+c near-singular test (same tiny): vfold_stash_real/vfold_retrieve_real
+c pair entries by call order, and in the replay walk vfold_retrieve_real
+c is only reached by those folds. Stashing near-singular folds too
+c shifts all later retrieves onto the wrong momenta (the first
+c attempt at this gate did that: wrong MEs, more MINT2 candidates).
+c Near-singular folds are cheap and still run in both walks.
+c AV road B step 8a: also stash nFKSprocess (SMATRIX_REAL dispatches
+c on it), as the batch is evaluated after the whole gathering walk.
+      if (softtest.or.colltest) then
+         tiny=1d-12
+      else
+         tiny=1d-6
+      endif
+      near_singular_pt = (1d0-y_ij_fks_ev.lt.tiny) .or.
+     $     (xi_i_fks_ev.lt.tiny)
+      if (real_gathering .and. .not.near_singular_pt) then
+         call vfold_stash_real(p, g, nFKSprocess)
+         call cpu_time(tAfter)
+         tReal=tReal+(tAfter-tBefore)
+         return
+      endif
       call sreal(p,xi_i_fks_ev,y_ij_fks_ev,fx_ev)
       do iamp=1, amp_split_size
         if (amp_split(iamp).eq.0d0) cycle
@@ -773,7 +903,7 @@ c the list of weights using the add_wgt subroutine
         g22=g**(QCD_power)
         if (replace_MC_subt.gt.0d0) then
           wgt1=amp_split(iamp)*s_s/g22*replace_MC_subt
-          call add_wgt(8,orders,-wgt1*f_s_MC_H,0d0,0d0)
+           call add_wgt(8,orders,-wgt1*f_s_MC_H,0d0,0d0)
           wgt1=wgt1*f_s_MC_S
         else
           wgt1=0d0
@@ -1008,6 +1138,7 @@ c value to the list of weights using the add_wgt subroutine
 
       subroutine compute_MC_subt_term(p,passcuts,gfactsf,gfactcl,probne)
       use extra_weights
+      use vfold_mode, only: vfold_tdelta ! AV road B step 11q
       implicit none
 c This subroutine computes the MonteCarlo subtraction terms and adds
 c their values to the list of weights using the add_wgt subroutine. It
@@ -1047,7 +1178,9 @@ c respectively.
       integer get_orders_tag
       integer                     n_MC_subt_diverge
       common/counter_subt_diverge/n_MC_subt_diverge
+      real tdelta0 ! AV road B step 11q
       call cpu_time(tBefore)
+      tdelta0=vfold_tdelta
       call compute_xmcsubt_complete(p,probne,gfactsf,gfactcl,flagmc
      $     ,lzone,zhw,nofpartners,xmcxsec)
       if (f_MC_S.eq.0d0 .and. f_MC_H.eq.0d0) return
@@ -1085,7 +1218,9 @@ c respectively.
          n_MC_subt_diverge=n_MC_subt_diverge+1
       endif
       call cpu_time(tAfter)
-      t_MC_subt=t_MC_subt+(tAfter-tBefore)
+c AV road B step 11q: the Delta time of this call goes to Delta_Pythia
+c (if the early return above is taken, it was not in t_MC_subt anyway)
+      t_MC_subt=t_MC_subt+(tAfter-tBefore)-(vfold_tdelta-tdelta0)
       return
       end
 
@@ -1501,6 +1636,8 @@ c Initialize hiostograms for fixed order runs
       end
 
       subroutine include_multichannel_enhance(imode)
+      use vfold_born_batch
+      use vfold_rng_slots
       implicit none
       include 'nexternal.inc'
       include 'run.inc'
@@ -1509,6 +1646,7 @@ c Initialize hiostograms for fixed order runs
       include 'timing_variables.inc'
       double precision xnoborn_cnt,xtot,wgt_c,enhance,enhance_real
      $     ,pas(0:3,nexternal)
+      double precision sde_numerator,sde_denominator
       data xnoborn_cnt /0d0/
       integer inoborn_cnt,i,imode
       data inoborn_cnt /0/
@@ -1559,19 +1697,59 @@ c Initialize hiostograms for fixed order runs
       common/ccalculatedBorn/calculatedBorn
       logical use_evpr
       common /to_use_evpr/use_evpr
+      double precision g,all_g
+      common/strong/ g,all_g
+      real avtiming_sde_born_t0, avtiming_sde_born_t1
+      real avtiming_sde_born_dt
 
       call cpu_time(tBefore)
 
 c Compute the multi-channel enhancement factor 'enhance'.
       enhance=1.d0
+      avtiming_sde_born_dt=0.
       if (p_born(0,1).gt.0d0) then
-c Must use the same frame as every other SBORN call in this event: the
-c amplitudes are cached against (E,p_z) and shared. The multi-channel
-c weights stay a partition of unity in any frame, so this is free.
-         call sborn_frame(p_born,wgt_c)
+         if (sde_gathering) then
+c AV road B step 7c+7d: walk 1 stashes the SDE Born, leaving enhance=1
+c (discarded like everything else computed in walk 1); walk 2 retrieves
+c the batch-evaluated ratio instead of calling sborn.
+            call vfold_stash_sde(p_born, mapconfig(this_config,0), g)
+         elseif (vfold_replay_mode) then
+            call vfold_retrieve_sde(sde_numerator,sde_denominator)
+c AV road B step 7l: re-warm SBORN's amplitude cache from the Born memo,
+c as the direct sborn call does in the single-walk modes: get_mbar and
+c sbornsoft call sborn(p_born) later and rely on finding it warm.
+            if (vfold_born_memo_hit(p_born,g)) call vfold_born_memo_restore
+            if (sde_denominator.ne.0d0) then
+               enhance=sde_numerator/sde_denominator
+               enhance=enhance*diagramsymmetryfactor
+            else
+               enhance=0d0
+            endif
+         else
+c AV road B step 7f: time this SDE Born evaluation as Born (tBorn), not
+c Nbody_prefactor (tf_nb), as vfold_evaluate_sde_batch does in F/C.
+            call cpu_time(avtiming_sde_born_t0)
+c AV road B step 7k: in F2, reuse the Born memo (it also restores amp2)
+            if (vfold_use_born_memo()) then
+              if (vfold_born_memo_hit(p_born,g)) then
+                call vfold_born_memo_restore
+              else
+                call sborn_frame(p_born,wgt_c)
+                call vfold_born_memo_store(p_born,g)
+              endif
+            else
+              call sborn_frame(p_born,wgt_c)
+            endif
+            call cpu_time(avtiming_sde_born_t1)
+            avtiming_sde_born_dt=avtiming_sde_born_t1-avtiming_sde_born_t0
+            tBorn=tBorn+avtiming_sde_born_dt
+         endif
       elseif(p_born(0,1).lt.0d0)then
          enhance=0d0
       endif
+c AV road B step 7c+7d: the scalar enhance computation and its warnings
+c below only apply when sborn was called above (not in walk 1 or 2).
+      if (.not.(sde_gathering.or.vfold_replay_mode)) then
       if (enhance.eq.0d0)then
          xnoborn_cnt=xnoborn_cnt+1.d0
          if(log10(xnoborn_cnt).gt.inoborn_cnt)then
@@ -1597,6 +1775,7 @@ c weights stay a partition of unity in any frame, so this is free.
          else
             enhance=0d0
          endif
+      endif
       endif
 
 c In the case there is the special phase-space mapping for resonances,
@@ -1682,11 +1861,70 @@ c Compute the multi-channel enhancement factor 'enhance_real'.
          f_pdfsch_l=  f_pdfsch_l  *enhance
       endif
       call cpu_time(tAfter)
-      tf_nb=tf_nb+(tAfter-tBefore)
+c AV road B step 7f: the SDE sborn time was moved to tBorn above
+      tf_nb=tf_nb+(tAfter-tBefore)-avtiming_sde_born_dt
 
       return
       end
       
+
+c AV road B step 7c+7d: evaluation of one stashed SDE entry (modes F, C)
+c (called by vfold_evaluate_sde_batch), as in include_multichannel_enhance:
+c sborn, then numerator=amp2(channelid), denominator=sum of amp2 over
+c diagrams. In fixed-form because it needs fixed-form includes. Uses the
+c stashed true g, not g=1: g cancels in the ratio, but changes rounding
+c and the FKS subtractions amplify that.
+      subroutine vfold_sde_scalar_eval(p_born_in,channelid,g_in,
+     $     numerator,denominator)
+      use vfold_born_batch
+      implicit none
+      include 'nexternal.inc'
+      include 'genps.inc'
+      include 'nFKSconfigs.inc'
+      double precision p_born_in(0:3,nexternal-1)
+      integer channelid
+      double precision g_in
+      double precision numerator,denominator
+      double precision wgt_c
+      integer i
+      double precision pmass(-nexternal:0,lmaxconfigs,0:fks_configs)
+      double precision pwidth(-nexternal:0,lmaxconfigs,0:fks_configs)
+      integer iforest(2,-max_branch:-1,lmaxconfigs,0:fks_configs)
+      integer sprop(-max_branch:-1,lmaxconfigs,0:fks_configs)
+      integer tprid(-max_branch:-1,lmaxconfigs,0:fks_configs)
+      integer mapconfig(0:lmaxconfigs,0:fks_configs)
+      common /c_configurations/pmass,pwidth,iforest,sprop,tprid
+     $     ,mapconfig
+      Double Precision amp2(ngraphs), jamp2(0:ncolor)
+      common/to_amps/  amp2,          jamp2
+      logical calculatedBorn
+      common/ccalculatedBorn/calculatedBorn
+      double precision g, all_g
+      common/strong/ g, all_g
+      g=g_in
+      call update_as_param()
+c AV road B step 7k: reuse the Born memo (this is only called by the
+c SDE batch of modes F and C; the memo also restores amp2)
+c AV road B step 9i+9j: but not with SBORN served from cudacpp (a memo entry
+c would carry an invalid SAVEAMP): there the SBORN call is served
+      if (vfold_sborn_bridge.gt.0) then
+        calculatedBorn=.false.
+        call sborn(p_born_in,wgt_c)
+      elseif (vfold_born_memo_hit(p_born_in,g_in)) then
+        call vfold_born_memo_restore
+      else
+        call vfold_born_memo_missed ! step 15j
+        call sborn(p_born_in,wgt_c)
+        call vfold_born_memo_store(p_born_in,g_in)
+      endif
+      denominator=0d0
+      do i=1, mapconfig(0,0)
+         denominator=denominator+amp2(mapconfig(i,0))
+      enddo
+      numerator=amp2(channelid)
+      return
+      end
+
 
       subroutine compute_prefactors_n1body(vegas_wgt,jac_ev)
 c Compute all relevant prefactors for the real emission and counter
@@ -2203,6 +2441,8 @@ c or to fill histograms.
       INTEGER              IPROC
       DOUBLE PRECISION PD(0:MAXPROC)
       COMMON /SUBPROC/ PD, IPROC
+      logical dump69
+      common /cdump69/dump69
       parameter (conv=389379660d0) ! conversion to picobarns
       call cpu_time(tBefore)
       if (icontr.eq.0) return
@@ -2253,7 +2493,11 @@ c overwrite the relevant information.]
          wgts(iwgt,i)=xlum * wgt_wo_pdf
          do j=1,iproc
             parton_iproc(j,i)=parton_iproc(j,i) * wgt_wo_pdf
-         enddo
+          enddo
+         if (dump69) xlum69(i)=xlum !AV          
+!        ! MZ (AV: add ifold_cnt)
+!        if (dump69) write(69,*) 'WGT', itype(i), wgts(iwgt,i), nfks(i),
+!    &     xlum/1d15, ifold_cnt(i) ! AV replaced by WGTS/UNWGTS
          if (itype(i).eq.14 .and. .not.virt_found) then
             virt_found=.true.
 c Special for the soft-virtual needed for the virt-tricks. The
@@ -2279,6 +2523,8 @@ c and not be part of the plots nor computation of the cross section.
       enddo
       call cpu_time(tAfter)
       t_as=t_as+(tAfter-tBefore)
+!     ! MZ 
+!     if (dump69) write(69,*) 'ENDPS' ! AV moved after WGTS/UNWGTS
       return
       end
 
@@ -3468,6 +3714,7 @@ c compatibility. It picks a fold randomly, based on the weight of the
 c fold to the sum over all folds. Within a fold, take the weighted
 c average of shower scales for the FKS configurations.
       use weight_lines
+      use vfold_rng_slots
       implicit none
       include 'nexternal.inc'
       include 'nFKSconfigs.inc'
@@ -3526,7 +3773,7 @@ c is given by the ABS cross section to given FKS configuration.
       enddo
       if (temp_wgt_sum.eq.0d0) return
 c Randomly pick one of the folds
-      target=temp_wgt_sum*ran2()
+      target=temp_wgt_sum*vfold_newran2(ISLOT_EV_SHSC_FOLD_PICK,.false.) ! AV step 2
       ifold_accum=0d0
       do ifl=1,ifold_counter
          ifold_accum=ifold_accum+temp_wgt(ifl)
@@ -3553,6 +3800,7 @@ c its contribution without including the born (and nbody_noborn)
 c contributions. (If there are only born (and nbody_noborn)
 c contributions to the picked fold, use the weights of those instead).
       use weight_lines
+      use vfold_rng_slots
       implicit none
       include 'nexternal.inc'
       include 'nFKSconfigs.inc'
@@ -3632,7 +3880,7 @@ c pick the fold at random, weighted by their relative contributions
          wgt_sum=wgt_sum+abs(wgt_fold(ifl))
       enddo
       if (wgt_sum.le.0d0) return
-      target=wgt_sum*ran2()
+      target=wgt_sum*vfold_newran2(ISLOT_EV_SHSC_FOLD_PICK,.false.) ! AV step 2
       wgt_accum=0d0
       do ifl=1,ifold_counter
          wgt_accum=wgt_accum+abs(wgt_fold(ifl))
@@ -3655,7 +3903,7 @@ c that configuration.)
          wgt_sum=wgt_sum+abs(wgt_fold_fks(iFKS,ifl))
       enddo
       if (wgt_sum.ne.0d0) then
-         target=wgt_sum*ran2()
+         target=wgt_sum*vfold_newran2(ISLOT_EV_SHSC_FKS_PICK_A,.false.) ! AV step 2
          wgt_accum=0d0
          do iFKS=1,fks_configs
             wgt_accum=wgt_accum+abs(wgt_fold_fks(iFKS,ifl))
@@ -3674,7 +3922,7 @@ c instead.
             wgt_sum=wgt_sum+abs(wgt_fold_fks_born(iFKS,ifl))
          enddo
          if (wgt_sum.eq.0d0) return
-         target=wgt_sum*ran2()
+         target=wgt_sum*vfold_newran2(ISLOT_EV_SHSC_FKS_PICK_B1,.false.) ! AV step 2
          wgt_accum=0d0
          do iFKS=1,fks_configs
             wgt_accum=wgt_accum+abs(wgt_fold_fks_born(iFKS,ifl))
@@ -3716,6 +3964,8 @@ c on the imode we should or should not include the virtual corrections.
      $     ,n1body_wgt,tmp_wgt,max_weight
       double precision virtual_over_born
       common /c_vob/   virtual_over_born
+      logical dump69
+      common /cdump69/dump69
       sigint=0d0
       sigint1=0d0
       sigint_ABS=0d0
@@ -3736,6 +3986,24 @@ c on the imode we should or should not include the virtual corrections.
                max_weight=max(max_weight,abs(unwgt(j,i)))
             enddo
          enddo
+         if (dump69) then                              ! AV
+           do i=1, icontr                              ! AV
+             write (69,*) 'WGTS ',                     ! AV
+     $         itype(i),wgts(1,i),nFKS(i),             ! AV
+     $         i,H_event(i),ifold_cnt(i),              ! AV
+     $         niproc(i),icontr_sum(0,i),              ! AV
+     &         xlum69(i)/1d15                          ! AV 
+             if (icontr_sum(0,i).eq.0) cycle           ! AV
+             do j=1,niproc(i)                          ! AV
+               write (69,*) 'UNWGT',                   ! AV
+     $           itype(i),unwgt(j,i),nFKS(i),          ! AV
+     $           i,H_event(i),ifold_cnt(i),            ! AV
+     $           j                                     ! AV
+             enddo                                     ! AV
+           enddo                                       ! AV
+           write (69,*) 'VIRTW', virt_wgt_mint(0)      ! AV sum(UNWGT)+VIRTW=sum(WGTS)
+           write (69,*) 'ENDPS'                        ! AV
+         endif                                         ! AV
 c check the consistency of the results up to machine precision (10^-10 here)
          if (imode.ne.1 .or. only_virt) then
             if (abs((sigint-sigint1)/max_weight).gt.1d-10) then
@@ -4710,6 +4978,8 @@ c Wrapper for the n+1 contribution. Returns the n+1 matrix element
 c squared reduced by the FKS damping factor xi**2*(1-y).
 c Close to the soft or collinear limits it calls the corresponding
 c Born and multiplies with the AP splitting function or eikonal factors.
+      use vfold_real_batch
+      use vfold_rng_slots
       implicit none
       include "nexternal.inc"
       include "coupl.inc"
@@ -4722,6 +4992,9 @@ c Born and multiplies with the AP splitting function or eikonal factors.
 
       integer i_fks,j_fks
       common/fks_indices/i_fks,j_fks
+
+      integer nFKSprocess
+      common/c_nFKSprocess/nFKSprocess
 
       double precision ybst_til_tolab,ybst_til_tocm,sqrtshat,shat
       common/parton_cms_stuff/ybst_til_tolab,ybst_til_tocm,
@@ -4783,9 +5056,25 @@ c has soft singularities
             amp_split(1:amp_split_size) = 0d0
          endif
       else
-         call smatrix_real_frame(pp,wgt)
-         wgt=wgt*xi_i_fks**2*(1d0-y_ij_fks)
-         amp_split(1:amp_split_size) = amp_split(1:amp_split_size)*xi_i_fks**2*(1d0-y_ij_fks)
+         if (real_gathering) then
+c AV road B step 4: gathering walk -- stash momenta+g, skip
+c SMATRIX_REAL (mirrors eebb_vfold's real_collecting).
+            call vfold_stash_real(pp,g,nFKSprocess)
+            wgt=0d0
+            amp_split(1:amp_split_size) = 0d0
+         elseif (vfold_replay_mode) then
+c AV road B step 4: finishing walk (replay) -- retrieve the
+c batch-evaluated SMATRIX_REAL result instead of calling it again.
+c AV road B step 8a: retrieve the full amp_split array, not only slot
+c AMP_SPLIT_SIZE_BORN+1 (SMATRIX_REAL may fill several slots in general).
+            call vfold_retrieve_real(amp_split, wgt)
+            wgt=wgt*xi_i_fks**2*(1d0-y_ij_fks)
+            amp_split(1:amp_split_size) = amp_split(1:amp_split_size)*xi_i_fks**2*(1d0-y_ij_fks)
+         else
+            call smatrix_real_frame(pp,wgt)
+            wgt=wgt*xi_i_fks**2*(1d0-y_ij_fks)
+            amp_split(1:amp_split_size) = amp_split(1:amp_split_size)*xi_i_fks**2*(1d0-y_ij_fks)
+         endif
       endif
 
       return
@@ -6823,6 +7112,7 @@ c
       subroutine bornsoftvirtual(p,bsv_wgt,virt_wgt,born_wgt)
       use extra_weights
       use mint_module
+      use vfold_rng_slots
       implicit none
       include "genps.inc"
       include 'nexternal.inc'
@@ -6914,6 +7204,8 @@ c For the MINT folding
       include 'orders.inc'
       logical firsttime
       data firsttime / .true. /
+      logical firsttime_virt
+      data firsttime_virt / .true. /
       logical need_color_links_used, need_charge_links_used
       data need_color_links_used / .false. /
       data need_charge_links_used / .false. /
@@ -7213,9 +7505,18 @@ CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
       enddo
 
       if (fold.eq.0) then
-         if ((ran2().le.virtual_fraction(ichan) .and.
+         if ((vfold_newran2(ISLOT_EV_VIRTUAL_FRACTION,.false.) ! AV step 2
+     $        .le.virtual_fraction(ichan) .and.
      $        abrv(1:3).ne.'nov').or.abrv(1:4).eq.'virt') then
             call cpu_time(tBefore)
+c AV FIX: the first call of BinothLHA uses a tighter tolerance than all
+c the others (its pole check), so the virtual of the first point would
+c depend on which point is evaluated first. Discard the result of the
+c first call and evaluate that point again, as all other points.
+            if (firsttime_virt) then
+               firsttime_virt=.false.
+               Call binothlha_frame(p_born,born_wgt,virt_wgt)
+            endif
             Call binothlha_frame(p_born,born_wgt,virt_wgt)
             do iamp=1,amp_split_size
                amp_split_virt(iamp)=amp_split_finite_ML(iamp)

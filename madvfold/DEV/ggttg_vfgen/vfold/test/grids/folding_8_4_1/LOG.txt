@@ -1,0 +1,177 @@
+START:    Fri Nov  6 11:21:41 CET 2026
+HOSTNAME: aicoral92.cern.ch
+PROC:     ggttg_vfgrids_LOCALCLAUDE
+
+EXECUTING: ./vfold/myLaunch.sh 
+
+CCACHE_DIR=/data/avalassi/NEGWGT2026/test-mg5amcnlo/madvfold/DEV/ccache
+FC=
+F90CACHE_DIR=
+F90CACHE_LOGFILE=
+ENV_NEVENTS=10
+ENV_FOLDING=8,4,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/madvfold/DEV/ggttg_vfgrids_LOCALCLAUDE/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=avx2
+ENV_VFOLD_ME_MODE=C
+ENV_VFOLD_VECSIZE_USED=4
+ENV_VFOLD_KPOINT_BATCH=64
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MLREDUCTION=ninja
+ENV_VFOLD_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLD_MINT0_ACC=-1
+ENV_VFOLD_MINT0_NITERS=10
+ENV_VFOLD_MINT0_NPOINTS=40000
+ENV_VFOLD_MINT1_NITERS=10
+ENV_VFOLD_MINT1_NPOINTS=40000
+ENV_VFOLD_CHANNELS=10.0
+ENV_VFOLD_NOSHUFFLE=
+ENV_MCATNLODELTA=
+ENV_PHYSICS=
+ENV_REQACC=
+ENV_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+No module named 'madgraph'
+ No hepmc reader since No module named 'madgraph' [1;30m[lhe_parser.py at line 46][0m
+INFO: ************************************************************
+*                                                          *
+*           W E L C O M E  to  M A D G R A P H 5           *
+*                       a M C @ N L O                      *
+*                                                          *
+*                 *                       *                *
+*                   *        * *        *                  *
+*                     * * * * 5 * * * *                    *
+*                   *        * *        *                  *
+*                 *                       *                *
+*                                                          *
+*         VERSION 5.3.8.1                                  *
+*                                                          *
+*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+*                 http://amcatnlo.cern.ch                  *
+*                                                          *
+*               Type 'help' for in-line help.              *
+*                                                          *
+************************************************************ 
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/madvfold/DEV/ggttg_vfgrids_LOCALCLAUDE/Cards/amcatnlo_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/input/mg5_configuration.txt  
+INFO: load configuration from /data/avalassi/NEGWGT2026/test-mg5amcnlo/madvfold/DEV/ggttg_vfgrids_LOCALCLAUDE/Cards/amcatnlo_configuration.txt  
+Using default text editor "vi". Set another one in ./input/mg5_configuration.txt
+No valid eps viewer found. Please set in ./input/mg5_configuration.txt
+No valid web browser found. Please set in ./input/mg5_configuration.txt
+Using default gzip "gzip". Set another one in ./input/mg5_configuration.txt
+launch -f -p
+INFO: will run in mode: noshower 
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the LesHouches events before using them for physics analyses. You have to choose NOW which parton-shower you WILL use and specify it in the run_card. [0m
+INFO: Starting run 
+INFO: Compiling the code 
+INFO: Using built-in libraries for PDFs 
+INFO: Compiling source... 
+INFO:           ...done, continuing with P* directories 
+INFO: Compiling directories... 
+INFO: Compiling on 4 cores 
+INFO:  Compiling P0_gg_ttxg... 
+INFO:     P0_gg_ttxg done. 
+INFO: Checking test output: 
+INFO: P0_gg_ttxg 
+INFO:  Result for test_ME: 
+INFO:    Passed. 
+INFO:  Result for test_MC: 
+INFO:    Passed. 
+INFO:  Result for check_poles: 
+INFO:    Poles successfully cancel for 20 points over 20 (tolerance=1.0e-05) 
+INFO: Starting run 
+INFO: Using 4 cores 
+INFO: Cleaning previous results 
+INFO: Generating events without running the shower. 
+INFO: ENV_VFOLD_CHANNELS=10.0: restricting to channels ['10.0'] 
+DEBUG! mint_step=0
+DEBUG! status=Setting up grids
+INFO: Setting up grids 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 11h22 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  12m 22s  ] 
+sum of cpu time of last step: 0 second
+DEBUG! step=0
+DEBUG! nevents=10
+INFO: Determining the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      9.203e+02 +- 3.0e+01 pb
+      Total abs(cross section): 1.284e+03 +- 3.3e+01 pb 
+
+ 
+DEBUG! mint_step=1
+DEBUG! status=Computing upper envelope
+INFO: Computing upper envelope 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 11h34 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  1h 1m  ] 
+sum of cpu time of last step: 0 second
+DEBUG! step=1
+DEBUG! nevents=10
+INFO: Updating the number of unweighted events per channel
+
+      Intermediate results:
+      Random seed: 84100
+      Total cross section:      1.641e+03 +- 1.3e+02 pb
+      Total abs(cross section): 1.861e+03 +- 1.3e+02 pb 
+
+ 
+DEBUG! mint_step=2
+DEBUG! status=Generating events
+INFO: Generating events 
+INFO:  Idle: 0,  Running: 1,  Completed: 0 [ current time: 12h35 ] 
+INFO:  Idle: 0,  Running: 0,  Completed: 1 [  1m 8s  ] 
+sum of cpu time of last step: 0 second
+INFO: Collecting events 
+INFO: 
+   --------------------------------------------------------------
+      Summary:
+      Process g g > t t~ g [QCD]
+      Run at p-p collider (6500.0 + 6500.0 GeV)
+      Number of events generated: 10
+      Total cross section: 1.641e+03 +- 1.3e+02 pb
+   --------------------------------------------------------------
+ 
+INFO: The /data/avalassi/NEGWGT2026/test-mg5amcnlo/madvfold/DEV/ggttg_vfgrids_LOCALCLAUDE/Events/run_02/events.lhe.gz file has been generated.
+ 
+INFO: Events generated 
+reweight -from_cards
+decay_events -from_cards
+[1;34mWARNING: You have chosen not to run a parton shower. NLO events without showering are NOT physical. Please, shower the Les Houches events before using them for physics analyses. [0m
+INFO:  
+quit
+INFO:  
+ENV_NEVENTS=10
+ENV_FOLDING=8,4,1
+ENV_VFOLD_CUDACPP_BASE=/data/avalassi/NEGWGT2026/test-mg5amcnlo/madvfold/DEV/ggttg_vfgrids_LOCALCLAUDE/lib/cudacpp
+ENV_VFOLD_CUDACPP_BACKEND=avx2
+ENV_VFOLD_ME_MODE=C
+ENV_VFOLD_VECSIZE_USED=4
+ENV_VFOLD_KPOINT_BATCH=64
+ENV_VFOLD_SBORN_BRIDGE=1
+ENV_VFOLD_SBORN_GSCALE=1
+ENV_VFOLD_MLREDUCTION=ninja
+ENV_VFOLD_POLYCACHE=
+ENV_VFOLD_CPUTIME=-1
+ENV_VFOLD_BATCH_PERVN=1
+ENV_VFOLD_MINT0_ACC=-1
+ENV_VFOLD_MINT0_NITERS=10
+ENV_VFOLD_MINT0_NPOINTS=40000
+ENV_VFOLD_MINT1_NITERS=10
+ENV_VFOLD_MINT1_NPOINTS=40000
+ENV_VFOLD_CHANNELS=10.0
+ENV_VFOLD_NOSHUFFLE=
+ENV_MCATNLODELTA=
+ENV_PHYSICS=
+ENV_REQACC=
+ENV_ISEED=
+CUDACPP_RUNTIME_BLASCOLORSUM=
+randinit=84100
+START:    Fri Nov  6 11:21:41 CET 2026
+END:      Fri Nov  6 12:36:49 CET 2026
+ELAPSED:  4508 seconds
+
+STATUS=0

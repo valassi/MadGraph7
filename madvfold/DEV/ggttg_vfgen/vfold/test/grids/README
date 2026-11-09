@@ -1,0 +1,88 @@
+MINT0/MINT1 grids for the MINT2-only tests (vfold/myLaunch.sh -o).
+
+'output <procdir> --vfold-with-tests' runs madvfold/test/setupVfoldTests.sh,
+which copies <proc>/ from this directory (if it exists) into
+vfold/test/grids of the generated process directory, together with this
+README. <proc> is the name of the process used by MadGraph for its
+SubProcesses/P0_<proc> directory, whatever the name of the process
+directory and the order of the particles in the generate command (e.g.
+epem_bbbxbx for 'generate e+ e- > b b~ b b~ [QCD]', also in
+madvfold/DEV/eebbbb_vfgen; the grids are installed only for processes
+with a single P directory).
+
+MadGraph7: the grids are those of mg5amcnlo (branch vfold5381cg) at the same
+step, with their mint_grids converted by madvfold/test/convertGrids381to7.py
+(step 14e part 4/4: nintegrals is 26=6+2*10 in MG5aMC 3.8.1 and 38=6+2*16 in
+MadGraph7, whose read_grids_from_file stops on the old ones with 'Bad real
+number').
+
+Each <proc>/folding_<f1>_<f2>_<f3>[_Delta] directory holds, for one
+folding without/with MC@NLO-Delta, only what myLaunch.sh -o uses:
+- job_status.pkl: the list of integration jobs (in -o mode MG5 keeps only
+  the jobs with a res_1.dat, rereads their results from it, and takes the
+  folding from the run_card)
+- aS.txt: the aS(MZ) of the grids, which myLaunch.sh sets in the
+  param_card for MINT2
+- <Pdir>/GF<channel>: the grids of the GF channels used in the tests
+  (res_1.dat, mint_grids, res_1, grid.MC_integer and results.dat)
+
+New grids can be created with madvfold/test/makeGrids.sh (step 14s), for
+one folding and by default for all GF channels, with one plain run of
+vfold/myLaunch.sh in mode C: it installs them both here and in the process
+directory (existing grids are renamed as .BAK<date>), with the LOG.txt of
+that run. The grids below that are older than step 14s were created by hand.
+
+epem_bbbxbx (eebbbb, channel GF11.0):
+- folding_8_4_1 and folding_1_1_1 come from vfold5363 (MG5 3.6.3), which
+  took aS(MZ)=0.119 from the PDF set even with lpp=0
+- folding_8_4_1_Delta and folding_1_1_1_Delta come from Delta physics
+  runs in vfold5381 (MG5 3.8.1, aS(MZ)=0.118), as the MINT1 upper envelope
+  must be computed with Delta
+
+epem_bbxmummupg (eemumubbg, channel GF58.0):
+- GF58.0 is the channel used since step 14q. GF11.0 was used until then (its
+  grids were removed in step 14s, they are in the git history and in the branch
+  vfold5381cgOldGrids), but it is not representative:
+  it has 0.1% of the ABS integral of all channels (rank 28 of 58). GF58.0 has
+  13.1% (rank 3), negative weights of 24.7% (GF11.0: 37.7%) and a ratio of ABS
+  virtual to ABS integral of 0.238 (GF11.0: 0.297), from the MINT1 logs of
+  run_gen841. The two largest channels, GF34.0 and GF17.0, have about 55%
+  negative weights, so they may be better for studies of negative weights.
+- folding_8_4_1 and folding_1_1_1 come from the default physics runs of
+  GEN_proc.sh in vfold5381 (MG5 3.8.1, aS(MZ)=0.118), Events/run_gen841
+  and Events/run_gen111 of eemumubbg_vfalt (branch vfold5381cgOldGrids)
+- the job_status.pkl of run_gen111 was not saved: that of folding_1_1_1
+  was built from that of run_gen841, with fold_string '1 1 1' and the
+  results of each channel from its res_1.dat in run_gen111 (checked in
+  eebbbb: the f111 -o events are the same with the original job_status.pkl
+  and with one built from the f841 one)
+- there are no Delta grids yet: -o with ENV_VFOLDTEST_MCATNLODELTA=1 fails
+
+gg_ttxg (ggttg, channel GF10.0):
+- folding_1_1_1 and folding_8_4_1 come from makeGrids.sh --channels 10.0
+  (step 14t, with the defaults of step 14s) on aicoral92, in mode C/avx2 with
+  ninja and ENV_FVZ_NDUMP=0: MINT0 10 iterations of 100000 (f111, k512) or
+  40000 (f841, k64) points, MINT1 10 iterations of 400000 (f111) or 40000
+  (f841) points, in 3302 s (f111) and 4508 s (f841). The settings are in
+  their LOG.txt.
+- res_1.dat has an ABS integral of 2406 +- 231 pb and an integral of
+  2053 +- 231 pb (f111), and 1861 +- 129 pb and 1641 +- 129 pb (f841). The
+  last 3 iterations of a longer physics run, not yet finished, had an ABS
+  integral of 2075 +- 163 pb. This channel has rare large weights, which
+  only show up with many points.
+- f111: MINT1 stopped on accuracy after 5 iterations, all included. f841:
+  MINT1 iteration 4 was rejected as a large fluctuation and, as in stock
+  MINT1, all later iterations (5 to 10) were then excluded too, so res_1.dat
+  comes from iterations 1 to 3 (the grids and the upper envelope are not
+  affected by this). This was reported upstream.
+- the step 14o grids that these replace were created by hand with fewer
+  points and were not converged (res_1.dat 1247 +- 27 pb for f111 and
+  1490 +- 91 pb for f841): they are in the git history.
+- GF10.0 was chosen from a test of all channels (500 events, f841, with very
+  short MINT0/MINT1 grids of 50 points): it is the largest channel with
+  virtuals. GF10.0, GF11.0 and GF8.0 have 26.8%, 27.1% and 21.7% of the ABS
+  integral, but only GF10.0 had virt kpoints (57 of 829, 6.9%), and its negative
+  weights (21.6%) are typical. GF11.0 has the highest fraction among them
+  (34.8%), so it may be better for studies of negative weights.
+- aS.txt has 0.118 as in the param_card, but this is not used with a PDF set
+- there are no Delta grids yet: -o with ENV_VFOLDTEST_MCATNLODELTA=1 fails
