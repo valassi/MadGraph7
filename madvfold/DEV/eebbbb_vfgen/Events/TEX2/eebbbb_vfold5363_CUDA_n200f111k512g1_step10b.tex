@@ -1,0 +1,28 @@
+% vfold5363 | epem_bbbxbx | step10b | NEVENTS=200 | folding=1,1,1 | kbatch=512
+\providecommand{\tmtcell}[1]{\makebox[\tmtwidth][r]{#1}}
+\begin{tabular}{lrrrrrrrrrrrrr}
+\multicolumn{14}{@{}l@{}}{\makebox[0pt][l]{{\bf \underline{vfold5363} $|$ epem\_bbbxbx $|$ step10b $|$ NEVENTS=200 $|$ folding=1,1,1 $|$ kbatch=512}}} \\
+\multicolumn{14}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em bsffused -1: fused single-pass BSF kernel OFF for F0/F1, ON for F2/F/C}}} \\
+\multicolumn{14}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em sborn 1: SBORN served from cudacpp, in mode C only}}} \\
+\multicolumn{14}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em gscale 1: Borns at the real-emission coupling $g'$ obtained by rescaling those at $g$, in mode C only}}} \\
+\multicolumn{14}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em timers: getrusage in all modes}}} \\
+\multicolumn{14}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em mode F0: 7675 kpoints = 306 virt + 7369 novi $\to$ 200 events (10 virt + 190 novi)}}} \\
+\multicolumn{14}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em mode F, F1, F2, Cs: 8146 kpoints = 287 virt + 7859 novi $\to$ 200 events (9 virt + 191 novi)}}} \\
+\multicolumn{14}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em mode F, Cs: Born / Real 34 / 25 batched calls, mean batch 409.2 / 424.6}}} \\
+\multicolumn{14}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em F0*: F0 rescaled to the kpoints of F (separately for virt and novi)}}} \\
+\multicolumn{14}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em ml\_reduction: ninja for all}}} \\
+\hline
+mode & \tmtcell{F0*} & \tmtcell{F1} & \tmtcell{F2} & \tmtcell{F} & \tmtcell{C} & \tmtcell{C} & \tmtcell{C} & \tmtcell{C} & \tmtcell{C} & \tmtcell{C} & \tmtcell{C} & \tmtcell{C} & \tmtcell{C} \\
+cudacpp\_backend & \tmtcell{-} & \tmtcell{-} & \tmtcell{-} & \tmtcell{-} & \tmtcell{none} & \tmtcell{sse4} & \tmtcell{avx2} & \tmtcell{cuda} & \tmtcell{cuda} & \tmtcell{cuda} & \tmtcell{cuda} & \tmtcell{cuda} & \tmtcell{cuda} \\
+cudacpp\_vecsize & \tmtcell{-} & \tmtcell{-} & \tmtcell{-} & \tmtcell{-} & \tmtcell{1} & \tmtcell{2} & \tmtcell{4} & \tmtcell{32} & \tmtcell{64} & \tmtcell{128} & \tmtcell{256} & \tmtcell{512} & \tmtcell{1024} \\
+\hline
+TOTAL & \tmtcell{8.08} & \tmtcell{8.08} & \tmtcell{6.63} & \tmtcell{8.94} & \tmtcell{6.25} & \tmtcell{4.13} & \tmtcell{2.92} & \tmtcell{4.89} & \tmtcell{3.63} & \tmtcell{3.06} & \tmtcell{2.82} & \tmtcell{2.63} & \tmtcell{2.71} \\
+Born & \tmtcell{2.20} & \tmtcell{2.20} & \tmtcell{1.20} & \tmtcell{1.69} & \tmtcell{0.70} & \tmtcell{0.39} & \tmtcell{0.21} & \tmtcell{0.32} & \tmtcell{0.19} & \tmtcell{0.13} & \tmtcell{0.12} & \tmtcell{0.09} & \tmtcell{0.10} \\
+Real & \tmtcell{3.62} & \tmtcell{3.62} & \tmtcell{3.49} & \tmtcell{4.57} & \tmtcell{3.70} & \tmtcell{1.91} & \tmtcell{0.85} & \tmtcell{2.31} & \tmtcell{1.23} & \tmtcell{0.71} & \tmtcell{0.50} & \tmtcell{0.32} & \tmtcell{0.32} \\
+Virtual & \tmtcell{1.17} & \tmtcell{1.17} & \tmtcell{1.18} & \tmtcell{1.18} & \tmtcell{1.21} & \tmtcell{1.20} & \tmtcell{1.22} & \tmtcell{1.23} & \tmtcell{1.21} & \tmtcell{1.21} & \tmtcell{1.20} & \tmtcell{1.21} & \tmtcell{1.25} \\
+PS\_Generation & \tmtcell{0.05} & \tmtcell{0.05} & \tmtcell{0.04} & \tmtcell{0.10} & \tmtcell{0.10} & \tmtcell{0.09} & \tmtcell{0.10} & \tmtcell{0.10} & \tmtcell{0.09} & \tmtcell{0.09} & \tmtcell{0.09} & \tmtcell{0.10} & \tmtcell{0.10} \\
+CT\_and\_MCsub & \tmtcell{0.73} & \tmtcell{0.73} & \tmtcell{0.42} & \tmtcell{0.86} & \tmtcell{0.09} & \tmtcell{0.09} & \tmtcell{0.09} & \tmtcell{0.09} & \tmtcell{0.09} & \tmtcell{0.09} & \tmtcell{0.08} & \tmtcell{0.09} & \tmtcell{0.09} \\
+Nbody\_prefactor & \tmtcell{0.03} & \tmtcell{0.03} & \tmtcell{0.03} & \tmtcell{0.10} & \tmtcell{0.04} & \tmtcell{0.04} & \tmtcell{0.04} & \tmtcell{0.04} & \tmtcell{0.04} & \tmtcell{0.04} & \tmtcell{0.04} & \tmtcell{0.04} & \tmtcell{0.04} \\
+Misc & \tmtcell{0.28} & \tmtcell{0.29} & \tmtcell{0.28} & \tmtcell{0.45} & \tmtcell{0.43} & \tmtcell{0.42} & \tmtcell{0.42} & \tmtcell{0.81} & \tmtcell{0.78} & \tmtcell{0.79} & \tmtcell{0.78} & \tmtcell{0.79} & \tmtcell{0.81} \\
+\hline
+\end{tabular}
