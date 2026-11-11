@@ -11,6 +11,9 @@ Usage:
 Example:
     ./vfold/myTimingTable.py Events/REF3/n200f111k32/step9h
     ./vfold/myTimingTable.py -g ctmc Events/REF3/n200f111k32/step9h
+    ./vfold/myTimingTable.py --skip nonstd -f tex2 Events/REF7/GOLD/n200f841k64g1/step15d
+    ./vfold/myTimingTable.py --skip nonstd --vecsizes 64,512,1024 -f tex2 Events/REF7/CUDA/n200f841k64g1/step15d
+    ./vfold/myTimingTable.py --branch vfold5363 -f tex2 Events/REF2/CUDA/n200f841k64g1/step10b
 
 PREFIX is the common path prefix of the per-mode run directories, e.g.
 Events/REF3/n200f111k32/step9h for step9hZ, step9hS, ..., step9hCavx2.
@@ -19,7 +22,11 @@ format writes the same table only to <dir>/timingTable_<step>.txt, e.g.
 Events/REF3/n200f111k32/timingTable_step9h.txt, without printing it (only
 errors and warnings are printed); the tex formats (tex1, tex2) are written
 to a .tex file in Events/TEXn for a prefix in Events/REFn
-(TEX/TEX2/TEX3 for REF/REF2/REF3).
+(TEX/TEX2/TEX3 for REF/REF2/REF3). With --branch, e.g. vfold5363 (the code
+branch of the runs), the branch is printed first in the title (underlined in
+tex) and, after the short process name (the process directory name without
+_vfgen, _vfalt or _stock), it prefixes the tex file name, e.g. in eebbbb_vfgen
+eebbbb_vfold5363_CUDA_..._step10b.tex.
 
 The script has two independent parts:
     1. READING: read_step(prefix) parses the logs into plain dictionaries;
@@ -45,12 +52,16 @@ import sys
 MODES = [
     ('Z', 'F0'), ('S', 'F1'),
     ('Sn', 'F1[n]'), ('Sc', 'F1[c]'),  # step 14h: F1 also with the other MadLoop reduction library
+    ('Su', 'F1[u]'),  # step 15e: F1 unoptimized, without the stock MadGraph7 Born cache and gscale
     ('T', 'F2'), ('F', 'F'),
     ('Cnone', 'C/none'), ('Csse4', 'C/sse4'), ('Cavx2', 'C/avx2'),
     ('C512y', 'C/512y'), ('C512z', 'C/512z'), ('Ccuda', 'C/cuda'),
     ('Ccudb', 'C/cudb'),  # cuda with BLAS colour sums (CUDACPP_RUNTIME_BLASCOLORSUM=1)
     ('Ccudbr', 'C/cudbr'),  # step 14n: BLAS colour sums for the Real libraries only
 ]
+
+# Step 15e: directory suffixes of the non-standard columns (--skip nonstd)
+NONSTANDARD = ('Sn', 'Sc', 'Su', 'Ccudb', 'Ccudbr')
 
 # GPU columns: the only ones that accept vecsize scans
 MODES_GPU = ('C/cuda', 'C/cudb', 'C/cudbr')
@@ -227,12 +238,14 @@ def read_mode(rundir):
             'env': read_env(os.path.join(rundir, 'LOG.txt'))}
 
 
-def read_step(prefix):
+def read_step(prefix, skip=(), vecsizes=None):
     """Read all the modes of one step: returns an ordered dict name -> data.
     If PREFIX is itself a single run directory (e.g. Events/run_01), it is
     read as one column, named after its ENV_VFOLD_ME_MODE (and backend)."""
     data = {}
     for suffix, name in MODES:
+        if suffix in skip:  # step 15e (without Sn and Sc, the column F1 keeps its plain name)
+            continue
         d = read_mode(prefix + suffix)
         if d is not None:
             data[name] = d
@@ -252,6 +265,8 @@ def read_step(prefix):
                 sys.exit('ERROR! vecsize scans are only supported for cuda, not for %s: %s'
                          % (name, ', '.join(sorted(p for n, p in scan))))
             for num, path in sorted(scan):
+                if vecsizes is not None and num not in vecsizes:  # step 15e: --vecsizes
+                    continue
                 d = read_mode(path)
                 if d is not None:
                     data['%s#%d' % (name, num)] = d
@@ -297,6 +312,8 @@ def _run_params(data):
     return {
         'nevents': nev,
         'folding': env.get('ENV_VFOLDTEST_FOLDING') or '?',
+        # MC@NLO-Delta (ENV_VFOLDTEST_MCATNLODELTA, ENV_MCATNLODELTA in older logs)
+        'delta': env.get('ENV_VFOLDTEST_MCATNLODELTA', '0') not in ('', '0'),
         # (N/A before step 9a: that code evaluates one kpoint at a time and
         # never reads ENV_VFOLD_KPOINT_BATCH, which myLaunch.sh exports anyway)
         'kbatch': 'N/A' if _noswitch(cnt, 'kbatch_log') else
@@ -369,15 +386,11 @@ def _cputimer(d):
 
 
 def _kpoint_line(name, c, isTex):
-    if not isTex:
-        return ('mode %s: %d kpoints = %d virt + %d novi -> %d events (%d virt + %d novi)'
-                % (name, c['ncand'], c['cand_virt'], c['cand_novi'],
-                   c['ev_novi'] + c['ev_virt'] + c['ev_born'], c['ev_virt'],
-                   c['ev_novi'] + c['ev_born']))
-    else:
-        return ('mode %s: %d kpoints -> %d events'
-                % (name, c['ncand'],
-                   c['ev_novi'] + c['ev_virt'] + c['ev_born'] ))
+    # The same line in tex as in txt/stdout (virt and novi back in tex since --branch)
+    return ('mode %s: %d kpoints = %d virt + %d novi -> %d events (%d virt + %d novi)'
+            % (name, c['ncand'], c['cand_virt'], c['cand_novi'],
+               c['ev_novi'] + c['ev_virt'] + c['ev_born'], c['ev_virt'],
+               c['ev_novi'] + c['ev_born']))
 
 
 def _rescale_factors(cbase, cref):
@@ -404,6 +417,8 @@ def build_table(data, step, grouping='default', rescale=RESCALE_BASELINE, isTex=
                  % (step, p['nevents'], p['folding'], p['kbatch'], p['bsffused'], p['sborn']))
     else:
         title = ('%s | NEVENTS=%s | folding=%s' % (step, p['nevents'], p['folding']))
+        if p['delta']:
+            title += r' | MC@NLO-$\Delta$'
         if p['kbatch'] != 'N/A':
             title += ' | kbatch=%s' % p['kbatch']
     vecsizes = [_vecsize(n, d) for n, d in data.items()]
@@ -450,8 +465,8 @@ def build_table(data, step, grouping='default', rescale=RESCALE_BASELINE, isTex=
             # getrusage columns only (the usual case is F0*, F1 vs all others)
             others = [names.get(t, t) for t in bytimer if t != 'rusage']
             if 'rusage' in bytimer and len(others) == 1:
-                subtitles.append('timers: getrusage in %s (a syscall per timer call, which'
-                                 ' inflates these columns), %s in all other modes'
+                subtitles.append('timers: getrusage in %s (a syscall per timer call),'
+                                 ' %s in all other modes'
                                  % (', '.join(dict.fromkeys(bytimer['rusage'])), others[0]))
             else:
                 subtitles.append('timers: %s' % '; '.join(parts))
@@ -545,7 +560,12 @@ def build_table(data, step, grouping='default', rescale=RESCALE_BASELINE, isTex=
                     ('born_batch_avg', bornavgs),
                     ('real_batch_avg', realavgs), ('cpu_timer', cputimers)]
     else:
-        headrows = [('cudacpp_vecsize', vecsizes), ('ml_reduction', mlreductions)]
+        headrows = [('cudacpp_vecsize', vecsizes)]
+        # Step 15e: a header line instead of a row, if all columns use the same reduction library
+        if len(set(mlreductions)) == 1:
+            subtitles.append('ml_reduction: %s for all' % mlreductions[0])
+        else:
+            headrows.append(('ml_reduction', mlreductions))
     return {'title': title, 'subtitles': subtitles, 'columns': columns, 'rows': rows,
             'vecsizes': vecsizes, 'colnames': [n.split('#')[0] for n in columns],
             'headrows': headrows}
@@ -557,14 +577,16 @@ def render_text(table, fmt='%7.3f', prefix=None):
     llen = max([len(modebknd)] + [len(label) for label, values in table['headrows']])
     for label, values in table['rows']: llen = max(llen, len(label))
     lfmt = '%%-%is'%llen
-    out = ['', '='*20 + ' ' + prefix + ' ' + '='*20, '### ' + table['title']]
+    title = table['title'] if not table.get('branch') else table['branch'] + ' | ' + table['title']
+    out = ['', '='*20 + ' ' + prefix + ' ' + '='*20, '### ' + title]
     out += ['- ' + s for s in table['subtitles']]
     # Column width: as many as needed for the header rows (e.g. 7 for 'collier' as of step 14h)
     width = max([6] + [len(str(v)) for label, values in table['headrows'] for v in values])
     numfmt = '%%%d%s' % (width + 1, fmt[fmt.index('.'):])
-    columns = [('%%%ds'%width)%col for col in table['colnames']]
+    # Step 15e: as in the rows of numbers, a name one character longer (C/cudbr) touches the left wall
+    columns = [('%%%ds'%(width + 1))%col for col in table['colnames']]
     hline = '|-%s-|'%(llen*'-') + '-%s-|'%(width*'-') * len(columns)
-    out += [hline, '| %s | '%(lfmt%modebknd) + ' | '.join(columns) + ' |']
+    out += [hline, '| %s |'%(lfmt%modebknd) + ' |'.join(columns) + ' |']
     for label, values in table['headrows']:
         out.append('| %s | '%(lfmt%label) + ' | '.join(('%%%ds'%width)%v for v in values) + ' |')
     out += [hline]
@@ -600,10 +622,13 @@ def render_tex(table, fmt='%.2f', prefix=None):
     # right-aligned box of width \tmtwidth, so that a '-' takes as much space as
     # a '409.2'. \tmtwidth is NOT defined here: set it in the main tex file, e.g.
     # \newlength{\tmtwidth}\setlength{\tmtwidth}{8mm}
-    out = [r'% ' + table['title']]
+    title = esc(table['title'])
+    if table.get('branch'):  # --branch: the branch first in the title, underlined
+        title = r'\underline{%s} $|$ %s' % (esc(table['branch']), title)
+    out = [r'% ' + ((table['branch'] + ' | ') if table.get('branch') else '') + table['title']]
     out += [r'\providecommand{\tmtcell}[1]{\makebox[\tmtwidth][r]{#1}}',
             r'\begin{tabular}{l' + 'r' * ncol + '}',
-            span(esc('{\\bf %s}'%table['title']))]
+            span('{\\bf %s}'%title)]
     for sub in table['subtitles']:
         out.append(span(r'\footnotesize ' + esc('{\\em %s}'%sub)))
     cell = lambda x: r'\tmtcell{%s}' % x
@@ -640,20 +665,56 @@ def main():
     ap.add_argument('--raw-baseline', action='store_true',
                     help='show %s as measured, not rescaled to the kpoints of %s'
                     % (MODE_BASELINE, MODE_BATCHED))
+    ap.add_argument('--skip', default='',
+                    help="columns to skip, as comma-separated directory suffixes (e.g. Sn,Sc,Su,Ccudb,Ccudbr); "
+                    "'nonstd' means all of these (not with -f txt, to keep the full table)")
+    ap.add_argument('--vecsizes', default=None,
+                    help='cudacpp_vecsize values to keep in the GPU scans, comma-separated, '
+                    'e.g. 64,512,1024 (not with -f txt, to keep the full table)')
+    ap.add_argument('--branch', default=None,
+                    help='code branch of the runs, e.g. vfold5363: printed first in the title, '
+                    'and a prefix of the tex file name')
     args = ap.parse_args()
     prefix = args.prefix.rstrip('/')
-    data = read_step(prefix)
+    if args.branch is not None and not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]*', args.branch):
+        sys.exit('ERROR! invalid --branch (letters, digits, dots, dashes, underscores): %s' % args.branch)
+    skip = set()
+    for s in filter(None, args.skip.split(',')):
+        if s == 'nonstd':
+            skip.update(NONSTANDARD)
+        elif s in [suffix for suffix, _ in MODES]:
+            skip.add(s)
+        else:
+            sys.exit('ERROR! unknown column to skip: %s' % s)
+    vecsizes = None
+    if args.vecsizes is not None:
+        if not re.fullmatch(r'\d+(,\d+)*', args.vecsizes):
+            sys.exit('ERROR! invalid --vecsizes (it must be comma-separated numbers): %s' % args.vecsizes)
+        vecsizes = set(int(v) for v in args.vecsizes.split(','))
+    if (skip or vecsizes is not None) and args.format == 'txt':
+        sys.exit('ERROR! --skip and --vecsizes are not allowed with -f txt: they would overwrite the full timing table')
+    data = read_step(prefix, skip, vecsizes)
+    if vecsizes is not None:
+        found = set(int(n.split('#')[1]) for n in data if '#' in n)
+        if found and vecsizes - found:  # e.g. the same list for two tests (no warning without GPU scans)
+            sys.stderr.write('WARNING! --vecsizes: no column for %s\n' % sorted(vecsizes - found))
     if not data:
         sys.exit('ERROR! no run directories with P*/GF*/log_MINT2.txt found for prefix %s' % prefix)
     isTex = ( args.format == 'tex1' ) or ( args.format == 'tex2' )
     table = build_table(data, os.path.basename(prefix), args.grouping,
                         rescale=RESCALE_BASELINE and not args.raw_baseline, isTex=isTex)
     table['title'] = proc + ' | ' + table['title']
+    table['branch'] = args.branch
     if isTex:
         m = re.match(r'^Events/REF(\d*)/(.*)$', prefix)  # Events/REF<n>/... -> Events/TEX<n>/...
         if not m:
             sys.exit('ERROR! tex output needs a prefix in Events/REF, Events/REF2 or Events/REF3: %s' % prefix)
-        with open('Events/TEX'+m.group(1)+'/'+m.group(2).replace('/','_')+'.tex', 'w') as f:
+        os.makedirs('Events/TEX'+m.group(1), exist_ok=True)  # step 15e
+        texname = m.group(2).replace('/','_')+'.tex'
+        if args.branch:  # e.g. in ggttg_vfgen: ggttg_vfold7cg_CUDA_n20f111k512g1_step15d.tex
+            procdir = re.sub(r'_(vfgen|vfalt|stock)$', '', os.path.basename(os.getcwd()))
+            texname = procdir + '_' + args.branch + '_' + texname
+        with open('Events/TEX'+m.group(1)+'/'+texname, 'w') as f:
             f.write(RENDERERS[args.format](table, prefix=prefix))
     elif args.format == 'txt':
         # Write <dir>/timingTable_<step>.txt, e.g. for prefix Events/REF3/GOLD/n200f841k1/step8r
