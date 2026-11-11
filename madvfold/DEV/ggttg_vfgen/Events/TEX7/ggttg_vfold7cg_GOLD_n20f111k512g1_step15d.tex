@@ -1,0 +1,28 @@
+% vfold7cg | gg_ttxg | step15d | NEVENTS=20 | folding=1,1,1 | kbatch=512
+\providecommand{\tmtcell}[1]{\makebox[\tmtwidth][r]{#1}}
+\begin{tabular}{lrrrrrrrrr}
+\multicolumn{10}{@{}l@{}}{\makebox[0pt][l]{{\bf \underline{vfold7cg} $|$ gg\_ttxg $|$ step15d $|$ NEVENTS=20 $|$ folding=1,1,1 $|$ kbatch=512}}} \\
+\multicolumn{10}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em sborn 1: SBORN served from cudacpp, in mode C only}}} \\
+\multicolumn{10}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em gscale 1: Borns at the real-emission coupling $g'$ obtained by rescaling those at $g$, in mode C only}}} \\
+\multicolumn{10}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em timers: getrusage in F0*, F1 (a syscall per timer call), clock\_gettime in all other modes}}} \\
+\multicolumn{10}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em mode F0: 37178 kpoints = 0 virt + 37178 novi $\to$ 20 events (0 virt + 20 novi)}}} \\
+\multicolumn{10}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em mode F, F1, F2, Cs: 49647 kpoints = 752 virt + 48895 novi $\to$ 20 events (1 virt + 19 novi)}}} \\
+\multicolumn{10}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em mode F, Cs: Born / Real 98 / 96 batched calls, mean batch 74.1 / 1168.2}}} \\
+\multicolumn{10}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em F0*: F0 rescaled to the kpoints of F (separately for virt and novi)}}} \\
+\multicolumn{10}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em ml\_reduction: ninja for all}}} \\
+\hline
+mode & \tmtcell{F0*} & \tmtcell{F1} & \tmtcell{F2} & \tmtcell{F} & \tmtcell{C} & \tmtcell{C} & \tmtcell{C} & \tmtcell{C} & \tmtcell{C} \\
+cudacpp\_backend & \tmtcell{-} & \tmtcell{-} & \tmtcell{-} & \tmtcell{-} & \tmtcell{none} & \tmtcell{sse4} & \tmtcell{avx2} & \tmtcell{512y} & \tmtcell{512z} \\
+cudacpp\_vecsize & \tmtcell{-} & \tmtcell{-} & \tmtcell{-} & \tmtcell{-} & \tmtcell{1} & \tmtcell{2} & \tmtcell{4} & \tmtcell{4} & \tmtcell{8} \\
+\hline
+TOTAL & \tmtcell{20.78} & \tmtcell{22.85} & \tmtcell{21.67} & \tmtcell{22.83} & \tmtcell{27.63} & \tmtcell{17.39} & \tmtcell{10.65} & \tmtcell{10.24} & \tmtcell{8.63} \\
+Born & \tmtcell{2.69} & \tmtcell{2.71} & \tmtcell{2.71} & \tmtcell{2.55} & \tmtcell{1.49} & \tmtcell{0.89} & \tmtcell{0.47} & \tmtcell{0.44} & \tmtcell{0.33} \\
+Real & \tmtcell{14.35} & \tmtcell{14.34} & \tmtcell{14.32} & \tmtcell{14.44} & \tmtcell{20.69} & \tmtcell{11.04} & \tmtcell{4.71} & \tmtcell{4.32} & \tmtcell{2.84} \\
+Virtual & \tmtcell{0.00} & \tmtcell{2.08} & \tmtcell{2.09} & \tmtcell{2.08} & \tmtcell{2.10} & \tmtcell{2.10} & \tmtcell{2.11} & \tmtcell{2.09} & \tmtcell{2.09} \\
+PS\_Generation & \tmtcell{0.44} & \tmtcell{0.43} & \tmtcell{0.38} & \tmtcell{0.73} & \tmtcell{0.73} & \tmtcell{0.73} & \tmtcell{0.73} & \tmtcell{0.73} & \tmtcell{0.73} \\
+CT\_and\_MCsub & \tmtcell{0.57} & \tmtcell{0.58} & \tmtcell{0.62} & \tmtcell{0.84} & \tmtcell{0.53} & \tmtcell{0.53} & \tmtcell{0.53} & \tmtcell{0.53} & \tmtcell{0.53} \\
+Nbody\_prefactor & \tmtcell{0.11} & \tmtcell{0.11} & \tmtcell{0.01} & \tmtcell{0.15} & \tmtcell{0.02} & \tmtcell{0.02} & \tmtcell{0.02} & \tmtcell{0.02} & \tmtcell{0.02} \\
+Bridge\_crt\_del & \tmtcell{0.00} & \tmtcell{0.00} & \tmtcell{0.00} & \tmtcell{0.00} & \tmtcell{0.06} & \tmtcell{0.06} & \tmtcell{0.05} & \tmtcell{0.05} & \tmtcell{0.05} \\
+Misc & \tmtcell{2.62} & \tmtcell{2.62} & \tmtcell{1.53} & \tmtcell{2.04} & \tmtcell{2.02} & \tmtcell{2.03} & \tmtcell{2.03} & \tmtcell{2.04} & \tmtcell{2.03} \\
+\hline
+\end{tabular}

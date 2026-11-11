@@ -1,0 +1,28 @@
+% vfold7cg | gg_ttxg | step15d | NEVENTS=20 | folding=1,1,1 | kbatch=512
+\providecommand{\tmtcell}[1]{\makebox[\tmtwidth][r]{#1}}
+\begin{tabular}{lrrrrrrrrrrrrr}
+\multicolumn{14}{@{}l@{}}{\makebox[0pt][l]{{\bf \underline{vfold7cg} $|$ gg\_ttxg $|$ step15d $|$ NEVENTS=20 $|$ folding=1,1,1 $|$ kbatch=512}}} \\
+\multicolumn{14}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em sborn 1: SBORN served from cudacpp, in mode C only}}} \\
+\multicolumn{14}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em gscale 1: Borns at the real-emission coupling $g'$ obtained by rescaling those at $g$, in mode C only}}} \\
+\multicolumn{14}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em timers: getrusage in F0*, F1 (a syscall per timer call), clock\_gettime in all other modes}}} \\
+\multicolumn{14}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em mode F0: 37178 kpoints = 0 virt + 37178 novi $\to$ 20 events (0 virt + 20 novi)}}} \\
+\multicolumn{14}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em mode F, F1, F2, Cs: 49647 kpoints = 752 virt + 48895 novi $\to$ 20 events (1 virt + 19 novi)}}} \\
+\multicolumn{14}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em mode F, Cs: Born / Real 98 / 96 batched calls, mean batch 74.1 / 1168.2}}} \\
+\multicolumn{14}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em F0*: F0 rescaled to the kpoints of F (separately for virt and novi)}}} \\
+\multicolumn{14}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em ml\_reduction: ninja for all}}} \\
+\hline
+mode & \tmtcell{F0*} & \tmtcell{F1} & \tmtcell{F2} & \tmtcell{F} & \tmtcell{C} & \tmtcell{C} & \tmtcell{C} & \tmtcell{C} & \tmtcell{C} & \tmtcell{C} & \tmtcell{C} & \tmtcell{C} & \tmtcell{C} \\
+cudacpp\_backend & \tmtcell{-} & \tmtcell{-} & \tmtcell{-} & \tmtcell{-} & \tmtcell{none} & \tmtcell{sse4} & \tmtcell{avx2} & \tmtcell{cuda} & \tmtcell{cuda} & \tmtcell{cuda} & \tmtcell{cuda} & \tmtcell{cuda} & \tmtcell{cuda} \\
+cudacpp\_vecsize & \tmtcell{-} & \tmtcell{-} & \tmtcell{-} & \tmtcell{-} & \tmtcell{1} & \tmtcell{2} & \tmtcell{4} & \tmtcell{32} & \tmtcell{64} & \tmtcell{128} & \tmtcell{256} & \tmtcell{512} & \tmtcell{1024} \\
+\hline
+TOTAL & \tmtcell{27.52} & \tmtcell{30.67} & \tmtcell{29.79} & \tmtcell{31.45} & \tmtcell{40.18} & \tmtcell{24.88} & \tmtcell{15.35} & \tmtcell{10.80} & \tmtcell{9.95} & \tmtcell{9.94} & \tmtcell{9.69} & \tmtcell{9.36} & \tmtcell{9.52} \\
+Born & \tmtcell{3.59} & \tmtcell{3.62} & \tmtcell{3.76} & \tmtcell{3.50} & \tmtcell{2.16} & \tmtcell{1.30} & \tmtcell{0.64} & \tmtcell{0.69} & \tmtcell{0.46} & \tmtcell{0.33} & \tmtcell{0.31} & \tmtcell{0.26} & \tmtcell{0.29} \\
+Real & \tmtcell{18.89} & \tmtcell{18.86} & \tmtcell{19.16} & \tmtcell{19.09} & \tmtcell{29.65} & \tmtcell{15.31} & \tmtcell{6.63} & \tmtcell{1.69} & \tmtcell{1.12} & \tmtcell{0.87} & \tmtcell{0.67} & \tmtcell{0.65} & \tmtcell{0.88} \\
+Virtual & \tmtcell{0.00} & \tmtcell{3.12} & \tmtcell{3.13} & \tmtcell{3.16} & \tmtcell{3.24} & \tmtcell{3.19} & \tmtcell{3.17} & \tmtcell{3.06} & \tmtcell{2.99} & \tmtcell{3.16} & \tmtcell{3.15} & \tmtcell{3.14} & \tmtcell{3.00} \\
+PS\_Generation & \tmtcell{0.59} & \tmtcell{0.59} & \tmtcell{0.53} & \tmtcell{1.07} & \tmtcell{1.09} & \tmtcell{1.06} & \tmtcell{1.03} & \tmtcell{1.01} & \tmtcell{1.02} & \tmtcell{1.07} & \tmtcell{1.06} & \tmtcell{1.01} & \tmtcell{1.02} \\
+CT\_and\_MCsub & \tmtcell{0.79} & \tmtcell{0.80} & \tmtcell{0.89} & \tmtcell{1.23} & \tmtcell{0.78} & \tmtcell{0.77} & \tmtcell{0.75} & \tmtcell{0.74} & \tmtcell{0.74} & \tmtcell{0.77} & \tmtcell{0.77} & \tmtcell{0.73} & \tmtcell{0.74} \\
+Nbody\_prefactor & \tmtcell{0.13} & \tmtcell{0.13} & \tmtcell{0.03} & \tmtcell{0.29} & \tmtcell{0.03} & \tmtcell{0.03} & \tmtcell{0.03} & \tmtcell{0.03} & \tmtcell{0.03} & \tmtcell{0.03} & \tmtcell{0.03} & \tmtcell{0.03} & \tmtcell{0.03} \\
+Bridge\_crt\_del & \tmtcell{0.00} & \tmtcell{0.00} & \tmtcell{0.00} & \tmtcell{0.00} & \tmtcell{0.15} & \tmtcell{0.13} & \tmtcell{0.13} & \tmtcell{0.66} & \tmtcell{0.67} & \tmtcell{0.65} & \tmtcell{0.65} & \tmtcell{0.65} & \tmtcell{0.67} \\
+Misc & \tmtcell{3.52} & \tmtcell{3.54} & \tmtcell{2.28} & \tmtcell{3.11} & \tmtcell{3.09} & \tmtcell{3.08} & \tmtcell{2.96} & \tmtcell{2.93} & \tmtcell{2.91} & \tmtcell{3.07} & \tmtcell{3.05} & \tmtcell{2.89} & \tmtcell{2.91} \\
+\hline
+\end{tabular}
