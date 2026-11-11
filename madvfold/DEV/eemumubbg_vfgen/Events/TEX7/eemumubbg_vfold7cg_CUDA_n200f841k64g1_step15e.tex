@@ -1,0 +1,28 @@
+% vfold7cg | epem_bbxmummupg | step15e | NEVENTS=200 | folding=8,4,1 | kbatch=64
+\providecommand{\tmtcell}[1]{\makebox[\tmtwidth][r]{#1}}
+\begin{tabular}{lrrrrrrrrrrrrrrr}
+\multicolumn{16}{@{}l@{}}{\makebox[0pt][l]{{\bf \underline{vfold7cg} $|$ epem\_bbxmummupg $|$ step15e $|$ NEVENTS=200 $|$ folding=8,4,1 $|$ kbatch=64}}} \\
+\multicolumn{16}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em sborn 1: SBORN served from cudacpp, in mode C only}}} \\
+\multicolumn{16}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em gscale 1: Borns at the real-emission coupling $g'$ obtained by rescaling those at $g$, in mode C only}}} \\
+\multicolumn{16}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em timers: getrusage in F0*, F1[n], F1[c] (a syscall per timer call), clock\_gettime in all other modes}}} \\
+\multicolumn{16}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em mode F0: 14656 kpoints = 5713 virt + 8943 novi $\to$ 200 events (40 virt + 160 novi)}}} \\
+\multicolumn{16}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em mode F, F1, F2, Cs: 14667 kpoints = 4568 virt + 10099 novi $\to$ 200 events (30 virt + 170 novi)}}} \\
+\multicolumn{16}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em mode F, Cs: Born / Real 230 / 158 batched calls, mean batch 1604.6 / 3512.2}}} \\
+\multicolumn{16}{@{}l@{}}{\makebox[0pt][l]{\footnotesize {\em F0*: F0 rescaled to the kpoints of F (separately for virt and novi)}}} \\
+\hline
+mode & \tmtcell{F0*} & \tmtcell{F1[n]} & \tmtcell{F1[c]} & \tmtcell{F2} & \tmtcell{F} & \tmtcell{C} & \tmtcell{C} & \tmtcell{C} & \tmtcell{C} & \tmtcell{C} & \tmtcell{C} & \tmtcell{C} & \tmtcell{C} & \tmtcell{C} & \tmtcell{C} \\
+cudacpp\_backend & \tmtcell{-} & \tmtcell{-} & \tmtcell{-} & \tmtcell{-} & \tmtcell{-} & \tmtcell{none} & \tmtcell{sse4} & \tmtcell{avx2} & \tmtcell{cuda} & \tmtcell{cuda} & \tmtcell{cuda} & \tmtcell{cuda} & \tmtcell{cuda} & \tmtcell{cuda} & \tmtcell{cuda} \\
+cudacpp\_vecsize & \tmtcell{-} & \tmtcell{-} & \tmtcell{-} & \tmtcell{-} & \tmtcell{-} & \tmtcell{1} & \tmtcell{2} & \tmtcell{4} & \tmtcell{32} & \tmtcell{64} & \tmtcell{128} & \tmtcell{256} & \tmtcell{512} & \tmtcell{1024} & \tmtcell{2048} \\
+ml\_reduction & \tmtcell{collier} & \tmtcell{ninja} & \tmtcell{collier} & \tmtcell{collier} & \tmtcell{collier} & \tmtcell{collier} & \tmtcell{collier} & \tmtcell{collier} & \tmtcell{collier} & \tmtcell{collier} & \tmtcell{collier} & \tmtcell{collier} & \tmtcell{collier} & \tmtcell{collier} & \tmtcell{collier} \\
+\hline
+TOTAL & \tmtcell{466.6} & \tmtcell{467.4} & \tmtcell{460.2} & \tmtcell{454.3} & \tmtcell{500.8} & \tmtcell{361.2} & \tmtcell{221.9} & \tmtcell{145.0} & \tmtcell{97.3} & \tmtcell{94.3} & \tmtcell{91.0} & \tmtcell{90.2} & \tmtcell{90.4} & \tmtcell{90.4} & \tmtcell{91.2} \\
+Born & \tmtcell{35.9} & \tmtcell{35.8} & \tmtcell{35.4} & \tmtcell{36.9} & \tmtcell{44.6} & \tmtcell{3.1} & \tmtcell{2.4} & \tmtcell{2.0} & \tmtcell{1.9} & \tmtcell{1.8} & \tmtcell{1.7} & \tmtcell{1.7} & \tmtcell{1.8} & \tmtcell{2.0} & \tmtcell{2.3} \\
+Real & \tmtcell{333.7} & \tmtcell{333.1} & \tmtcell{329.9} & \tmtcell{333.5} & \tmtcell{331.1} & \tmtcell{273.1} & \tmtcell{135.0} & \tmtcell{58.1} & \tmtcell{9.5} & \tmtcell{6.2} & \tmtcell{4.1} & \tmtcell{3.1} & \tmtcell{2.7} & \tmtcell{2.7} & \tmtcell{2.9} \\
+Virtual & \tmtcell{43.5} & \tmtcell{46.2} & \tmtcell{43.2} & \tmtcell{43.8} & \tmtcell{44.0} & \tmtcell{44.1} & \tmtcell{43.7} & \tmtcell{43.7} & \tmtcell{44.4} & \tmtcell{44.6} & \tmtcell{44.6} & \tmtcell{44.4} & \tmtcell{44.9} & \tmtcell{44.7} & \tmtcell{44.7} \\
+PS\_Generation & \tmtcell{5.0} & \tmtcell{4.9} & \tmtcell{4.9} & \tmtcell{4.5} & \tmtcell{7.3} & \tmtcell{7.2} & \tmtcell{7.1} & \tmtcell{7.4} & \tmtcell{7.3} & \tmtcell{7.4} & \tmtcell{7.1} & \tmtcell{7.2} & \tmtcell{7.2} & \tmtcell{7.2} & \tmtcell{7.4} \\
+CT\_and\_MCsub & \tmtcell{9.1} & \tmtcell{8.9} & \tmtcell{8.8} & \tmtcell{8.7} & \tmtcell{16.9} & \tmtcell{3.3} & \tmtcell{3.4} & \tmtcell{3.4} & \tmtcell{3.2} & \tmtcell{3.3} & \tmtcell{3.2} & \tmtcell{3.3} & \tmtcell{3.2} & \tmtcell{3.2} & \tmtcell{3.2} \\
+Nbody\_prefactor & \tmtcell{15.2} & \tmtcell{15.5} & \tmtcell{15.3} & \tmtcell{14.1} & \tmtcell{39.6} & \tmtcell{14.7} & \tmtcell{14.6} & \tmtcell{14.5} & \tmtcell{14.8} & \tmtcell{14.6} & \tmtcell{14.2} & \tmtcell{14.3} & \tmtcell{14.3} & \tmtcell{14.4} & \tmtcell{14.4} \\
+Bridge\_crt\_del & \tmtcell{0.0} & \tmtcell{0.0} & \tmtcell{0.0} & \tmtcell{0.0} & \tmtcell{0.0} & \tmtcell{0.1} & \tmtcell{0.1} & \tmtcell{0.1} & \tmtcell{0.6} & \tmtcell{0.6} & \tmtcell{0.6} & \tmtcell{0.6} & \tmtcell{0.6} & \tmtcell{0.6} & \tmtcell{0.6} \\
+Misc & \tmtcell{24.2} & \tmtcell{23.1} & \tmtcell{22.7} & \tmtcell{12.8} & \tmtcell{17.3} & \tmtcell{15.7} & \tmtcell{15.6} & \tmtcell{15.8} & \tmtcell{15.7} & \tmtcell{16.0} & \tmtcell{15.4} & \tmtcell{15.7} & \tmtcell{15.6} & \tmtcell{15.6} & \tmtcell{15.7} \\
+\hline
+\end{tabular}
