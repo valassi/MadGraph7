@@ -1,6 +1,6 @@
 fatal: No names found, cannot describe anything.
 Running MG7 in debug mode
-('WARNING: loading of madgraph too slow!!!', 0.5564770698547363)
+('WARNING: loading of madgraph too slow!!!', 0.5483689308166504)
 ********************************************************************************
 *                                                                              *
 *                               W E L C O M E to                               *
@@ -102,7 +102,7 @@ ALOHA: aloha creates FFV1 routines[0m
 ALOHA: aloha creates VVVV1 routines[0m
 ALOHA: aloha creates VVVV3 routines[0m
 ALOHA: aloha creates VVVV4 routines[0m
-ALOHA: aloha creates 5 routines in  0.205 s
+ALOHA: aloha creates 5 routines in  0.202 s
 <class 'aloha.create_aloha.AbstractRoutine'> VVV1
 <class 'aloha.create_aloha.AbstractRoutine'> VVV1
 <class 'aloha.create_aloha.AbstractRoutine'> FFV1

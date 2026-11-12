@@ -1,6 +1,6 @@
 fatal: No names found, cannot describe anything.
 Running MG7 in debug mode
-('WARNING: loading of madgraph too slow!!!', 0.5401039123535156)
+('WARNING: loading of madgraph too slow!!!', 0.5702877044677734)
 ********************************************************************************
 *                                                                              *
 *                               W E L C O M E to                               *
@@ -96,9 +96,9 @@ INFO: Creating files in directory /data/avalassi/NEGWGT2026/testCG-MadGraph7/mad
 FileWriter <class 'PLUGIN.CUDACPP_OUTPUT.model_handling.PLUGIN_CPPWriter'> for /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ggttg_vfgen/CUDACPP/gg_ttxg.vfold.sa/SubProcesses/P1_gg_ttxg/./CPPProcess.h
 FileWriter <class 'PLUGIN.CUDACPP_OUTPUT.model_handling.PLUGIN_CPPWriter'> for /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ggttg_vfgen/CUDACPP/gg_ttxg.vfold.sa/SubProcesses/P1_gg_ttxg/./CPPProcess.cc
 INFO: Created files CPPProcess.h and CPPProcess.cc in directory /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ggttg_vfgen/CUDACPP/gg_ttxg.vfold.sa/SubProcesses/P1_gg_ttxg/. 
-[1;32mDEBUG:  len(subproc_diagrams_for_config) = [0m 15 [1;30m[model_handling.py at line 1784][0m [0m
-[1;32mDEBUG:  iconfig_to_diag = [0m {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12, 13: 13, 14: 14, 15: 15} [1;30m[model_handling.py at line 1808][0m [0m
-[1;32mDEBUG:  diag_to_iconfig = [0m {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12, 13: 13, 14: 14, 15: 15} [1;30m[model_handling.py at line 1809][0m [0m
+[1;32mDEBUG:  len(subproc_diagrams_for_config) = [0m 15 [1;30m[model_handling.py at line 1794][0m [0m
+[1;32mDEBUG:  iconfig_to_diag = [0m {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12, 13: 13, 14: 14, 15: 15} [1;30m[model_handling.py at line 1818][0m [0m
+[1;32mDEBUG:  diag_to_iconfig = [0m {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12, 13: 13, 14: 14, 15: 15} [1;30m[model_handling.py at line 1819][0m [0m
 Generated helas calls for 1 subprocesses (16 diagrams) in 0.037 s
 ALOHA: aloha starts to compute helicity amplitudes
 ALOHA: aloha creates VVV1 routines[0m
@@ -106,7 +106,7 @@ ALOHA: aloha creates FFV1 routines[0m
 ALOHA: aloha creates VVVV1 set of routines with options: P0[0m
 ALOHA: aloha creates VVVV3 set of routines with options: P0[0m
 ALOHA: aloha creates VVVV4 set of routines with options: P0[0m
-ALOHA: aloha creates 5 routines in  0.213 s
+ALOHA: aloha creates 5 routines in  0.224 s
 <class 'aloha.create_aloha.AbstractRoutine'> VVV1
 <class 'aloha.create_aloha.AbstractRoutine'> VVV1
 <class 'aloha.create_aloha.AbstractRoutine'> FFV1

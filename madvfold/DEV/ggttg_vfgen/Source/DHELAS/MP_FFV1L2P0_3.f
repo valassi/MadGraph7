@@ -9,11 +9,11 @@ C
       PARAMETER (CI=(0Q0,1Q0))
       TYPE(MP_ALOHA) F1
       REAL*16 W3
-      COMPLEX*32 COUP
-      REAL*16 M3
-      COMPLEX*32 P3(0:3)
       INCLUDE 'coef_specs.inc'
       COMPLEX*32 COEFF(MAXLWFSIZE,0:VERTEXMAXCOEFS-1,MAXLWFSIZE)
+      COMPLEX*32 P3(0:3)
+      COMPLEX*32 COUP
+      REAL*16 M3
       COMPLEX*32 P2(0:3)
       P3(0) = +F1%P(0)+P2(0)
       P3(1) = +F1%P(1)+P2(1)

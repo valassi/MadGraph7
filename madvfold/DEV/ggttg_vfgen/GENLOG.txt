@@ -1,8 +1,8 @@
-START:    Mon Nov  9 05:34:55 AM CET 2026
+START:    Fri Nov 13 12:46:46 AM CET 2026
 HOSTNAME: aicoral92.cern.ch
 fatal: No names found, cannot describe anything.
 Running MG7 in debug mode
-('WARNING: loading of madgraph too slow!!!', 5.214414834976196)
+('WARNING: loading of madgraph too slow!!!', 0.5527060031890869)
 ********************************************************************************
 *                                                                              *
 *                               W E L C O M E to                               *
@@ -65,6 +65,8 @@ set collier to ./HEPTools/collier
 generate g g > t t~ g [QCD]
 No model currently active, so we import the Standard Model
 INFO: Details of the model import are written in /data/avalassi/NEGWGT2026/testCG-MadGraph7/models/sm/sm_debug.log 
+INFO: reload from .py file 
+INFO: reload from .py file 
 INFO: load particles 
 INFO: load vertices 
 INFO: Restrict model sm with file models/sm/restrict_default.dat . 
@@ -95,6 +97,7 @@ The current model sm does not allow to generate loop corrections of type ['QCD']
 MadGraph7 now loads 'loop_sm'.
  import model loop_sm
 INFO: Details of the model import are written in /data/avalassi/NEGWGT2026/testCG-MadGraph7/models/loop_sm/loop_sm_debug.log 
+INFO: failed to load model from pickle file. Try importing UFO from File 
 [1;60mINFO: This model [version 1.2] is provided by V. Hirschi (email: valentin.hirschi@gmail.com). Please cite n/a [0m
 INFO: load particles 
 INFO: load vertices 
@@ -165,7 +168,7 @@ ALOHA: aloha creates R2_QQ_1_R2_QQ_2 routines[0m
 ALOHA: aloha creates R2RGA_VVVV2_R2RGA_VVVV3 routines[0m
 ALOHA: aloha creates R2RGA_VVVV2_R2RGA_VVVV3_R2RGA_VVVV5 routines[0m
 ALOHA: aloha creates R2_GG_1_R2_GG_3 routines[0m
-ALOHA: aloha creates 33 routines in  1.009 s
+ALOHA: aloha creates 33 routines in  1.003 s
 The option apply_flavor_grouping is modified [True] but will not be written in the configuration files.
 If you want to make this value the default for future session, you can run 'save options --all'
 save configuration file to /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ggttg_vfgen/Cards/amcatnlo_configuration.txt
@@ -181,14 +184,14 @@ MadVfold: the width of the particle with PDG id 6 is set to zero
 MadVfold: run /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ggttg_vfgen/vfold/generateCudacpp.sh
 INFO: generate CUDACPP (vfold/genCudacpp.sh)
 INFO: build the cudacpp libraries (vfold/buildCudacppLibs.sh, log in CUDACPP/buildCudacppLibs.log)
-INFO:   build the Born library gg_ttxg.vfold.sa (all backends) at 05:35:45
-INFO:   build the Real library gg_ttxgg.sa (real1, all backends) at 05:35:59
-INFO:   build the Real library dxg_ttxdxg.sa (real2, all backends) at 05:36:04
-INFO:   build the Real library dg_ttxdg.sa (real3, all backends) at 05:36:08
-INFO:   build the Real library gdx_ttxdxg.sa (real4, all backends) at 05:36:12
-INFO:   build the Real library gd_ttxdg.sa (real5, all backends) at 05:36:17
-INFO:   build the Real library gg_ttxddx.sa (real6, all backends) at 05:36:20
-INFO:   cudacpp libraries built at 05:36:24
+INFO:   build the Born library gg_ttxg.vfold.sa (all backends) at 00:47:43
+INFO:   build the Real library gg_ttxgg.sa (real1, all backends) at 00:48:09
+INFO:   build the Real library dxg_ttxdxg.sa (real2, all backends) at 00:48:30
+INFO:   build the Real library dg_ttxdg.sa (real3, all backends) at 00:48:51
+INFO:   build the Real library gdx_ttxdxg.sa (real4, all backends) at 00:49:13
+INFO:   build the Real library gd_ttxdg.sa (real5, all backends) at 00:49:35
+INFO:   build the Real library gg_ttxddx.sa (real6, all backends) at 00:49:56
+INFO:   cudacpp libraries built at 00:50:18
 INFO: copy the cudacpp libraries to lib/cudacpp (vfold/copyCudacppLibs.sh)
 INFO: generateCudacpp.sh completed (to run in mode C, first: source vfold/setupVfoldDefaults.sh)
 MadVfold: run /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/test/setupVfoldTests.sh /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ggttg_vfgen
@@ -196,6 +199,6 @@ INFO: setupVfoldTests.sh procdir=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madv
 INFO: setupVfoldTests.sh gridsdir=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/test/grids/gg_ttxg
 INFO: setupVfoldTests.sh completed
 quit
-START:    Mon Nov  9 05:34:55 AM CET 2026
-END:      Mon Nov  9 05:36:28 AM CET 2026
-ELAPSED:  93 seconds
+START:    Fri Nov 13 12:46:46 AM CET 2026
+END:      Fri Nov 13 12:50:21 AM CET 2026
+ELAPSED:  215 seconds

@@ -1,6 +1,6 @@
 fatal: No names found, cannot describe anything.
 Running MG7 in debug mode
-('WARNING: loading of madgraph too slow!!!', 0.5470716953277588)
+('WARNING: loading of madgraph too slow!!!', 0.5587325096130371)
 ********************************************************************************
 *                                                                              *
 *                               W E L C O M E to                               *
@@ -95,7 +95,7 @@ INFO: Creating files in directory /data/avalassi/NEGWGT2026/testCG-MadGraph7/mad
 FileWriter <class 'PLUGIN.CUDACPP_OUTPUT.model_handling.PLUGIN_CPPWriter'> for /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ggttg_vfgen/CUDACPP/dg_ttxdg.sa/SubProcesses/P1_dg_ttxdg/./CPPProcess.h
 FileWriter <class 'PLUGIN.CUDACPP_OUTPUT.model_handling.PLUGIN_CPPWriter'> for /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ggttg_vfgen/CUDACPP/dg_ttxdg.sa/SubProcesses/P1_dg_ttxdg/./CPPProcess.cc
 INFO: Created files CPPProcess.h and CPPProcess.cc in directory /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ggttg_vfgen/CUDACPP/dg_ttxdg.sa/SubProcesses/P1_dg_ttxdg/. 
-Generated helas calls for 1 subprocesses (36 diagrams) in 0.109 s
+Generated helas calls for 1 subprocesses (36 diagrams) in 0.113 s
 ALOHA: aloha starts to compute helicity amplitudes
 ALOHA: aloha creates FFV1 routines[0m
 ALOHA: aloha creates VVV1 routines[0m

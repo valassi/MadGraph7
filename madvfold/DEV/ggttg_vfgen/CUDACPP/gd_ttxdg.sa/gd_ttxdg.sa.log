@@ -1,6 +1,6 @@
 fatal: No names found, cannot describe anything.
 Running MG7 in debug mode
-('WARNING: loading of madgraph too slow!!!', 0.5320084095001221)
+('WARNING: loading of madgraph too slow!!!', 0.5426928997039795)
 ********************************************************************************
 *                                                                              *
 *                               W E L C O M E to                               *
@@ -75,7 +75,7 @@ INFO: Please specify coupling orders to bypass this step.
 INFO: Trying coupling order WEIGHTED<=4: WEIGHTED IS QCD+2*QED 
 INFO: Trying process: g d > t t~ d g WEIGHTED<=4 @1  
 INFO: Process has 36 diagrams 
-1 processes with 36 diagrams generated in 0.102 s
+1 processes with 36 diagrams generated in 0.103 s
 Total: 1 processes with 36 diagrams
 output standalone_cudacpp /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ggttg_vfgen/CUDACPP/gd_ttxdg.sa
 Loading plugin PLUGIN.CUDACPP_OUTPUT
@@ -95,14 +95,14 @@ INFO: Creating files in directory /data/avalassi/NEGWGT2026/testCG-MadGraph7/mad
 FileWriter <class 'PLUGIN.CUDACPP_OUTPUT.model_handling.PLUGIN_CPPWriter'> for /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ggttg_vfgen/CUDACPP/gd_ttxdg.sa/SubProcesses/P1_gd_ttxdg/./CPPProcess.h
 FileWriter <class 'PLUGIN.CUDACPP_OUTPUT.model_handling.PLUGIN_CPPWriter'> for /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ggttg_vfgen/CUDACPP/gd_ttxdg.sa/SubProcesses/P1_gd_ttxdg/./CPPProcess.cc
 INFO: Created files CPPProcess.h and CPPProcess.cc in directory /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/ggttg_vfgen/CUDACPP/gd_ttxdg.sa/SubProcesses/P1_gd_ttxdg/. 
-Generated helas calls for 1 subprocesses (36 diagrams) in 0.105 s
+Generated helas calls for 1 subprocesses (36 diagrams) in 0.106 s
 ALOHA: aloha starts to compute helicity amplitudes
 ALOHA: aloha creates FFV1 routines[0m
 ALOHA: aloha creates VVV1 routines[0m
 ALOHA: aloha creates VVVV1 routines[0m
 ALOHA: aloha creates VVVV3 routines[0m
 ALOHA: aloha creates VVVV4 routines[0m
-ALOHA: aloha creates 5 routines in  0.218 s
+ALOHA: aloha creates 5 routines in  0.217 s
 <class 'aloha.create_aloha.AbstractRoutine'> FFV1
 <class 'aloha.create_aloha.AbstractRoutine'> FFV1
 <class 'aloha.create_aloha.AbstractRoutine'> FFV1
