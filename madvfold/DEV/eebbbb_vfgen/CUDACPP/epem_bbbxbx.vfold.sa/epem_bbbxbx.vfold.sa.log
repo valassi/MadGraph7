@@ -1,6 +1,6 @@
 fatal: No names found, cannot describe anything.
 Running MG7 in debug mode
-('WARNING: loading of madgraph too slow!!!', 0.5752265453338623)
+('WARNING: loading of madgraph too slow!!!', 0.6026134490966797)
 ********************************************************************************
 *                                                                              *
 *                               W E L C O M E to                               *
@@ -75,7 +75,7 @@ INFO: Please specify coupling orders to bypass this step.
 INFO: Trying coupling order WEIGHTED<=6: WEIGHTED IS QCD+2*QED 
 INFO: Trying process: e+ e- > b b b~ b~ WEIGHTED<=6 @1  
 INFO: Process has 16 diagrams 
-1 processes with 16 diagrams generated in 0.201 s
+1 processes with 16 diagrams generated in 0.210 s
 Total: 1 processes with 16 diagrams
 output standalone_cudacpp /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eebbbb_vfgen/CUDACPP/epem_bbbxbx.vfold.sa --vfold
 Loading plugin PLUGIN.CUDACPP_OUTPUT
@@ -96,9 +96,9 @@ INFO: Creating files in directory /data/avalassi/NEGWGT2026/testCG-MadGraph7/mad
 FileWriter <class 'PLUGIN.CUDACPP_OUTPUT.model_handling.PLUGIN_CPPWriter'> for /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eebbbb_vfgen/CUDACPP/epem_bbbxbx.vfold.sa/SubProcesses/P1_epem_bbbxbx/./CPPProcess.h
 FileWriter <class 'PLUGIN.CUDACPP_OUTPUT.model_handling.PLUGIN_CPPWriter'> for /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eebbbb_vfgen/CUDACPP/epem_bbbxbx.vfold.sa/SubProcesses/P1_epem_bbbxbx/./CPPProcess.cc
 INFO: Created files CPPProcess.h and CPPProcess.cc in directory /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eebbbb_vfgen/CUDACPP/epem_bbbxbx.vfold.sa/SubProcesses/P1_epem_bbbxbx/. 
-[1;32mDEBUG:  len(subproc_diagrams_for_config) = [0m 16 [1;30m[model_handling.py at line 1784][0m [0m
-[1;32mDEBUG:  iconfig_to_diag = [0m {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12, 13: 13, 14: 14, 15: 15, 16: 16} [1;30m[model_handling.py at line 1808][0m [0m
-[1;32mDEBUG:  diag_to_iconfig = [0m {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12, 13: 13, 14: 14, 15: 15, 16: 16} [1;30m[model_handling.py at line 1809][0m [0m
+[1;32mDEBUG:  len(subproc_diagrams_for_config) = [0m 16 [1;30m[model_handling.py at line 1794][0m [0m
+[1;32mDEBUG:  iconfig_to_diag = [0m {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12, 13: 13, 14: 14, 15: 15, 16: 16} [1;30m[model_handling.py at line 1818][0m [0m
+[1;32mDEBUG:  diag_to_iconfig = [0m {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12, 13: 13, 14: 14, 15: 15, 16: 16} [1;30m[model_handling.py at line 1819][0m [0m
 Generated helas calls for 1 subprocesses (16 diagrams) in 0.037 s
 ALOHA: aloha starts to compute helicity amplitudes
 ALOHA: aloha creates FFV1 routines[0m
@@ -107,7 +107,7 @@ ALOHA: aloha creates FFV4 routines[0m
 ALOHA: aloha creates FFV3 routines[0m
 ALOHA: aloha creates FFV2_4 routines[0m
 ALOHA: aloha creates FFV2_3 routines[0m
-ALOHA: aloha creates 6 routines in  0.346 s
+ALOHA: aloha creates 6 routines in  0.348 s
 <class 'aloha.create_aloha.AbstractRoutine'> FFV1
 <class 'aloha.create_aloha.AbstractRoutine'> FFV1
 <class 'aloha.create_aloha.AbstractRoutine'> FFV1

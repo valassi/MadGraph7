@@ -1,8 +1,8 @@
-START:    Sun Nov  8 01:01:34 PM CET 2026
+START:    Fri Nov 13 12:32:47 AM CET 2026
 HOSTNAME: aicoral92.cern.ch
 fatal: No names found, cannot describe anything.
 Running MG7 in debug mode
-('WARNING: loading of madgraph too slow!!!', 0.5716614723205566)
+('WARNING: loading of madgraph too slow!!!', 2.374422788619995)
 ********************************************************************************
 *                                                                              *
 *                               W E L C O M E to                               *
@@ -170,7 +170,7 @@ ALOHA: aloha creates FFV2_5 routines[0m
 ALOHA: aloha creates R2_QQ_1_R2_QQ_2 routines[0m
 ALOHA: aloha creates R2_GG_1_R2_GG_2 routines[0m
 ALOHA: aloha creates R2_GG_1_R2_GG_3 routines[0m
-ALOHA: aloha creates 33 routines in  1.157 s
+ALOHA: aloha creates 33 routines in  1.190 s
 The option include_lepton_initiated_processes is modified [False] but will not be written in the configuration files.
 If you want to make this value the default for future session, you can run 'save options --all'
 The option apply_flavor_grouping is modified [True] but will not be written in the configuration files.
@@ -186,9 +186,9 @@ Run "open index.html" to see more information about this process.
 MadVfold: run /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eebbbb_vfgen/vfold/generateCudacpp.sh
 INFO: generate CUDACPP (vfold/genCudacpp.sh)
 INFO: build the cudacpp libraries (vfold/buildCudacppLibs.sh, log in CUDACPP/buildCudacppLibs.log)
-INFO:   build the Born library epem_bbbxbx.vfold.sa (all backends) at 13:02:14
-INFO:   build the Real library epem_bbbxbxg.sa (real1, all backends) at 13:03:56
-INFO:   cudacpp libraries built at 13:05:30
+INFO:   build the Born library epem_bbbxbx.vfold.sa (all backends) at 00:33:37
+INFO:   build the Real library epem_bbbxbxg.sa (real1, all backends) at 00:33:53
+INFO:   cudacpp libraries built at 00:33:58
 INFO: copy the cudacpp libraries to lib/cudacpp (vfold/copyCudacppLibs.sh)
 INFO: generateCudacpp.sh completed (to run in mode C, first: source vfold/setupVfoldDefaults.sh)
 MadVfold: run /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/test/setupVfoldTests.sh /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eebbbb_vfgen
@@ -196,6 +196,6 @@ INFO: setupVfoldTests.sh procdir=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madv
 INFO: setupVfoldTests.sh gridsdir=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/test/grids/epem_bbbxbx
 INFO: setupVfoldTests.sh completed
 quit
-START:    Sun Nov  8 01:01:34 PM CET 2026
-END:      Sun Nov  8 01:05:32 PM CET 2026
-ELAPSED:  238 seconds
+START:    Fri Nov 13 12:32:47 AM CET 2026
+END:      Fri Nov 13 12:34:00 AM CET 2026
+ELAPSED:  73 seconds

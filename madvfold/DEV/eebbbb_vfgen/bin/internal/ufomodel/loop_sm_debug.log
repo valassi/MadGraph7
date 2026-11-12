@@ -1,6 +1,6 @@
 Handling couplings defined with CTparameters...
 MG5 converter defines R2RGA_VVVV1 to Metric(1,4)*Metric(2,3) + Metric(1,3)*Metric(2,4) + Metric(1,2)*Metric(3,4)
-model prefixing  takes 0.023447275161743164
+model prefixing  takes 0.023618459701538086
 Simplifying conditional expressions
 remove interactions: s u w+ at order: QED=1
 remove interactions: b u w+ at order: QED=1
