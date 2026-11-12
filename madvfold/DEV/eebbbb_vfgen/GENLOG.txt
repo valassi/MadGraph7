@@ -121,8 +121,8 @@ INFO: Generated 1 subprocesses with 96 real emission diagrams, 16 born diagrams 
 output madvfold/DEV/eebbbb_vfgen --vfold-with-tests
 INFO: Writing out the aMC@NLO code, using optimized Loops 
 INFO: initialize a new directory: eebbbb_vfgen 
-INFO: MadVFold: overlay /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/overlay/Template/NLO 
-INFO: MadVFold: overlay /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/overlay_test/Template/NLO 
+INFO: MadVfold: overlay /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/overlay/Template/NLO 
+INFO: MadVfold: overlay /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/overlay_test/Template/NLO 
 INFO: remove old information in eebbbb_vfgen 
 INFO: Generating real emission matrix-elements... 
 INFO: Generating Helas calls for FKS process: e+ e- > b b b~ b~ [ all = QCD QED ] QCD^2=6 QED^2=4 (1 / 1) 
@@ -183,7 +183,7 @@ INFO: Generate web pages
 Type "launch" to generate events from this process, or see
 /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eebbbb_vfgen/README
 Run "open index.html" to see more information about this process.
-MadVFold: run /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eebbbb_vfgen/vfold/generateCudacpp.sh
+MadVfold: run /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eebbbb_vfgen/vfold/generateCudacpp.sh
 INFO: generate CUDACPP (vfold/genCudacpp.sh)
 INFO: build the cudacpp libraries (vfold/buildCudacppLibs.sh, log in CUDACPP/buildCudacppLibs.log)
 INFO:   build the Born library epem_bbbxbx.vfold.sa (all backends) at 13:02:14
@@ -191,7 +191,7 @@ INFO:   build the Real library epem_bbbxbxg.sa (real1, all backends) at 13:03:56
 INFO:   cudacpp libraries built at 13:05:30
 INFO: copy the cudacpp libraries to lib/cudacpp (vfold/copyCudacppLibs.sh)
 INFO: generateCudacpp.sh completed (to run in mode C, first: source vfold/setupVfoldDefaults.sh)
-MadVFold: run /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/test/setupVfoldTests.sh /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eebbbb_vfgen
+MadVfold: run /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/test/setupVfoldTests.sh /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eebbbb_vfgen
 INFO: setupVfoldTests.sh procdir=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eebbbb_vfgen
 INFO: setupVfoldTests.sh gridsdir=/data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/test/grids/epem_bbbxbx
 INFO: setupVfoldTests.sh completed
