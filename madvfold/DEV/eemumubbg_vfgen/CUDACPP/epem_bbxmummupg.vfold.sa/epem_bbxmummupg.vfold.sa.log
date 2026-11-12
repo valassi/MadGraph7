@@ -1,6 +1,6 @@
 fatal: No names found, cannot describe anything.
 Running MG7 in debug mode
-('WARNING: loading of madgraph too slow!!!', 0.572028398513794)
+('WARNING: loading of madgraph too slow!!!', 0.5490725040435791)
 ********************************************************************************
 *                                                                              *
 *                               W E L C O M E to                               *
@@ -96,10 +96,10 @@ INFO: Creating files in directory /data/avalassi/NEGWGT2026/testCG-MadGraph7/mad
 FileWriter <class 'PLUGIN.CUDACPP_OUTPUT.model_handling.PLUGIN_CPPWriter'> for /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/CUDACPP/epem_bbxmummupg.vfold.sa/SubProcesses/P1_epem_bbxmummupg/./CPPProcess.h
 FileWriter <class 'PLUGIN.CUDACPP_OUTPUT.model_handling.PLUGIN_CPPWriter'> for /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/CUDACPP/epem_bbxmummupg.vfold.sa/SubProcesses/P1_epem_bbxmummupg/./CPPProcess.cc
 INFO: Created files CPPProcess.h and CPPProcess.cc in directory /data/avalassi/NEGWGT2026/testCG-MadGraph7/madvfold/DEV/eemumubbg_vfgen/CUDACPP/epem_bbxmummupg.vfold.sa/SubProcesses/P1_epem_bbxmummupg/. 
-[1;32mDEBUG:  len(subproc_diagrams_for_config) = [0m 58 [1;30m[model_handling.py at line 1784][0m [0m
-[1;32mDEBUG:  iconfig_to_diag = [0m {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12, 13: 13, 14: 14, 15: 15, 16: 16, 17: 17, 18: 18, 19: 19, 20: 20, 21: 21, 22: 22, 23: 23, 24: 24, 25: 25, 26: 26, 27: 27, 28: 28, 29: 29, 30: 30, 31: 31, 32: 32, 33: 33, 34: 34, 35: 35, 36: 36, 37: 37, 38: 38, 39: 39, 40: 40, 41: 41, 42: 42, 43: 43, 44: 44, 45: 45, 46: 46, 47: 47, 48: 48, 49: 49, 50: 50, 51: 51, 52: 52, 53: 53, 54: 54, 55: 55, 56: 56, 57: 57, 58: 58} [1;30m[model_handling.py at line 1808][0m [0m
-[1;32mDEBUG:  diag_to_iconfig = [0m {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12, 13: 13, 14: 14, 15: 15, 16: 16, 17: 17, 18: 18, 19: 19, 20: 20, 21: 21, 22: 22, 23: 23, 24: 24, 25: 25, 26: 26, 27: 27, 28: 28, 29: 29, 30: 30, 31: 31, 32: 32, 33: 33, 34: 34, 35: 35, 36: 36, 37: 37, 38: 38, 39: 39, 40: 40, 41: 41, 42: 42, 43: 43, 44: 44, 45: 45, 46: 46, 47: 47, 48: 48, 49: 49, 50: 50, 51: 51, 52: 52, 53: 53, 54: 54, 55: 55, 56: 56, 57: 57, 58: 58} [1;30m[model_handling.py at line 1809][0m [0m
-Generated helas calls for 1 subprocesses (58 diagrams) in 0.153 s
+[1;32mDEBUG:  len(subproc_diagrams_for_config) = [0m 58 [1;30m[model_handling.py at line 1794][0m [0m
+[1;32mDEBUG:  iconfig_to_diag = [0m {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12, 13: 13, 14: 14, 15: 15, 16: 16, 17: 17, 18: 18, 19: 19, 20: 20, 21: 21, 22: 22, 23: 23, 24: 24, 25: 25, 26: 26, 27: 27, 28: 28, 29: 29, 30: 30, 31: 31, 32: 32, 33: 33, 34: 34, 35: 35, 36: 36, 37: 37, 38: 38, 39: 39, 40: 40, 41: 41, 42: 42, 43: 43, 44: 44, 45: 45, 46: 46, 47: 47, 48: 48, 49: 49, 50: 50, 51: 51, 52: 52, 53: 53, 54: 54, 55: 55, 56: 56, 57: 57, 58: 58} [1;30m[model_handling.py at line 1818][0m [0m
+[1;32mDEBUG:  diag_to_iconfig = [0m {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12, 13: 13, 14: 14, 15: 15, 16: 16, 17: 17, 18: 18, 19: 19, 20: 20, 21: 21, 22: 22, 23: 23, 24: 24, 25: 25, 26: 26, 27: 27, 28: 28, 29: 29, 30: 30, 31: 31, 32: 32, 33: 33, 34: 34, 35: 35, 36: 36, 37: 37, 38: 38, 39: 39, 40: 40, 41: 41, 42: 42, 43: 43, 44: 44, 45: 45, 46: 46, 47: 47, 48: 48, 49: 49, 50: 50, 51: 51, 52: 52, 53: 53, 54: 54, 55: 55, 56: 56, 57: 57, 58: 58} [1;30m[model_handling.py at line 1819][0m [0m
+Generated helas calls for 1 subprocesses (58 diagrams) in 0.151 s
 ALOHA: aloha starts to compute helicity amplitudes
 ALOHA: aloha creates FFV1 routines[0m
 ALOHA: aloha creates FFV2 routines[0m
@@ -109,7 +109,7 @@ ALOHA: aloha creates VVS1 routines[0m
 ALOHA: aloha creates FFS4 routines[0m
 ALOHA: aloha creates FFV2_3 routines[0m
 ALOHA: aloha creates FFV2_4 routines[0m
-ALOHA: aloha creates 8 routines in  0.429 s
+ALOHA: aloha creates 8 routines in  0.445 s
 <class 'aloha.create_aloha.AbstractRoutine'> FFV1
 <class 'aloha.create_aloha.AbstractRoutine'> FFV1
 <class 'aloha.create_aloha.AbstractRoutine'> FFV1
